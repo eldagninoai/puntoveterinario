@@ -1,17 +1,250 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "VeterinaryCare"],
+  "name": "Punto Veterinario",
+  "url": "https://puntoveterinario.com",
+  "logo": "https://puntoveterinario.com/images/logo.png",
+  "image": "https://puntoveterinario.com/images/og-puntoveterinario.jpg",
+  "description": "Veterinaria en Coyoacán, CDMX. Consulta médica, cirugías, estética canina y felina, laboratorio clínico, esterilización y alimento para mascotas.",
+  "telephone": "+525513843004",
+  "email": "puntovetcdmx@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. División del Norte 3595",
+    "addressLocality": "Pedregal de Santo Domingo",
+    "addressRegion": "Coyoacán, Ciudad de México",
+    "postalCode": "04620",
+    "addressCountry": "MX"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 19.322004,
+    "longitude": -99.139220
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday","Sunday"],
+      "opens": "10:00",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/punto_veterinario/"
+  ]
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Punto Veterinario Coyoacán | Tu Veterinaria de Confianza"
+  description="Veterinaria en Av. División del Norte, Coyoacán. Consultas, cirugías, estética canina, laboratorio y esterilización. Atendemos a tu mascota con amor. ☎️ 55 1384 3004"
+  schema={schema}
+>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="hero__tag">🐾 Veterinaria en Coyoacán, CDMX</p>
+        <h1>¡De cola a nariz, <span class="text-green">tu mascota feliz!</span></h1>
+        <p class="hero__desc">Atención veterinaria profesional y con amor en Av. División del Norte, Pedregal de Santo Domingo. Consultas, cirugías, estética, laboratorio y más.</p>
+        <div class="hero__btns">
+          <a href="/contacto" class="btn-primary">📅 Agendar Cita</a>
+          <a href="/servicios/consulta-veterinaria" class="btn-secondary">Ver Servicios</a>
+        </div>
+        <div class="hero__datos">
+          <span>📞 <a href="tel:+525513843004">55 1384 3004</a></span>
+          <span>📍 Coyoacán, CP 04620</span>
+          <span>💬 <a href="https://wa.me/525513843004" target="_blank" rel="noopener">WhatsApp</a></span>
+        </div>
+      </div>
+      <div class="hero__img">
+        <div class="hero__placeholder">🐶🐱</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios bg-soft">
+    <div class="container">
+      <h2 class="text-center">Nuestros Servicios</h2>
+      <p class="text-center text-soft servicios__sub">Todo lo que tu mascota necesita en un solo lugar</p>
+      <div class="grid-3 servicios__grid">
+        {[
+          { emoji: '🩺', title: 'Consulta Médica', desc: 'Diagnóstico preciso y atención personalizada para tu mascota.', href: '/servicios/consulta-veterinaria' },
+          { emoji: '✂️', title: 'Esterilización', desc: 'Procedimiento seguro con anestesia monitoreada y seguimiento post-op.', href: '/servicios/esterilizacion' },
+          { emoji: '🛁', title: 'Estética Canina y Felina', desc: 'Baño, corte y cuidado profesional para perros y gatos.', href: '/servicios/estetica-canina-felina' },
+          { emoji: '🔬', title: 'Laboratorio Clínico', desc: 'Análisis de sangre, perfil bioquímico y estudios clínicos con resultados rápidos.', href: '/servicios/laboratorio-clinico' },
+          { emoji: '🏥', title: 'Cirugías', desc: 'Quirófano equipado para cirugías de tejidos blandos y ortopedia.', href: '/servicios/cirugia-veterinaria' },
+          { emoji: '🛒', title: 'Alimento para Mascotas', desc: 'Croquetas y alimento premium Royal Canin, Hills y más.', href: '/servicios/alimento-mascotas' },
+        ].map(s => (
+          <a href={s.href} class="card servicio-card">
+            <span class="servicio-card__emoji">{s.emoji}</span>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <span class="servicio-card__link">Ver más →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ ELEGIRNOS -->
+  <section class="porque">
+    <div class="container">
+      <h2 class="text-center">¿Por qué elegir Punto Veterinario?</h2>
+      <div class="grid-4 porque__grid">
+        {[
+          { emoji: '❤️', title: 'Atención con amor', desc: 'Tratamos a tu mascota como si fuera nuestra.' },
+          { emoji: '🏆', title: 'Médicos especializados', desc: 'Equipo con experiencia y formación continua.' },
+          { emoji: '📍', title: 'Ubicación estratégica', desc: 'En Coyoacán, fácil acceso desde toda la zona sur.' },
+          { emoji: '💰', title: 'Precios accesibles', desc: 'Calidad profesional sin comprometer tu presupuesto.' },
+        ].map(r => (
+          <div class="card porque-card">
+            <span class="porque-card__emoji">{r.emoji}</span>
+            <h3>{r.title}</h3>
+            <p>{r.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEÑAS -->
+  <section class="resenas bg-soft">
+    <div class="container">
+      <h2 class="text-center">Lo que dicen nuestros clientes</h2>
+      <div class="grid-3 resenas__grid">
+        {[
+          { texto: 'Profesionales, excelente servicio al cliente. Las mascotas son atendidas como si fueran las de ellos. Altamente recomendable.', nombre: 'Rodrigo Maldonado', emoji: '⭐⭐⭐⭐⭐' },
+          { texto: 'Muy buena atención por parte de la Dra. Pilar. Nos apoyó con la esterilización de mi gatita y salió perfecto.', nombre: 'Marcelo Caraveo', emoji: '⭐⭐⭐⭐⭐' },
+          { texto: 'La Dra. fue la única que dio el diagnóstico correcto. Gracias a eso Max sigue con nosotros y lo mantiene estable.', nombre: 'Monica Alvarez', emoji: '⭐⭐⭐⭐⭐' },
+        ].map(r => (
+          <div class="card resena-card">
+            <p class="resena-card__estrellas">{r.emoji}</p>
+            <p class="resena-card__texto">"{r.texto}"</p>
+            <p class="resena-card__nombre">— {r.nombre}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta bg-green">
+    <div class="container text-center">
+      <h2>¿Tu mascota necesita atención?</h2>
+      <p>Estamos en Av. División del Norte 3595, Pedregal de Santo Domingo, Coyoacán. ¡Agenda tu cita hoy!</p>
+      <div class="cta__btns">
+        <a href="/contacto" class="btn-primary cta__btn-white">📅 Agendar Cita</a>
+        <a href="https://wa.me/525513843004" target="_blank" rel="noopener" class="btn-secondary cta__btn-outline">💬 WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    padding-block: var(--space-xl);
+    background: linear-gradient(135deg, #fff 60%, var(--color-primary-light) 100%);
+  }
+  .hero__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: var(--space-lg);
+    align-items: center;
+  }
+  .hero__tag {
+    display: inline-block;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+  .hero__text h1 { margin-bottom: var(--space-sm); }
+  .hero__desc {
+    font-size: var(--text-md);
+    color: var(--color-text-soft);
+    margin-bottom: var(--space-md);
+    max-width: 50ch;
+  }
+  .hero__btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  .hero__datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--color-text-soft);
+  }
+  .hero__datos a { color: var(--color-primary); font-weight: 600; }
+  .hero__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero__placeholder {
+    font-size: clamp(5rem, 15vw, 12rem);
+    background: var(--color-primary-light);
+    border-radius: 50%;
+    width: clamp(12rem, 30vw, 24rem);
+    height: clamp(12rem, 30vw, 24rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* SERVICIOS */
+  .servicios__sub { margin-bottom: var(--space-lg); }
+  .servicio-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  .servicio-card__emoji { font-size: var(--text-xl); }
+  .servicio-card h3 { color: var(--color-primary); }
+  .servicio-card p { font-size: var(--text-sm); color: var(--color-text-soft); }
+  .servicio-card__link { color: var(--color-primary); font-weight: 600; font-size: var(--text-sm); margin-top: auto; }
+
+  /* POR QUÉ */
+  .porque-card { text-align: center; }
+  .porque-card__emoji { font-size: var(--text-xl); display: block; margin-bottom: var(--space-xs); }
+  .porque-card h3 { color: var(--color-primary); margin-bottom: var(--space-xs); }
+  .porque-card p { font-size: var(--text-sm); color: var(--color-text-soft); margin-inline: auto; }
+
+  /* RESEÑAS */
+  .resena-card { display: flex; flex-direction: column; gap: var(--space-xs); }
+  .resena-card__estrellas { font-size: var(--text-md); }
+  .resena-card__texto { font-size: var(--text-sm); color: var(--color-text-soft); font-style: italic; }
+  .resena-card__nombre { font-weight: 600; color: var(--color-primary); font-size: var(--text-sm); }
+
+  /* CTA */
+  .cta { padding-block: var(--space-xl); }
+  .cta h2 { color: #fff; margin-bottom: var(--space-sm); }
+  .cta p { color: rgba(255,255,255,0.9); margin-inline: auto; margin-bottom: var(--space-md); }
+  .cta__btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center; }
+  .cta__btn-white { background: #fff; color: var(--color-primary); }
+  .cta__btn-white:hover { background: var(--color-primary-light); color: var(--color-primary); }
+  .cta__btn-outline { border-color: #fff; color: #fff; }
+  .cta__btn-outline:hover { background: #fff; color: var(--color-primary); }
+</style>

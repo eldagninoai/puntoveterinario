@@ -1,0 +1,174 @@
+---
+const servicios = [
+  { href: '/servicios/consulta-veterinaria', label: 'Consulta Médica' },
+  { href: '/servicios/estetica-canina-felina', label: 'Estética Canina y Felina' },
+  { href: '/servicios/esterilizacion', label: 'Esterilización' },
+  { href: '/servicios/cirugia-veterinaria', label: 'Cirugías' },
+  { href: '/servicios/laboratorio-clinico', label: 'Laboratorio Clínico' },
+  { href: '/servicios/alimento-mascotas', label: 'Alimento para Mascotas' },
+];
+---
+
+<footer class="footer">
+  <div class="container footer__grid">
+
+    <div class="footer__brand">
+      <a href="/" class="footer__logo">🐾 Punto Veterinario</a>
+      <p>¡De cola a nariz, tu mascota feliz! Atendemos a tu compañero con amor y profesionalismo en Coyoacán, CDMX.</p>
+      <a href="https://www.instagram.com/punto_veterinario/" target="_blank" rel="noopener" class="footer__social">
+        📸 @punto_veterinario
+      </a>
+    </div>
+
+    <div class="footer__col">
+      <h3>Servicios</h3>
+      <ul>
+        {servicios.map(s => (
+          <li><a href={s.href}>{s.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h3>Contáctanos</h3>
+      <ul>
+        <li>📍 Av. División del Norte 3595</li>
+        <li>Pedregal de Santo Domingo</li>
+        <li>CP 04620, Coyoacán, CDMX</li>
+        <li>
+          <a href="tel:+525513843004">📞 55 1384 3004</a>
+        </li>
+        <li>
+          <a href="mailto:puntovetcdmx@gmail.com">✉️ puntovetcdmx@gmail.com</a>
+        </li>
+        <li>
+          <a href="https://wa.me/525513843004" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h3>Ubicación</h3>
+      <ul>
+        <li><a href="/ubicacion">📍 Cómo llegar</a></li>
+        <li><a href="/urgencias">🚨 Urgencias</a></li>
+        <li><a href="/blog">📝 Blog veterinario</a></li>
+        <li><a href="/contacto">📅 Agendar cita</a></li>
+      </ul>
+      <div class="footer__horario">
+        <strong>Horario</strong>
+        <span>Lun–Vie: 9:00 – 20:00</span>
+        <span>Sáb–Dom: 10:00 – 18:00</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container">
+      <p>© {new Date().getFullYear()} Punto Veterinario · Coyoacán, CDMX · Todos los derechos reservados</p>
+      <p>Veterinaria en Av. División del Norte 3595, Pedregal de Santo Domingo, CP 04620</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-primary-dark);
+    color: #fff;
+    margin-top: var(--space-xl);
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: var(--space-lg);
+    padding-block: var(--space-xl);
+  }
+
+  .footer__logo {
+    display: inline-block;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer__brand p {
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.8);
+    max-width: 28ch;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer__social {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .footer__social:hover {
+    color: #fff;
+  }
+
+  .footer__col h3 {
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer__col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .footer__col ul li {
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.85);
+  }
+
+  .footer__col ul a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer__col ul a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer__horario {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+    padding: var(--space-sm);
+    background: rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    font-size: var(--text-sm);
+  }
+
+  .footer__horario strong {
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+  }
+
+  .footer__bottom {
+    border-top: 0.1rem solid rgba(255,255,255,0.15);
+    padding-block: var(--space-md);
+    text-align: center;
+  }
+
+  .footer__bottom p {
+    font-size: var(--text-xs);
+    color: rgba(255,255,255,0.6);
+    max-width: 100%;
+  }
+</style>

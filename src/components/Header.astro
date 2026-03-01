@@ -1,0 +1,169 @@
+---
+const navLinks = [
+  { href: '/servicios/consulta-veterinaria', label: 'Consulta Médica' },
+  { href: '/servicios/estetica-canina-felina', label: 'Estética' },
+  { href: '/servicios/esterilizacion', label: 'Esterilización' },
+  { href: '/servicios/cirugia-veterinaria', label: 'Cirugías' },
+  { href: '/servicios/laboratorio-clinico', label: 'Laboratorio' },
+  { href: '/servicios/alimento-mascotas', label: 'Alimento' },
+];
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo" aria-label="Punto Veterinario - Inicio">
+      🐾 <span>Punto Veterinario</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        {navLinks.map(link => (
+          <li>
+            <a href={link.href} class="nav-link">{link.label}</a>
+          </li>
+        ))}
+        <li>
+          <a href="/urgencias" class="nav-link nav-urgencias">🚨 Urgencias</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a href="/contacto" class="btn-primary btn-cita">Agendar Cita</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 0.15rem solid var(--color-primary-light);
+    padding-block: var(--space-sm);
+    box-shadow: var(--shadow);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    text-decoration: none;
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+  }
+
+  .nav-urgencias {
+    color: var(--color-urgencia);
+    font-weight: 600;
+  }
+
+  .btn-cita {
+    white-space: nowrap;
+    font-size: var(--text-sm);
+  }
+
+  /* Hamburger — solo mobile */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 1.5rem;
+    height: 0.15rem;
+    background: var(--color-primary);
+    border-radius: 1rem;
+    transition: all 0.3s;
+  }
+
+  /* ===== MOBILE FIRST ===== */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .btn-cita {
+      display: none;
+    }
+
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 0.15rem solid var(--color-primary-light);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    nav.open {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .nav-link {
+      display: block;
+      font-size: var(--text-base);
+      padding: var(--space-sm);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('nav');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>

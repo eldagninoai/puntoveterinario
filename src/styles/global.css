@@ -1,0 +1,228 @@
+/* ===== GOOGLE FONTS — Fredoka ===== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+/* ===== VARIABLES ===== */
+:root {
+  --color-primary:       #2e7d32;
+  --color-primary-dark:  #1b5e20;
+  --color-primary-light: #e8f5e9;
+  --color-accent:        #66bb6a;
+  --color-urgencia:      #c62828;
+  --color-text:          #1a1a1a;
+  --color-text-soft:     #555555;
+  --color-bg:            #ffffff;
+  --color-bg-soft:       #f9fbe7;
+  --color-border:        #e0e0e0;
+
+  --font-main: 'Fredoka', sans-serif;
+
+  /* Espaciado fluido */
+  --space-xs:  clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm:  clamp(0.5rem,  2vw, 1rem);
+  --space-md:  clamp(1rem,    3vw, 2rem);
+  --space-lg:  clamp(2rem,    5vw, 4rem);
+  --space-xl:  clamp(3rem,    7vw, 6rem);
+
+  /* Tipografía fluida sin límite artificial */
+  --text-xs:   clamp(0.75rem,  1.5vw, 1rem);
+  --text-sm:   clamp(0.875rem, 1.8vw, 1.125rem);
+  --text-base: clamp(1rem,     2vw,   1.25rem);
+  --text-md:   clamp(1.125rem, 2.5vw, 1.5rem);
+  --text-lg:   clamp(1.25rem,  3vw,   2rem);
+  --text-xl:   clamp(1.5rem,   4vw,   2.8rem);
+  --text-2xl:  clamp(2rem,     5vw,   3.8rem);
+  --text-3xl:  clamp(2.5rem,   6vw,   5rem);
+
+  --radius-sm: clamp(0.4rem, 1vw, 0.6rem);
+  --radius:    clamp(0.6rem, 1.5vw, 1rem);
+  --radius-lg: clamp(1rem,   2vw,  1.5rem);
+
+  --shadow:    0 0.125rem 0.75rem rgba(0,0,0,0.08);
+  --shadow-md: 0 0.25rem  1.5rem  rgba(0,0,0,0.12);
+}
+
+/* ===== RESET MOBILE-FIRST ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  font-weight: 400;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  font-size: var(--text-base);
+  min-height: 100dvh;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ===== TIPOGRAFÍA FLUIDA ===== */
+h1 {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+p {
+  font-size: var(--text-base);
+  max-width: 70ch;
+}
+
+/* ===== LAYOUT FLUIDO ===== */
+.container {
+  width: min(90vw, 80rem);
+  margin-inline: auto;
+}
+
+.container--narrow {
+  width: min(90vw, 55rem);
+  margin-inline: auto;
+}
+
+section {
+  padding-block: var(--space-xl);
+}
+
+/* ===== GRID FLUIDO ===== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-md);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--space-md);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: var(--space-md);
+}
+
+/* ===== BOTONES ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: var(--color-primary);
+  color: #fff;
+  padding: clamp(0.6rem, 1.5vw, 0.9rem) clamp(1.2rem, 3vw, 2rem);
+  border-radius: var(--radius);
+  font-family: var(--font-main);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  color: #fff;
+  transform: translateY(-0.125rem);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  border: 0.125rem solid var(--color-primary);
+  color: var(--color-primary);
+  padding: clamp(0.6rem, 1.5vw, 0.9rem) clamp(1.2rem, 3vw, 2rem);
+  border-radius: var(--radius);
+  font-family: var(--font-main);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ===== UTILIDADES ===== */
+.text-green   { color: var(--color-primary); }
+.text-center  { text-align: center; }
+.text-soft    { color: var(--color-text-soft); }
+.bg-soft      { background: var(--color-bg-soft); }
+.bg-green     { background: var(--color-primary); color: #fff; }
+.bg-light     { background: var(--color-primary-light); }
+
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+
+/* ===== CARD BASE ===== */
+.card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== ACCESIBILIDAD ===== */
+:focus-visible {
+  outline: 0.175rem solid var(--color-primary);
+  outline-offset: 0.2rem;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
