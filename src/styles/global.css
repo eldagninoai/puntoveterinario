@@ -3,46 +3,49 @@
 
 /* ===== VARIABLES ===== */
 :root {
-  --color-primary:       #2e7d32;
-  --color-primary-dark:  #1b5e20;
-  --color-primary-light: #e8f5e9;
-  --color-accent:        #66bb6a;
-  --color-urgencia:      #c62828;
-  --color-text:          #1a1a1a;
-  --color-text-soft:     #555555;
-  --color-bg:            #ffffff;
-  --color-bg-soft:       #f9fbe7;
-  --color-border:        #e0e0e0;
+  --color-primary: #62D7D5;
+  --color-primary-dark: #3DADA9;
+  --color-primary-light: #E8FAFA;
+  --color-secondary: #CFBAAA;
+  --color-secondary-dark: #B09880;
+  --color-urgencia: #D94F3D;
+  --color-text: #1a1a1a;
+  --color-text-soft: #666666;
+  --color-bg: #ffffff;
+  --color-bg-soft: #FAFAFA;
+  --color-border: #EEEEEE;
 
   --font-main: 'Fredoka', sans-serif;
 
   /* Espaciado fluido */
-  --space-xs:  clamp(0.25rem, 1vw, 0.5rem);
-  --space-sm:  clamp(0.5rem,  2vw, 1rem);
-  --space-md:  clamp(1rem,    3vw, 2rem);
-  --space-lg:  clamp(2rem,    5vw, 4rem);
-  --space-xl:  clamp(3rem,    7vw, 6rem);
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 2vw, 1rem);
+  --space-md: clamp(1rem, 3vw, 2rem);
+  --space-lg: clamp(2rem, 5vw, 4rem);
+  --space-xl: clamp(3rem, 7vw, 6rem);
 
   /* Tipografía fluida sin límite artificial */
-  --text-xs:   clamp(0.75rem,  1.5vw, 1rem);
-  --text-sm:   clamp(0.875rem, 1.8vw, 1.125rem);
-  --text-base: clamp(1rem,     2vw,   1.25rem);
-  --text-md:   clamp(1.125rem, 2.5vw, 1.5rem);
-  --text-lg:   clamp(1.25rem,  3vw,   2rem);
-  --text-xl:   clamp(1.5rem,   4vw,   2.8rem);
-  --text-2xl:  clamp(2rem,     5vw,   3.8rem);
-  --text-3xl:  clamp(2.5rem,   6vw,   5rem);
+  --text-xs: clamp(0.75rem, 1.5vw, 1rem);
+  --text-sm: clamp(0.875rem, 1.8vw, 1.125rem);
+  --text-base: clamp(1rem, 2vw, 1.25rem);
+  --text-md: clamp(1.125rem, 2.5vw, 1.5rem);
+  --text-lg: clamp(1.25rem, 3vw, 2rem);
+  --text-xl: clamp(1.5rem, 4vw, 2.8rem);
+  --text-2xl: clamp(2rem, 5vw, 3.8rem);
+  --text-3xl: clamp(2.5rem, 6vw, 5rem);
 
   --radius-sm: clamp(0.4rem, 1vw, 0.6rem);
-  --radius:    clamp(0.6rem, 1.5vw, 1rem);
-  --radius-lg: clamp(1rem,   2vw,  1.5rem);
+  --radius: clamp(0.6rem, 1.5vw, 1rem);
+  --radius-lg: clamp(1rem, 2vw, 1.5rem);
 
-  --shadow:    0 0.125rem 0.75rem rgba(0,0,0,0.08);
-  --shadow-md: 0 0.25rem  1.5rem  rgba(0,0,0,0.12);
+  --shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.10);
 }
 
 /* ===== RESET MOBILE-FIRST ===== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -64,19 +67,20 @@ body {
   min-height: 100dvh;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   transition: color 0.2s;
 }
 
 a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
 }
 
 /* ===== TIPOGRAFÍA FLUIDA ===== */
@@ -84,7 +88,7 @@ h1 {
   font-size: var(--text-3xl);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 h2 {
@@ -171,8 +175,8 @@ section {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  border: 0.125rem solid var(--color-primary);
-  color: var(--color-primary);
+  border: 0.125rem solid var(--color-secondary);
+  color: var(--color-secondary-dark);
   padding: clamp(0.6rem, 1.5vw, 0.9rem) clamp(1.2rem, 3vw, 2rem);
   border-radius: var(--radius);
   font-family: var(--font-main);
@@ -183,34 +187,70 @@ section {
 }
 
 .btn-secondary:hover {
-  background: var(--color-primary);
+  background: var(--color-secondary);
   color: #fff;
 }
 
 /* ===== UTILIDADES ===== */
-.text-green   { color: var(--color-primary); }
-.text-center  { text-align: center; }
-.text-soft    { color: var(--color-text-soft); }
-.bg-soft      { background: var(--color-bg-soft); }
-.bg-green     { background: var(--color-primary); color: #fff; }
-.bg-light     { background: var(--color-primary-light); }
+.text-primary {
+  color: var(--color-primary-dark);
+}
 
-.mt-sm { margin-top: var(--space-sm); }
-.mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-soft {
+  color: var(--color-text-soft);
+}
+
+.bg-soft {
+  background: var(--color-bg-soft);
+}
+
+.bg-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.bg-secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.bg-light {
+  background: var(--color-primary-light);
+}
+
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+
+.mt-md {
+  margin-top: var(--space-md);
+}
+
+.mt-lg {
+  margin-top: var(--space-lg);
+}
 
 /* ===== CARD BASE ===== */
 .card {
   background: var(--color-bg);
   border-radius: var(--radius-lg);
   padding: var(--space-md);
-  box-shadow: var(--shadow);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 0.06rem solid var(--color-border);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .card:hover {
   transform: translateY(-0.2rem);
   box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light);
 }
 
 /* ===== ACCESIBILIDAD ===== */
@@ -221,7 +261,10 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
