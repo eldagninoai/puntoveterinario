@@ -1,11 +1,13 @@
 ---
 const navLinks = [
-  { href: '/servicios/consulta-veterinaria', label: 'Consulta Médica' },
-  { href: '/servicios/estetica-canina-felina', label: 'Estética' },
-  { href: '/servicios/esterilizacion', label: 'Esterilización' },
-  { href: '/servicios/cirugia-veterinaria', label: 'Cirugías' },
-  { href: '/servicios/laboratorio-clinico', label: 'Laboratorio' },
-  { href: '/servicios/alimento-mascotas', label: 'Alimento' },
+  { href: "/", label: "Inicio" },
+  { href: "/servicios/consulta-veterinaria", label: "Consulta Médica" },
+  { href: "/servicios/estetica-canina-felina", label: "Estética" },
+  { href: "/servicios/esterilizacion", label: "Esterilización" },
+  { href: "/servicios/cirugia-veterinaria", label: "Cirugías" },
+  { href: "/servicios/laboratorio-clinico", label: "Laboratorio" },
+  { href: "/servicios/alimento-mascotas", label: "Alimento" },
+  { href: "/blog", label: "Blog" },
 ];
 ---
 
@@ -15,17 +17,26 @@ const navLinks = [
       🐾 <span>Punto Veterinario</span>
     </a>
 
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+    <button
+      class="nav-toggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
       <span></span><span></span><span></span>
     </button>
 
     <nav id="main-nav" aria-label="Navegación principal">
       <ul class="nav-list">
-        {navLinks.map(link => (
-          <li>
-            <a href={link.href} class="nav-link">{link.label}</a>
-          </li>
-        ))}
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="nav-link">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
         <li>
           <a href="/urgencias" class="nav-link nav-urgencias">🚨 Urgencias</a>
         </li>
@@ -41,10 +52,10 @@ const navLinks = [
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #fff;
-    border-bottom: 0.15rem solid var(--color-primary-light);
+    background: var(--color-bg);
+    border-bottom: 0.1rem solid var(--color-border);
     padding-block: var(--space-sm);
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); removed to keep it cleaner / minimalistic with just bottom border */
   }
 
   .header__inner {
@@ -70,6 +81,9 @@ const navLinks = [
     list-style: none;
     gap: var(--space-xs);
     flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-link {
@@ -79,7 +93,9 @@ const navLinks = [
     font-weight: 500;
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-sm);
-    transition: background 0.2s, color 0.2s;
+    transition:
+      background 0.2s,
+      color 0.2s;
     white-space: nowrap;
   }
 
@@ -96,6 +112,20 @@ const navLinks = [
   .btn-cita {
     white-space: nowrap;
     font-size: var(--text-sm);
+    text-decoration: none;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius);
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    font-weight: 600;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .btn-cita:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-0.2rem);
   }
 
   /* Hamburger — solo mobile */
@@ -120,7 +150,8 @@ const navLinks = [
   }
 
   /* ===== MOBILE FIRST ===== */
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
+    /* 768px = 48rem */
     .nav-toggle {
       display: flex;
     }
@@ -135,8 +166,8 @@ const navLinks = [
       top: 100%;
       left: 0;
       right: 0;
-      background: #fff;
-      border-bottom: 0.15rem solid var(--color-primary-light);
+      background: var(--color-bg);
+      border-bottom: 0.1rem solid var(--color-border);
       padding: var(--space-md);
       box-shadow: var(--shadow-md);
     }
@@ -148,22 +179,26 @@ const navLinks = [
     .nav-list {
       flex-direction: column;
       gap: var(--space-xs);
+      align-items: flex-start;
     }
 
     .nav-link {
       display: block;
       font-size: var(--text-base);
-      padding: var(--space-sm);
+      padding: var(--space-sm) 0;
+      width: 100%;
     }
   }
 </style>
 
-<script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('nav');
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector("nav");
 
-  toggle?.addEventListener('click', () => {
-    const isOpen = nav?.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle?.addEventListener("click", () => {
+      const isOpen = nav?.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
   });
 </script>

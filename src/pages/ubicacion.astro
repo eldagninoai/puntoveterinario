@@ -1,0 +1,468 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "VeterinaryCare"],
+    name: "Punto Veterinario",
+    url: "https://puntoveterinario.com/ubicacion",
+    telephone: "+525513843004",
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. División del Norte 3595",
+        addressLocality: "Pedregal de Santo Domingo",
+        addressRegion: "Coyoacán, Ciudad de México",
+        postalCode: "04620",
+        addressCountry: "MX",
+    },
+    geo: {
+        "@type": "GeoCoordinates",
+        latitude: 19.322004,
+        longitude: -99.13922,
+    },
+};
+
+const colonias = [
+    "Pedregal de Santo Domingo",
+    "Ajusco",
+    "Copilco el Alto",
+    "Pedregal de Carrasco",
+    "Los Reyes",
+    "Santo Domingo",
+    "El Caracol",
+    "San Pablo Tepetlapa",
+    "Ruiz Cortines",
+    "Pedregal de San Nicolás",
+];
+
+const transporte = [
+    {
+        emoji: "🚇",
+        title: "Metro",
+        desc: "Línea 3 estación Universidad + combi por División del Norte.",
+    },
+    {
+        emoji: "🚌",
+        title: "Metrobús",
+        desc: "Línea 1 + conexión hacia Coyoacán sur.",
+    },
+    {
+        emoji: "🚗",
+        title: "En auto",
+        desc: "Av. División del Norte 3595, cerca de Pedregal de Carrasco.",
+    },
+];
+---
+
+<BaseLayout
+    title="Veterinaria en Pedregal de Santo Domingo | Punto Veterinario"
+    description="Encuéntranos en Av. División del Norte 3595, Pedregal de Santo Domingo, CP 04620, Coyoacán. Fácil acceso desde metro y metrobús. Ver mapa y rutas."
+    schema={schema}
+>
+    <!-- 1. HERO -->
+    <section class="hero bg-white pt-xl pb-lg">
+        <div class="container text-center max-w-lg mx-auto">
+            <h1 class="text-2xl text-primary-dark mb-md lh-1">
+                Veterinaria en Pedregal de Santo Domingo | Punto Veterinario
+            </h1>
+            <p class="text-lg text-soft mb-lg lh-relaxed">
+                Encuentra nuestra clínica veterinaria en <strong
+                    >Av. División del Norte 3595, Pedregal de Santo Domingo, CP
+                    04620, Coyoacán</strong
+                >.
+            </p>
+            <a
+                href="https://wa.me/525513843004"
+                class="btn-primary inline-block text-md px-lg py-sm fw-bold border-radius transition-transform"
+                target="_blank"
+                rel="noopener"
+            >
+                💬 Contactar por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. DATOS DE UBICACIÓN -->
+    <section class="bg-soft py-xl">
+        <div class="container">
+            <h2 class="text-center mb-xl text-primary">¿Dónde estamos?</h2>
+
+            <div class="grid-2 gap-lg items-center">
+                <!-- Izquierda: Datos completos -->
+                <div
+                    class="ubicacion-datos p-lg border-subtle bg-white border-radius"
+                >
+                    <ul class="flex-col gap-md">
+                        <li class="flex items-start gap-sm">
+                            <span class="emoji-lg">📍</span>
+                            <div>
+                                <strong class="block text-primary-dark text-md"
+                                    >Dirección completa</strong
+                                >
+                                <p class="text-soft text-sm lh-relaxed mt-xs">
+                                    Av. División del Norte 3595<br />
+                                    Pedregal de Santo Domingo<br />
+                                    CP 04620, Coyoacán, CDMX
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-sm">
+                            <span class="emoji-lg">📞</span>
+                            <div>
+                                <strong class="block text-primary-dark text-md"
+                                    >Teléfono</strong
+                                >
+                                <a
+                                    href="tel:+525513843004"
+                                    class="text-soft text-sm hover-primary inline-block mt-xs"
+                                    >+52 55 1384 3004</a
+                                >
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-sm">
+                            <span class="emoji-lg">💬</span>
+                            <div>
+                                <strong class="block text-primary-dark text-md"
+                                    >WhatsApp</strong
+                                >
+                                <a
+                                    href="https://wa.me/525513843004"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="text-soft text-sm hover-primary inline-block mt-xs"
+                                    >wa.me/525513843004</a
+                                >
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-sm">
+                            <span class="emoji-lg">🕐</span>
+                            <div>
+                                <strong class="block text-primary-dark text-md"
+                                    >Horario de atención</strong
+                                >
+                                <p class="text-soft text-sm lh-relaxed mt-xs">
+                                    Lun-Vie 9:00-20:00<br />
+                                    Sáb-Dom 10:00-18:00
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Derecha: Placeholder Mapa -->
+                <div
+                    class="mapa-placeholder border-radius flex-col items-center justify-center p-md text-center"
+                >
+                    <span class="emoji-xxl mb-sm">📍</span>
+                    <p class="text-primary-dark fw-bold text-md">
+                        Av. División del Norte 3595, Coyoacán
+                    </p>
+                    <p class="text-primary text-sm mt-xs">(CP 04620)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CÓMO LLEGAR -->
+    <section class="bg-white py-xl">
+        <div class="container">
+            <h2 class="text-center mb-xl text-primary">
+                ¿Cómo llegar a Punto Veterinario en Coyoacán?
+            </h2>
+            <div class="grid-3 gap-md">
+                {
+                    transporte.map((t) => (
+                        <div class="card p-lg border-subtle text-center hover-lift flex-col items-center">
+                            <span class="emoji-xl mb-sm block">{t.emoji}</span>
+                            <h3 class="text-primary-dark mb-sm text-md">
+                                {t.title}
+                            </h3>
+                            <p class="text-soft text-sm lh-relaxed">{t.desc}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. COLONIAS QUE ATENDEMOS -->
+    <section class="bg-soft py-xl">
+        <div class="container max-w-lg mx-auto text-center">
+            <h2 class="text-primary mb-md">
+                Atendemos mascotas de toda la zona sur de Coyoacán
+            </h2>
+            <p class="text-soft text-md mb-lg lh-relaxed">
+                Punto Veterinario es tu clínica de confianza más cercana.
+                Gracias a nuestra ubicación en la Av. División del Norte, dentro
+                del <strong>CP 04620</strong>, estamos a un paso para ofrecer el
+                mejor cuidado para tu compañero.
+            </p>
+
+            <div
+                class="colonias-grid flex flex-wrap justify-center gap-sm mb-lg"
+            >
+                {
+                    colonias.map((colonia) => (
+                        <span class="colonia-badge bg-white text-primary-dark text-sm fw-bold px-md py-xs border-radius-sm shadow-sm">
+                            {colonia}
+                        </span>
+                    ))
+                }
+            </div>
+
+            <p class="text-soft text-md lh-relaxed">
+                Si vives en alguna de estas colonias del sur de Coyoacán,
+                estamos a pocos minutos de ti en la Av. División del Norte 3595, <strong
+                    >CP 04620</strong
+                >.
+            </p>
+        </div>
+    </section>
+
+    <!-- 5. CTA FINAL -->
+    <section class="cta-section bg-primary py-xl text-center">
+        <div class="container max-w-lg mx-auto">
+            <h2 class="text-white mb-lg text-2xl lh-1">
+                ¿Listo para visitarnos en Pedregal de Santo Domingo?
+            </h2>
+            <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
+                Av. División del Norte 3595, Pedregal de Santo Domingo, CP
+                04620, Coyoacán
+            </p>
+            <div class="flex flex-wrap justify-center gap-md">
+                <a
+                    href="/contacto"
+                    class="btn-white-theme text-primary fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
+                    >📅 Agendar Cita</a
+                >
+                <a
+                    href="https://wa.me/525513843004"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn-outline-white text-white fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
+                    >💬 WhatsApp</a
+                >
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    /* Utilidades Globales (Reusables sin px) */
+    .bg-white {
+        background-color: var(--color-bg);
+    }
+    .bg-soft {
+        background-color: var(--color-bg-soft);
+    }
+    .bg-primary {
+        background-color: var(--color-primary);
+    }
+
+    .text-white {
+        color: var(--color-bg);
+    }
+    .text-primary {
+        color: var(--color-primary);
+    }
+    .text-primary-dark {
+        color: var(--color-primary-dark);
+    }
+    .text-soft {
+        color: var(--color-text-soft);
+    }
+
+    .text-center {
+        text-align: center;
+    }
+    .text-sm {
+        font-size: var(--text-sm);
+    }
+    .text-md {
+        font-size: var(--text-md);
+    }
+    .text-lg {
+        font-size: var(--text-lg);
+    }
+    .text-2xl {
+        font-size: var(--text-2xl);
+    }
+    .fw-bold {
+        font-weight: 700;
+    }
+
+    .block {
+        display: block;
+    }
+    .inline-block {
+        display: inline-block;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex-col {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .items-start {
+        align-items: flex-start;
+    }
+    .justify-center {
+        justify-content: center;
+    }
+
+    .mt-xs {
+        margin-top: var(--space-xs);
+    }
+    .mb-sm {
+        margin-bottom: var(--space-sm);
+    }
+    .mb-md {
+        margin-bottom: var(--space-md);
+    }
+    .mb-lg {
+        margin-bottom: var(--space-lg);
+    }
+    .mb-xl {
+        margin-bottom: var(--space-xl);
+    }
+    .mx-auto {
+        margin-inline: auto;
+    }
+
+    .pt-xl {
+        padding-top: var(--space-xl);
+    }
+    .pb-lg {
+        padding-bottom: var(--space-lg);
+    }
+    .py-xs {
+        padding-block: var(--space-xs);
+    }
+    .py-sm {
+        padding-block: var(--space-sm);
+    }
+    .py-xl {
+        padding-block: var(--space-xl);
+    }
+    .p-md {
+        padding: var(--space-md);
+    }
+    .p-lg {
+        padding: var(--space-lg);
+    }
+    .px-md {
+        padding-inline: var(--space-md);
+    }
+    .px-lg {
+        padding-inline: var(--space-lg);
+    }
+
+    .gap-sm {
+        gap: var(--space-sm);
+    }
+    .gap-md {
+        gap: var(--space-md);
+    }
+    .gap-lg {
+        gap: var(--space-lg);
+    }
+
+    .lh-1 {
+        line-height: 1.2;
+    }
+    .lh-relaxed {
+        line-height: 1.6;
+    }
+    .max-w-lg {
+        max-width: 60rem;
+    }
+    .opacity-90 {
+        opacity: 0.9;
+    }
+    .shadow-sm {
+        box-shadow: var(--shadow);
+    }
+
+    .border-radius {
+        border-radius: var(--radius);
+    }
+    .border-radius-sm {
+        border-radius: var(--radius-sm);
+    }
+    .border-subtle {
+        border: 0.1rem solid var(--color-border);
+        border-radius: var(--radius-lg);
+    }
+
+    .emoji-lg {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+    }
+    .emoji-xl {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+    .emoji-xxl {
+        font-size: clamp(4rem, 8vw, 6rem);
+    }
+
+    .transition-transform {
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+    .hover-lift:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: var(--shadow-md);
+    }
+    .hover-primary:hover {
+        color: var(--color-primary);
+        text-decoration: underline;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    /* 2. Mapa Placeholder Específico */
+    .mapa-placeholder {
+        min-height: clamp(20rem, 40vw, 30rem);
+        background-color: var(--color-primary-light);
+        border: 0.1rem dashed var(--color-primary);
+        width: 100%;
+    }
+
+    /* 5. Botones CTA Final */
+    .btn-white-theme {
+        background-color: var(--color-bg);
+        border: 0.15rem solid var(--color-bg);
+    }
+    .btn-white-theme:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: var(--shadow-md);
+        background-color: var(--color-bg-soft);
+    }
+
+    .btn-outline-white {
+        background-color: transparent;
+        border: 0.15rem solid var(--color-bg);
+    }
+    .btn-outline-white:hover {
+        transform: translateY(-0.2rem);
+        background-color: var(--color-bg);
+        color: var(--color-primary);
+    }
+</style>

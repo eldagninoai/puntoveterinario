@@ -1,0 +1,531 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Schema from "../components/Schema.astro";
+
+// 1. Schema para Urgencias (EmergencyService)
+const emergencySchema = {
+    "@context": "https://schema.org",
+    "@type": "EmergencyService",
+    name: "Punto Veterinario — Urgencias",
+    url: "https://puntoveterinario.com/urgencias",
+    telephone: "+525513843004",
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. División del Norte 3595",
+        addressLocality: "Pedregal de Santo Domingo",
+        addressRegion: "Coyoacán, Ciudad de México",
+        postalCode: "04620",
+        addressCountry: "MX",
+    },
+};
+
+// 2. Schema para FAQ (FAQPage)
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "¿Qué es una emergencia veterinaria?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Se considera emergencia cualquier situación que ponga en riesgo inmediato la vida de tu mascota, como dificultad respiratoria grave, sangrado abundante que no se detiene, pérdida de conocimiento, convulsiones prolongadas o ingestión de toxinas.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "¿Qué hago si mi perro no puede respirar?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Mantén la calma y revisa si hay algún objeto obstruyendo su garganta. No intentes maniobras que no conoces para no lastimarlo. Dirígete inmediatamente a la clínica veterinaria o contáctanos de urgencia para orientarte en el camino.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "¿Atienden urgencias en fin de semana en Coyoacán?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sí, en Punto Veterinario atendemos urgencias los fines de semana (Sábado y Domingo) en un horario de 10:00 a 18:00 hrs. En Av. División del Norte 3595, Pedregal de Santo Domingo.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "¿Cuándo debo ir de urgencia al veterinario?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Debes acudir de urgencia ante atropellamientos, caídas de altura, abdomen muy inflamado y tenso, incapacidad para orinar (especialmente en gatos machos), partos complicados o si notas debilidad extrema y encías muy pálidas o azuladas.",
+            },
+        },
+    ],
+};
+
+const emergenciasPasos = [
+    {
+        emoji: "1️⃣",
+        title: "Mantén la calma",
+        desc: "Tu mascota siente tu estado emocional. Actúa con rapidez pero sin pánico.",
+    },
+    {
+        emoji: "2️⃣",
+        title: "Evalúa rápido",
+        desc: "¿Respira con normalidad? ¿Sangra? ¿Está consciente y responde a su nombre?",
+    },
+    {
+        emoji: "3️⃣",
+        title: "Escríbenos por WhatsApp",
+        desc: "Avisa que vas en camino para preparar el equipo y orientarte de inmediato.",
+    },
+    {
+        emoji: "4️⃣",
+        title: "Trasládate de inmediato",
+        desc: "Dirígete a Av. División del Norte 3595, CP 04620 con precaución al manejar.",
+    },
+];
+
+const hospitales24h = [
+    {
+        emoji: "🏥",
+        nombre: "Hospital Veterinario Bruselas",
+        desc: "Atención de urgencias 24h en CDMX.",
+    },
+    {
+        emoji: "🏥",
+        nombre: "Aztekan Veterinaria",
+        desc: "Servicio de urgencias 24h en CDMX.",
+    },
+];
+---
+
+<BaseLayout
+    title="Urgencias Veterinarias Coyoacán | Punto Veterinario"
+    description="¿Tu mascota tiene una emergencia en Coyoacán? Atendemos en horario de clínica. Lun-Vie 9-20h, Sáb-Dom 10-18h. WhatsApp disponible. División del Norte."
+    schema={emergencySchema}
+>
+    <!-- Inyectar Schema FAQPage adicional -->
+    <Schema schema={faqSchema} />
+
+    <!-- 1. HERO -->
+    <section class="hero bg-white pb-xl">
+        <div class="banner-urgencia">
+            <div class="container text-center">
+                <p class="text-white fw-bold lh-relaxed mb-0">
+                    <span class="emoji-md mr-xs block-mobile">⏰</span>
+                    Atendemos urgencias: Lun-Vie 9:00-20:00 | Sáb-Dom 10:00-18:00
+                </p>
+            </div>
+        </div>
+
+        <div class="container text-center max-w-lg mx-auto pt-xl">
+            <h1 class="text-2xl text-primary-dark mb-md lh-1">
+                Urgencias Veterinarias en Coyoacán | Punto Veterinario
+            </h1>
+            <p class="text-lg text-soft mb-xl lh-relaxed max-w-md mx-auto">
+                Si la vida de tu mascota está en riesgo durante nuestro horario
+                de servicio, <strong>actúa de inmediato</strong>. Estamos
+                preparados para ayudarte.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-md">
+                <a
+                    href="https://wa.me/525513843004"
+                    class="btn-primary text-md px-lg py-md fw-bold border-radius transition-transform inline-block"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 Escribir por WhatsApp ahora
+                </a>
+                <a
+                    href="tel:+525513843004"
+                    class="btn-urgencia-outline text-md px-lg py-md fw-bold border-radius transition-transform inline-block"
+                >
+                    📞 Llamar ahora: 55 1384 3004
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. QUÉ HACER EN UNA EMERGENCIA -->
+    <section class="bg-soft py-xl">
+        <div class="container">
+            <h2 class="text-center mb-xl text-primary-dark">
+                ¿Qué hacer si tu mascota tiene una emergencia?
+            </h2>
+
+            <div class="grid-4 gap-md">
+                {
+                    emergenciasPasos.map((paso) => (
+                        <div class="card p-lg border-subtle bg-white hover-lift flex-col items-start">
+                            <span class="emoji-xl mb-sm block">
+                                {paso.emoji}
+                            </span>
+                            <h3 class="text-primary mb-xs text-md">
+                                {paso.title}
+                            </h3>
+                            <p class="text-soft text-sm lh-relaxed">
+                                {paso.desc}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FUERA DE HORARIO -->
+    <section class="bg-white py-xl">
+        <div class="container max-w-lg mx-auto text-center">
+            <h2 class="text-primary-dark mb-md">¿Fuera de nuestro horario?</h2>
+            <p class="text-soft text-md mb-lg lh-relaxed">
+                Sabemos que las emergencias no tienen horario. Si tu mascota
+                requiere atención urgente y Punto Veterinario se encuentra
+                cerrado, <strong>no queremos dejarte solo</strong>.
+            </p>
+
+            <div class="grid-2 gap-md text-left mb-lg justify-center">
+                {
+                    hospitales24h.map((h) => (
+                        <div class="card p-lg border-subtle bg-soft flex items-center gap-md">
+                            <span class="emoji-xl">{h.emoji}</span>
+                            <div>
+                                <strong class="block text-primary-dark text-md mb-xs">
+                                    {h.nombre}
+                                </strong>
+                                <p class="text-soft text-sm m-0 lh-relaxed">
+                                    {h.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div
+                class="card p-md border-radius bg-primary-light text-primary-dark text-sm inline-block mx-auto max-w-md"
+            >
+                <p class="m-0 fw-bold">
+                    Te recomendamos estas opciones porque tu mascota siempre
+                    merece atención profesional, incluso cuando nosotros no
+                    podemos estar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FAQ -->
+    <section class="bg-soft py-xl">
+        <div class="container max-w-lg mx-auto">
+            <h2 class="text-center mb-xl text-primary">
+                Preguntas Frecuentes sobre Urgencias Veterinarias en Coyoacán
+            </h2>
+
+            <div class="flex-col gap-lg">
+                {
+                    faqSchema.mainEntity.map((faq) => (
+                        <div class="faq-item p-lg border-subtle bg-white border-radius">
+                            <h3 class="text-primary-dark text-md mb-sm">
+                                {faq.name}
+                            </h3>
+                            <p class="text-soft text-sm lh-relaxed m-0">
+                                {faq.acceptedAnswer.text}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CTA FINAL -->
+    <section class="cta-section bg-secondary py-xl text-center">
+        <div class="container max-w-lg mx-auto">
+            <h2 class="text-white mb-lg text-2xl lh-1">
+                Estamos en Coyoacán para cuando más nos necesitas
+            </h2>
+            <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
+                Av. División del Norte 3595, Pedregal de Santo Domingo, CP 04620
+            </p>
+            <div class="flex flex-wrap justify-center gap-md">
+                <a
+                    href="https://wa.me/525513843004"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn-white-theme text-primary p-urgencia fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
+                    >💬 WhatsApp urgente</a
+                >
+                <a
+                    href="tel:+525513843004"
+                    class="btn-outline-white text-white fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
+                    >📞 Llamar ahora</a
+                >
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    /* Utilidades Globales (Reusables sin px) */
+    .bg-white {
+        background-color: var(--color-bg);
+    }
+    .bg-soft {
+        background-color: var(--color-bg-soft);
+    }
+    .bg-primary {
+        background-color: var(--color-primary);
+    }
+    .bg-primary-light {
+        background-color: var(--color-primary-light);
+    }
+    .bg-secondary {
+        background-color: var(--color-primary);
+    } /* Usando primary para el fondo del CTA, según request #62D7D5 */
+
+    .text-white {
+        color: var(--color-bg);
+    }
+    .text-primary {
+        color: var(--color-primary);
+    }
+    .text-primary-dark {
+        color: var(--color-primary-dark);
+    }
+    .text-soft {
+        color: var(--color-text-soft);
+    }
+
+    .text-center {
+        text-align: center;
+    }
+    .text-left {
+        text-align: left;
+    }
+    .text-sm {
+        font-size: var(--text-sm);
+    }
+    .text-md {
+        font-size: var(--text-md);
+    }
+    .text-lg {
+        font-size: var(--text-lg);
+    }
+    .text-2xl {
+        font-size: var(--text-2xl);
+    }
+    .fw-bold {
+        font-weight: 700;
+    }
+
+    .block {
+        display: block;
+    }
+    .inline-block {
+        display: inline-block;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex-col {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .items-start {
+        align-items: flex-start;
+    }
+    .justify-center {
+        justify-content: center;
+    }
+
+    .m-0 {
+        margin: 0;
+    }
+    .mb-0 {
+        margin-bottom: 0;
+    }
+    .mt-xs {
+        margin-top: var(--space-xs);
+    }
+    .mb-xs {
+        margin-bottom: var(--space-xs);
+    }
+    .mb-sm {
+        margin-bottom: var(--space-sm);
+    }
+    .mb-md {
+        margin-bottom: var(--space-md);
+    }
+    .mb-lg {
+        margin-bottom: var(--space-lg);
+    }
+    .mb-xl {
+        margin-bottom: var(--space-xl);
+    }
+    .mr-xs {
+        margin-right: var(--space-xs);
+    }
+    .mx-auto {
+        margin-inline: auto;
+    }
+
+    .pt-xl {
+        padding-top: var(--space-xl);
+    }
+    .pb-lg {
+        padding-bottom: var(--space-lg);
+    }
+    .pb-xl {
+        padding-bottom: var(--space-xl);
+    }
+    .py-sm {
+        padding-block: var(--space-sm);
+    }
+    .py-md {
+        padding-block: var(--space-md);
+    }
+    .py-xl {
+        padding-block: var(--space-xl);
+    }
+    .p-md {
+        padding: var(--space-md);
+    }
+    .p-lg {
+        padding: var(--space-lg);
+    }
+    .px-lg {
+        padding-inline: var(--space-lg);
+    }
+
+    .gap-sm {
+        gap: var(--space-sm);
+    }
+    .gap-md {
+        gap: var(--space-md);
+    }
+    .gap-lg {
+        gap: var(--space-lg);
+    }
+
+    .lh-1 {
+        line-height: 1.2;
+    }
+    .lh-relaxed {
+        line-height: 1.6;
+    }
+    .max-w-md {
+        max-width: 45rem;
+    }
+    .max-w-lg {
+        max-width: 60rem;
+    }
+    .opacity-90 {
+        opacity: 0.9;
+    }
+
+    .border-radius {
+        border-radius: var(--radius);
+    }
+    .border-subtle {
+        border: 0.1rem solid var(--color-border);
+        border-radius: var(--radius-lg);
+    }
+
+    .emoji-md {
+        font-size: clamp(1.2rem, 2vw, 1.8rem);
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .emoji-xl {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .transition-transform {
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            background-color 0.2s ease,
+            color 0.2s ease;
+    }
+    .hover-lift:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: var(--shadow-md);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    /* 1. HERO Y BANNER URGENCIAS */
+    .banner-urgencia {
+        background-color: var(--color-urgencia); /* #D94F3D */
+        padding-block: var(--space-sm);
+        width: 100%;
+    }
+
+    /* Botones Primarios */
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+    }
+    .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+        transform: translateY(-0.15rem);
+    }
+
+    .btn-urgencia-outline {
+        background-color: transparent;
+        color: var(--color-urgencia);
+        border: 0.15rem solid var(--color-urgencia);
+    }
+    .btn-urgencia-outline:hover {
+        background-color: var(--color-urgencia);
+        color: var(--color-bg);
+        transform: translateY(-0.15rem);
+    }
+
+    /* 5. Botones CTA Final */
+    .btn-white-theme {
+        background-color: var(--color-bg);
+        border: 0.15rem solid var(--color-bg);
+    }
+    .btn-white-theme:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: var(--shadow-md);
+        background-color: var(--color-bg-soft);
+    }
+
+    .btn-outline-white {
+        background-color: transparent;
+        border: 0.15rem solid var(--color-bg);
+    }
+    .btn-outline-white:hover {
+        transform: translateY(-0.2rem);
+        background-color: var(--color-bg);
+        color: var(--color-primary);
+    }
+
+    .p-urgencia {
+        color: var(--color-primary-dark);
+    }
+    .p-urgencia:hover {
+        color: var(--color-primary-dark);
+    }
+
+    /* Media Queries Mínimas */
+    @media (max-width: 48rem) {
+        .block-mobile {
+            display: block;
+            margin-inline: auto;
+            margin-bottom: var(--space-xs);
+        }
+    }
+</style>

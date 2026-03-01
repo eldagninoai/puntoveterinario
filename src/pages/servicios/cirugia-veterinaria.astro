@@ -1,0 +1,610 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Schema from "../../components/Schema.astro";
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name: "Cirugía Veterinaria en Coyoacán",
+    url: "https://puntoveterinario.com/servicios/cirugia-veterinaria",
+    description:
+        "Cirugías veterinarias especializadas en Coyoacán CDMX. Tejidos blandos, ortopedia y más en Av. División del Norte 3595, CP 04620.",
+    provider: {
+        "@type": "VeterinaryCare",
+        name: "Punto Veterinario",
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "Av. División del Norte 3595",
+            addressLocality: "Pedregal de Santo Domingo",
+            postalCode: "04620",
+            addressCountry: "MX",
+        },
+    },
+};
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "¿Qué incluye la valoración pre-quirúrgica?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "La valoración pre-quirúrgica integral en Punto Veterinario es un riguroso paso médico previo para garantizar la máxima seguridad en la intervención y la administración de anestesia. Incluye de base una revisión exhaustiva de todo el sistema cardiovascular y respiratorio de tu mascota, la toma meticulosa de presión arterial, y por supuesto, el ineludible levantamiento de análisis sanguíneos preoperatorios o química sanguínea que dictaminan su estado metabólico actual.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "¿Cuánto tiempo dura la recuperación de una cirugía veterinaria?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "El lapso oficial de recuperación post-operatoria está irremediablemente sujeto a la invasividad de la intervención y la raza. Generalmente, una cirugía de tejidos blandos moderada permite una reintegración normal progresiva de entre 10 a 14 días con cuidados especiales. Las complejas cirugías ortopédicas perrunas o felinas suelen tomar semanas o incluso un par de meses acompañadas con terapias físicas especializadas en Coyoacán.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "¿Hacen cirugías ortopédicas para perros en Coyoacán?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Correcto, en Punto Veterinario disponemos orgullosamente de renombrados y diestros especialistas ortopedistas certificados que asisten recurrentemente para ejecutar cirugías de suma complejidad. Desde la delicada corrección de hernias, luxaciones articulares y cruce de ligamentos, hasta el minucioso reacomodo por fracturas severas tras caídas o accidentes, logrando de nuevo la movilidad saludable de los pacientes caninos y felinos de la zona sur.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "¿Dónde puedo operar a mi mascota cerca de Pedregal de Santo Domingo?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Para una operación muy segura, vigilada y exitosa, nos ostentamos como tu opción médica premier indiscutible en la delegación. Ubicados de manera enteramente accesible para los capitalinos sureños, justo sobre la Av. División del Norte 3595, a lo largo de la reconocida colonia Pedregal de Santo Domingo (CP 04620). Ponemos a tu disposición instalaciones dotadas de un higiénico y moderno quirófano plenamente adecuado.",
+            },
+        },
+    ],
+};
+
+const cirugiasCards = [
+    {
+        emoji: "🏥",
+        title: "Cirugía de tejidos blandos",
+        desc: "Atención especializada en sistema gastrointestinal, genitourinario y respiratorio. Abarcando enterotomías, extracción meticulosa de dolorosos cuerpos extraños ingeridos, y resolución de complejas hernias.",
+    },
+    {
+        emoji: "🦴",
+        title: "Cirugía ortopédica",
+        desc: "Procedimientos altamente técnicos para el arreglo de rupturas del ligamento cruzado, fracturas de huesos largos, y luxaciones rotulianas bajo el estricto comando de cirujanos ortopedistas diestros.",
+    },
+    {
+        emoji: "👁️",
+        title: "Cirugía ocular",
+        desc: "Sutiles operaciones de corte oftalmológico para solventar padecimientos graves y desgastantes en úlceras corneales profundas, prolapso de glándulas lagrimales, cataratas o entropión crónico e irreversible.",
+    },
+    {
+        emoji: "🫀",
+        title: "Cirugía abdominal",
+        desc: "Contamos con gran experiencia vital en las arriesgadas pero inminentes laparotomías y operaciones enfocadas en resolver torsiones o dilataciones gástricas, cálculos en vías urinarias o remolición vesical.",
+    },
+    {
+        emoji: "🩹",
+        title: "Cirugía de piel y tumores",
+        desc: "La tan demandada extirpación oncológica curativa o biopsia de raras masas cutáneas, asegurándonos de extraer tejidos malignos cuidando escrupulosamente los márgenes libres quirúrgicos del noble animal.",
+    },
+    {
+        emoji: "✂️",
+        title: "Esterilización quirúrgica",
+        desc: "Practicamos ovariohisterectomías y eficaces orquiectomías electivas impecables a través de incisiones sumamente pequeñas, usando avanzadas drogas bloqueadoras para asegurar el bienestar sistémico integral.",
+    },
+];
+
+const procesoPasos = [
+    {
+        num: "1️⃣",
+        title: "Valoración pre-quirúrgica y análisis de laboratorio",
+        desc: "Nunca dejamos tu tranquilidad psicológica al azar. Exigimos perfiles sanguíneos basales obligatorios antes de toda incisión para asegurarnos del nulo riesgo en el frágil estado sistémico funcional orgánico interno canino o felino.",
+    },
+    {
+        num: "2️⃣",
+        title: "Anestesia monitoreada durante todo el procedimiento",
+        desc: "El manejo de vanguardia para mitigar la consciencia animal lo establecen nuestros calificados anestesiólogos veterinarios a través de anestesia inhalada, monitoreando oxígeno, presión, y pulsaciones milímetro a milímetro.",
+    },
+    {
+        num: "3️⃣",
+        title: "Cirugía por médico especializado en quirófano equipado",
+        desc: "Bajo intensos reflectores halógenos sin sombra en nuestro pulcro y exclusivo quirófano aislado, se desempeñan las intervenciones manteniendo estrictas barreras instrumentales libres 100% de letales cargas bacterianas intrahospitalarias.",
+    },
+    {
+        num: "4️⃣",
+        title: "Recuperación y seguimiento post-operatorio personalizado",
+        desc: "Una vez finalizada y concluida la inmersión médica en tejidos, iniciamos el tibio calor recuperativo controlando severamente cuadros de dolor con analgésicos supremos, supervisando su despertar fisiológico en nuestros limpios resguardos internos.",
+    },
+];
+
+const porQueCards = [
+    {
+        emoji: "🏥",
+        title: "Quirófano equipado al máximo nivel",
+        desc: "Salas operatorias cerradas e inmaculadas para el control de bioseguridad ambiental, con equipo ultrasónico y anestésico inhalado moderno, buscando el confort insuperable de tus preciadas mascotas en todo momento.",
+    },
+    {
+        emoji: "🏆",
+        title: "Médicos altamente especializados",
+        desc: "Nuestro brillante equipo médico cirujano goza del respaldo invaluable de la continua educación global zootécnica. Actúan con rotunda firmeza y aplomo logrando estabilizar al animal aún en las urgentes o fatídicas etapas críticas operatorias.",
+    },
+    {
+        emoji: "📍",
+        title: "En Pedregal de Santo Domingo CP 04620",
+        desc: "Logísticamente invencibles por nuestra gran asequibilidad local en el sur. Contigua e intrínsecamente ligada al corredor citadino de Av. División del Norte en medio de la alcaldía Coyoacán, evitando fatigosos e indeseados acarreos automotrices distantes.",
+    },
+];
+
+const relacionadosCards = [
+    {
+        title: "Laboratorio Clínico",
+        emoji: "🔬",
+        href: "/servicios/laboratorio-clinico",
+        desc: "Meticulosa y obligada investigación fisiológica interna revelada en las infalibles biometrías para dar luz verde a cualquier tipo de peligrosa operación clínica.",
+    },
+    {
+        title: "Consulta Veterinaria",
+        emoji: "🩺",
+        href: "/servicios/consulta-veterinaria",
+        desc: "Paso ineludible y preliminar de inmenso valor para localizar e identificar anomalías u observar síntomas incipientes que justifiquen el eminente y delicado paso del bisturí.",
+    },
+    {
+        title: "Esterilización",
+        emoji: "✂️",
+        href: "/servicios/esterilizacion",
+        desc: "Una rutinaria intervención ampliamente recurrida y enteramente confiable que practicamos infinidad de veces anualmente para otorgar largas existencias salubres caninas y felinas plenas.",
+    },
+];
+---
+
+<BaseLayout
+    title="Cirugía Veterinaria Coyoacán | Punto Veterinario"
+    description="Cirugías veterinarias de tejidos blandos y ortopedia en Coyoacán. Quirófano equipado, médicos especializados. Av. División del Norte 3595, CP 04620."
+    schema={schema}
+>
+    <Schema schema={faqSchema} />
+
+    <!-- 1. HERO -->
+    <section class="hero bg-white py-xl">
+        <div class="container text-center max-w-lg mx-auto">
+            <h1 class="text-2xl text-primary-dark mb-md lh-1">
+                Cirugía Veterinaria en Coyoacán, CDMX | Punto Veterinario
+            </h1>
+            <p class="text-lg text-soft mb-lg lh-relaxed">
+                Comprendemos entrañablemente la profunda angustia que toda noble
+                intervención clínica puede generarte emocionalmente. Proyectamos
+                este servicio quirúrgico excelso apoyándonos en instalaciones
+                supremas localizadas estratégicamente en el frondoso y seguro <strong
+                    >Pedregal de Santo Domingo (CP 04620)</strong
+                >. Respaldados inquebrantablemente por insuperables cirujanos
+                zootecnistas egresados que entregan el alma interviniendo
+                certeramente ortopedia y tejidos en Coyoacán.
+            </p>
+            <div class="flex flex-wrap justify-center gap-md">
+                <a
+                    href="https://wa.me/525513843004"
+                    class="btn-primary text-md px-lg py-sm fw-bold border-radius transition-transform inline-block"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 Agendar por WhatsApp
+                </a>
+                <a
+                    href="tel:+525513843004"
+                    class="btn-outline text-primary-dark text-md px-lg py-sm fw-bold border-radius transition-transform inline-block"
+                >
+                    📞 Llamar ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ¿QUÉ CIRUGÍAS? -->
+    <section class="bg-soft py-xl">
+        <div class="container">
+            <h2 class="text-center mb-xl text-primary">
+                ¿Qué cirugías realizamos en Punto Veterinario?
+            </h2>
+            <p
+                class="text-center text-soft text-md mb-lg lh-relaxed max-w-lg mx-auto"
+            >
+                Tanto para procedimientos agendados preventivos, como para
+                abrumadoras emergencias absolutas, nuestro robusto equipo sortea
+                eficientemente un inmenso arsenal catalogado de invaluables
+                requerimientos de orden invasivo especializado.
+            </p>
+            <div class="grid-3 gap-md">
+                {
+                    cirugiasCards.map((item) => (
+                        <div class="card p-lg border-subtle bg-white hover-lift flex-col text-center items-center">
+                            <span class="emoji-xl mb-sm block">
+                                {item.emoji}
+                            </span>
+                            <h3 class="text-primary-dark mb-xs text-md">
+                                {item.title}
+                            </h3>
+                            <p class="text-soft text-sm lh-relaxed mt-sm m-0">
+                                {item.desc}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PROCESO QUIRÚRGICO -->
+    <section class="bg-white py-xl">
+        <div class="container max-w-lg mx-auto text-center">
+            <h2 class="text-primary-dark mb-md">
+                ¿Cómo es el proceso quirúrgico en Punto Veterinario?
+            </h2>
+            <p class="text-soft text-md mb-lg lh-relaxed">
+                El triunfo irreprochable final de cada sutil embate sobre los
+                tejidos lo basamos con firmeza estoica en nuestra minuciosa y
+                estricta metodología, planeada desde cero hasta lograr de nuevo
+                el andar animado del paciente peludo capitalino.
+            </p>
+            <div
+                class="grid-2 gap-md text-left bg-soft p-lg border-radius mb-md"
+            >
+                {
+                    procesoPasos.map((paso) => (
+                        <div class="flex flex-col items-start gap-sm hover-lift card border-subtle bg-white p-sm border-radius-sm">
+                            <div class="flex items-center gap-xs">
+                                <span class="emoji-md block mt-xs">
+                                    {paso.num}
+                                </span>
+                                <span class="text-primary-dark fw-bold text-sm lh-relaxed">
+                                    {paso.title}
+                                </span>
+                            </div>
+                            <p class="text-soft text-sm lh-relaxed m-0 mt-xs">
+                                {paso.desc}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ¿POR QUÉ ELEGIRNOS? -->
+    <section class="bg-soft py-xl">
+        <div class="container">
+            <h2 class="text-center mb-xl text-primary">
+                ¿Por qué confiar en Punto Veterinario para la cirugía?
+            </h2>
+            <div class="grid-3 gap-lg">
+                {
+                    porQueCards.map((item) => (
+                        <div class="card p-lg border-subtle bg-white flex-col gap-sm hover-lift">
+                            <div class="flex items-center gap-md mb-sm">
+                                <span class="emoji-lg">{item.emoji}</span>
+                                <h3 class="text-primary-dark text-md m-0">
+                                    {item.title}
+                                </h3>
+                            </div>
+                            <p class="text-soft text-sm lh-relaxed m-0">
+                                {item.desc}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FAQ -->
+    <section class="bg-white py-xl">
+        <div class="container max-w-lg mx-auto">
+            <h2 class="text-center mb-xl text-primary-dark">
+                Preguntas Frecuentes sobre Cirugía Veterinaria en Coyoacán
+            </h2>
+            <div class="flex-col gap-lg">
+                {
+                    faqSchema.mainEntity.map((faq) => (
+                        <div class="faq-item p-lg border-subtle bg-soft border-radius transition-transform hover-lift">
+                            <h3 class="text-primary text-md mb-sm">
+                                {faq.name}
+                            </h3>
+                            <p class="text-soft text-sm lh-relaxed m-0">
+                                {faq.acceptedAnswer.text}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SERVICIOS RELACIONADOS -->
+    <section class="bg-soft py-xl">
+        <div class="container">
+            <h2 class="text-center mb-xl text-primary">
+                Otros servicios en Punto Veterinario
+            </h2>
+            <div class="grid-3 gap-md">
+                {
+                    relacionadosCards.map((s) => (
+                        <a
+                            href={s.href}
+                            class="card p-lg border-subtle bg-white text-center hover-lift flex-col items-center"
+                        >
+                            <span class="emoji-xl mb-sm block">{s.emoji}</span>
+                            <h3 class="text-primary-dark mb-xs text-md">
+                                {s.title}
+                            </h3>
+                            <p class="text-soft text-sm lh-relaxed my-sm m-0">
+                                {s.desc}
+                            </p>
+                            <span class="text-primary fw-bold text-sm mt-auto inline-block pt-sm">
+                                Aprender más →
+                            </span>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA FINAL -->
+    <section class="cta-section bg-primary py-xl text-center">
+        <div class="container max-w-lg mx-auto">
+            <h2 class="text-white mb-lg text-2xl lh-1">
+                ¿Tu mascota necesita cirugía en Coyoacán?
+            </h2>
+            <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
+                Av. División del Norte 3595, Pedregal de Santo Domingo, CP 04620
+            </p>
+            <div class="flex flex-wrap justify-center gap-md">
+                <a
+                    href="/contacto"
+                    class="btn-white-theme text-primary fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
+                    >📅 Agendar Cita</a
+                >
+                <a
+                    href="https://wa.me/525513843004"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn-outline-white text-white fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
+                    >💬 WhatsApp</a
+                >
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    /* Local Fluid CSS Utilities - NO FIXED PX */
+    .bg-white {
+        background-color: var(--color-bg);
+    }
+    .bg-soft {
+        background-color: var(--color-bg-soft);
+    }
+    .bg-primary {
+        background-color: var(--color-primary);
+    }
+
+    .text-white {
+        color: var(--color-bg);
+    }
+    .text-primary {
+        color: var(--color-primary);
+    }
+    .text-primary-dark {
+        color: var(--color-primary-dark);
+    }
+    .text-soft {
+        color: var(--color-text-soft);
+    }
+
+    .text-center {
+        text-align: center;
+    }
+    .text-left {
+        text-align: left;
+    }
+    .text-sm {
+        font-size: var(--text-sm);
+    }
+    .text-md {
+        font-size: var(--text-md);
+    }
+    .text-lg {
+        font-size: var(--text-lg);
+    }
+    .text-2xl {
+        font-size: var(--text-2xl);
+    }
+    .fw-bold {
+        font-weight: 700;
+    }
+
+    .block {
+        display: block;
+    }
+    .inline-block {
+        display: inline-block;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex-col {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+    .flex-fill {
+        flex: 1;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .items-start {
+        align-items: flex-start;
+    }
+    .justify-center {
+        justify-content: center;
+    }
+
+    .m-0 {
+        margin: 0;
+    }
+    .my-sm {
+        margin-block: var(--space-sm);
+    }
+    .mt-sm {
+        margin-top: var(--space-sm);
+    }
+    .mt-xs {
+        margin-top: var(--space-xs);
+    }
+    .mt-auto {
+        margin-top: auto;
+    }
+    .mb-xs {
+        margin-bottom: var(--space-xs);
+    }
+    .mb-sm {
+        margin-bottom: var(--space-sm);
+    }
+    .mb-md {
+        margin-bottom: var(--space-md);
+    }
+    .mb-lg {
+        margin-bottom: var(--space-lg);
+    }
+    .mb-xl {
+        margin-bottom: var(--space-xl);
+    }
+    .mx-auto {
+        margin-inline: auto;
+    }
+
+    .py-sm {
+        padding-block: var(--space-sm);
+    }
+    .p-sm {
+        padding: var(--space-sm);
+    }
+    .pt-sm {
+        padding-top: var(--space-sm);
+    }
+    .py-xl {
+        padding-block: var(--space-xl);
+    }
+    .p-lg {
+        padding: var(--space-lg);
+    }
+    .px-lg {
+        padding-inline: var(--space-lg);
+    }
+
+    .gap-xs {
+        gap: var(--space-xs);
+    }
+    .gap-sm {
+        gap: var(--space-sm);
+    }
+    .gap-md {
+        gap: var(--space-md);
+    }
+    .gap-lg {
+        gap: var(--space-lg);
+    }
+
+    .lh-1 {
+        line-height: 1.2;
+    }
+    .lh-relaxed {
+        line-height: 1.6;
+    }
+    .max-w-lg {
+        max-width: 60rem;
+    }
+    .opacity-90 {
+        opacity: 0.9;
+    }
+
+    .border-radius {
+        border-radius: var(--radius);
+    }
+    .border-radius-sm {
+        border-radius: var(--radius-sm);
+    }
+    .border-subtle {
+        border: 0.1rem solid var(--color-border);
+        border-radius: var(--radius-lg);
+    }
+
+    .emoji-md {
+        font-size: clamp(1.2rem, 2vw, 1.8rem);
+        line-height: 1;
+        display: block;
+    }
+    .emoji-lg {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+    }
+    .emoji-xl {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .transition-transform {
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            background-color 0.2s ease,
+            color 0.2s ease;
+    }
+    .hover-lift:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: var(--shadow-md);
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+    }
+    .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+        transform: translateY(-0.15rem);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 0.15rem solid var(--color-primary-dark);
+    }
+    .btn-outline:hover {
+        background-color: var(--color-primary-dark);
+        color: var(--color-bg);
+        transform: translateY(-0.15rem);
+    }
+
+    .btn-white-theme {
+        background-color: var(--color-bg);
+        border: 0.15rem solid var(--color-bg);
+    }
+    .btn-white-theme:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: var(--shadow-md);
+        background-color: var(--color-bg-soft);
+    }
+
+    .btn-outline-white {
+        background-color: transparent;
+        border: 0.15rem solid var(--color-bg);
+    }
+    .btn-outline-white:hover {
+        transform: translateY(-0.2rem);
+        background-color: var(--color-bg);
+        color: var(--color-primary);
+    }
+</style>

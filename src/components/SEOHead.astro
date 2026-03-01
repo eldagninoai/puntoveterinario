@@ -4,25 +4,37 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  schema?: Record<string, any>;
 }
 
 const {
   title,
   description,
   canonical = Astro.url.href,
-  ogImage = '/images/og-puntoveterinario.jpg',
+  ogImage = "/images/og-puntoveterinario.jpg",
+  schema,
 } = Astro.props;
+
+// Asegurar URL canonical sin trailing slash
+const canonicalURL =
+  canonical.endsWith("/") && canonical.length > 1
+    ? canonical.slice(0, -1)
+    : canonical;
 ---
 
+<!-- Global Metadata -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonical} />
+<link rel="canonical" href={canonicalURL} />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={canonical} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
@@ -35,10 +47,9 @@ const {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<!-- Schema JSON-LD -->
+{
+  schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )
+}
