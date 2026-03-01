@@ -11,11 +11,11 @@ const schema = [
         telephone: "+525513843004",
         email: "puntovetcdmx@gmail.com",
         description:
-            "Veterinaria en Coyoacán CDMX, ubicada en Pedregal de Santo Domingo. Consultas, cirugías, estética, laboratorio y farmacia.",
+            "Veterinaria en Coyoacán CDMX, ubicada en San Pablo Tepetlapa. Consultas, cirugías, estética, laboratorio y farmacia.",
         address: {
             "@type": "PostalAddress",
             streetAddress: "Av. División del Norte 3595",
-            addressLocality: "Pedregal de Santo Domingo",
+            addressLocality: "San Pablo Tepetlapa",
             addressRegion: "Coyoacán, Ciudad de México",
             postalCode: "04620",
             addressCountry: "MX",
@@ -24,20 +24,20 @@ const schema = [
             {
                 "@type": "OpeningHoursSpecification",
                 dayOfWeek: [
-                    "Monday",
                     "Tuesday",
                     "Wednesday",
                     "Thursday",
                     "Friday",
+                    "Saturday",
                 ],
-                opens: "09:00",
-                closes: "20:00",
+                opens: "10:00",
+                closes: "19:00",
             },
             {
                 "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Saturday", "Sunday"],
+                dayOfWeek: ["Sunday"],
                 opens: "10:00",
-                closes: "18:00",
+                closes: "17:00",
             },
         ],
     },
@@ -46,7 +46,7 @@ const schema = [
 
 <BaseLayout
     title="Contacto y Citas | Punto Veterinario Coyoacán"
-    description="Agenda tu cita en Punto Veterinario, Coyoacán. Av. División del Norte 3595, Pedregal de Santo Domingo, CP 04620. Tel: 55 1384 3004"
+    description="Agenda tu cita en Punto Veterinario, Coyoacán. Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620. Tel: 55 1384 3004"
     schema={schema[0]}
 >
     <!-- 1. HERO -->
@@ -195,7 +195,7 @@ const schema = [
                                     >Visítanos centralmente en:</span
                                 >
                                 Av. División del Norte 3595,<br />
-                                Colonia Pedregal de Santo Domingo,<br />
+                                Colonia San Pablo Tepetlapa,<br />
                                 CP 04620, Delegación Coyoacán, CDMX.
                             </p>
                         </div>
@@ -274,15 +274,23 @@ const schema = [
                             class="text-soft text-sm m-0 lh-relaxed border-bottom pb-xs"
                         >
                             <span class="fw-bold text-primary-dark block"
-                                >Lunes a Viernes:</span
+                                >Lunes:</span
                             >
-                            Desde las 9:00 AM hasta las 20:00 PM hrs.
+                            Cerrado.
+                        </p>
+                        <p
+                            class="text-soft text-sm m-0 lh-relaxed border-bottom pb-xs pt-xs"
+                        >
+                            <span class="fw-bold text-primary-dark block"
+                                >Martes a Sábado:</span
+                            >
+                            Desde las 10:00 AM hasta las 19:00 PM hrs.
                         </p>
                         <p class="text-soft text-sm m-0 lh-relaxed pt-xs">
                             <span class="fw-bold text-primary-dark block"
-                                >Sábado y Domingo:</span
+                                >Domingo:</span
                             >
-                            Desde las 10:00 AM hasta las 18:00 PM hrs.
+                            Desde las 10:00 AM hasta las 17:00 PM hrs.
                         </p>
                     </div>
                 </div>
@@ -311,7 +319,7 @@ const schema = [
                 ¡Te esperamos pronto en Coyoacán!
             </h2>
             <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-                Av. División del Norte 3595, Pedregal de Santo Domingo, CP 04620
+                Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620
             </p>
             <div class="flex flex-wrap justify-center gap-md">
                 <a

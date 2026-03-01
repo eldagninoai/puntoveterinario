@@ -12,7 +12,7 @@ const emergencySchema = {
     address: {
         "@type": "PostalAddress",
         streetAddress: "Av. División del Norte 3595",
-        addressLocality: "Pedregal de Santo Domingo",
+        addressLocality: "San Pablo Tepetlapa",
         addressRegion: "Coyoacán, Ciudad de México",
         postalCode: "04620",
         addressCountry: "MX",
@@ -45,7 +45,7 @@ const faqSchema = {
             name: "¿Atienden urgencias en fin de semana en Coyoacán?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Sí, en Punto Veterinario atendemos urgencias los fines de semana (Sábado y Domingo) en un horario de 10:00 a 18:00 hrs. En Av. División del Norte 3595, Pedregal de Santo Domingo.",
+                text: "Sí, en Punto Veterinario atendemos urgencias los fines de semana (Sábado de 10:00 a 19:00 y Domingo de 10:00 a 17:00 hrs). En Av. División del Norte 3595, San Pablo Tepetlapa.",
             },
         },
         {
@@ -98,7 +98,7 @@ const hospitales24h = [
 
 <BaseLayout
     title="Urgencias Veterinarias Coyoacán | Punto Veterinario"
-    description="¿Tu mascota tiene una emergencia en Coyoacán? Atendemos en horario de clínica. Lun-Vie 9-20h, Sáb-Dom 10-18h. WhatsApp disponible. División del Norte."
+    description="¿Tu mascota tiene una emergencia en Coyoacán? Atendemos en horario de clínica. Lunes cerrado, Mar-Sáb 10-19h, Dom 10-17h. WhatsApp disponible. División del Norte."
     schema={emergencySchema}
 >
     <!-- Inyectar Schema FAQPage adicional -->
@@ -110,7 +110,8 @@ const hospitales24h = [
             <div class="container text-center">
                 <p class="text-white fw-bold lh-relaxed mb-0">
                     <span class="emoji-md mr-xs block-mobile">⏰</span>
-                    Atendemos urgencias: Lun-Vie 9:00-20:00 | Sáb-Dom 10:00-18:00
+                    Atendemos urgencias: Lunes: Cerrado | Mar-Sáb 10:00-19:00 | Dom
+                    10:00-17:00
                 </p>
             </div>
         </div>
@@ -242,7 +243,7 @@ const hospitales24h = [
                 Estamos en Coyoacán para cuando más nos necesitas
             </h2>
             <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-                Av. División del Norte 3595, Pedregal de Santo Domingo, CP 04620
+                Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620
             </p>
             <div class="flex flex-wrap justify-center gap-md">
                 <a
