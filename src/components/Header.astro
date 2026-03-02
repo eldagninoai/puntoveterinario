@@ -1,47 +1,104 @@
 ---
 const currentPath = Astro.url.pathname;
-const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/servicios/consulta-veterinaria", label: "Consulta Médica" },
-  { href: "/servicios/estetica-canina-felina", label: "Estética" },
-  { href: "/servicios/esterilizacion", label: "Esterilización" },
-  { href: "/servicios/cirugia-veterinaria", label: "Cirugías" },
-  { href: "/servicios/laboratorio-clinico", label: "Laboratorio" },
-  { href: "/servicios/alimento-mascotas", label: "Alimento" },
-  { href: "/blog", label: "Blog" },
+
+const servicios = [
+  {
+    href: "/servicios/consulta-veterinaria",
+    label: "Consulta Médica",
+    emoji: "🩺",
+  },
+  { href: "/servicios/estetica-canina", label: "Estética Canina", emoji: "🛁" },
+  { href: "/servicios/esterilizacion", label: "Esterilización", emoji: "✂️" },
+  { href: "/servicios/cirugia-veterinaria", label: "Cirugías", emoji: "🏥" },
+  { href: "/servicios/laboratorio-clinico", label: "Laboratorio", emoji: "🔬" },
+  { href: "/servicios/alimento-mascotas", label: "Alimento", emoji: "🛒" },
 ];
+
+const serviciosActivo = currentPath.startsWith("/servicios");
 ---
 
 <header class="header">
   <div class="container header__inner">
-    <a href="/" class="logo" aria-label="Punto Veterinario - Inicio">
+    <a href="/" class="logo" aria-label="Inicio">
       🐾 <span>Punto Veterinario</span>
     </a>
 
-    <button
-      class="nav-toggle"
-      aria-label="Abrir menú"
-      aria-expanded="false"
-      aria-controls="main-nav"
-    >
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-overlay" id="nav-overlay"></div>
 
-    <nav id="main-nav" aria-label="Navegación principal">
+    <nav class="nav-menu" id="nav-menu" aria-label="Navegación principal">
       <ul class="nav-list">
-        {
-          navLinks.map((link) => (
-            <li>
-              <a href={link.href} class={`nav-link ${currentPath === link.href ? 'nav-link--active' : ''}`}>
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
+        <li>
+          <a href="/" class={`nav-link ${currentPath === "/" ? "active" : ""}`}>
+            Inicio
+          </a>
+        </li>
+
+        <!-- SERVICIOS: un solo elemento, funciona en desktop y mobile -->
+        <li class="nav-item-dropdown">
+          <button
+            class={`nav-link dropdown-trigger ${serviciosActivo ? "active" : ""}`}
+            aria-expanded="false"
+            aria-haspopup="true"
+            id="servicios-btn"
+          >
+            Servicios <span class="chevron">▾</span>
+          </button>
+          <ul class="dropdown-menu" id="dropdown-menu" role="menu">
+            {
+              servicios.map((s) => (
+                <li role="none">
+                  <a
+                    href={s.href}
+                    role="menuitem"
+                    class={`dropdown-link ${currentPath === s.href ? "active" : ""}`}
+                  >
+                    <span class="dropdown-emoji">{s.emoji}</span>
+                    {s.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+
+        <li>
+          <a
+            href="/nosotros"
+            class={`nav-link ${currentPath === "/nosotros" ? "active" : ""}`}
+          >
+            Nosotros
+          </a>
+        </li>
+        <li>
+          <a
+            href="/ubicacion"
+            class={`nav-link ${currentPath === "/ubicacion" ? "active" : ""}`}
+          >
+            Ubicación
+          </a>
+        </li>
+        <li>
+          <a
+            href="/blog"
+            class={`nav-link ${currentPath.startsWith("/blog") ? "active" : ""}`}
+          >
+            Blog
+          </a>
+        </li>
       </ul>
     </nav>
 
-    <a href="/contacto" class="btn-primary btn-cita">Agendar Cita</a>
+    <div class="header-actions">
+      <a href="/contacto" class="btn-cta">📅 Agendar Cita</a>
+      <button
+        class="nav-toggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        id="nav-toggle"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -50,162 +107,352 @@ const navLinks = [
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--color-bg);
+    background: #fff;
     border-bottom: 0.1rem solid var(--color-border);
-    padding-block: var(--space-sm);
-    /* box-shadow: var(--shadow); removed to keep it cleaner / minimalistic with just bottom border */
+    padding-block: clamp(0.6rem, 1vw, 1.8vw);
   }
 
   .header__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-sm);
+    gap: clamp(1rem, 2vw, 3vw);
   }
 
+  /* LOGO */
   .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
+    gap: clamp(0.3rem, 0.5vw, 0.8vw);
     text-decoration: none;
-    font-size: var(--text-md);
+    font-size: clamp(1rem, 1.6vw, 2.8vw);
     font-weight: 700;
     color: var(--color-primary);
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
+  /* NAV */
+  .nav-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
   .nav-list {
     display: flex;
     list-style: none;
-    gap: var(--space-xs);
-    flex-wrap: wrap;
+    gap: clamp(0.2rem, 0.5vw, 1vw);
     align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
   }
 
+  /* NAV LINKS */
   .nav-link {
-    display: block;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
     text-decoration: none;
     color: var(--color-text);
-    font-size: var(--text-sm);
+    font-size: clamp(0.8rem, 1vw, 1.8vw);
     font-weight: 500;
-    padding: var(--space-xs) var(--space-sm);
+    padding: clamp(0.35rem, 0.5vw, 0.9vw) clamp(0.5rem, 0.8vw, 1.5vw);
     border-radius: var(--radius-sm);
     transition:
       background 0.2s,
       color 0.2s;
     white-space: nowrap;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--font-main);
   }
-
   .nav-link:hover {
     background: var(--color-primary-light);
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
   }
-  .nav-link--active {
+  .nav-link.active {
     background: var(--color-primary-light);
     color: var(--color-primary-dark);
     font-weight: 600;
   }
+  .chevron {
+    color: inherit;
+    font-size: 0.7em;
+    transition: transform 0.2s;
+    display: inline-block;
+    opacity: 0.7;
+  }
+  .dropdown-trigger[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+  }
 
-  .btn-cita {
-    white-space: nowrap;
-    font-size: var(--text-sm);
-    text-decoration: none;
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius);
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    font-weight: 600;
+  /* DROPDOWN */
+  .nav-item-dropdown {
+    position: relative;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + clamp(0.3rem, 0.5vw, 0.8vw));
+    left: 50%;
+    transform: translateX(-50%) translateY(-0.5rem);
+    background: #fff;
+    list-style: none;
+    padding: clamp(0.4rem, 0.6vw, 1vw);
+    margin: 0;
+    min-width: clamp(13rem, 16vw, 22vw);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 clamp(0.3rem, 0.5vw, 0.8vw) clamp(1rem, 1.5vw, 2.5vw)
+      rgba(0, 0, 0, 0.12);
+    border: 0.1rem solid var(--color-border);
+    z-index: 200;
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     transition:
-      background-color 0.2s ease,
-      transform 0.2s ease;
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s;
+  }
+  .dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.6vw, 1vw);
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: clamp(0.8rem, 1vw, 1.8vw);
+    padding: clamp(0.4rem, 0.6vw, 1vw) clamp(0.6rem, 1vw, 1.8vw);
+    border-radius: var(--radius-sm);
+    transition:
+      background 0.15s,
+      color 0.15s;
+    white-space: nowrap;
+  }
+  .dropdown-link:hover {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+  }
+  .dropdown-link.active {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 600;
+  }
+  .dropdown-emoji {
+    font-size: 1em;
   }
 
-  .btn-cita:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-0.2rem);
+  /* CTA */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1vw, 1.8vw);
+    flex-shrink: 0;
+  }
+  .btn-cta {
+    background: var(--color-primary);
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(0.8rem, 1vw, 1.8vw);
+    padding: clamp(0.35rem, 0.5vw, 0.9vw) clamp(0.7rem, 1.2vw, 2vw);
+    border-radius: var(--radius);
+    font-weight: 700;
+    white-space: nowrap;
+    transition:
+      filter 0.2s,
+      transform 0.2s;
+  }
+  .btn-cta:hover {
+    filter: brightness(1.08);
+    transform: translateY(-0.1rem);
   }
 
-  /* Hamburger — solo mobile */
+  /* HAMBURGER — oculto en desktop */
   .nav-toggle {
     display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.3rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--space-xs);
+  }
+  .nav-overlay {
+    display: none;
   }
 
-  .nav-toggle span {
-    display: block;
-    width: 1.5rem;
-    height: 0.15rem;
-    background: var(--color-primary);
-    border-radius: 1rem;
-    transition: all 0.3s;
-  }
-
-  /* ===== MOBILE FIRST ===== */
+  /* ===== MOBILE ===== */
   @media (max-width: 48rem) {
-    /* 768px = 48rem */
     .nav-toggle {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.3rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      z-index: 102;
     }
-
-    .btn-cita {
-      display: none;
-    }
-
-    nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--color-bg);
-      border-bottom: 0.1rem solid var(--color-border);
-      padding: var(--space-md);
-      box-shadow: var(--shadow-md);
-    }
-
-    nav.open {
+    .nav-toggle span {
       display: block;
+      width: 1.5rem;
+      height: 0.15rem;
+      background: var(--color-primary);
+      border-radius: 1rem;
+      transition: all 0.3s;
+    }
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(0.45rem) rotate(45deg);
+    }
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-0.45rem) rotate(-45deg);
+    }
+
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.3s,
+        visibility 0.3s;
+    }
+    .nav-overlay.active {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      bottom: 0;
+      width: min(75vw, 20rem);
+      background: #fff;
+      z-index: 101;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 4rem 1.5rem 2rem;
+      box-shadow: -0.2rem 0 1.5rem rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+      overflow-y: auto;
+    }
+    .nav-menu.open {
+      right: 0;
     }
 
     .nav-list {
       flex-direction: column;
-      gap: var(--space-xs);
-      align-items: flex-start;
+      align-items: stretch;
+      gap: 0.3rem;
+      width: 100%;
+    }
+    .nav-link {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.7rem 0.8rem;
+      justify-content: space-between;
     }
 
-    .nav-link {
-      display: block;
-      font-size: var(--text-base);
-      padding: var(--space-sm) 0;
+    /* Dropdown en mobile — se abre inline */
+    .nav-item-dropdown {
       width: 100%;
+    }
+    .dropdown-menu {
+      position: static;
+      transform: none;
+      box-shadow: none;
+      border: none;
+      border-left: 0.2rem solid var(--color-primary-light);
+      border-radius: 0;
+      padding: 0.3rem 0 0.3rem 1rem;
+      min-width: unset;
+      width: 100%;
+      margin-top: 0.3rem;
+      background: transparent;
+    }
+    .dropdown-menu.open {
+      transform: none;
+    }
+    .dropdown-link {
+      font-size: 0.95rem;
+      padding: 0.5rem 0.6rem;
     }
   }
 </style>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.querySelector("nav");
+    const toggle = document.getElementById("nav-toggle");
+    const nav = document.getElementById("nav-menu");
+    const overlay = document.getElementById("nav-overlay");
+    const serviciosBtn = document.getElementById("servicios-btn");
+    const dropdownMenu = document.getElementById("dropdown-menu");
 
+    // ── Menú mobile ──
+    function closeMenu() {
+      nav?.classList.remove("open");
+      toggle?.classList.remove("open");
+      overlay?.classList.remove("active");
+      toggle?.setAttribute("aria-expanded", "false");
+    }
+    function openMenu() {
+      nav?.classList.add("open");
+      toggle?.classList.add("open");
+      overlay?.classList.add("active");
+      toggle?.setAttribute("aria-expanded", "true");
+    }
     toggle?.addEventListener("click", () => {
-      const isOpen = nav?.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
+      nav?.classList.contains("open") ? closeMenu() : openMenu();
     });
-    document.addEventListener('click', (e) => {
-      if (!nav || !toggle) return;
-      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+    overlay?.addEventListener("click", closeMenu);
+
+    // Cerrar mobile al hacer clic en links (excepto el botón de servicios)
+    nav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // ── Dropdown servicios ──
+    function closeDropdown() {
+      dropdownMenu?.classList.remove("open");
+      serviciosBtn?.setAttribute("aria-expanded", "false");
+    }
+    function openDropdown() {
+      dropdownMenu?.classList.add("open");
+      serviciosBtn?.setAttribute("aria-expanded", "true");
+    }
+    function toggleDropdown() {
+      dropdownMenu?.classList.contains("open")
+        ? closeDropdown()
+        : openDropdown();
+    }
+
+    serviciosBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleDropdown();
+    });
+
+    // Cerrar dropdown al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (
+        !serviciosBtn?.contains(e.target) &&
+        !dropdownMenu?.contains(e.target)
+      ) {
+        closeDropdown();
       }
+    });
+
+    // Cerrar dropdown al presionar Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeDropdown();
     });
   });
 </script>

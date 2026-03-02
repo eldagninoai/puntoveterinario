@@ -1,0 +1,585 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Schema from "../../components/Schema.astro";
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Estética Canina en Coyoacán",
+    url: "https://puntoveterinario.com/servicios/estetica-canina",
+    description:
+        "Estética canina profesional en Coyoacán. Baño, corte y cuidado para tu perro. Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620.",
+    provider: {
+        "@type": "VeterinaryCare",
+        name: "Punto Veterinario",
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "Av. División del Norte 3595",
+            addressLocality: "San Pablo Tepetlapa",
+            postalCode: "04620",
+            addressCountry: "MX",
+        },
+    },
+};
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "¿Cuánto cuesta el baño y corte para perros en Coyoacán?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "El precio varía según el tamaño, tipo de pelaje y condición del perro. En Punto Veterinario ofrecemos paquetes accesibles que incluyen baño, corte y corte de uñas. Escríbenos por WhatsApp con una foto de tu perro para darte un presupuesto exacto.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "¿Con qué frecuencia debo llevar a mi perro a la estética?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Recomendamos estética canina al menos una vez al mes para razas de pelo largo, y cada mes y medio o dos meses para razas de pelo corto. Mantener esta frecuencia previene problemas de piel y parásitos.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "¿Dónde hay peluquería para perros cerca de San Pablo Tepetlapa?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Punto Veterinario está ubicado en Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán, CDMX. Ofrecemos estética canina profesional a solo minutos de tu hogar en la zona sur de la ciudad.",
+            },
+        },
+    ],
+};
+
+const incluyeCards = [
+    {
+        emoji: "🛁",
+        title: "Baño con shampoo especializado",
+        desc: "Usamos productos dermatológicos hipoalergénicos que limpian e hidratan sin alterar el pH natural de la piel de tu perro.",
+    },
+    {
+        emoji: "✂️",
+        title: "Corte de pelo según raza",
+        desc: "Realizamos cortes acordes al estándar de cada raza o al estilo que prefieras para tu mascota.",
+    },
+    {
+        emoji: "👂",
+        title: "Limpieza de oídos",
+        desc: "Prevenimos infecciones bacterianas y acumulación de humedad con una limpieza ótica cuidadosa y segura.",
+    },
+    {
+        emoji: "💅",
+        title: "Corte de uñas",
+        desc: "Evitamos deformaciones articulares y rasguños involuntarios con un corte profesional e indoloro.",
+    },
+    {
+        emoji: "🪮",
+        title: "Cepillado y desenredado",
+        desc: "Retiramos el pelo muerto y deshacemos nudos con paciencia, sin jalones, dejando el manto liso y oxigenado.",
+    },
+    {
+        emoji: "🌸",
+        title: "Perfumado y secado profesional",
+        desc: "Finalizamos con secado a temperatura controlada y una loción suave y duradera para que tu perro luzca y huela increíble.",
+    },
+];
+
+const beneficiosCards = [
+    { emoji: "🐕", text: "Detectamos problemas de piel y alergias a tiempo." },
+    {
+        emoji: "❤️",
+        text: "Usamos productos 100% seguros y especializados para perros.",
+    },
+    { emoji: "😌", text: "Ambiente tranquilo y sin estrés para tu mascota." },
+    { emoji: "🏆", text: "Personal capacitado en manejo y trato animal." },
+];
+
+const porQueCards = [
+    {
+        emoji: "📍",
+        title: "En San Pablo Tepetlapa, CP 04620",
+        desc: "Ubicación central en el sur de la ciudad sobre Av. División del Norte. Fácil acceso sin largas travesías.",
+    },
+    {
+        emoji: "🩺",
+        title: "Respaldado por equipo veterinario",
+        desc: "Nuestra estética opera junto a la clínica veterinaria. Si detectamos algo inusual en la piel de tu perro, lo evaluamos al momento.",
+    },
+    {
+        emoji: "💰",
+        title: "Precios accesibles en Coyoacán",
+        desc: "Calidad profesional a precios honestos y competitivos en la zona sur de CDMX.",
+    },
+];
+
+const relacionadosCards = [
+    {
+        title: "Consulta Veterinaria",
+        emoji: "🩺",
+        href: "/servicios/consulta-veterinaria",
+        desc: "Diagnóstico preciso y medicina preventiva.",
+    },
+    {
+        title: "Esterilización",
+        emoji: "✂️",
+        href: "/servicios/esterilizacion",
+        desc: "Procedimiento seguro con seguimiento post-operatorio.",
+    },
+    {
+        title: "Alimentos",
+        emoji: "🛒",
+        href: "/servicios/alimento-mascotas",
+        desc: "Croquetas y dietas premium para tu perro.",
+    },
+];
+---
+
+<BaseLayout
+    title="Estética Canina Coyoacán | Baño y Corte para Perros"
+    description="Estética canina profesional en Coyoacán. Baño, corte y cuidado para tu perro. Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620."
+    schema={schema}
+>
+    <Schema schema={faqSchema} />
+
+    <!-- 1. HERO -->
+    <section class="seccion fondo-blanco">
+        <div class="container hero-inner">
+            <h1 class="titulo-principal">
+                Estética Canina en Coyoacán, CDMX | Punto Veterinario
+            </h1>
+            <p class="subtitulo">
+                Servicio profesional de <strong
+                    >estética canina en San Pablo Tepetlapa, CP 04620</strong
+                >, Coyoacán. Baño, corte, limpieza de oídos, corte de uñas y más
+                — todo con productos especializados y personal capacitado en
+                trato animal. Ubicados en <strong
+                    >Av. División del Norte 3595</strong
+                >.
+            </p>
+            <div class="botones">
+                <a
+                    href="https://wa.me/525513843004"
+                    class="btn-primario"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 Agendar por WhatsApp
+                </a>
+                <a href="tel:+525513843004" class="btn-secundario">
+                    📞 Llamar ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ¿QUÉ INCLUYE? -->
+    <section class="seccion fondo-suave">
+        <div class="container">
+            <h2 class="titulo-seccion">
+                ¿Qué incluye la estética en Punto Veterinario?
+            </h2>
+            <div class="grid-cards">
+                {
+                    incluyeCards.map((item) => (
+                        <div class="card centrado">
+                            <span class="emoji-grande">{item.emoji}</span>
+                            <h3 class="titulo-card">{item.title}</h3>
+                            <p class="texto-suave">{item.desc}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BENEFICIOS -->
+    <section class="seccion fondo-blanco">
+        <div class="container angosto centrado">
+            <h2 class="titulo-seccion">
+                Beneficios de la estética profesional para tu perro
+            </h2>
+            <p class="parrafo-intro">
+                La estética no es solo apariencia — es parte esencial del
+                cuidado preventivo de tu mascota. En Punto Veterinario lo
+                hacemos con dedicación y productos seguros.
+            </p>
+            <div class="grid-beneficios">
+                {
+                    beneficiosCards.map((item) => (
+                        <div class="card-beneficio">
+                            <span class="emoji-mediano">{item.emoji}</span>
+                            <span class="texto-beneficio">{item.text}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ¿POR QUÉ ELEGIRNOS? -->
+    <section class="seccion fondo-suave">
+        <div class="container">
+            <h2 class="titulo-seccion">
+                ¿Por qué elegir la estética de Punto Veterinario?
+            </h2>
+            <div class="grid-3">
+                {
+                    porQueCards.map((item) => (
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="emoji-mediano">{item.emoji}</span>
+                                <h3 class="titulo-card">{item.title}</h3>
+                            </div>
+                            <p class="texto-suave">{item.desc}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FAQ -->
+    <section class="seccion fondo-blanco">
+        <div class="container angosto">
+            <h2 class="titulo-seccion centrado">
+                Preguntas Frecuentes sobre Estética Canina en Coyoacán
+            </h2>
+            <div class="faqs">
+                {
+                    faqSchema.mainEntity.map((faq) => (
+                        <div class="faq-item">
+                            <h3 class="faq-pregunta">{faq.name}</h3>
+                            <p class="texto-suave">{faq.acceptedAnswer.text}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SERVICIOS RELACIONADOS -->
+    <section class="seccion fondo-suave">
+        <div class="container">
+            <h2 class="titulo-seccion">Otros servicios en Punto Veterinario</h2>
+            <div class="grid-3">
+                {
+                    relacionadosCards.map((s) => (
+                        <a href={s.href} class="card card-link centrado">
+                            <span class="emoji-grande">{s.emoji}</span>
+                            <h3 class="titulo-card">{s.title}</h3>
+                            <p class="texto-suave">{s.desc}</p>
+                            <span class="ver-mas">Ver detalles →</span>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA FINAL -->
+    <section class="seccion cta-final centrado">
+        <div class="container angosto">
+            <h2 class="titulo-cta">
+                ¿Tu perro merece verse y sentirse bien en Coyoacán?
+            </h2>
+            <p class="texto-cta">
+                <a
+                    href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+                    target="_blank"
+                    rel="noopener"
+                    class="maps-link-blanco"
+                >
+                    Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
+                    Coyoacán, CDMX
+                </a>
+            </p>
+            <div class="botones">
+                <a href="/contacto" class="btn-blanco">📅 Agendar Cita</a>
+                <a
+                    href="https://wa.me/525513843004"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn-outline-blanco"
+                >
+                    💬 WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+
+    /* ===== HERO CENTRADO ===== */
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: clamp(1rem, 2vw, 3vw);
+        width: 100%;
+    }
+    .titulo-principal {
+        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
+        color: var(--color-primary-dark);
+        line-height: 1.15;
+        margin: 0;
+    }
+    .subtitulo {
+        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 75ch;
+        text-align: center;
+    }
+    .botones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 2.5vw);
+        justify-content: center;
+    }
+
+    /* ===== SECCIONES ===== */
+    .seccion {
+        padding-block: clamp(3rem, 6vw, 10vw);
+    }
+    .fondo-blanco {
+        background: var(--color-bg);
+    }
+    .fondo-suave {
+        background: var(--color-bg-soft);
+    }
+    .centrado {
+        text-align: center;
+    }
+    .angosto {
+        max-width: 60rem;
+        margin-inline: auto;
+    }
+
+    
+    
+    
+    
+
+    /* ===== BOTONES ===== */
+    
+    .btn-primario {
+        background: var(--color-primary);
+        color: #fff;
+        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.2rem, 2.5vw, 4vw);
+        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
+        border-radius: var(--radius);
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+            background 0.2s,
+            transform 0.2s;
+    }
+    .btn-primario:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-0.15rem);
+    }
+    .btn-secundario {
+        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.2rem, 2.5vw, 4vw);
+        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
+        border: 0.15rem solid var(--color-primary-dark);
+        color: var(--color-primary-dark);
+        border-radius: var(--radius);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+    .btn-secundario:hover {
+        background: var(--color-primary-dark);
+        color: #fff;
+        transform: translateY(-0.15rem);
+    }
+
+    /* ===== TÍTULOS ===== */
+    .titulo-seccion {
+        font-size: clamp(1.5rem, 2.8vw, 5vw);
+        color: var(--color-primary);
+        text-align: center;
+        margin-bottom: clamp(2rem, 4vw, 7vw);
+        line-height: 1.2;
+    }
+    .titulo-card {
+        font-size: clamp(1rem, 1.6vw, 2.8vw);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.5rem, 0.8vw, 1.5vw);
+        line-height: 1.3;
+    }
+    .texto-suave {
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0;
+    }
+    .parrafo-intro {
+        font-size: clamp(0.95rem, 1.3vw, 2.3vw);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin-bottom: clamp(1.5rem, 3vw, 5vw);
+        max-width: 60ch;
+        margin-inline: auto;
+    }
+
+    /* ===== GRIDS ===== */
+    .grid-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
+        gap: clamp(1rem, 2vw, 3.5vw);
+    }
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 22vw), 1fr));
+        gap: clamp(1rem, 2vw, 3.5vw);
+    }
+    .grid-beneficios {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 22vw), 1fr));
+        gap: clamp(0.8rem, 1.5vw, 2.5vw);
+        text-align: left;
+        background: var(--color-bg-soft);
+        padding: clamp(1.2rem, 2.5vw, 4vw);
+        border-radius: var(--radius-lg);
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+        background: var(--color-bg);
+        border: 0.06rem solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: clamp(1.2rem, 2.5vw, 4vw);
+        transition:
+            transform 0.2s,
+            box-shadow 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: var(--shadow-md);
+    }
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.6rem, 1vw, 1.8vw);
+        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
+    }
+    .card-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+    }
+    .ver-mas {
+        color: var(--color-primary);
+        font-weight: 700;
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
+        margin-top: clamp(0.8rem, 1.2vw, 2vw);
+    }
+    .card-beneficio {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.6rem, 1vw, 1.8vw);
+        background: var(--color-bg);
+        border-radius: var(--radius);
+        padding: clamp(0.6rem, 1vw, 1.8vw);
+        border: 0.06rem solid var(--color-border);
+    }
+    .texto-beneficio {
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
+        color: var(--color-primary-dark);
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    /* ===== EMOJIS ===== */
+    .emoji-grande {
+        font-size: clamp(2rem, 3.5vw, 6vw);
+        display: block;
+        margin-bottom: clamp(0.8rem, 1.2vw, 2vw);
+    }
+    .emoji-mediano {
+        font-size: clamp(1.2rem, 2vw, 3.5vw);
+        flex-shrink: 0;
+    }
+
+    /* ===== FAQ ===== */
+    .faqs {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 2vw, 3.5vw);
+    }
+    .faq-item {
+        background: var(--color-bg-soft);
+        border: 0.06rem solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: clamp(1.2rem, 2.5vw, 4vw);
+    }
+    .faq-pregunta {
+        font-size: clamp(1rem, 1.6vw, 2.8vw);
+        color: var(--color-primary);
+        margin-bottom: clamp(0.5rem, 0.8vw, 1.5vw);
+    }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final {
+        background: var(--color-primary);
+    }
+    .titulo-cta {
+        font-size: clamp(1.6rem, 2.8vw, 5vw);
+        color: #fff;
+        margin-bottom: clamp(1rem, 1.5vw, 2.5vw);
+        line-height: 1.2;
+    }
+    .texto-cta {
+        font-size: clamp(1rem, 1.4vw, 2.5vw);
+        margin-bottom: clamp(2rem, 3vw, 5vw);
+        max-width: none;
+    }
+    .maps-link-blanco {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.5);
+        text-underline-offset: 0.2rem;
+        transition: color 0.2s;
+    }
+    .maps-link-blanco:hover {
+        color: #fff;
+    }
+    .btn-blanco {
+        background: #fff;
+        color: var(--color-primary);
+        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 2.5vw, 4vw);
+        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
+        font-weight: 700;
+        border-radius: var(--radius);
+        text-decoration: none;
+        transition:
+            transform 0.2s,
+            box-shadow 0.2s;
+    }
+    .btn-blanco:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: var(--shadow-md);
+    }
+    .btn-outline-blanco {
+        border: 0.15rem solid #fff;
+        color: #fff;
+        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 2.5vw, 4vw);
+        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
+        font-weight: 700;
+        border-radius: var(--radius);
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+    .btn-outline-blanco:hover {
+        background: #fff;
+        color: var(--color-primary);
+        transform: translateY(-0.2rem);
+    }
+</style>

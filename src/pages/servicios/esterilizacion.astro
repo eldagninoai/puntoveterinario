@@ -149,8 +149,8 @@ const relacionadosCards = [
     <Schema schema={faqSchema} />
 
     <!-- 1. HERO -->
-    <section class="seccion bg-white">
-        <div class="container centrado max-angosto">
+    <section class="seccion fondo-blanco">
+        <div class="container hero-inner">
             <h1 class="titulo-principal">
                 Esterilización Veterinaria en Coyoacán, CDMX | Punto Veterinario
             </h1>
@@ -337,9 +337,41 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+
+    /* ===== HERO CENTRADO ===== */
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: clamp(1rem, 2vw, 3vw);
+        width: 100%;
+    }
+    .titulo-principal {
+        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
+        color: var(--color-primary-dark);
+        line-height: 1.15;
+        margin: 0;
+    }
+    .subtitulo {
+        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 75ch;
+        text-align: center;
+    }
+    .botones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 2.5vw);
+        justify-content: center;
+    }
+
+
     /* ===== SECCIONES ===== */
     .seccion {
-        padding-block: var(--space-xl);
+        padding-block: clamp(2.5rem, 5vw, 8vw);
     }
     .bg-white {
         background: var(--color-bg);
@@ -356,58 +388,22 @@ const relacionadosCards = [
     }
 
     /* ===== TIPOGRAFÍA ===== */
-    .titulo-principal {
-        font-size: var(--text-2xl);
-        color: var(--color-primary-dark);
-        line-height: 1.2;
-        margin-bottom: var(--space-md);
-    }
-    .subtitulo {
-        font-size: var(--text-md);
-        color: var(--color-text-soft);
-        line-height: 1.6;
-        margin-bottom: var(--space-lg);
-        max-width: 55ch;
-        margin-inline: auto;
-    }
-    .titulo-seccion {
-        font-size: var(--text-2xl);
-        color: var(--color-primary);
-        margin-bottom: var(--space-xl);
-        text-align: center;
-    }
-    .titulo-card {
-        font-size: var(--text-md);
-        color: var(--color-primary-dark);
-        margin-bottom: var(--space-xs);
-        margin-top: var(--space-sm);
-    }
-    .texto-suave {
-        font-size: var(--text-sm);
-        color: var(--color-text-soft);
-        line-height: 1.6;
-        margin: 0;
-    }
+    
     .parrafo-intro {
-        margin-bottom: var(--space-lg);
+        margin-bottom: clamp(1.5rem, 3vw, 5vw);
         max-width: 55ch;
         margin-inline: auto;
     }
 
     /* ===== BOTONES ===== */
-    .botones {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-md);
-        justify-content: center;
-    }
+    
     .btn-primary {
         background: var(--color-primary);
         color: #fff;
-        padding: var(--space-sm) var(--space-lg);
+        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 3vw, 5vw);
         border-radius: var(--radius);
         font-weight: 600;
-        font-size: var(--text-sm);
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
         text-decoration: none;
         transition:
             background 0.2s,
@@ -420,10 +416,10 @@ const relacionadosCards = [
     .btn-outline {
         border: 0.125rem solid var(--color-primary-dark);
         color: var(--color-primary-dark);
-        padding: var(--space-sm) var(--space-lg);
+        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 3vw, 5vw);
         border-radius: var(--radius);
         font-weight: 600;
-        font-size: var(--text-sm);
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
         text-decoration: none;
         transition: all 0.2s;
     }
@@ -436,13 +432,13 @@ const relacionadosCards = [
     /* ===== GRIDS ===== */
     .grid-3 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
-        gap: var(--space-md);
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
+        gap: clamp(1rem, 2vw, 3.5vw);
     }
     .grid-4 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
-        gap: var(--space-md);
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
+        gap: clamp(1rem, 2vw, 3.5vw);
     }
 
     /* ===== CARDS ===== */
@@ -450,7 +446,7 @@ const relacionadosCards = [
         background: var(--color-bg);
         border: 0.06rem solid var(--color-border);
         border-radius: var(--radius-lg);
-        padding: var(--space-md);
+        padding: clamp(1rem, 2vw, 3.5vw);
         transition:
             transform 0.2s,
             box-shadow 0.2s;
@@ -462,8 +458,8 @@ const relacionadosCards = [
     .card-header {
         display: flex;
         align-items: center;
-        gap: var(--space-sm);
-        margin-bottom: var(--space-sm);
+        gap: clamp(0.6rem, 1vw, 1.8vw);
+        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
     }
     .card-link {
         display: flex;
@@ -474,39 +470,39 @@ const relacionadosCards = [
     .ver-mas {
         color: var(--color-primary);
         font-weight: 700;
-        font-size: var(--text-sm);
-        margin-top: var(--space-sm);
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
+        margin-top: clamp(0.6rem, 1vw, 1.8vw);
     }
 
     /* ===== EMOJIS ===== */
     .emoji-grande {
-        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-size: clamp(2.5rem, 5vw, 9vw);
         display: block;
-        margin-bottom: var(--space-xs);
+        margin-bottom: clamp(0.4rem, 0.8vw, 1.4vw);
     }
     .emoji-mediano {
-        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        font-size: clamp(1.5rem, 3vw, 5.4vw);
     }
 
     /* ===== VENTAJAS ===== */
     .grid-ventajas {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-        gap: var(--space-sm);
-        padding: var(--space-lg);
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
+        gap: clamp(0.6rem, 1vw, 1.8vw);
+        padding: clamp(1.5rem, 3vw, 5vw);
         border-radius: var(--radius-lg);
         text-align: left;
     }
     .ventaja-item {
         display: flex;
         align-items: center;
-        gap: var(--space-sm);
+        gap: clamp(0.6rem, 1vw, 1.8vw);
     }
     .check {
-        font-size: var(--text-md);
+        font-size: clamp(1.1rem, 1.8vw, 3vw);
     }
     .ventaja-texto {
-        font-size: var(--text-sm);
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
         font-weight: 600;
         color: var(--color-primary-dark);
     }
@@ -515,17 +511,17 @@ const relacionadosCards = [
     .faqs {
         display: flex;
         flex-direction: column;
-        gap: var(--space-md);
+        gap: clamp(1rem, 2vw, 3.5vw);
     }
     .faq-item {
-        padding: var(--space-lg);
+        padding: clamp(1.5rem, 3vw, 5vw);
         border-radius: var(--radius-lg);
         border: 0.06rem solid var(--color-border);
     }
     .faq-pregunta {
-        font-size: var(--text-md);
+        font-size: clamp(1.1rem, 1.8vw, 3vw);
         color: var(--color-primary);
-        margin-bottom: var(--space-sm);
+        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
     }
 
     /* ===== MAPS LINK ===== */
@@ -545,15 +541,15 @@ const relacionadosCards = [
         background: var(--color-primary);
     }
     .titulo-cta {
-        font-size: var(--text-2xl);
+        font-size: clamp(2.2rem, 4vw, 6vw);
         color: #fff;
-        margin-bottom: var(--space-md);
+        margin-bottom: clamp(1rem, 2vw, 3.5vw);
         line-height: 1.2;
     }
     .texto-cta {
         color: rgba(255, 255, 255, 0.9);
-        font-size: var(--text-md);
-        margin-bottom: var(--space-xl);
+        font-size: clamp(1.1rem, 1.8vw, 3vw);
+        margin-bottom: clamp(2.5rem, 5vw, 8vw);
         max-width: none;
     }
     .maps-link-blanco {
@@ -569,10 +565,10 @@ const relacionadosCards = [
     .btn-blanco {
         background: #fff;
         color: var(--color-primary);
-        padding: var(--space-sm) var(--space-lg);
+        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 3vw, 5vw);
         border-radius: var(--radius);
         font-weight: 700;
-        font-size: var(--text-sm);
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
         text-decoration: none;
         transition:
             transform 0.2s,
@@ -585,10 +581,10 @@ const relacionadosCards = [
     .btn-outline-blanco {
         border: 0.125rem solid #fff;
         color: #fff;
-        padding: var(--space-sm) var(--space-lg);
+        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 3vw, 5vw);
         border-radius: var(--radius);
         font-weight: 700;
-        font-size: var(--text-sm);
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
         text-decoration: none;
         transition: all 0.2s;
     }

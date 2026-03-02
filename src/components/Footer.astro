@@ -2,8 +2,8 @@
 const servicios = [
   { href: "/servicios/consulta-veterinaria", label: "Consulta Médica" },
   {
-    href: "/servicios/estetica-canina-felina",
-    label: "Estética Canina y Felina",
+    href: "/servicios/estetica-canina",
+    label: "Estética Canina",
   },
   { href: "/servicios/esterilizacion", label: "Esterilización" },
   { href: "/servicios/cirugia-veterinaria", label: "Cirugías" },
@@ -61,16 +61,16 @@ const currentYear = new Date().getFullYear();
         <li>
           <span>📍</span>
           <div>
-            <a 
-  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-  target="_blank"
-  rel="noopener"
-  aria-label="Ver ubicación en Google Maps"
-  class="maps-link"
->
-  Av. División del Norte 3595, San Pablo Tepetlapa, 
-  CP 04620, Coyoacán, CDMX
-</a>
+            <a
+              href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+              target="_blank"
+              rel="noopener"
+              aria-label="Ver ubicación en Google Maps"
+              class="maps-link"
+            >
+              Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
+              Coyoacán, CDMX
+            </a>
           </div>
         </li>
         <li>
@@ -114,16 +114,18 @@ const currentYear = new Date().getFullYear();
   <div class="footer__bottom">
     <div class="container footer__bottom-inner">
       <p>© {currentYear} Punto Veterinario · Coyoacán, CDMX</p>
-      <p><a 
-  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-  target="_blank"
-  rel="noopener"
-  aria-label="Ver ubicación en Google Maps"
-  class="maps-link"
->
-  Av. División del Norte 3595, San Pablo Tepetlapa, 
-  CP 04620, Coyoacán, CDMX
-</a></p>
+      <p>
+        <a
+          href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+          target="_blank"
+          rel="noopener"
+          aria-label="Ver ubicación en Google Maps"
+          class="maps-link"
+        >
+          Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán,
+          CDMX
+        </a>
+      </p>
     </div>
   </div>
 </footer>
@@ -132,44 +134,43 @@ const currentYear = new Date().getFullYear();
   .footer {
     background: var(--color-primary-dark, #3dada9);
     color: var(--color-bg, #ffffff);
-    margin-top: var(--space-xl);
+    margin-top: clamp(2rem, 5vw, 10vw);
   }
 
   .footer__grid {
     display: grid;
-    /* Grid de 4 columnas fluido que colapsa en móvil */
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: var(--space-lg);
-    padding-block: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
+    gap: clamp(1.5rem, 3vw, 5vw);
+    padding-block: clamp(2rem, 4vw, 7vw);
   }
 
   .footer__logo {
     display: inline-block;
-    font-size: var(--text-lg);
+    font-size: clamp(1.2rem, 1.8vw, 3vw);
     font-weight: 700;
     color: var(--color-bg, #ffffff);
     text-decoration: none;
-    margin-bottom: var(--space-xs);
+    margin-bottom: clamp(0.5rem, 1vw, 2vw);
   }
 
   .footer__slogan {
     font-weight: 600;
-    font-size: var(--text-base);
-    margin-bottom: var(--space-xs);
+    font-size: clamp(0.9rem, 1.2vw, 2.2vw);
+    margin-bottom: clamp(0.5rem, 1vw, 2vw);
     color: var(--color-primary-light, #e8fafa);
   }
 
   .footer__desc {
-    font-size: var(--text-sm);
+    font-size: clamp(0.85rem, 1.1vw, 2vw);
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: var(--space-md);
+    margin-bottom: clamp(1rem, 2vw, 4vw);
     line-height: 1.5;
   }
 
   .footer__social {
     color: var(--color-bg, #ffffff);
     text-decoration: none;
-    font-size: var(--text-sm);
+    font-size: clamp(0.85rem, 1.1vw, 2vw);
     font-weight: 500;
     transition:
       color 0.2s ease,
@@ -183,29 +184,29 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer__col h3 {
-    font-size: var(--text-md);
+    font-size: clamp(1rem, 1.4vw, 2.5vw);
     font-weight: 600;
     color: var(--color-bg, #ffffff);
-    margin-bottom: var(--space-sm);
+    margin-bottom: clamp(0.8rem, 1.5vw, 3vw);
     border-bottom: 0.1rem solid rgba(255, 255, 255, 0.2);
-    padding-bottom: var(--space-xs);
+    padding-bottom: clamp(0.4rem, 0.8vw, 1.6vw);
   }
 
   .mt-md {
-    margin-top: var(--space-md);
+    margin-top: clamp(1.5rem, 3vw, 5vw);
   }
 
   .footer__list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: clamp(0.5rem, 1vw, 2vw);
     padding: 0;
     margin: 0;
   }
 
   .footer__list li {
-    font-size: var(--text-sm);
+    font-size: clamp(0.85rem, 1.1vw, 2vw);
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.4;
   }
@@ -221,54 +222,48 @@ const currentYear = new Date().getFullYear();
 
   .footer__list a:hover {
     color: var(--color-bg, #ffffff);
-    padding-left: 0.3rem; /* subtil hover animation */
+    padding-left: clamp(0.2rem, 0.4vw, 0.8vw);
   }
 
   .footer__contact li {
     display: flex;
-    gap: var(--space-xs);
+    gap: clamp(0.5rem, 1vw, 2vw);
     align-items: flex-start;
   }
 
   .footer__contact span {
     flex-shrink: 0;
+    font-size: clamp(1rem, 1.2vw, 2.2vw);
   }
 
   .footer__horario {
-    font-size: var(--text-sm);
+    font-size: clamp(0.85rem, 1.1vw, 2vw);
     color: rgba(255, 255, 255, 0.85);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: clamp(0.3rem, 0.6vw, 1.2vw);
     line-height: 1.4;
+  }
+  .footer__horario p {
+    margin: 0;
   }
 
   .footer__bottom {
     border-top: 0.1rem solid rgba(255, 255, 255, 0.15);
-    padding-block: var(--space-md);
-    background: rgba(
-      0,
-      0,
-      0,
-      0.05
-    ); /* Slight darkening for the very bottom bar */
+    padding-block: clamp(1.5rem, 3vw, 6vw);
+    background: rgba(0, 0, 0, 0.05);
   }
 
   .footer__bottom-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-xs);
     text-align: center;
+    gap: clamp(0.5rem, 1vw, 2vw);
+    font-size: clamp(0.75rem, 1vw, 1.8vw);
+    color: rgba(255, 255, 255, 0.6);
   }
 
-  .footer__bottom p {
-    font-size: var(--text-xs);
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-  }
-
-  /* MEDIA QUERIES (if any needed besides auto-fit grid) */
   @media (min-width: 48rem) {
     .footer__bottom-inner {
       flex-direction: row;
@@ -277,14 +272,21 @@ const currentYear = new Date().getFullYear();
     }
   }
 
+  .footer__bottom p {
+    margin: 0;
+  }
+
   .maps-link {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: var(--color-primary);
+    text-decoration-color: rgba(255, 255, 255, 0.4);
     text-underline-offset: 0.2rem;
-    transition: color 0.2s;
+    transition:
+      color 0.2s,
+      text-decoration-color 0.2s;
   }
   .maps-link:hover {
-    color: var(--color-primary);
+    color: #fff;
+    text-decoration-color: #fff;
   }
 </style>

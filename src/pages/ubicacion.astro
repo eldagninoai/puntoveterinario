@@ -60,17 +60,18 @@ const transporte = [
     schema={schema}
 >
     <!-- 1. HERO -->
-    <section class="hero bg-white pt-xl pb-lg">
-        <div class="container text-center max-w-lg mx-auto">
-            <h1 class="text-2xl text-primary-dark mb-md lh-1">
+    <section class="seccion fondo-blanco">
+        <div class="container hero-inner">
+            <h1 class="titulo-principal">
                 Veterinaria en San Pablo Tepetlapa | Punto Veterinario
             </h1>
-            <p class="text-lg text-soft mb-lg lh-relaxed">
+            <p class="subtitulo">
                 Encuentra nuestra clínica veterinaria en <strong
                     >Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
                     Coyoacán</strong
                 >.
             </p>
+            <div class="botones">
             <a
                 href="https://wa.me/525513843004"
                 class="btn-primary inline-block text-md px-lg py-sm fw-bold border-radius transition-transform"
@@ -79,6 +80,7 @@ const transporte = [
             >
                 💬 Contactar por WhatsApp
             </a>
+        </div>
         </div>
     </section>
 
@@ -107,17 +109,7 @@ const transporte = [
                                         aria-label="Ver ubicación en Google Maps"
                                         class="maps-link"
                                     >
-                                        <a
-                                            href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-                                            target="_blank"
-                                            rel="noopener"
-                                            aria-label="Ver ubicación en Google Maps"
-                                            class="maps-link"
-                                        >
-                                            Av. División del Norte 3595, San
-                                            Pablo Tepetlapa, CP 04620, Coyoacán,
-                                            CDMX
-                                        </a>
+                                        Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán, CDMX
                                     </a>
                                 </p>
                             </div>
@@ -163,7 +155,30 @@ const transporte = [
                                     Lunes: Cerrado<br />
                                     Mar-Sáb 10:00-19:00<br />
                                     Dom 10:00-17:00
-                                    <!-- 3. CÓMO LLEGAR -->
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Derecha: Mapa (Nuevo Iframe) -->
+                <div class="mapa-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5!2d-99.13922!3d19.322004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce010007f0a32f%3A0x9c168bcfa6aad89f!2sPunto%20Veterinario!5e0!3m2!1ses!2smx!4v1"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Ubicación Punto Veterinario en Google Maps"
+                  ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CÓMO LLEGAR -->
                                     <section class="bg-white py-xl">
                                         <div class="container">
                                             <h2
@@ -279,6 +294,37 @@ const transporte = [
                                 </p>
 
                                 <style>
+
+    /* ===== HERO CENTRADO ===== */
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: clamp(1rem, 2vw, 3vw);
+        width: 100%;
+    }
+    .titulo-principal {
+        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
+        color: var(--color-primary-dark);
+        line-height: 1.15;
+        margin: 0;
+    }
+    .subtitulo {
+        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 75ch;
+        text-align: center;
+    }
+    .botones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 2.5vw);
+        justify-content: center;
+    }
+
                                     /* Utilidades Globales (Reusables sin px) */
                                     .bg-white {
                                         background-color: var(--color-bg);
@@ -307,16 +353,16 @@ const transporte = [
                                         text-align: center;
                                     }
                                     .text-sm {
-                                        font-size: var(--text-sm);
+                                        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
                                     }
                                     .text-md {
-                                        font-size: var(--text-md);
+                                        font-size: clamp(1.1rem, 1.8vw, 3vw);
                                     }
                                     .text-lg {
-                                        font-size: var(--text-lg);
+                                        font-size: clamp(1.4rem, 2.5vw, 4vw);
                                     }
                                     .text-2xl {
-                                        font-size: var(--text-2xl);
+                                        font-size: clamp(2.2rem, 4vw, 6vw);
                                     }
                                     .fw-bold {
                                         font-weight: 700;
@@ -349,60 +395,60 @@ const transporte = [
                                     }
 
                                     .mt-xs {
-                                        margin-top: var(--space-xs);
+                                        margin-top: clamp(0.4rem, 0.8vw, 1.4vw);
                                     }
                                     .mb-sm {
-                                        margin-bottom: var(--space-sm);
+                                        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
                                     }
                                     .mb-md {
-                                        margin-bottom: var(--space-md);
+                                        margin-bottom: clamp(1rem, 2vw, 3.5vw);
                                     }
                                     .mb-lg {
-                                        margin-bottom: var(--space-lg);
+                                        margin-bottom: clamp(1.5rem, 3vw, 5vw);
                                     }
                                     .mb-xl {
-                                        margin-bottom: var(--space-xl);
+                                        margin-bottom: clamp(2.5rem, 5vw, 8vw);
                                     }
                                     .mx-auto {
                                         margin-inline: auto;
                                     }
 
                                     .pt-xl {
-                                        padding-top: var(--space-xl);
+                                        padding-top: clamp(2.5rem, 5vw, 8vw);
                                     }
                                     .pb-lg {
-                                        padding-bottom: var(--space-lg);
+                                        padding-bottom: clamp(1.5rem, 3vw, 5vw);
                                     }
                                     .py-xs {
-                                        padding-block: var(--space-xs);
+                                        padding-block: clamp(0.4rem, 0.8vw, 1.4vw);
                                     }
                                     .py-sm {
-                                        padding-block: var(--space-sm);
+                                        padding-block: clamp(0.6rem, 1vw, 1.8vw);
                                     }
                                     .py-xl {
-                                        padding-block: var(--space-xl);
+                                        padding-block: clamp(2.5rem, 5vw, 8vw);
                                     }
                                     .p-md {
-                                        padding: var(--space-md);
+                                        padding: clamp(1rem, 2vw, 3.5vw);
                                     }
                                     .p-lg {
-                                        padding: var(--space-lg);
+                                        padding: clamp(1.5rem, 3vw, 5vw);
                                     }
                                     .px-md {
-                                        padding-inline: var(--space-md);
+                                        padding-inline: clamp(1rem, 2vw, 3.5vw);
                                     }
                                     .px-lg {
-                                        padding-inline: var(--space-lg);
+                                        padding-inline: clamp(1.5rem, 3vw, 5vw);
                                     }
 
                                     .gap-sm {
-                                        gap: var(--space-sm);
+                                        gap: clamp(0.6rem, 1vw, 1.8vw);
                                     }
                                     .gap-md {
-                                        gap: var(--space-md);
+                                        gap: clamp(1rem, 2vw, 3.5vw);
                                     }
                                     .gap-lg {
-                                        gap: var(--space-lg);
+                                        gap: clamp(1.5rem, 3vw, 5vw);
                                     }
 
                                     .lh-1 {
@@ -433,13 +479,13 @@ const transporte = [
                                     }
 
                                     .emoji-lg {
-                                        font-size: clamp(1.5rem, 3vw, 2.5rem);
+                                        font-size: clamp(1.5rem, 3vw, 5.4vw);
                                     }
                                     .emoji-xl {
-                                        font-size: clamp(2.5rem, 5vw, 4rem);
+                                        font-size: clamp(2.5rem, 5vw, 9vw);
                                     }
                                     .emoji-xxl {
-                                        font-size: clamp(4rem, 8vw, 6rem);
+                                        font-size: clamp(4rem, 8vw, 14.4vw);
                                     }
 
                                     .transition-transform {
@@ -468,7 +514,7 @@ const transporte = [
                                     /* 2. Mapa Iframe Específico */
                                     .mapa-container {
                                         width: 100%;
-                                        min-height: clamp(20rem, 40vw, 35rem);
+                                        min-height: clamp(20rem, 40vw, 72vw);
                                         border-radius: var(--radius-lg);
                                         overflow: hidden;
                                         border: 0.1rem solid var(--color-border);

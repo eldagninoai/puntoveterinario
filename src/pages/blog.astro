@@ -62,10 +62,10 @@ const articulos = [
 >
 
   <!-- 1. HERO -->
-  <section class="hero bg-white py-xl text-center">
-    <div class="container max-w-lg mx-auto">
-      <h1 class="text-2xl text-primary-dark mb-md lh-1">Blog Veterinario en Coyoacán | Consejos para tu Mascota</h1>
-      <p class="text-lg text-soft mb-lg lh-relaxed">
+  <section class="seccion fondo-blanco">
+    <div class="container hero-inner">
+      <h1 class="titulo-principal">Blog Veterinario en Coyoacán | Consejos para tu Mascota</h1>
+      <p class="subtitulo">
         Descubre nuestros invaluables e informativos artículos médicos redactados directamente por la firme y diestra mano de nuestros mejores médicos tratantes. Una fuente inagotable de sabiduría animal zootécnica desde <strong>San Pablo Tepetlapa</strong> y la <strong>Av. División del Norte 3595</strong>, que empodera tu rol de tutor y resguarda con supremo conocimiento la inquebrantable vitalidad canina o felina de tu hogar sureño en particular.
       </p>
     </div>
@@ -108,6 +108,37 @@ const articulos = [
 </BaseLayout>
 
 <style>
+
+    /* ===== HERO CENTRADO ===== */
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: clamp(1rem, 2vw, 3vw);
+        width: 100%;
+    }
+    .titulo-principal {
+        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
+        color: var(--color-primary-dark);
+        line-height: 1.15;
+        margin: 0;
+    }
+    .subtitulo {
+        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 75ch;
+        text-align: center;
+    }
+    .botones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 2.5vw);
+        justify-content: center;
+    }
+
   /* Local Fluid CSS Utilities - NO FIXED PX */
   .bg-white { background-color: var(--color-bg); }
   .bg-soft { background-color: var(--color-bg-soft); }
@@ -121,11 +152,11 @@ const articulos = [
   
   .text-center { text-align: center; }
   .text-left { text-align: left; }
-  .text-xs { font-size: calc(var(--text-sm) * 0.85); }
-  .text-sm { font-size: var(--text-sm); }
-  .text-md { font-size: var(--text-md); }
-  .text-lg { font-size: var(--text-lg); }
-  .text-2xl { font-size: var(--text-2xl); }
+  .text-xs { font-size: calc(clamp(0.9rem, 1.2vw, 2.2vw) * 0.85); }
+  .text-sm { font-size: clamp(0.9rem, 1.2vw, 2.2vw); }
+  .text-md { font-size: clamp(1.1rem, 1.8vw, 3vw); }
+  .text-lg { font-size: clamp(1.4rem, 2.5vw, 4vw); }
+  .text-2xl { font-size: clamp(2.2rem, 4vw, 6vw); }
   .fw-bold { font-weight: 700; }
   .t-uppercase { text-transform: uppercase; }
   .letter-spacing-sm { letter-spacing: 0.1rem; }
@@ -142,30 +173,30 @@ const articulos = [
   .overflow-hidden { overflow: hidden; }
   
   .m-0 { margin: 0; }
-  .my-sm { margin-block: var(--space-sm); }
-  .mt-sm { margin-top: var(--space-sm); }
-  .mt-xs { margin-top: var(--space-xs); }
+  .my-sm { margin-block: clamp(0.6rem, 1vw, 1.8vw); }
+  .mt-sm { margin-top: clamp(0.6rem, 1vw, 1.8vw); }
+  .mt-xs { margin-top: clamp(0.4rem, 0.8vw, 1.4vw); }
   .mt-auto { margin-top: auto; }
-  .mb-xs { margin-bottom: var(--space-xs); }
-  .mb-sm { margin-bottom: var(--space-sm); }
-  .mb-md { margin-bottom: var(--space-md); }
-  .mb-lg { margin-bottom: var(--space-lg); }
-  .mb-xl { margin-bottom: var(--space-xl); }
-  .pb-xs { padding-bottom: var(--space-xs); }
-  .pt-xs { padding-top: var(--space-xs); }
+  .mb-xs { margin-bottom: clamp(0.4rem, 0.8vw, 1.4vw); }
+  .mb-sm { margin-bottom: clamp(0.6rem, 1vw, 1.8vw); }
+  .mb-md { margin-bottom: clamp(1rem, 2vw, 3.5vw); }
+  .mb-lg { margin-bottom: clamp(1.5rem, 3vw, 5vw); }
+  .mb-xl { margin-bottom: clamp(2.5rem, 5vw, 8vw); }
+  .pb-xs { padding-bottom: clamp(0.4rem, 0.8vw, 1.4vw); }
+  .pt-xs { padding-top: clamp(0.4rem, 0.8vw, 1.4vw); }
   .mx-auto { margin-inline: auto; }
   
-  .py-sm { padding-block: var(--space-sm); }
-  .p-sm { padding: var(--space-sm); }
-  .py-xl { padding-block: var(--space-xl); }
-  .p-lg { padding: var(--space-lg); }
-  .px-lg { padding-inline: var(--space-lg); }
+  .py-sm { padding-block: clamp(0.6rem, 1vw, 1.8vw); }
+  .p-sm { padding: clamp(0.6rem, 1vw, 1.8vw); }
+  .py-xl { padding-block: clamp(2.5rem, 5vw, 8vw); }
+  .p-lg { padding: clamp(1.5rem, 3vw, 5vw); }
+  .px-lg { padding-inline: clamp(1.5rem, 3vw, 5vw); }
   
-  .gap-xs { gap: var(--space-xs); }
-  .gap-sm { gap: var(--space-sm); }
-  .gap-md { gap: var(--space-md); }
-  .gap-lg { gap: var(--space-lg); }
-  .gap-xl { gap: var(--space-xl); }
+  .gap-xs { gap: clamp(0.4rem, 0.8vw, 1.4vw); }
+  .gap-sm { gap: clamp(0.6rem, 1vw, 1.8vw); }
+  .gap-md { gap: clamp(1rem, 2vw, 3.5vw); }
+  .gap-lg { gap: clamp(1.5rem, 3vw, 5vw); }
+  .gap-xl { gap: clamp(2.5rem, 5vw, 8vw); }
   
   .lh-1 { line-height: 1.2; }
   .lh-relaxed { line-height: 1.6; }
@@ -177,11 +208,11 @@ const articulos = [
   .border-subtle { border: 0.1rem solid var(--color-border); border-radius: var(--radius-lg); }
   .border-bottom { border-bottom: 0.1rem solid var(--color-border); }
   
-  .emoji-md { font-size: clamp(1.2rem, 2vw, 1.8rem); line-height: 1; }
-  .emoji-lg { font-size: clamp(1.5rem, 3vw, 2.5rem); }
-  .emoji-xl { font-size: clamp(2.5rem, 5vw, 4rem); }
+  .emoji-md { font-size: clamp(1.2rem, 2vw, 3.6vw); line-height: 1; }
+  .emoji-lg { font-size: clamp(1.5rem, 3vw, 5.4vw); }
+  .emoji-xl { font-size: clamp(2.5rem, 5vw, 9vw); }
 
-  .image-placeholder { min-height: clamp(12rem, 25vw, 14rem); }
+  .image-placeholder { min-height: clamp(12rem, 25vw, 45vw); }
   
   .transition-transform { transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
   .hover-lift:hover { transform: translateY(-0.2rem); box-shadow: var(--shadow-md); border-color: var(--color-primary-light); }

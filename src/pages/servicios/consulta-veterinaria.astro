@@ -145,7 +145,7 @@ const relacionadosCards = [
     {
         title: "Estética",
         emoji: "🛁",
-        href: "/servicios/estetica-canina-felina",
+        href: "/servicios/estetica-canina",
         desc: "Baños refrescantes de spa y diversos cortes altamente profesionales.",
     },
 ];
@@ -160,12 +160,12 @@ const relacionadosCards = [
     <Schema schema={faqSchema} />
 
     <!-- 1. HERO -->
-    <section class="hero bg-white py-xl">
-        <div class="container text-center max-w-lg mx-auto">
-            <h1 class="text-2xl text-primary-dark mb-md lh-1">
+    <section class="seccion fondo-blanco">
+        <div class="container hero-inner">
+            <h1 class="titulo-principal">
                 Consulta Veterinaria en Coyoacán, CDMX | Punto Veterinario
             </h1>
-            <p class="text-lg text-soft mb-lg lh-relaxed">
+            <p class="subtitulo">
                 Brindamos el servicio más exclusivo y dedicado de <strong
                     >consulta médica veterinaria</strong
                 > buscando el máximo bienestar y longevidad en la vida de invaluables
@@ -178,7 +178,7 @@ const relacionadosCards = [
                 experto para preservar el resplandor general en la salud de tu incondicional
                 y más puro aliado que te espera a diario al llegar.
             </p>
-            <div class="flex flex-wrap justify-center gap-md">
+            <div class="flex flex-wrap gap-md">
                 <a
                     href="https://wa.me/525513843004"
                     class="btn-primary text-md px-lg py-sm fw-bold border-radius transition-transform inline-block"
@@ -402,6 +402,43 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+
+    /* ===== HERO CENTRADO ===== */
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: clamp(1rem, 2vw, 3vw);
+        width: 100%;
+    }
+    .titulo-principal {
+        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
+        color: var(--color-primary-dark);
+        line-height: 1.15;
+        margin: 0;
+    }
+    .subtitulo {
+        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 75ch;
+        text-align: center;
+    }
+    .botones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 2.5vw);
+        justify-content: center;
+    }
+
+
+    
+    
+    
+    
+
     /* Utilidades Globales sin PX */
     .bg-white {
         background-color: var(--color-bg);
@@ -433,16 +470,16 @@ const relacionadosCards = [
         text-align: left;
     }
     .text-sm {
-        font-size: var(--text-sm);
+        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
     }
     .text-md {
-        font-size: var(--text-md);
+        font-size: clamp(1.1rem, 1.8vw, 3vw);
     }
     .text-lg {
-        font-size: var(--text-lg);
+        font-size: clamp(1.4rem, 2.5vw, 4vw);
     }
     .text-2xl {
-        font-size: var(--text-2xl);
+        font-size: clamp(2.2rem, 4vw, 6vw);
     }
     .fw-bold {
         font-weight: 700;
@@ -481,63 +518,63 @@ const relacionadosCards = [
         margin: 0;
     }
     .my-sm {
-        margin-block: var(--space-sm);
+        margin-block: clamp(0.6rem, 1vw, 1.8vw);
     }
     .mt-sm {
-        margin-top: var(--space-sm);
+        margin-top: clamp(0.6rem, 1vw, 1.8vw);
     }
     .mt-xs {
-        margin-top: var(--space-xs);
+        margin-top: clamp(0.4rem, 0.8vw, 1.4vw);
     }
     .mt-auto {
         margin-top: auto;
     }
     .mb-xs {
-        margin-bottom: var(--space-xs);
+        margin-bottom: clamp(0.4rem, 0.8vw, 1.4vw);
     }
     .mb-sm {
-        margin-bottom: var(--space-sm);
+        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
     }
     .mb-md {
-        margin-bottom: var(--space-md);
+        margin-bottom: clamp(1rem, 2vw, 3.5vw);
     }
     .mb-lg {
-        margin-bottom: var(--space-lg);
+        margin-bottom: clamp(1.5rem, 3vw, 5vw);
     }
     .mb-xl {
-        margin-bottom: var(--space-xl);
+        margin-bottom: clamp(2.5rem, 5vw, 8vw);
     }
     .mx-auto {
         margin-inline: auto;
     }
 
     .py-sm {
-        padding-block: var(--space-sm);
+        padding-block: clamp(0.6rem, 1vw, 1.8vw);
     }
     .p-sm {
-        padding: var(--space-sm);
+        padding: clamp(0.6rem, 1vw, 1.8vw);
     }
     .pt-sm {
-        padding-top: var(--space-sm);
+        padding-top: clamp(0.6rem, 1vw, 1.8vw);
     }
     .py-xl {
-        padding-block: var(--space-xl);
+        padding-block: clamp(2.5rem, 5vw, 8vw);
     }
     .p-lg {
-        padding: var(--space-lg);
+        padding: clamp(1.5rem, 3vw, 5vw);
     }
     .px-lg {
-        padding-inline: var(--space-lg);
+        padding-inline: clamp(1.5rem, 3vw, 5vw);
     }
 
     .gap-sm {
-        gap: var(--space-sm);
+        gap: clamp(0.6rem, 1vw, 1.8vw);
     }
     .gap-md {
-        gap: var(--space-md);
+        gap: clamp(1rem, 2vw, 3.5vw);
     }
     .gap-lg {
-        gap: var(--space-lg);
+        gap: clamp(1.5rem, 3vw, 5vw);
     }
 
     .lh-1 {
@@ -565,15 +602,15 @@ const relacionadosCards = [
     }
 
     .emoji-md {
-        font-size: clamp(1.2rem, 2vw, 1.8rem);
+        font-size: clamp(1.2rem, 2vw, 3.6vw);
         line-height: 1;
         display: block;
     }
     .emoji-lg {
-        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        font-size: clamp(1.5rem, 3vw, 5.4vw);
     }
     .emoji-xl {
-        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-size: clamp(2.5rem, 5vw, 9vw);
     }
 
     .transition-transform {
