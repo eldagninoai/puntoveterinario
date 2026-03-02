@@ -1,34 +1,34 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const schema = {
+const schemaLocal = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "VeterinaryCare"],
   name: "Punto Veterinario",
   url: "https://puntoveterinario.com",
+  image: "https://puntoveterinario.com/og-image.jpg",
   telephone: "+525513843004",
   email: "puntovetcdmx@gmail.com",
-  description:
-    "Clínica veterinaria en Coyoacán. Consultas médicas, cirugías, estética canina, laboratorio clínico y esterilización en San Pablo Tepetlapa, CP 04620.",
-  image:
-    "https://puntoveterinario.com/images/veterinaria-coyoacan-punto-veterinario.svg",
   priceRange: "$$",
-  currenciesAccepted: "MXN",
-  paymentAccepted: "Cash, Credit Card",
+  description:
+    "Veterinaria en Coyoacán CDMX. Consulta médica, cirugías, estética canina, laboratorio clínico, esterilización y alimento para mascotas en San Pablo Tepetlapa.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Av. División del Norte 3595",
-    addressLocality: "San Pablo Tepetlapa",
-    addressRegion: "Coyoacán, Ciudad de México",
+    addressLocality: "Coyoacán",
+    addressRegion: "CDMX",
     postalCode: "04620",
     addressCountry: "MX",
+  },
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Coyoacán",
   },
   geo: {
     "@type": "GeoCoordinates",
     latitude: 19.322004,
     longitude: -99.13922,
   },
-  hasMap: "https://maps.app.goo.gl/GricGKCzpp6BXJgE7",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -44,97 +44,82 @@ const schema = {
     },
   ],
   sameAs: ["https://www.instagram.com/punto_veterinario/"],
-  areaServed: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      latitude: 19.322004,
-      longitude: -99.13922,
+};
+
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Cuánto cuesta una consulta veterinaria en Coyoacán?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "En Punto Veterinario ofrecemos consultas médicas generales a precios accesibles en Coyoacán, CDMX. Contáctanos por WhatsApp al 55 1384 3004 para informarte sobre el costo actual.",
+      },
     },
-    geoRadius: "5000",
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Servicios Veterinarios",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Consulta Veterinaria Coyoacán",
-        },
+    {
+      "@type": "Question",
+      name: "¿Atienden perros y gatos?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí, atendemos perros y gatos en todos nuestros servicios: consulta médica, esterilización, cirugías y laboratorio clínico. El servicio de estética canina es exclusivo para perros.",
       },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Estética Canina Coyoacán" },
+    },
+    {
+      "@type": "Question",
+      name: "¿Dónde está ubicada la veterinaria?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Estamos en Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán, CDMX. Puedes llegar desde Metro Universidad tomando una combi por División del Norte.",
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Esterilización de mascotas Coyoacán",
-        },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuáles son los horarios de atención?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Atendemos martes a sábado de 10:00 a 19:00 hrs y domingos de 10:00 a 17:00 hrs. Los lunes permanecemos cerrados.",
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Cirugía Veterinaria Coyoacán",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Laboratorio Clínico Veterinario Coyoacán",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Alimento para mascotas San Pablo Tepetlapa",
-        },
-      },
-    ],
-  },
+    },
+  ],
 };
 
 const servicios = [
   {
     emoji: "🩺",
     title: "Consulta Médica",
-    desc: "Diagnóstico preciso y atención personalizada.",
+    desc: "Diagnóstico completo para perros y gatos. Revisión de nariz a cola, historial clínico y plan de salud preventiva.",
     href: "/servicios/consulta-veterinaria",
   },
   {
     emoji: "🛁",
     title: "Estética Canina",
-    desc: "Baño, corte y cuidado profesional.",
+    desc: "Baño, corte y cuidado profesional para perros en Coyoacán. Usamos productos específicos para cada tipo de pelaje.",
     href: "/servicios/estetica-canina",
   },
   {
     emoji: "✂️",
     title: "Esterilización",
-    desc: "Procedimiento seguro con seguimiento post-operatorio.",
+    desc: "Procedimiento seguro para perros y gatos con seguimiento post-operatorio. Incluye valoración prequirúrgica.",
     href: "/servicios/esterilizacion",
   },
   {
     emoji: "🏥",
     title: "Cirugías",
-    desc: "Quirófano equipado para atención especializada.",
+    desc: "Quirófano equipado para cirugías de tejidos blandos y procedimientos especializados en el sur de CDMX.",
     href: "/servicios/cirugia-veterinaria",
   },
   {
     emoji: "🔬",
     title: "Laboratorio Clínico",
-    desc: "Análisis clínicos y resultados rápidos de confianza.",
+    desc: "Análisis de sangre, hemograma y perfil bioquímico para perros y gatos. Resultados el mismo día.",
     href: "/servicios/laboratorio-clinico",
   },
   {
     emoji: "🛒",
     title: "Alimento para Mascotas",
-    desc: "Croquetas y dietas premium para cuidar su nutrición.",
+    desc: "Croquetas y dietas premium recomendadas por veterinarios. Asesoría personalizada según las necesidades de tu mascota.",
     href: "/servicios/alimento-mascotas",
   },
 ];
@@ -142,23 +127,38 @@ const servicios = [
 const porque = [
   {
     emoji: "❤️",
-    title: "Atención con amor",
-    desc: "Tratamos a tu mascota como si fuera nuestra.",
+    title: "Trato personalizado",
+    desc: "Tratamos a cada paciente como si fuera nuestra propia mascota. Conocemos su historial, su carácter y sus necesidades.",
   },
   {
     emoji: "🏆",
-    title: "Médicos especializados",
-    desc: "Equipo profesional en constante actualización.",
+    title: "Médicos veterinarios especializados",
+    desc: "Equipo veterinario con formación especializada y actualización constante en medicina preventiva y cirugía. Más que un consultorio, somos profesionales dedicados a diagnósticos precisos y tratamientos efectivos.",
   },
   {
     emoji: "📍",
-    title: "En San Pablo Tepetlapa, Coyoacán",
-    desc: "Ubicación accesible en el sur de la ciudad.",
+    title: "Ubicación accesible en Coyoacán",
+    desc: "Estamos en Av. División del Norte 3595, San Pablo Tepetlapa — fácil de llegar desde Metro Universidad y colonias vecinas como Pedregal de Santo Domingo, Copilco y Ajusco.",
   },
   {
     emoji: "💰",
     title: "Precios accesibles",
-    desc: "Medicina veterinaria de calidad al alcance de todos.",
+    desc: "Creemos que el cuidado veterinario de calidad debe estar al alcance de todos los dueños de mascotas en el sur de CDMX.",
+  },
+];
+
+const datos = [
+  {
+    dato: "1 de cada 4 perras no esterilizadas desarrolla cáncer mamario",
+    desc: "Esterilizar antes del primer celo reduce este riesgo a menos del 1%. Una decisión preventiva que puede salvarle la vida.",
+  },
+  {
+    dato: "80% de las perras presentarán piometra si no se esterilizan",
+    desc: "La piometra es una infección uterina grave que requiere cirugía de urgencia. Se previene completamente con la esterilización.",
+  },
+  {
+    dato: "Un chequeo anual detecta enfermedades antes de que den síntomas",
+    desc: "Enfermedades renales, hepáticas o tumorales son silentes en etapas tempranas. La consulta preventiva es la herramienta más efectiva.",
   },
 ];
 
@@ -179,35 +179,43 @@ const resenas = [
     nombre: "Monica Alvarez",
   },
 ];
+
+const faqs = schemaFAQ.mainEntity;
+
+let posts = [];
+try {
+  posts = Object.values(
+    import.meta.glob("./blog/*.md", { eager: true }) || {},
+  ).slice(0, 3);
+} catch (e) {}
 ---
 
 <BaseLayout
-  title="Veterinaria en Coyoacán CDMX | Punto Veterinario — San Pablo Tepetlapa"
-  description="Clínica veterinaria en Av. División del Norte 3595, San Pablo Tepetlapa CP 04620, Coyoacán CDMX. Consultas, cirugías, estética canina, laboratorio y esterilización. ☎️ 55 1384 3004"
+  title="Veterinaria en Coyoacán, CDMX | Punto Veterinario"
+  description="Clínica veterinaria en Coyoacán, CDMX. Consulta médica, estética canina, esterilización, cirugías y laboratorio clínico en Av. División del Norte 3595, San Pablo Tepetlapa. ¡Agenda por WhatsApp!"
   canonical="https://puntoveterinario.com"
-  ogImage="/images/veterinaria-coyoacan-punto-veterinario.svg"
-  schema={schema}
 >
   <Fragment slot="head">
-    <link
-      rel="preload"
-      as="video"
-      href="/videos/veterinaria-coyoacan.mp4"
-      type="video/mp4"
-    />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaLocal)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
   </Fragment>
 
-  <!-- 1. HERO -->
-  <section class="hero">
+  <!-- SECCIÓN 1 — HERO -->
+  <section class="hero content-section">
     <div class="container hero__inner">
       <div class="hero__text">
-        <h1>Veterinaria en Coyoacán, CDMX | Punto Veterinario</h1>
-        <p class="hero__slogan">¡De cola a nariz, tu mascota feliz!</p>
+        <h1 class="h1-hero">
+          Veterinaria en Coyoacán, CDMX | Punto Veterinario
+        </h1>
         <p class="hero__desc">
-          Clínica veterinaria en Av. División del Norte 3595, San Pablo
-          Tepetlapa CP 04620, Coyoacán. Atendemos perros y gatos con consultas
-          médicas, cirugías, estética canina y laboratorio clínico.
+          Atendemos a tu perro o gato con diagnóstico preciso, precios
+          accesibles y el trato que tu mascota merece. Estamos en Av. División
+          del Norte 3595, San Pablo Tepetlapa — en el corazón del sur de la
+          ciudad.
         </p>
+        <div class="hero__slogan-box">
+          <p class="hero__slogan">¡De cola a nariz, tu mascota feliz!</p>
+        </div>
         <div class="hero__btns">
           <a
             href="https://wa.me/525513843004"
@@ -218,56 +226,17 @@ const resenas = [
             💬 Agendar por WhatsApp
           </a>
           <a href="/servicios/consulta-veterinaria" class="btn-sec">
-            Ver Servicios
+            Ver nuestros servicios
           </a>
-        </div>
-        <div class="hero__datos">
-          <span>📞 <a href="tel:+525513843004">55 1384 3004</a></span>
-          <span>📍 Av. División del Norte 3595, CDMX</span>
-          <span>
-            <a href="https://wa.me/525513843004" target="_blank" rel="noopener">
-              💬 WhatsApp Urgente
-            </a>
-          </span>
-        </div>
-      </div>
-
-      <!-- VIDEO — mismo estilo que nosotros.astro -->
-      <div class="hero-video">
-        <div class="video-wrapper">
-          <video
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="none"
-            class="video-hero"
-            id="video-hero"
-            aria-label="Clínica veterinaria Punto Veterinario en Coyoacán — Av. División del Norte 3595, San Pablo Tepetlapa CP 04620, CDMX"
-            title="Punto Veterinario — Veterinaria en Coyoacán CDMX"
-          >
-            <source src="/videos/veterinaria-coyoacan.mp4" type="video/mp4" />
-            <source
-              src="/videos/veterinaria-coyoacan.mov"
-              type="video/quicktime"
-            />
-          </video>
-          <button
-            class="btn-sonido"
-            id="btn-sonido-hero"
-            aria-label="Activar sonido del video"
-          >
-            🔇
-          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. SERVICIOS -->
-  <section class="seccion fondo-suave">
+  <!-- SECCIÓN 2 — SERVICIOS -->
+  <section class="content-section bg-soft">
     <div class="container">
-      <h2 class="titulo-sec">Nuestros Servicios en Coyoacán</h2>
+      <h2 class="titulo-sec">Servicios Veterinarios en Coyoacán</h2>
       <div class="grid-servicios">
         {
           servicios.map((s) => (
@@ -283,10 +252,12 @@ const resenas = [
     </div>
   </section>
 
-  <!-- 3. POR QUÉ ELEGIRNOS -->
-  <section class="seccion fondo-blanco">
+  <!-- SECCIÓN 3 — POR QUÉ ELEGIRNOS -->
+  <section class="content-section">
     <div class="container">
-      <h2 class="titulo-sec">¿Por qué elegir Punto Veterinario?</h2>
+      <h2 class="titulo-sec">
+        ¿Por qué elegir Punto Veterinario en San Pablo Tepetlapa?
+      </h2>
       <div class="grid-porque">
         {
           porque.map((r) => (
@@ -301,10 +272,31 @@ const resenas = [
     </div>
   </section>
 
-  <!-- 4. RESEÑAS -->
-  <section class="seccion fondo-suave">
+  <!-- SECCIÓN 4 — DATOS QUE IMPORTAN -->
+  <section class="content-section bg-soft">
     <div class="container">
-      <h2 class="titulo-sec">Lo que dicen nuestros clientes</h2>
+      <h2 class="titulo-sec">
+        Lo que debes saber sobre la salud de tu mascota
+      </h2>
+      <div class="grid-datos">
+        {
+          datos.map((d) => (
+            <div class="card-dato">
+              <h3 class="dato-titulo">{d.dato}</h3>
+              <p class="dato-desc">{d.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5 — RESEÑAS -->
+  <section class="content-section">
+    <div class="container text-center">
+      <h2 class="titulo-sec">
+        Lo que dicen los dueños de mascotas en Coyoacán
+      </h2>
       <div class="grid-resenas">
         {
           resenas.map((r) => (
@@ -316,13 +308,50 @@ const resenas = [
           ))
         }
       </div>
+      <a
+        href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7"
+        target="_blank"
+        rel="noopener"
+        class="link-mas"
+      >
+        Ver más reseñas en Google →
+      </a>
     </div>
   </section>
 
-  <!-- 5. CÓMO LLEGAR -->
-  <section class="seccion fondo-blanco">
+  <!-- SECCIÓN 6 — FAQ -->
+  <section class="content-section bg-soft">
+    <div class="container container--narrow">
+      <h2 class="titulo-sec">
+        Preguntas frecuentes sobre nuestra veterinaria en Coyoacán
+      </h2>
+      <div class="faq-accordion">
+        {
+          faqs.map((faq) => (
+            <details class="faq-item">
+              <summary class="faq-question">{faq.name}</summary>
+              <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 7 — UBICACIÓN Y HORARIOS -->
+  <section class="content-section">
     <div class="container">
       <h2 class="titulo-sec">¿Cómo llegar a Punto Veterinario en Coyoacán?</h2>
+
+      <div class="rf-ubicacion">
+        <p class="rf-ubicacion-text">
+          Nos encontramos en Av. División del Norte 3595, San Pablo Tepetlapa,
+          CP 04620, Coyoacán, CDMX — una zona accesible para dueños de mascotas
+          de colonias como Pedregal de Santo Domingo, Copilco el Alto, Ajusco,
+          Los Reyes y El Caracol.
+        </p>
+      </div>
+
       <div class="como-llegar-grid">
         <div class="como-llegar-info">
           <p class="direccion-label">Ubicación central en el sur:</p>
@@ -357,128 +386,106 @@ const resenas = [
           <a href="/ubicacion" class="btn-mapa">📍 Ver cómo llegar en el mapa</a
           >
         </div>
+
         <div class="mapa-placeholder">
-          <span class="pin-emoji">📍</span>
-          <p class="mapa-texto">Av. División del Norte 3595,<br />Coyoacán</p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.0454378776846!2d-99.1417531!3d19.3238356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce01a52002f2ab%3A0xe5a3c0e3e5c9b7e7!2sPunto%20Veterinario!5e0!3m2!1sen!2smx!4v1707575344445!5m2!1sen!2smx"
+            width="100%"
+            height="100%"
+            style="border:0; border-radius: clamp(1rem, 2vw, 1.5rem); min-height: clamp(20rem, 30vw, 40rem);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. CTA FINAL -->
-  <section class="cta-final">
+  <!-- SECCIÓN 8 — CTA FINAL -->
+  <section class="cta-final content-section">
     <div class="container cta-inner">
-      <h2 class="cta-titulo">¿Tu mascota necesita atención en Coyoacán?</h2>
-      <p class="cta-dir">
-        <a
-          href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-          target="_blank"
-          rel="noopener"
-          class="maps-link-blanco"
-        >
-          Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán,
-          CDMX
-        </a>
+      <h2 class="cta-titulo-blanc">
+        ¿Tu perro o gato necesita atención veterinaria en Coyoacán?
+      </h2>
+      <p class="cta-desc-blanc">
+        Agenda tu cita fácilmente por WhatsApp o llámanos directamente. Estamos
+        en Av. División del Norte 3595, San Pablo Tepetlapa — atendiendo a las
+        mascotas del sur de CDMX.
       </p>
       <div class="cta-btns">
-        <a href="/contacto" class="btn-cta-blanco">📅 Agendar Cita</a>
         <a
           href="https://wa.me/525513843004"
           target="_blank"
           rel="noopener"
-          class="btn-cta-outline"
+          class="btn-cta-blanco"
         >
-          💬 WhatsApp
+          💬 Agendar por WhatsApp
+        </a>
+        <a href="tel:+525513843004" class="btn-cta-outline">
+          📞 55 1384 3004
         </a>
       </div>
     </div>
   </section>
+
+  <!-- SECCIÓN 9 — BLOG (Condicional) -->
+  {
+    posts.length > 0 && (
+      <section class="content-section">
+        <div class="container">
+          <h2 class="titulo-sec">
+            Consejos veterinarios para dueños de mascotas en CDMX
+          </h2>
+          <div class="grid-blog">
+            {posts.map((post: any) => (
+              <a href={post.url} class="card-blog">
+                {post.frontmatter.image && (
+                  <img
+                    src={post.frontmatter.image}
+                    alt={post.frontmatter.title}
+                    class="blog-img"
+                  />
+                )}
+                <div class="blog-content">
+                  <h3 class="blog-titulo">{post.frontmatter.title}</h3>
+                  <p class="blog-fecha">
+                    {new Date(post.frontmatter.date).toLocaleDateString(
+                      "es-MX",
+                    )}
+                  </p>
+                  <span class="card-ver">Leer más →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 </BaseLayout>
 
-<script is:inline>
-  const videoHero = document.getElementById("video-hero");
-  const btnHero = document.getElementById("btn-sonido-hero");
-  btnHero?.addEventListener("click", () => {
-    if (videoHero.muted) {
-      videoHero.muted = false;
-      btnHero.textContent = "🔊";
-      btnHero.setAttribute("aria-label", "Silenciar video");
-    } else {
-      videoHero.muted = true;
-      btnHero.textContent = "🔇";
-      btnHero.setAttribute("aria-label", "Activar sonido del video");
-    }
-  });
-</script>
-
 <style>
-  /* ===== HERO VIDEO — idéntico a nosotros.astro ===== */
-  .hero-video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: clamp(14rem, 22vw, 35vw);
-    margin-inline: auto;
-  }
-  .video-hero {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    object-fit: cover;
-    display: block;
-  }
-  @media (max-width: 48rem) {
-    .video-wrapper {
-      max-width: 60vw;
-    }
-  }
-  .btn-sonido {
-    position: absolute;
-    bottom: clamp(0.5rem, 1vw, 1.5vw);
-    right: clamp(0.5rem, 1vw, 1.5vw);
-    background: rgba(0, 0, 0, 0.55);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: clamp(2rem, 3vw, 4rem);
-    height: clamp(2rem, 3vw, 4rem);
-    font-size: clamp(0.9rem, 1.5vw, 2vw);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition:
-      background 0.2s,
-      transform 0.2s;
-    backdrop-filter: blur(4px);
-  }
-  .btn-sonido:hover {
-    background: rgba(0, 0, 0, 0.75);
-    transform: scale(1.1);
-  }
-  @media (max-width: 48rem) {
-    .video-hero {
-      margin-inline: auto;
-    }
-  }
+  /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
 
-  /* ===== SECCIONES ===== */
-  .seccion {
+  .content-section {
     padding-block: clamp(3rem, 6vw, 12rem);
   }
-  .fondo-suave {
+  .pt-0 {
+    padding-top: 0;
+  }
+  .bg-soft {
     background: var(--color-bg-soft);
   }
-  .fondo-blanco {
-    background: var(--color-bg);
+
+  .h1-hero {
+    font-size: clamp(1.8rem, 3.2vw, 6rem);
+    color: var(--color-text);
+    line-height: 1.15;
+    margin-bottom: clamp(1rem, 2vw, 3rem);
   }
 
-  /* ===== TÍTULOS DE SECCIÓN ===== */
   .titulo-sec {
     font-size: clamp(1.6rem, 2.8vw, 5rem);
     color: var(--color-primary);
@@ -487,53 +494,69 @@ const resenas = [
     line-height: 1.2;
   }
 
-  /* ===== HERO ===== */
+  /* HERO CLASSES */
   .hero {
-    padding-block: clamp(3rem, 6vw, 12rem);
     background: var(--color-bg);
   }
   .hero__inner {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(2rem, 4vw, 8rem);
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: left;
   }
-  @media (max-width: 48rem) {
-    .hero__inner {
-      grid-template-columns: 1fr;
+  .hero__text {
+    width: 100%;
+    margin-inline: auto;
+  }
+  @media (min-width: 48rem) {
+    .hero__text {
+      max-width: 80%;
+      text-align: center;
     }
   }
-  .hero__text h1 {
-    font-size: clamp(1.8rem, 3.2vw, 6rem);
-    line-height: 1.15;
-    margin-bottom: clamp(1rem, 1.5vw, 3rem);
-    color: var(--color-text);
-  }
-  .hero__slogan {
-    font-size: clamp(1.1rem, 2vw, 4rem);
-    font-weight: 500;
-    color: var(--color-primary-dark);
-    margin-bottom: clamp(1rem, 2vw, 4rem);
-  }
+
   .hero__desc {
     font-size: clamp(0.95rem, 1.4vw, 2.8rem);
     color: var(--color-text-soft);
     line-height: 1.6;
-    margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
-    max-width: 90%;
+    margin-bottom: clamp(1.5rem, 2vw, 4rem);
+    margin-inline: auto;
   }
+
+  .hero__slogan-box {
+    background: var(--color-primary-light);
+    border-radius: clamp(0.6rem, 1vw, 1.5rem);
+    padding: clamp(0.8rem, 1.5vw, 3rem);
+    margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+    display: inline-block;
+  }
+
+  .hero__slogan {
+    font-size: clamp(1rem, 1.6vw, 3rem);
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    margin: 0;
+    line-height: 1.3;
+  }
+
   .hero__btns {
     display: flex;
     flex-wrap: wrap;
     gap: clamp(0.8rem, 1.5vw, 3rem);
-    margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+    margin-bottom: clamp(1rem, 2vw, 4rem);
   }
+  @media (min-width: 48rem) {
+    .hero__btns {
+      justify-content: center;
+    }
+  }
+
   .btn-wa {
     background: var(--color-primary);
     color: #fff;
-    padding: clamp(0.6rem, 1vw, 2rem) clamp(1.2rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
-    border-radius: var(--radius);
+    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    border-radius: clamp(0.4rem, 1vw, 1.5rem);
     font-weight: 600;
     text-decoration: none;
     transition:
@@ -544,12 +567,13 @@ const resenas = [
     background: var(--color-primary-dark);
     transform: translateY(-0.15rem);
   }
+
   .btn-sec {
-    padding: clamp(0.6rem, 1vw, 2rem) clamp(1.2rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
-    border: 0.15rem solid var(--color-secondary);
+    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    border: clamp(0.1rem, 0.15vw, 0.3rem) solid var(--color-secondary);
     color: var(--color-secondary-dark);
-    border-radius: var(--radius);
+    border-radius: clamp(0.4rem, 1vw, 1.5rem);
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s;
@@ -559,28 +583,11 @@ const resenas = [
     color: #fff;
     transform: translateY(-0.15rem);
   }
-  .hero__datos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(0.8rem, 1.5vw, 3rem);
-    font-size: clamp(0.85rem, 1.1vw, 2.2rem);
-    color: var(--color-text-soft);
-    border-top: 0.1rem solid var(--color-border);
-    padding-top: clamp(1rem, 1.5vw, 3rem);
-  }
-  .hero__datos a {
-    color: var(--color-primary-dark);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  .hero__datos a:hover {
-    text-decoration: underline;
-  }
 
-  /* ===== GRIDS ===== */
+  /* GRID LAYOUTS */
   .grid-servicios {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: clamp(1rem, 2vw, 4rem);
   }
   .grid-porque {
@@ -588,19 +595,43 @@ const resenas = [
     grid-template-columns: repeat(4, 1fr);
     gap: clamp(1rem, 2vw, 4rem);
   }
-  .grid-resenas {
+  .grid-datos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(1rem, 2vw, 4rem);
   }
-  @media (max-width: 48rem) {
-    .grid-servicios,
-    .grid-porque,
+  .grid-resenas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 4rem);
+    margin-bottom: clamp(1.5rem, 3vw, 6rem);
+  }
+  .grid-blog {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 4rem);
+  }
+  @media (max-width: 60rem) {
+    .grid-servicios {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-porque {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-datos {
+      grid-template-columns: 1fr;
+    }
     .grid-resenas {
       grid-template-columns: repeat(2, 1fr);
     }
+    .grid-blog {
+      grid-template-columns: 1fr;
+    }
+    .grid-porque {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
-  @media (max-width: 30rem) {
+  @media (max-width: 35rem) {
     .grid-servicios,
     .grid-porque,
     .grid-resenas {
@@ -608,77 +639,69 @@ const resenas = [
     }
   }
 
-  /* ===== CARDS ===== */
-  .card-servicio {
+  /* CARDS */
+  .card-servicio,
+  .card-porque,
+  .card-dato,
+  .card-resena,
+  .card-blog {
+    background: var(--color-bg);
+    border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+    padding: clamp(1.2rem, 2vw, 4rem);
     display: flex;
     flex-direction: column;
-    background: var(--color-bg);
-    border: 0.1rem solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: clamp(1.2rem, 2.5vw, 5rem);
     text-decoration: none;
     transition:
       transform 0.3s,
       box-shadow 0.3s;
   }
-  .card-servicio:hover {
-    transform: translateY(-0.3rem);
+  .card-servicio:hover,
+  .card-porque:hover,
+  .card-dato:hover,
+  .card-blog:hover {
+    transform: translateY(-0.25rem);
     box-shadow: var(--shadow-md);
   }
-  .card-porque {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: var(--color-bg);
-    border: 0.1rem solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: clamp(1.2rem, 2.5vw, 5rem);
-    transition:
-      transform 0.2s,
-      box-shadow 0.2s;
-  }
-  .card-porque:hover {
-    transform: translateY(-0.2rem);
-    box-shadow: var(--shadow-md);
-  }
-  .card-resena {
-    display: flex;
-    flex-direction: column;
-    background: var(--color-bg);
-    border: 0.1rem solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: clamp(1.2rem, 2.5vw, 5rem);
-  }
+
   .card-emoji {
     font-size: clamp(2rem, 3.5vw, 7rem);
-    display: block;
     margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+    display: block;
   }
-  .card-titulo {
-    font-size: clamp(1rem, 1.6vw, 3.2rem);
+
+  .card-titulo,
+  .dato-titulo,
+  .blog-titulo {
+    font-size: clamp(1.1rem, 1.6vw, 3.2rem);
     color: var(--color-primary-dark);
-    margin-bottom: clamp(0.5rem, 0.8vw, 1.5rem);
+    margin-bottom: clamp(0.5rem, 1vw, 2rem);
     line-height: 1.3;
   }
-  .card-desc {
+  .dato-titulo {
+    color: var(--color-text);
+  }
+  .card-desc,
+  .dato-desc {
     font-size: clamp(0.9rem, 1.2vw, 2.4rem);
     color: var(--color-text-soft);
     line-height: 1.6;
     flex-grow: 1;
     margin: 0;
   }
+
   .card-ver {
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    font-size: clamp(0.9rem, 1.1vw, 2.2rem);
     color: var(--color-primary);
     font-weight: 700;
     margin-top: clamp(0.8rem, 1.2vw, 2.5rem);
     display: inline-block;
   }
+
+  /* RESEÑAS ESP */
   .estrellas {
-    font-size: clamp(1rem, 1.5vw, 3rem);
-    line-height: 1;
-    margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
+    margin-bottom: clamp(0.5rem, 1vw, 2rem);
   }
   .resena-texto {
     font-size: clamp(0.9rem, 1.2vw, 2.4rem);
@@ -686,53 +709,115 @@ const resenas = [
     font-style: italic;
     line-height: 1.6;
     flex-grow: 1;
-    margin: 0 0 clamp(0.8rem, 1.2vw, 2.5rem);
+    margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
   }
   .resena-nombre {
+    font-size: clamp(0.85rem, 1.1vw, 2.2rem);
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .link-mas {
     font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    font-weight: 600;
     color: var(--color-primary-dark);
-    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  /* FAQ ACCORDION */
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1.2vw, 2.5rem);
+  }
+  .faq-item {
+    background: var(--color-bg);
+    border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    border-radius: clamp(0.5rem, 1vw, 2rem);
+    padding: clamp(1rem, 1.5vw, 3rem);
+  }
+  .faq-item[open] .faq-question {
+    color: var(--color-primary-dark);
+    margin-bottom: clamp(0.8rem, 1vw, 2rem);
+  }
+  .faq-question {
+    font-size: clamp(1rem, 1.3vw, 2.6rem);
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none; /* Hide default arrow */
+    position: relative;
+    padding-right: clamp(2rem, 3vw, 6rem);
+    line-height: 1.4;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-question::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+    color: var(--color-primary);
+  }
+  .faq-item[open] .faq-question::after {
+    content: "-";
+  }
+  .faq-answer {
+    font-size: clamp(0.95rem, 1.2vw, 2.4rem);
+    color: var(--color-text-soft);
+    line-height: 1.6;
     margin: 0;
   }
 
-  /* ===== CÓMO LLEGAR ===== */
+  /* CÓMO LLEGAR ESP */
+  .rf-ubicacion-text {
+    font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+    color: var(--color-text-soft);
+    line-height: 1.6;
+    margin-bottom: clamp(1.5rem, 3vw, 6rem);
+    text-align: center;
+    max-width: 80%;
+    margin-inline: auto;
+  }
   .como-llegar-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1.2fr;
     gap: clamp(2rem, 4vw, 8rem);
-    align-items: center;
+    align-items: stretch;
   }
   @media (max-width: 48rem) {
     .como-llegar-grid {
       grid-template-columns: 1fr;
     }
   }
+
   .como-llegar-info {
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, 1.8vw, 3.5rem);
+    gap: clamp(1rem, 1.5vw, 3rem);
     background: var(--color-bg-soft);
-    border: 0.1rem solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: clamp(1.2rem, 2.5vw, 5rem);
+    border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+    padding: clamp(1.2rem, 2vw, 4rem);
   }
   .direccion-label {
-    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
     font-weight: 700;
     color: var(--color-primary-dark);
     margin: 0;
   }
   .maps-link {
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    font-size: clamp(0.95rem, 1.3vw, 2.6rem);
     color: var(--color-primary-dark);
     text-decoration: underline;
-    text-decoration-color: var(--color-primary);
-    text-underline-offset: 0.2rem;
-    transition: color 0.2s;
+    line-height: 1.4;
   }
   .maps-link:hover {
     color: var(--color-primary);
   }
+
   .transporte-lista {
     display: flex;
     flex-direction: column;
@@ -741,24 +826,23 @@ const resenas = [
   .transporte-item {
     display: flex;
     align-items: center;
-    gap: clamp(0.6rem, 1vw, 2rem);
+    gap: clamp(0.8rem, 1.2vw, 2.5rem);
     background: var(--color-bg);
-    border-radius: var(--radius);
-    padding: clamp(0.6rem, 1vw, 2rem) clamp(0.8rem, 1.2vw, 2.5rem);
-    box-shadow: var(--shadow);
+    border-radius: clamp(0.4rem, 1vw, 2rem);
+    padding: clamp(0.6rem, 1vw, 2rem) clamp(0.8rem, 1.5vw, 3rem);
+    box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.05);
   }
   .transporte-item span {
     font-size: clamp(1.2rem, 1.8vw, 3.5rem);
-    flex-shrink: 0;
   }
   .transporte-item p {
     font-size: clamp(0.85rem, 1.1vw, 2.2rem);
     color: var(--color-text-soft);
     margin: 0;
-    line-height: 1.3;
   }
+
   .horario-box {
-    border-top: 0.1rem solid var(--color-border);
+    border-top: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
     padding-top: clamp(1rem, 1.5vw, 3rem);
     display: flex;
     flex-direction: column;
@@ -766,129 +850,101 @@ const resenas = [
   }
   .horario-box p {
     font-size: clamp(0.85rem, 1.1vw, 2.2rem);
-    color: var(--color-text-soft);
     margin: 0;
   }
   .horario-label {
     font-weight: 700;
     color: var(--color-primary-dark);
   }
+
   .btn-mapa {
-    display: block;
     text-align: center;
     background: var(--color-primary);
     color: #fff;
-    padding: clamp(0.6rem, 1vw, 2rem) clamp(1rem, 1.8vw, 3.5rem);
-    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
+    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
     font-weight: 600;
-    border-radius: var(--radius);
+    border-radius: clamp(0.4rem, 1vw, 1.5rem);
     text-decoration: none;
-    transition:
-      background 0.2s,
-      transform 0.2s;
+    margin-top: auto;
+    transition: transform 0.2s;
   }
   .btn-mapa:hover {
+    transform: translateY(-0.1rem);
     background: var(--color-primary-dark);
-    transform: translateY(-0.15rem);
-  }
-  .mapa-placeholder {
-    min-height: clamp(16rem, 30vw, 60rem);
-    background: var(--color-primary-light);
-    border: 0.2rem dashed var(--color-primary);
-    border-radius: var(--radius-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(1.5rem, 3vw, 6rem);
-    gap: clamp(1rem, 2vw, 4rem);
-  }
-  .pin-emoji {
-    font-size: clamp(3rem, 6vw, 12rem);
-    animation: bounce 2s infinite ease-in-out;
-  }
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-1rem);
-    }
-  }
-  .mapa-texto {
-    font-size: clamp(1rem, 1.8vw, 3.5rem);
-    font-weight: 700;
-    color: var(--color-primary-dark);
-    text-align: center;
-    line-height: 1.3;
-    margin: 0;
   }
 
-  /* ===== CTA FINAL ===== */
+  .mapa-placeholder {
+    width: 100%;
+    min-height: clamp(20rem, 30vw, 40rem);
+  }
+
+  /* CTA FINAL */
   .cta-final {
     background: var(--color-primary);
-    padding-block: clamp(3rem, 6vw, 12rem);
-  }
-  .cta-inner {
     text-align: center;
+    color: #fff;
   }
-  .cta-titulo {
-    font-size: clamp(1.6rem, 2.8vw, 5.5rem);
+  .cta-titulo-blanc {
+    font-size: clamp(1.6rem, 2.8vw, 5rem);
     color: #fff;
     margin-bottom: clamp(1rem, 1.5vw, 3rem);
     line-height: 1.2;
   }
-  .cta-dir {
-    font-size: clamp(1rem, 1.4vw, 2.8rem);
-    margin-bottom: clamp(2rem, 3vw, 6rem);
-    max-width: none;
-  }
-  .maps-link-blanco {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.5);
-    text-underline-offset: 0.2rem;
-    transition: color 0.2s;
-  }
-  .maps-link-blanco:hover {
+  .cta-desc-blanc {
+    font-size: clamp(1rem, 1.3vw, 2.6rem);
+    margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+    max-width: 60%;
+    margin-inline: auto;
     color: #fff;
+    opacity: 0.9;
+  }
+  @media (max-width: 48rem) {
+    .cta-desc-blanc {
+      max-width: 90%;
+    }
   }
   .cta-btns {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: clamp(0.8rem, 1.5vw, 3rem);
-    justify-content: center;
   }
   .btn-cta-blanco {
     background: #fff;
-    color: var(--color-primary);
-    padding: clamp(0.6rem, 1vw, 2rem) clamp(1.5rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
-    font-weight: 700;
-    border-radius: var(--radius);
+    color: var(--color-primary-dark);
+    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    border-radius: clamp(0.4rem, 1vw, 1.5rem);
+    font-weight: 600;
     text-decoration: none;
-    transition:
-      transform 0.2s,
-      box-shadow 0.2s;
-  }
-  .btn-cta-blanco:hover {
-    transform: translateY(-0.2rem);
-    box-shadow: var(--shadow-md);
   }
   .btn-cta-outline {
-    border: 0.15rem solid #fff;
+    border: clamp(0.1rem, 0.15vw, 0.3rem) solid #fff;
     color: #fff;
-    padding: clamp(0.6rem, 1vw, 2rem) clamp(1.5rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
-    font-weight: 700;
-    border-radius: var(--radius);
+    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    border-radius: clamp(0.4rem, 1vw, 1.5rem);
+    font-weight: 600;
     text-decoration: none;
-    transition: all 0.2s;
   }
-  .btn-cta-outline:hover {
-    background: #fff;
-    color: var(--color-primary);
-    transform: translateY(-0.2rem);
+
+  /* BLOG */
+  .blog-img {
+    width: 100%;
+    height: clamp(8rem, 12vw, 20rem);
+    object-fit: cover;
+    border-radius: clamp(0.3rem, 0.8vw, 1.5rem);
+    margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+  }
+  .blog-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .blog-fecha {
+    font-size: clamp(0.8rem, 1vw, 2rem);
+    color: var(--color-text-soft);
+    margin-bottom: clamp(0.5rem, 1vw, 2rem);
   }
 </style>
