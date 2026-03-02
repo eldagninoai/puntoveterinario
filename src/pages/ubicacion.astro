@@ -238,25 +238,25 @@ const schema = {
     /* No Tailwind/Bootstrap allowed, 100% Fluid Vanilla CSS */
 
     .content-section {
-        padding-block: clamp(3rem, 6vw, 12rem);
+        padding-block: max(3rem, 6vw);
     }
     .bg-soft {
         background: var(--color-bg-soft);
     }
 
     .h1-hero {
-        font-size: clamp(1.8rem, 3.2vw, 6rem);
+        font-size: max(1.8rem, 3.2vw);
         color: var(--color-text);
         line-height: 1.15;
-        margin-bottom: clamp(1rem, 2vw, 3rem);
+        margin-bottom: max(1rem, 2vw);
         text-align: center;
     }
 
     .titulo-sec {
-        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        font-size: max(1.6rem, 2.8vw);
         color: var(--color-primary-dark);
         text-align: center;
-        margin-bottom: clamp(2rem, 4vw, 7rem);
+        margin-bottom: max(2rem, 4vw);
         line-height: 1.2;
     }
 
@@ -280,10 +280,10 @@ const schema = {
     }
 
     .hero__desc {
-        font-size: clamp(0.95rem, 1.4vw, 2.8rem);
+        font-size: max(0.95rem, 1.4vw);
         color: var(--color-text-soft);
         line-height: 1.6;
-        margin-bottom: clamp(2rem, 4vw, 6rem);
+        margin-bottom: max(2rem, 4vw);
         margin-inline: auto;
     }
 
@@ -291,26 +291,22 @@ const schema = {
     .nap-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: clamp(1.5rem, 3vw, 5rem);
+        gap: max(1.5rem, 3vw);
         width: 100%;
-        margin-bottom: clamp(2rem, 4vw, 6rem);
+        margin-bottom: max(2rem, 4vw);
     }
-    @media (max-width: 60rem) {
-        .nap-grid {
-            grid-template-columns: repeat(2, 1fr);
+    @media (
         }
     }
-    @media (max-width: 40rem) {
-        .nap-grid {
-            grid-template-columns: 1fr;
+    @media (
         }
     }
 
     .nap-card {
         background: var(--color-bg-soft);
-        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
-        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
-        padding: clamp(1.5rem, 2.5vw, 4rem);
+        border: max(0.05rem, 0.1vw) solid var(--color-border);
+        border-radius: max(0.5rem, 1.5vw);
+        padding: max(1.5rem, 2.5vw);
         text-align: center;
         box-shadow: var(--shadow-sm);
         display: flex;
@@ -326,20 +322,20 @@ const schema = {
     }
 
     .nap-icon {
-        font-size: clamp(2.5rem, 4vw, 7rem);
-        margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+        font-size: max(2.5rem, 4vw);
+        margin-bottom: max(0.8rem, 1.2vw);
         display: block;
     }
 
     .nap-title {
-        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        font-size: max(1.2rem, 1.8vw);
         color: var(--color-primary-dark);
-        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        margin-bottom: max(0.5rem, 1vw);
         line-height: 1.2;
     }
 
     .nap-text {
-        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        font-size: max(0.95rem, 1.3vw);
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 0;
@@ -350,15 +346,15 @@ const schema = {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: clamp(1rem, 1.5vw, 3rem);
+        gap: max(1rem, 1.5vw);
     }
 
     .btn-wa {
         background: var(--color-primary);
         color: #fff;
-        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
-        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
-        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+        font-size: max(0.9rem, 1.2vw);
+        border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
         transition:
@@ -374,10 +370,10 @@ const schema = {
     .btn-outline-primary {
         background: transparent;
         color: var(--color-primary);
-        border: clamp(0.1rem, 0.2vw, 0.4rem) solid var(--color-primary);
-        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
-        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
-        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        border: max(0.1rem, 0.2vw) solid var(--color-primary);
+        padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+        font-size: max(0.9rem, 1.2vw);
+        border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
         transition:
@@ -396,23 +392,21 @@ const schema = {
     .map-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: clamp(1.5rem, 3vw, 5rem);
+        gap: max(1.5rem, 3vw);
         width: 100%;
     }
-    @media (max-width: 48rem) {
-        .map-grid {
-            grid-template-columns: 1fr;
+    @media (
         }
     }
 
     .map-wrapper {
         width: 100%;
         /* Altura fluida que escala con el viewport, dando espacio en móvil y desktop */
-        height: clamp(25rem, 40vw, 55rem);
-        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        height: max(25rem, 40vw);
+        border-radius: max(0.5rem, 1.5vw);
         overflow: hidden;
         box-shadow: var(--shadow-md);
-        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border: max(0.05rem, 0.1vw) solid var(--color-border);
     }
     .google-map-iframe {
         width: 100%;
@@ -423,11 +417,11 @@ const schema = {
 
     .fachada-wrapper {
         width: 100%;
-        height: clamp(25rem, 40vw, 55rem);
-        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        height: max(25rem, 40vw);
+        border-radius: max(0.5rem, 1.5vw);
         overflow: hidden;
         box-shadow: var(--shadow-md);
-        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border: max(0.05rem, 0.1vw) solid var(--color-border);
     }
     .fachada-img {
         width: 100%;
@@ -445,20 +439,18 @@ const schema = {
     .rutas-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: clamp(1.5rem, 3vw, 5rem);
+        gap: max(1.5rem, 3vw);
         width: 100%;
     }
-    @media (max-width: 60rem) {
-        .rutas-grid {
-            grid-template-columns: 1fr;
+    @media (
         }
     }
 
     .ruta-card {
         background: var(--color-bg);
-        border-left: clamp(0.3rem, 0.5vw, 0.8rem) solid var(--color-primary);
-        border-radius: clamp(0.4rem, 1vw, 1.5rem);
-        padding: clamp(1.5rem, 2vw, 4rem);
+        border-left: max(0.3rem, 0.5vw) solid var(--color-primary);
+        border-radius: max(0.4rem, 1vw);
+        padding: max(1.5rem, 2vw);
         box-shadow: var(--shadow-sm);
         transition:
             transform 0.2s,
@@ -472,21 +464,21 @@ const schema = {
     .ruta-header {
         display: flex;
         align-items: center;
-        gap: clamp(0.8rem, 1.2vw, 2.5rem);
-        margin-bottom: clamp(1rem, 1.5vw, 3rem);
+        gap: max(0.8rem, 1.2vw);
+        margin-bottom: max(1rem, 1.5vw);
     }
     .ruta-icon {
-        font-size: clamp(1.8rem, 2.5vw, 5rem);
+        font-size: max(1.8rem, 2.5vw);
     }
     .ruta-title {
-        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        font-size: max(1.2rem, 1.8vw);
         color: var(--color-primary-dark);
         margin: 0;
         line-height: 1.2;
     }
 
     .ruta-desc {
-        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        font-size: max(0.95rem, 1.3vw);
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 0;
@@ -498,38 +490,38 @@ const schema = {
     /* CTA FINAL (URGENCIA) */
     .cta-urgencia-inner {
         text-align: center;
-        max-width: clamp(20rem, 80vw, 850px);
+        max-width: max(20rem, 80vw);
         margin: 0 auto;
     }
 
     .cta-titulo-urgencia {
-        font-size: clamp(1.8rem, 2.8vw, 5.5rem);
+        font-size: max(1.8rem, 2.8vw);
         color: var(--color-primary-dark);
-        margin-bottom: clamp(1rem, 1.5vw, 3rem);
+        margin-bottom: max(1rem, 1.5vw);
         line-height: 1.2;
     }
 
     .cta-desc-urgencia {
-        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        font-size: max(1rem, 1.4vw);
         color: var(--color-text-soft);
         line-height: 1.6;
-        margin-bottom: clamp(2rem, 4vw, 6rem);
+        margin-bottom: max(2rem, 4vw);
     }
 
     .cta-urgencia-btns {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: clamp(1rem, 1.5vw, 3rem);
+        gap: max(1rem, 1.5vw);
     }
 
     /* Rojo Alerta para llamada de urgencia */
     .btn-urgencia-rojo {
         background: #e63946; /* Rojo Urgencia clásico web */
         color: #fff;
-        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
-        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
-        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+        font-size: max(0.9rem, 1.2vw);
+        border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
         transition:
@@ -540,7 +532,7 @@ const schema = {
     .btn-urgencia-rojo:hover {
         background: #c1121f; /* Rojo oscuro hover */
         transform: translateY(-0.15rem);
-        box-shadow: 0 clamp(0.4rem, 0.8vw, 1.5rem) clamp(1rem, 2vw, 3.5rem)
+        box-shadow: 0 max(0.4rem, 0.8vw) max(1rem, 2vw)
             rgba(230, 57, 70, 0.25);
     }
 </style>

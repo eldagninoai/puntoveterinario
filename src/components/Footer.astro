@@ -136,43 +136,43 @@ const currentYear = new Date().getFullYear();
   .footer {
     background: var(--color-primary-dark, #3dada9);
     color: var(--color-bg, #ffffff);
-    margin-top: clamp(2rem, 5vw, 10vw);
+    margin-top: max(2rem, 5vw);
   }
 
   .footer__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
-    gap: clamp(1.5rem, 3vw, 5vw);
-    padding-block: clamp(2rem, 4vw, 7vw);
+    gap: max(1.5rem, 3vw);
+    padding-block: max(2rem, 4vw);
   }
 
   .footer__logo {
     display: inline-block;
-    font-size: clamp(1.2rem, 1.8vw, 3vw);
+    font-size: max(1.2rem, 1.8vw);
     font-weight: 700;
     color: var(--color-bg, #ffffff);
     text-decoration: none;
-    margin-bottom: clamp(0.5rem, 1vw, 2vw);
+    margin-bottom: max(0.5rem, 1vw);
   }
 
   .footer__slogan {
     font-weight: 600;
-    font-size: clamp(0.9rem, 1.2vw, 2.2vw);
-    margin-bottom: clamp(0.5rem, 1vw, 2vw);
+    font-size: max(0.9rem, 1.2vw);
+    margin-bottom: max(0.5rem, 1vw);
     color: var(--color-primary-light, #e8fafa);
   }
 
   .footer__desc {
-    font-size: clamp(0.85rem, 1.1vw, 2vw);
+    font-size: max(0.85rem, 1.1vw);
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: clamp(1rem, 2vw, 4vw);
+    margin-bottom: max(1rem, 2vw);
     line-height: 1.5;
   }
 
   .footer__social {
     color: var(--color-bg, #ffffff);
     text-decoration: none;
-    font-size: clamp(0.85rem, 1.1vw, 2vw);
+    font-size: max(0.85rem, 1.1vw);
     font-weight: 500;
     transition:
       color 0.2s ease,
@@ -186,29 +186,29 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer__col h3 {
-    font-size: clamp(1rem, 1.4vw, 2.5vw);
+    font-size: max(1rem, 1.4vw);
     font-weight: 600;
     color: var(--color-bg, #ffffff);
-    margin-bottom: clamp(0.8rem, 1.5vw, 3vw);
+    margin-bottom: max(0.8rem, 1.5vw);
     border-bottom: 0.1rem solid rgba(255, 255, 255, 0.2);
-    padding-bottom: clamp(0.4rem, 0.8vw, 1.6vw);
+    padding-bottom: max(0.4rem, 0.8vw);
   }
 
   .mt-md {
-    margin-top: clamp(1.5rem, 3vw, 5vw);
+    margin-top: max(1.5rem, 3vw);
   }
 
   .footer__list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: clamp(0.5rem, 1vw, 2vw);
+    gap: max(0.5rem, 1vw);
     padding: 0;
     margin: 0;
   }
 
   .footer__list li {
-    font-size: clamp(0.85rem, 1.1vw, 2vw);
+    font-size: max(0.85rem, 1.1vw);
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.4;
   }
@@ -224,26 +224,26 @@ const currentYear = new Date().getFullYear();
 
   .footer__list a:hover {
     color: var(--color-bg, #ffffff);
-    padding-left: clamp(0.2rem, 0.4vw, 0.8vw);
+    padding-left: max(0.2rem, 0.4vw);
   }
 
   .footer__contact li {
     display: flex;
-    gap: clamp(0.5rem, 1vw, 2vw);
+    gap: max(0.5rem, 1vw);
     align-items: flex-start;
   }
 
   .footer__contact span {
     flex-shrink: 0;
-    font-size: clamp(1rem, 1.2vw, 2.2vw);
+    font-size: max(1rem, 1.2vw);
   }
 
   .footer__horario {
-    font-size: clamp(0.85rem, 1.1vw, 2vw);
+    font-size: max(0.85rem, 1.1vw);
     color: rgba(255, 255, 255, 0.85);
     display: flex;
     flex-direction: column;
-    gap: clamp(0.3rem, 0.6vw, 1.2vw);
+    gap: max(0.3rem, 0.6vw);
     line-height: 1.4;
   }
   .footer__horario p {
@@ -252,7 +252,7 @@ const currentYear = new Date().getFullYear();
 
   .footer__bottom {
     border-top: 0.1rem solid rgba(255, 255, 255, 0.15);
-    padding-block: clamp(1.5rem, 3vw, 6vw);
+    padding-block: max(1.5rem, 3vw);
     background: rgba(0, 0, 0, 0.05);
   }
 
@@ -261,8 +261,8 @@ const currentYear = new Date().getFullYear();
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: clamp(0.5rem, 1vw, 2vw);
-    font-size: clamp(0.75rem, 1vw, 1.8vw);
+    gap: max(0.5rem, 1vw);
+    font-size: max(0.75rem, 1vw);
     color: rgba(255, 255, 255, 0.6);
   }
 
@@ -292,14 +292,10 @@ const currentYear = new Date().getFullYear();
     text-decoration-color: #fff;
   }
 
-    @media (max-width: 48rem) {
-        [class*="grid-"] {
-            grid-template-columns: repeat(2, 1fr) !important;
+    @media (
         }
     }
-    @media (max-width: 30rem) {
-        [class*="grid-"] {
-            grid-template-columns: 1fr !important;
+    @media (
         }
     }
 </style>

@@ -303,27 +303,27 @@ const schema = [
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: clamp(1rem, 2vw, 3vw);
+        gap: max(1rem, 2vw);
         width: 100%;
     }
     .titulo-principal {
-        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
+        font-size: max(1.8rem, 3.2vw);
         color: var(--color-primary-dark);
         line-height: 1.15;
         margin: 0;
     }
     .subtitulo {
-        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
+        font-size: max(0.95rem, 1.4vw);
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 0 auto;
-        max-width: 75ch;
+        
         text-align: center;
     }
     .botones {
         display: flex;
         flex-wrap: wrap;
-        gap: clamp(0.8rem, 1.5vw, 2.5vw);
+        gap: max(0.8rem, 1.5vw);
         justify-content: center;
     }
 
@@ -358,16 +358,16 @@ const schema = [
         text-align: left;
     }
     .text-sm {
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
+        font-size: max(0.9rem, 1.2vw);
     }
     .text-md {
-        font-size: clamp(1.1rem, 1.8vw, 3vw);
+        font-size: max(1.1rem, 1.8vw);
     }
     .text-lg {
-        font-size: clamp(1.4rem, 2.5vw, 4vw);
+        font-size: max(1.4rem, 2.5vw);
     }
     .text-2xl {
-        font-size: clamp(2.2rem, 4vw, 6vw);
+        font-size: max(2.2rem, 4vw);
     }
     .fw-bold {
         font-weight: 700;
@@ -406,72 +406,72 @@ const schema = [
         margin: 0;
     }
     .my-sm {
-        margin-block: clamp(0.6rem, 1vw, 1.8vw);
+        margin-block: max(0.6rem, 1vw);
     }
     .mt-sm {
-        margin-top: clamp(0.6rem, 1vw, 1.8vw);
+        margin-top: max(0.6rem, 1vw);
     }
     .mt-xs {
-        margin-top: clamp(0.4rem, 0.8vw, 1.4vw);
+        margin-top: max(0.4rem, 0.8vw);
     }
     .mt-auto {
         margin-top: auto;
     }
     .mb-xs {
-        margin-bottom: clamp(0.4rem, 0.8vw, 1.4vw);
+        margin-bottom: max(0.4rem, 0.8vw);
     }
     .mb-sm {
-        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
+        margin-bottom: max(0.6rem, 1vw);
     }
     .mb-md {
-        margin-bottom: clamp(1rem, 2vw, 3.5vw);
+        margin-bottom: max(1rem, 2vw);
     }
     .mb-lg {
-        margin-bottom: clamp(1.5rem, 3vw, 5vw);
+        margin-bottom: max(1.5rem, 3vw);
     }
     .mb-xl {
-        margin-bottom: clamp(2.5rem, 5vw, 8vw);
+        margin-bottom: max(2.5rem, 5vw);
     }
     .pb-xs {
-        padding-bottom: clamp(0.4rem, 0.8vw, 1.4vw);
+        padding-bottom: max(0.4rem, 0.8vw);
     }
     .pt-xs {
-        padding-top: clamp(0.4rem, 0.8vw, 1.4vw);
+        padding-top: max(0.4rem, 0.8vw);
     }
     .mx-auto {
         margin-inline: auto;
     }
 
     .py-sm {
-        padding-block: clamp(0.6rem, 1vw, 1.8vw);
+        padding-block: max(0.6rem, 1vw);
     }
     .p-sm {
-        padding: clamp(0.6rem, 1vw, 1.8vw);
+        padding: max(0.6rem, 1vw);
     }
     .py-xl {
-        padding-block: clamp(2.5rem, 5vw, 8vw);
+        padding-block: max(2.5rem, 5vw);
     }
     .p-lg {
-        padding: clamp(1.5rem, 3vw, 5vw);
+        padding: max(1.5rem, 3vw);
     }
     .px-lg {
-        padding-inline: clamp(1.5rem, 3vw, 5vw);
+        padding-inline: max(1.5rem, 3vw);
     }
 
     .gap-xs {
-        gap: clamp(0.4rem, 0.8vw, 1.4vw);
+        gap: max(0.4rem, 0.8vw);
     }
     .gap-sm {
-        gap: clamp(0.6rem, 1vw, 1.8vw);
+        gap: max(0.6rem, 1vw);
     }
     .gap-md {
-        gap: clamp(1rem, 2vw, 3.5vw);
+        gap: max(1rem, 2vw);
     }
     .gap-lg {
-        gap: clamp(1.5rem, 3vw, 5vw);
+        gap: max(1.5rem, 3vw);
     }
     .gap-xl {
-        gap: clamp(2.5rem, 5vw, 8vw);
+        gap: max(2.5rem, 5vw);
     }
 
     .lh-1 {
@@ -506,17 +506,17 @@ const schema = [
     }
 
     .emoji-md {
-        font-size: clamp(1.2rem, 2vw, 3.6vw);
+        font-size: max(1.2rem, 2vw);
         line-height: 1;
     }
     .emoji-lg {
-        font-size: clamp(1.5rem, 3vw, 5.4vw);
+        font-size: max(1.5rem, 3vw);
     }
     .emoji-xl {
-        font-size: clamp(2.5rem, 5vw, 9vw);
+        font-size: max(2.5rem, 5vw);
     }
     .emoji-map {
-        font-size: clamp(5rem, 10vw, 18vw);
+        font-size: max(5rem, 10vw);
         animation: bounce 2s infinite ease-in-out;
     }
 
@@ -559,10 +559,10 @@ const schema = [
 
     .form-input {
         width: 100%;
-        padding: clamp(0.6rem, 1vw, 1.8vw);
+        padding: max(0.6rem, 1vw);
         border: 0.15rem solid var(--color-border);
         border-radius: var(--radius-sm);
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
+        font-size: max(0.9rem, 1.2vw);
         font-family: inherit;
         background-color: var(--color-bg-soft);
         color: var(--color-primary-dark);
@@ -629,7 +629,7 @@ const schema = [
     /* Map Placeholder */
     .map-placeholder {
         background-color: #e8fafa; /* Light turquesa-ish */
-        min-height: clamp(18rem, 35vw, 63vw);
+        min-height: max(18rem, 35vw);
         border: 0.2rem dashed var(--color-primary-light);
     }
 
@@ -660,15 +660,15 @@ const schema = [
     .formulario {
         display: flex;
         flex-direction: column;
-        gap: clamp(1rem, 1.8vw, 3vw);
+        gap: max(1rem, 1.8vw);
     }
     .campo {
         display: flex;
         flex-direction: column;
-        gap: clamp(0.3rem, 0.5vw, 0.8vw);
+        gap: max(0.3rem, 0.5vw);
     }
     .campo label {
-        font-size: clamp(0.9rem, 1.2vw, 2vw);
+        font-size: max(0.9rem, 1.2vw);
         font-weight: 600;
         color: var(--color-primary-dark);
     }
@@ -676,8 +676,8 @@ const schema = [
     .campo select,
     .campo textarea {
         font-family: var(--font-main);
-        font-size: clamp(0.9rem, 1.2vw, 2vw);
-        padding: clamp(0.6rem, 1vw, 1.8vw);
+        font-size: max(0.9rem, 1.2vw);
+        padding: max(0.6rem, 1vw);
         border: 0.1rem solid var(--color-border);
         border-radius: var(--radius);
         background: var(--color-bg);
@@ -694,8 +694,8 @@ const schema = [
     .btn-enviar {
         background: var(--color-primary);
         color: #fff;
-        padding: clamp(0.7rem, 1.2vw, 2vw) clamp(1.5rem, 2.5vw, 4vw);
-        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
+        padding: max(0.7rem, 1.2vw) max(1.5rem, 2.5vw);
+        font-size: max(0.9rem, 1.3vw);
         font-family: var(--font-main);
         font-weight: 700;
         border: none;
@@ -710,7 +710,7 @@ const schema = [
         transform: translateY(-0.15rem);
     }
     .form-nota {
-        font-size: clamp(0.85rem, 1.1vw, 2vw);
+        font-size: max(0.85rem, 1.1vw);
         color: var(--color-text-soft);
         margin: 0;
     }
@@ -720,18 +720,14 @@ const schema = [
     }
 
     .seccion {
-        padding-block: clamp(3rem, 6vw, 10vw);
+        padding-block: max(3rem, 6vw);
         width: 100%;
     }
 
-    @media (max-width: 48rem) {
-        [class*="grid-"] {
-            grid-template-columns: repeat(2, 1fr) !important;
+    @media (
         }
     }
-    @media (max-width: 30rem) {
-        [class*="grid-"] {
-            grid-template-columns: 1fr !important;
+    @media (
         }
     }
 </style>

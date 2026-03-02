@@ -343,7 +343,7 @@ try {
             loading="lazy"
             decoding="async"
             class="blog-img"
-            style="width:100%; height:clamp(12rem, 18vw, 24rem); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
+            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
           />
           <div class="blog-content">
             <span
@@ -374,7 +374,7 @@ try {
             loading="lazy"
             decoding="async"
             class="blog-img"
-            style="width:100%; height:clamp(12rem, 18vw, 24rem); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
+            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
           />
           <div class="blog-content">
             <span
@@ -400,7 +400,7 @@ try {
             loading="lazy"
             decoding="async"
             class="blog-img"
-            style="width:100%; height:clamp(12rem, 18vw, 24rem); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
+            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
           />
           <div class="blog-content">
             <span
@@ -476,7 +476,7 @@ try {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.0454378776846!2d-99.1417531!3d19.3238356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce01a52002f2ab%3A0xe5a3c0e3e5c9b7e7!2sPunto%20Veterinario!5e0!3m2!1sen!2smx!4v1707575344445!5m2!1sen!2smx"
             width="100%"
             height="100%"
-            style="border:0; border-radius: clamp(1rem, 2vw, 1.5rem); min-height: clamp(20rem, 30vw, 40rem);"
+            style="border:0; border-radius: max(1rem, 2vw); min-height: max(20rem, 30vw);"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -516,7 +516,7 @@ try {
   /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
 
   .content-section {
-    padding-block: clamp(3rem, 6vw, 12rem);
+    padding-block: max(3rem, 6vw);
   }
   .pt-0 {
     padding-top: 0;
@@ -526,17 +526,17 @@ try {
   }
 
   .h1-hero {
-    font-size: clamp(1.8rem, 3.2vw, 6rem);
+    font-size: max(1.8rem, 3.2vw);
     color: var(--color-text);
     line-height: 1.15;
-    margin-bottom: clamp(1rem, 2vw, 3rem);
+    margin-bottom: max(1rem, 2vw);
   }
 
   .titulo-sec {
-    font-size: clamp(1.6rem, 2.8vw, 5rem);
+    font-size: max(1.6rem, 2.8vw);
     color: var(--color-primary);
     text-align: center;
-    margin-bottom: clamp(2rem, 4vw, 7rem);
+    margin-bottom: max(2rem, 4vw);
     line-height: 1.2;
   }
 
@@ -561,23 +561,23 @@ try {
   }
 
   .hero__desc {
-    font-size: clamp(0.95rem, 1.4vw, 2.8rem);
+    font-size: max(0.95rem, 1.4vw);
     color: var(--color-text-soft);
     line-height: 1.6;
-    margin-bottom: clamp(1.5rem, 2vw, 4rem);
+    margin-bottom: max(1.5rem, 2vw);
     margin-inline: auto;
   }
 
   .hero__slogan-box {
     background: var(--color-primary-light);
-    border-radius: clamp(0.6rem, 1vw, 1.5rem);
-    padding: clamp(0.8rem, 1.5vw, 3rem);
-    margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+    border-radius: max(0.6rem, 1vw);
+    padding: max(0.8rem, 1.5vw);
+    margin-bottom: max(1.5rem, 2.5vw);
     display: inline-block;
   }
 
   .hero__slogan {
-    font-size: clamp(1rem, 1.6vw, 3rem);
+    font-size: max(1rem, 1.6vw);
     font-weight: 600;
     color: var(--color-primary-dark);
     margin: 0;
@@ -587,8 +587,8 @@ try {
   .hero__btns {
     display: flex;
     flex-wrap: wrap;
-    gap: clamp(0.8rem, 1.5vw, 3rem);
-    margin-bottom: clamp(1rem, 2vw, 4rem);
+    gap: max(0.8rem, 1.5vw);
+    margin-bottom: max(1rem, 2vw);
   }
   @media (min-width: 48rem) {
     .hero__btns {
@@ -599,9 +599,9 @@ try {
   .btn-wa {
     background: var(--color-primary);
     color: #fff;
-    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
-    border-radius: clamp(0.4rem, 1vw, 1.5rem);
+    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+    font-size: max(0.9rem, 1.2vw);
+    border-radius: max(0.4rem, 1vw);
     font-weight: 600;
     text-decoration: none;
     transition:
@@ -614,11 +614,11 @@ try {
   }
 
   .btn-sec {
-    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
-    border: clamp(0.1rem, 0.15vw, 0.3rem) solid var(--color-secondary);
+    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+    font-size: max(0.9rem, 1.2vw);
+    border: max(0.1rem, 0.15vw) solid var(--color-secondary);
     color: var(--color-secondary-dark);
-    border-radius: clamp(0.4rem, 1vw, 1.5rem);
+    border-radius: max(0.4rem, 1vw);
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s;
@@ -636,14 +636,14 @@ try {
   .grid-resenas,
   .grid-datos {
     display: grid;
-    gap: clamp(1.5rem, 4vw, 3rem);
+    gap: max(1.5rem, 4vw);
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(100%, clamp(280px, 25vw, 350px)), 1fr)
+      minmax(min(100%, max(280px, 25vw)), 1fr)
     );
   }
   .grid-resenas {
-    margin-bottom: clamp(1.5rem, 3vw, 6rem);
+    margin-bottom: max(1.5rem, 3vw);
   }
 
   /* CARDS */
@@ -653,9 +653,9 @@ try {
   .card-resena,
   .card-blog {
     background: var(--color-bg);
-    border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
-    border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
-    padding: clamp(1.2rem, 2vw, 4rem);
+    border: max(0.05rem, 0.1vw) solid var(--color-border);
+    border-radius: max(0.5rem, 1.5vw);
+    padding: max(1.2rem, 2vw);
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -672,17 +672,17 @@ try {
   }
 
   .card-emoji {
-    font-size: clamp(2rem, 3.5vw, 7rem);
-    margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+    font-size: max(2rem, 3.5vw);
+    margin-bottom: max(0.8rem, 1.2vw);
     display: block;
   }
 
   .card-titulo,
   .dato-titulo,
   .blog-titulo {
-    font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+    font-size: max(1.1rem, 1.6vw);
     color: var(--color-primary-dark);
-    margin-bottom: clamp(0.5rem, 1vw, 2rem);
+    margin-bottom: max(0.5rem, 1vw);
     line-height: 1.3;
   }
   .dato-titulo {
@@ -690,7 +690,7 @@ try {
   }
   .card-desc,
   .dato-desc {
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    font-size: max(0.9rem, 1.2vw);
     color: var(--color-text-soft);
     line-height: 1.6;
     flex-grow: 1;
@@ -698,34 +698,34 @@ try {
   }
 
   .card-ver {
-    font-size: clamp(0.9rem, 1.1vw, 2.2rem);
+    font-size: max(0.9rem, 1.1vw);
     color: var(--color-primary);
     font-weight: 700;
-    margin-top: clamp(0.8rem, 1.2vw, 2.5rem);
+    margin-top: max(0.8rem, 1.2vw);
     display: inline-block;
   }
 
   /* RESEÑAS ESP */
   .estrellas {
-    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
-    margin-bottom: clamp(0.5rem, 1vw, 2rem);
+    font-size: max(0.9rem, 1.3vw);
+    margin-bottom: max(0.5rem, 1vw);
   }
   .resena-texto {
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    font-size: max(0.9rem, 1.2vw);
     color: var(--color-text-soft);
     font-style: italic;
     line-height: 1.6;
     flex-grow: 1;
-    margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+    margin-bottom: max(0.8rem, 1.2vw);
   }
   .resena-nombre {
-    font-size: clamp(0.85rem, 1.1vw, 2.2rem);
+    font-size: max(0.85rem, 1.1vw);
     color: var(--color-text);
     font-weight: 600;
   }
 
   .link-mas {
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    font-size: max(0.9rem, 1.2vw);
     font-weight: 600;
     color: var(--color-primary-dark);
     text-decoration: underline;
@@ -735,26 +735,26 @@ try {
   .faq-accordion {
     display: flex;
     flex-direction: column;
-    gap: clamp(0.8rem, 1.2vw, 2.5rem);
+    gap: max(0.8rem, 1.2vw);
   }
   .faq-item {
     background: var(--color-bg);
-    border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
-    border-radius: clamp(0.5rem, 1vw, 2rem);
-    padding: clamp(1rem, 1.5vw, 3rem);
+    border: max(0.05rem, 0.1vw) solid var(--color-border);
+    border-radius: max(0.5rem, 1vw);
+    padding: max(1rem, 1.5vw);
   }
   .faq-item[open] .faq-question {
     color: var(--color-primary-dark);
-    margin-bottom: clamp(0.8rem, 1vw, 2rem);
+    margin-bottom: max(0.8rem, 1vw);
   }
   .faq-question {
-    font-size: clamp(1rem, 1.3vw, 2.6rem);
+    font-size: max(1rem, 1.3vw);
     font-weight: 600;
     color: var(--color-text);
     cursor: pointer;
     list-style: none; /* Hide default arrow */
     position: relative;
-    padding-right: clamp(2rem, 3vw, 6rem);
+    padding-right: max(2rem, 3vw);
     line-height: 1.4;
   }
   .faq-question::-webkit-details-marker {
@@ -765,14 +765,14 @@ try {
     position: absolute;
     right: 0;
     top: 0;
-    font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+    font-size: max(1.2rem, 1.8vw);
     color: var(--color-primary);
   }
   .faq-item[open] .faq-question::after {
     content: "-";
   }
   .faq-answer {
-    font-size: clamp(0.95rem, 1.2vw, 2.4rem);
+    font-size: max(0.95rem, 1.2vw);
     color: var(--color-text-soft);
     line-height: 1.6;
     margin: 0;
@@ -780,10 +780,10 @@ try {
 
   /* CÓMO LLEGAR ESP */
   .rf-ubicacion-text {
-    font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+    font-size: max(0.95rem, 1.3vw);
     color: var(--color-text-soft);
     line-height: 1.6;
-    margin-bottom: clamp(1.5rem, 3vw, 6rem);
+    margin-bottom: max(1.5rem, 3vw);
     text-align: center;
 
     margin-inline: auto;
@@ -791,32 +791,30 @@ try {
   .como-llegar-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: clamp(2rem, 4vw, 8rem);
+    gap: max(2rem, 4vw);
     align-items: stretch;
   }
-  @media (max-width: 48rem) {
-    .como-llegar-grid {
-      grid-template-columns: 1fr;
+  @media (
     }
   }
 
   .como-llegar-info {
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, 1.5vw, 3rem);
+    gap: max(1rem, 1.5vw);
     background: var(--color-bg-soft);
-    border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
-    border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
-    padding: clamp(1.2rem, 2vw, 4rem);
+    border: max(0.05rem, 0.1vw) solid var(--color-border);
+    border-radius: max(0.5rem, 1.5vw);
+    padding: max(1.2rem, 2vw);
   }
   .direccion-label {
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    font-size: max(0.9rem, 1.2vw);
     font-weight: 700;
     color: var(--color-primary-dark);
     margin: 0;
   }
   .maps-link {
-    font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+    font-size: max(0.95rem, 1.3vw);
     color: var(--color-primary-dark);
     text-decoration: underline;
     line-height: 1.4;
@@ -828,35 +826,35 @@ try {
   .transporte-lista {
     display: flex;
     flex-direction: column;
-    gap: clamp(0.6rem, 1vw, 2rem);
+    gap: max(0.6rem, 1vw);
   }
   .transporte-item {
     display: flex;
     align-items: center;
-    gap: clamp(0.8rem, 1.2vw, 2.5rem);
+    gap: max(0.8rem, 1.2vw);
     background: var(--color-bg);
-    border-radius: clamp(0.4rem, 1vw, 2rem);
-    padding: clamp(0.6rem, 1vw, 2rem) clamp(0.8rem, 1.5vw, 3rem);
+    border-radius: max(0.4rem, 1vw);
+    padding: max(0.6rem, 1vw) max(0.8rem, 1.5vw);
     box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.05);
   }
   .transporte-item span {
-    font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+    font-size: max(1.2rem, 1.8vw);
   }
   .transporte-item p {
-    font-size: clamp(0.85rem, 1.1vw, 2.2rem);
+    font-size: max(0.85rem, 1.1vw);
     color: var(--color-text-soft);
     margin: 0;
   }
 
   .horario-box {
-    border-top: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
-    padding-top: clamp(1rem, 1.5vw, 3rem);
+    border-top: max(0.05rem, 0.1vw) solid var(--color-border);
+    padding-top: max(1rem, 1.5vw);
     display: flex;
     flex-direction: column;
-    gap: clamp(0.4rem, 0.6vw, 1.2rem);
+    gap: max(0.4rem, 0.6vw);
   }
   .horario-box p {
-    font-size: clamp(0.85rem, 1.1vw, 2.2rem);
+    font-size: max(0.85rem, 1.1vw);
     margin: 0;
   }
   .horario-label {
@@ -868,10 +866,10 @@ try {
     text-align: center;
     background: var(--color-primary);
     color: #fff;
-    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+    font-size: max(0.9rem, 1.2vw);
     font-weight: 600;
-    border-radius: clamp(0.4rem, 1vw, 1.5rem);
+    border-radius: max(0.4rem, 1vw);
     text-decoration: none;
     margin-top: auto;
     transition: transform 0.2s;
@@ -883,7 +881,7 @@ try {
 
   .mapa-placeholder {
     width: 100%;
-    min-height: clamp(20rem, 30vw, 40rem);
+    min-height: max(20rem, 30vw);
   }
 
   /* CTA FINAL */
@@ -893,44 +891,39 @@ try {
     color: #fff;
   }
   .cta-titulo-blanc {
-    font-size: clamp(1.6rem, 2.8vw, 5rem);
+    font-size: max(1.6rem, 2.8vw);
     color: #fff;
-    margin-bottom: clamp(1rem, 1.5vw, 3rem);
+    margin-bottom: max(1rem, 1.5vw);
     line-height: 1.2;
   }
   .cta-desc-blanc {
-    font-size: clamp(1rem, 1.3vw, 2.6rem);
-    margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+    font-size: max(1rem, 1.3vw);
+    margin-bottom: max(1.5rem, 2.5vw);
 
     margin-inline: auto;
     color: #fff;
     opacity: 0.9;
   }
-  @media (max-width: 48rem) {
-    .cta-desc-blanc {
-    }
-  }
-  .cta-btns {
-    display: flex;
+  @media (
     justify-content: center;
     flex-wrap: wrap;
-    gap: clamp(0.8rem, 1.5vw, 3rem);
+    gap: max(0.8rem, 1.5vw);
   }
   .btn-cta-blanco {
     background: #fff;
     color: var(--color-primary-dark);
-    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
-    border-radius: clamp(0.4rem, 1vw, 1.5rem);
+    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+    font-size: max(0.9rem, 1.2vw);
+    border-radius: max(0.4rem, 1vw);
     font-weight: 600;
     text-decoration: none;
   }
   .btn-cta-outline {
-    border: clamp(0.1rem, 0.15vw, 0.3rem) solid #fff;
+    border: max(0.1rem, 0.15vw) solid #fff;
     color: #fff;
-    padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
-    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
-    border-radius: clamp(0.4rem, 1vw, 1.5rem);
+    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+    font-size: max(0.9rem, 1.2vw);
+    border-radius: max(0.4rem, 1vw);
     font-weight: 600;
     text-decoration: none;
   }
@@ -938,10 +931,10 @@ try {
   /* BLOG */
   .blog-img {
     width: 100%;
-    height: clamp(8rem, 12vw, 20rem);
+    height: max(8rem, 12vw);
     object-fit: cover;
-    border-radius: clamp(0.3rem, 0.8vw, 1.5rem);
-    margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+    border-radius: max(0.3rem, 0.8vw);
+    margin-bottom: max(0.8rem, 1.2vw);
   }
   .blog-content {
     display: flex;
@@ -949,8 +942,8 @@ try {
     flex-grow: 1;
   }
   .blog-fecha {
-    font-size: clamp(0.8rem, 1vw, 2rem);
+    font-size: max(0.8rem, 1vw);
     color: var(--color-text-soft);
-    margin-bottom: clamp(0.5rem, 1vw, 2rem);
+    margin-bottom: max(0.5rem, 1vw);
   }
 </style>
