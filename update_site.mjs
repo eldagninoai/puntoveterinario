@@ -15,12 +15,12 @@ walkPath(dir, (filePath) => {
   if (filePath.endsWith('.astro')) {
     let content = fs.readFileSync(filePath, 'utf8');
     let originalContent = content;
-    
+
     // 1. Reemplazar "Pedregal de Santo Domingo" por "San Pablo Tepetlapa"
     content = content.replace(/Pedregal de Santo Domingo/g, 'San Pablo Tepetlapa');
 
     // 2. Schemas JSON-LD
-    
+
     // En index.astro
     content = content.replace(
       /dayOfWeek: \["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"\],\s*opens: "09:00",\s*closes: "20:00",/g,

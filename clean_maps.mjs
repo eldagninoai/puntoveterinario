@@ -2,12 +2,12 @@ import fs from 'fs';
 import path from 'path';
 
 function walkPath(dir, callback) {
-    if (!fs.existsSync(dir)) return;
-    fs.readdirSync(dir).forEach(f => {
-        let dirPath = path.join(dir, f);
-        let isDirectory = fs.statSync(dirPath).isDirectory();
-        isDirectory ? walkPath(dirPath, callback) : callback(dirPath);
-    });
+  if (!fs.existsSync(dir)) return;
+  fs.readdirSync(dir).forEach(f => {
+    let dirPath = path.join(dir, f);
+    let isDirectory = fs.statSync(dirPath).isDirectory();
+    isDirectory ? walkPath(dirPath, callback) : callback(dirPath);
+  });
 }
 
 const dir = 'e:/adlibswebsites/puntoveterinario/src';
@@ -43,15 +43,15 @@ const goodTagWrapper = `<a
 </a>`;
 
 walkPath(dir, (filePath) => {
-    if (filePath.endsWith('.astro')) {
-        let content = fs.readFileSync(filePath, 'utf8');
-        let original = content;
+  if (filePath.endsWith('.astro')) {
+    let content = fs.readFileSync(filePath, 'utf8');
+    let original = content;
 
-        content = content.split(badTagWrapper).join(goodTagWrapper);
+    content = content.split(badTagWrapper).join(goodTagWrapper);
 
-        if (content !== original) {
-            fs.writeFileSync(filePath, content, 'utf8');
-            console.log('Fixed double nesting in: ' + filePath);
-        }
+    if (content !== original) {
+      fs.writeFileSync(filePath, content, 'utf8');
+      console.log('Fixed double nesting in: ' + filePath);
     }
+  }
 });

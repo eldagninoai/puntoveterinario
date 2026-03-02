@@ -115,15 +115,15 @@ p {
 
 /* ===== LAYOUT FLUIDO ===== */
 .container {
-  width: min(92vw, 120rem);
+  width: 92vw;
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2rem);
+  padding-inline: 4vw;
 }
 
 .container--narrow {
-  width: min(80vw, 72rem);
+  width: 80vw;
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2rem);
+  padding-inline: 4vw;
 }
 
 section {

@@ -131,9 +131,7 @@ const resenas = [
       <div class="hero__text">
         <h1>Veterinaria en Coyoacán, CDMX | Punto Veterinario</h1>
 
-        <p class="hero__slogan text-primary-dark">
-          ¡De cola a nariz, tu mascota feliz!
-        </p>
+        <p class="hero__slogan">¡De cola a nariz, tu mascota feliz!</p>
 
         <p class="hero__desc">
           Atención veterinaria integral con amor y profesionalismo. Encuéntranos
@@ -144,25 +142,25 @@ const resenas = [
         <div class="hero__btns">
           <a
             href="https://wa.me/525513843004"
-            class="btn-primary cta__btn-wa"
+            class="btn-wa"
             target="_blank"
             rel="noopener"
           >
             💬 Agendar por WhatsApp
           </a>
-          <a href="/servicios/consulta-veterinaria" class="btn-secondary"
-            >Ver Servicios</a
-          >
+          <a href="/servicios/consulta-veterinaria" class="btn-sec">
+            Ver Servicios
+          </a>
         </div>
 
-        <div class="hero__datos mt-md">
+        <div class="hero__datos">
           <span>📞 <a href="tel:+525513843004">55 1384 3004</a></span>
           <span>📍 Av. División del Norte 3595, CDMX</span>
-          <span
-            ><a href="https://wa.me/525513843004" target="_blank" rel="noopener"
-              >💬 WhatsApp Urgente</a
-            ></span
-          >
+          <span>
+            <a href="https://wa.me/525513843004" target="_blank" rel="noopener">
+              💬 WhatsApp Urgente
+            </a>
+          </span>
         </div>
       </div>
 
@@ -189,22 +187,17 @@ const resenas = [
   </section>
 
   <!-- 2. SERVICIOS -->
-  <section class="bg-soft">
+  <section class="seccion fondo-suave">
     <div class="container">
-      <h2 class="text-center mb-xl">Nuestros Servicios en Coyoacán</h2>
-      <div class="grid-3 servicios__grid">
+      <h2 class="titulo-sec">Nuestros Servicios en Coyoacán</h2>
+      <div class="grid-servicios">
         {
           servicios.map((s) => (
-            <a
-              href={s.href}
-              class="card card-hover-effect flex-col gap-sm p-lg"
-            >
-              <span class="emoji-xl">{s.emoji}</span>
-              <h3 class="text-primary mt-sm">{s.title}</h3>
-              <p class="text-soft flex-grow">{s.desc}</p>
-              <span class="text-primary fw-bold mt-sm inline-block">
-                Ver más →
-              </span>
+            <a href={s.href} class="card-servicio">
+              <span class="card-emoji">{s.emoji}</span>
+              <h3 class="card-titulo">{s.title}</h3>
+              <p class="card-desc">{s.desc}</p>
+              <span class="card-ver">Ver más →</span>
             </a>
           ))
         }
@@ -213,16 +206,16 @@ const resenas = [
   </section>
 
   <!-- 3. POR QUÉ ELEGIRNOS -->
-  <section class="bg-white">
+  <section class="seccion fondo-blanco">
     <div class="container">
-      <h2 class="text-center mb-xl">¿Por qué elegir Punto Veterinario?</h2>
-      <div class="grid-4 porque__grid">
+      <h2 class="titulo-sec">¿Por qué elegir Punto Veterinario?</h2>
+      <div class="grid-porque">
         {
           porque.map((r) => (
-            <div class="card p-lg text-center border-subtle flex-col items-center">
-              <span class="emoji-xl mb-md block">{r.emoji}</span>
-              <h3 class="text-primary mb-sm text-md">{r.title}</h3>
-              <p class="text-soft text-sm">{r.desc}</p>
+            <div class="card-porque">
+              <span class="card-emoji">{r.emoji}</span>
+              <h3 class="card-titulo">{r.title}</h3>
+              <p class="card-desc">{r.desc}</p>
             </div>
           ))
         }
@@ -231,18 +224,16 @@ const resenas = [
   </section>
 
   <!-- 4. RESEÑAS -->
-  <section class="bg-soft">
+  <section class="seccion fondo-suave">
     <div class="container">
-      <h2 class="text-center mb-xl">Lo que dicen nuestros clientes</h2>
-      <div class="grid-3 resenas__grid">
+      <h2 class="titulo-sec">Lo que dicen nuestros clientes</h2>
+      <div class="grid-resenas">
         {
           resenas.map((r) => (
-            <div class="card p-lg border-subtle flex-col gap-md">
-              <p class="text-lg lh-1">⭐⭐⭐⭐⭐</p>
-              <p class="text-soft text-italic flex-grow lh-relaxed">
-                "{r.texto}"
-              </p>
-              <p class="text-primary fw-bold">— {r.nombre}</p>
+            <div class="card-resena">
+              <p class="estrellas">⭐⭐⭐⭐⭐</p>
+              <p class="resena-texto">"{r.texto}"</p>
+              <p class="resena-nombre">— {r.nombre}</p>
             </div>
           ))
         }
@@ -250,353 +241,195 @@ const resenas = [
     </div>
   </section>
 
-  <!-- 5. COMO LLEGAR -->
-  <section class="como-llegar bg-white">
-    <div class="container py-xl">
-      <h2 class="text-center text-primary-dark mb-xl lh-1">
-        ¿Cómo llegar a Punto Veterinario en Coyoacán?
-      </h2>
-
-      <div class="grid-2 gap-lg items-center text-left">
-        <!-- Izquierda: Direcciones -->
-        <div class="flex-col gap-md bg-soft p-lg border-subtle border-radius">
-          <p class="text-soft text-md lh-relaxed m-0 text-primary-dark">
-            <span class="fw-bold block">Ubicación central en el sur:</span>
-            <a 
-  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-  target="_blank"
-  rel="noopener"
-  aria-label="Ver ubicación en Google Maps"
-  class="maps-link"
->
-  Av. División del Norte 3595, San Pablo Tepetlapa, 
-  CP 04620, Coyoacán, CDMX
-</a>
-          </p>
-
-          <div class="flex-col gap-sm">
-            <div
-              class="card p-sm bg-white border-radius-sm flex items-center gap-sm box-shadow-sm"
-            >
-              <span class="emoji-md m-0">🚇</span>
-              <p class="text-soft text-sm lh-1 m-0">
-                <b>Metro:</b> Línea 3 estación Universidad + combi local
-              </p>
-            </div>
-            <div
-              class="card p-sm bg-white border-radius-sm flex items-center gap-sm box-shadow-sm"
-            >
-              <span class="emoji-md m-0">🚌</span>
-              <p class="text-soft text-sm lh-1 m-0">
-                <b>Metrobús:</b> Línea 1, conexión rápida Coyoacán sur
-              </p>
-            </div>
-            <div
-              class="card p-sm bg-white border-radius-sm flex items-center gap-sm box-shadow-sm"
-            >
-              <span class="emoji-md m-0">🚗</span>
-              <p class="text-soft text-sm lh-1 m-0">
-                <b>En auto:</b> Vía rápida Av. División del Norte 3595
-              </p>
-            </div>
-          </div>
-
-          <div class="horarios-box pt-sm border-top border-border">
-            <p class="text-soft text-sm m-0 lh-relaxed">
-              <span class="text-primary-dark fw-bold block">Lunes:</span> Cerrado
-              <br /><span class="text-primary-dark fw-bold block mt-xs"
-                >Mar-Sáb:</span
-              > 10:00 - 19:00 hrs
-              <br /><span class="text-primary-dark fw-bold block mt-xs"
-                >Dom:</span
-              > 10:00 - 17:00 hrs
-            </p>
-          </div>
-
+  <!-- 5. CÓMO LLEGAR -->
+  <section class="seccion fondo-blanco">
+    <div class="container">
+      <h2 class="titulo-sec">¿Cómo llegar a Punto Veterinario en Coyoacán?</h2>
+      <div class="como-llegar-grid">
+        <div class="como-llegar-info">
+          <p class="direccion-label">Ubicación central en el sur:</p>
           <a
-            href="/ubicacion"
-            class="btn-primary flex justify-center mt-xs pointer text-md fw-bold py-sm transition-transform border-radius block text-center f-width"
+            href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+            target="_blank"
+            rel="noopener"
+            class="maps-link"
           >
-            <span>📍 Ver cómo llegar en el mapa</span>
+            Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
+            Coyoacán, CDMX
           </a>
+
+          <div class="transporte-lista">
+            <div class="transporte-item">
+              <span>🚇</span>
+              <p><b>Metro:</b> Línea 3 estación Universidad + combi local</p>
+            </div>
+            <div class="transporte-item">
+              <span>🚌</span>
+              <p><b>Metrobús:</b> Línea 1, conexión rápida Coyoacán sur</p>
+            </div>
+            <div class="transporte-item">
+              <span>🚗</span>
+              <p><b>En auto:</b> Vía rápida Av. División del Norte 3595</p>
+            </div>
+          </div>
+
+          <div class="horario-box">
+            <p><span class="horario-label">Lunes:</span> Cerrado</p>
+            <p><span class="horario-label">Mar-Sáb:</span> 10:00 - 19:00 hrs</p>
+            <p><span class="horario-label">Dom:</span> 10:00 - 17:00 hrs</p>
+          </div>
+
+          <a href="/ubicacion" class="btn-mapa">📍 Ver cómo llegar en el mapa</a
+          >
         </div>
 
-        <!-- Derecha: Mapa CSS -->
-        <div
-          class="mapa-css bg-light-map border-radius flex-col items-center justify-center dashed-border hover-lift transition-transform"
-        >
-          <span class="emoji-xl map-pin bounce-anim block mb-xs">📍</span>
-          <p class="text-primary-dark fw-bold m-0 t-map text-center">
-            Av. División del Norte 3595,<br />Coyoacán
-          </p>
+        <div class="mapa-placeholder">
+          <span class="pin-emoji">📍</span>
+          <p class="mapa-texto">Av. División del Norte 3595,<br />Coyoacán</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 6. CTA FINAL -->
-  <section class="cta-section">
-    <div class="container text-center max-w-lg mx-auto">
-      <h2 class="text-white mb-lg text-2xl">
-        ¿Tu mascota necesita atención en Coyoacán?
-      </h2>
-      <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-        <a 
-  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-  target="_blank"
-  rel="noopener"
-  aria-label="Ver ubicación en Google Maps"
-  class="maps-link"
->
-  Av. División del Norte 3595, San Pablo Tepetlapa, 
-  CP 04620, Coyoacán, CDMX
-</a>
-      </p>
-      <div class="flex-wrap justify-center gap-md">
+  <section class="cta-final">
+    <div class="container cta-inner">
+      <h2 class="cta-titulo">¿Tu mascota necesita atención en Coyoacán?</h2>
+      <p class="cta-dir">
         <a
-          href="/contacto"
-          class="btn-primary btn-white-theme text-md px-lg py-sm fw-bold"
-          >📅 Agendar Cita</a
+          href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+          target="_blank"
+          rel="noopener"
+          class="maps-link-blanco"
         >
+          Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán,
+          CDMX
+        </a>
+      </p>
+      <div class="cta-btns">
+        <a href="/contacto" class="btn-cta-blanco">📅 Agendar Cita</a>
         <a
           href="https://wa.me/525513843004"
           target="_blank"
           rel="noopener"
-          class="btn-outline-white text-md px-lg py-sm fw-bold">💬 WhatsApp</a
+          class="btn-cta-outline"
         >
+          💬 WhatsApp
+        </a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* UTILIDADES GLOBALES DE LA PÁGINA (Sin PX) */
-  .bg-white {
-    background-color: var(--color-bg);
+  /* =============================================
+     SISTEMA DE ESCALA
+     Referencia base: 1920px = 100vw
+     Fórmula: clamp(mobile-min, vw-proporcional, 4K-max)
+     
+     Ejemplos a 1920px | 4K (3840px):
+     2vw  = 38px  | 77px
+     2.5vw = 48px | 96px  
+     3vw  = 58px  | 115px
+     4vw  = 77px  | 154px
+  ============================================= */
+
+  /* ===== SECCIONES ===== */
+  .seccion {
+    padding-block: clamp(3rem, 6vw, 12rem);
   }
-  .bg-soft {
-    background-color: var(--color-bg-soft);
+  .fondo-suave {
+    background: var(--color-bg-soft);
   }
-  .text-white {
-    color: var(--color-bg);
+  .fondo-blanco {
+    background: var(--color-bg);
   }
-  .text-primary {
+
+  /* ===== TÍTULOS DE SECCIÓN ===== */
+  .titulo-sec {
+    font-size: clamp(1.6rem, 2.8vw, 5rem);
     color: var(--color-primary);
-  }
-  .text-primary-dark {
-    color: var(--color-primary-dark);
-  }
-  .text-soft {
-    color: var(--color-text-soft);
-  }
-  .text-center {
     text-align: center;
-  }
-  .text-italic {
-    font-style: italic;
-  }
-  .text-sm {
-    font-size: var(--text-sm);
-  }
-  .text-md {
-    font-size: var(--text-md);
-  }
-  .text-lg {
-    font-size: var(--text-lg);
-  }
-  .text-2xl {
-    font-size: var(--text-2xl);
-  }
-  .fw-bold {
-    font-weight: 700;
+    margin-bottom: clamp(2rem, 4vw, 7rem);
+    line-height: 1.2;
   }
 
-  .mb-sm {
-    margin-bottom: var(--space-sm);
-  }
-  .mb-md {
-    margin-bottom: var(--space-md);
-  }
-  .mb-lg {
-    margin-bottom: var(--space-lg);
-  }
-  .mb-xl {
-    margin-bottom: var(--space-xl);
-  }
-  .mt-sm {
-    margin-top: var(--space-sm);
-  }
-  .mt-md {
-    margin-top: var(--space-md);
-  }
-
-  .p-lg {
-    padding: var(--space-lg);
-  }
-  .px-lg {
-    padding-inline: var(--space-lg);
-  }
-  .py-sm {
-    padding-block: var(--space-sm);
-  }
-
-  .gap-sm {
-    gap: var(--space-sm);
-  }
-  .gap-md {
-    gap: var(--space-md);
-  }
-
-  .flex-col {
-    display: flex;
-    flex-direction: column;
-  }
-  .flex-wrap {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .flex-grow {
-    flex-grow: 1;
-  }
-  .items-center {
-    align-items: center;
-  }
-  .justify-center {
-    justify-content: center;
-  }
-
-  .block {
-    display: block;
-  }
-  .inline-block {
-    display: inline-block;
-  }
-  .max-w-lg {
-    max-width: 60rem;
-  }
-  .mx-auto {
-    margin-inline: auto;
-  }
-
-  .lh-1 {
-    line-height: 1;
-  }
-  .lh-relaxed {
-    line-height: 1.6;
-  }
-  .opacity-90 {
-    opacity: 0.9;
-  }
-
-  .emoji-xl {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-  }
-  .border-subtle {
-    border: 0.1rem solid var(--color-border);
-    border-radius: var(--radius-lg);
-  }
-
-  .card-hover-effect {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    border-radius: var(--radius-lg);
-    background-color: var(--color-bg);
-    border: 0.1rem solid var(--color-border);
-    text-decoration: none;
-  }
-  .card-hover-effect:hover {
-    transform: translateY(-0.3rem);
-    box-shadow: var(--shadow-md);
-  }
-
-  /* 1. HERO */
+  /* ===== HERO ===== */
   .hero {
-    padding-block: var(--space-xl);
-    background-color: var(--color-bg);
+    padding-block: clamp(3rem, 6vw, 12rem);
+    background: var(--color-bg);
   }
-
   .hero__inner {
     display: grid;
-    /* Split content and placeholder smoothly */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
-    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+    gap: clamp(2rem, 4vw, 8rem);
     align-items: center;
   }
-
   .hero__text h1 {
-    font-size: var(--text-2xl);
-    line-height: 1.2;
-    margin-bottom: var(--space-xs);
+    font-size: clamp(1.8rem, 3.2vw, 6rem);
+    line-height: 1.15;
+    margin-bottom: clamp(1rem, 1.5vw, 3rem);
     color: var(--color-text);
   }
-
   .hero__slogan {
-    font-size: var(--text-lg);
+    font-size: clamp(1.1rem, 2vw, 4rem);
     font-weight: 500;
-    margin-bottom: var(--space-md);
+    color: var(--color-primary-dark);
+    margin-bottom: clamp(1rem, 2vw, 4rem);
   }
-
   .hero__desc {
-    font-size: var(--text-md);
+    font-size: clamp(0.95rem, 1.4vw, 2.8rem);
     color: var(--color-text-soft);
-    margin-bottom: var(--space-lg);
     line-height: 1.6;
+    margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
     max-width: 90%;
   }
-
   .hero__btns {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-md);
+    gap: clamp(0.8rem, 1.5vw, 3rem);
+    margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
   }
-
-  .cta__btn-wa {
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    text-decoration: none;
-    padding: var(--space-sm) var(--space-md);
+  .btn-wa {
+    background: var(--color-primary);
+    color: #fff;
+    padding: clamp(0.6rem, 1vw, 2rem) clamp(1.2rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
     border-radius: var(--radius);
     font-weight: 600;
+    text-decoration: none;
     transition:
-      background-color 0.2s ease,
-      transform 0.2s ease;
+      background 0.2s,
+      transform 0.2s;
   }
-  .cta__btn-wa:hover {
-    background-color: var(--color-primary-dark);
+  .btn-wa:hover {
+    background: var(--color-primary-dark);
     transform: translateY(-0.15rem);
   }
-
-  .btn-secondary {
-    display: inline-block;
-    padding: var(--space-sm) var(--space-md);
+  .btn-sec {
+    padding: clamp(0.6rem, 1vw, 2rem) clamp(1.2rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
     border: 0.15rem solid var(--color-secondary);
     color: var(--color-secondary-dark);
-    text-decoration: none;
     border-radius: var(--radius);
     font-weight: 600;
-    background-color: transparent;
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease,
-      transform 0.2s ease;
+    text-decoration: none;
+    transition: all 0.2s;
   }
-  .btn-secondary:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-bg);
+  .btn-sec:hover {
+    background: var(--color-secondary);
+    color: #fff;
     transform: translateY(-0.15rem);
   }
-
   .hero__datos {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-md);
-    font-size: var(--text-sm);
+    gap: clamp(0.8rem, 1.5vw, 3rem);
+    font-size: clamp(0.85rem, 1.1vw, 2.2rem);
     color: var(--color-text-soft);
     border-top: 0.1rem solid var(--color-border);
-    padding-top: var(--space-md);
+    padding-top: clamp(1rem, 1.5vw, 3rem);
   }
-
   .hero__datos a {
     color: var(--color-primary-dark);
     text-decoration: none;
@@ -605,20 +438,18 @@ const resenas = [
   .hero__datos a:hover {
     text-decoration: underline;
   }
-
   .hero__img {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   .hero__figure {
     margin: 0;
     width: 100%;
   }
   .hero__img-real {
     width: 100%;
-    height: clamp(18rem, 40vw, 32rem);
+    height: clamp(16rem, 35vw, 70rem);
     object-fit: contain;
     border-radius: var(--radius-lg);
   }
@@ -633,73 +464,222 @@ const resenas = [
     border: 0;
   }
 
-  /* 6. CTA FINAL */
-  .cta-section {
-    background-color: var(--color-primary);
-    padding-block: var(--space-xl);
+  /* ===== CARDS SERVICIOS ===== */
+  .grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(1rem, 2vw, 4rem);
+  }
+  .card-servicio {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+    border: 0.1rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.2rem, 2.5vw, 5rem);
+    text-decoration: none;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+  .card-servicio:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: var(--shadow-md);
   }
 
-  .btn-white-theme {
-    background-color: var(--color-bg);
-    color: var(--color-primary);
-    text-decoration: none;
-    border-radius: var(--radius);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-    display: inline-block;
+  /* ===== CARDS PORQUE ===== */
+  .grid-porque {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: clamp(1rem, 2vw, 4rem);
   }
-  .btn-white-theme:hover {
+  .card-porque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--color-bg);
+    border: 0.1rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.2rem, 2.5vw, 5rem);
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+  .card-porque:hover {
     transform: translateY(-0.2rem);
     box-shadow: var(--shadow-md);
   }
 
-  .btn-outline-white {
-    background-color: transparent;
-    color: var(--color-bg);
-    border: 0.15rem solid var(--color-bg);
-    text-decoration: none;
-    border-radius: var(--radius);
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease,
-      transform 0.2s ease;
-    display: inline-block;
+  /* ===== CARDS RESEÑAS ===== */
+  .grid-resenas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 2vw, 4rem);
   }
-  .btn-outline-white:hover {
-    background-color: var(--color-bg);
-    color: var(--color-primary);
-    transform: translateY(-0.2rem);
+  .card-resena {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+    border: 0.1rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.2rem, 2.5vw, 5rem);
   }
 
-  /* UTILS NEW COMO LLEGAR */
-  .box-shadow-sm {
-    box-shadow: var(--shadow-sm);
+  /* ===== ELEMENTOS COMPARTIDOS DE CARDS ===== */
+  .card-emoji {
+    font-size: clamp(2rem, 3.5vw, 7rem);
+    display: block;
+    margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
   }
-  .f-width {
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .bg-light-map {
-    background-color: #e8fafa;
-  }
-  .dashed-border {
-    border: 0.2rem dashed var(--color-primary-light);
-  }
-  .mapa-css {
-    min-height: clamp(18rem, 35vw, 26rem);
-    padding: var(--space-lg);
-  }
-  .t-map {
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
+  .card-titulo {
+    font-size: clamp(1rem, 1.6vw, 3.2rem);
+    color: var(--color-primary-dark);
+    margin-bottom: clamp(0.5rem, 0.8vw, 1.5rem);
     line-height: 1.3;
   }
-
-  .bounce-anim {
-    animation: mapb 2s infinite ease-in-out;
+  .card-desc {
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    color: var(--color-text-soft);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0;
+  }
+  .card-ver {
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-top: clamp(0.8rem, 1.2vw, 2.5rem);
+    display: inline-block;
+  }
+  .estrellas {
+    font-size: clamp(1rem, 1.5vw, 3rem);
+    line-height: 1;
+    margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+  }
+  .resena-texto {
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    color: var(--color-text-soft);
+    font-style: italic;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0 0 clamp(0.8rem, 1.2vw, 2.5rem);
+  }
+  .resena-nombre {
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    margin: 0;
   }
 
-  @keyframes mapb {
+  /* ===== CÓMO LLEGAR ===== */
+  .como-llegar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: clamp(2rem, 4vw, 8rem);
+    align-items: center;
+  }
+  .como-llegar-info {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 1.8vw, 3.5rem);
+    background: var(--color-bg-soft);
+    border: 0.1rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.2rem, 2.5vw, 5rem);
+  }
+  .direccion-label {
+    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin: 0;
+  }
+  .maps-link {
+    font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 0.2rem;
+    transition: color 0.2s;
+  }
+  .maps-link:hover {
+    color: var(--color-primary);
+  }
+  .transporte-lista {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.6rem, 1vw, 2rem);
+  }
+  .transporte-item {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.6rem, 1vw, 2rem);
+    background: var(--color-bg);
+    border-radius: var(--radius);
+    padding: clamp(0.6rem, 1vw, 2rem) clamp(0.8rem, 1.2vw, 2.5rem);
+    box-shadow: var(--shadow);
+  }
+  .transporte-item span {
+    font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+    flex-shrink: 0;
+  }
+  .transporte-item p {
+    font-size: clamp(0.85rem, 1.1vw, 2.2rem);
+    color: var(--color-text-soft);
+    margin: 0;
+    line-height: 1.3;
+  }
+  .horario-box {
+    border-top: 0.1rem solid var(--color-border);
+    padding-top: clamp(1rem, 1.5vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.4rem, 0.6vw, 1.2rem);
+  }
+  .horario-box p {
+    font-size: clamp(0.85rem, 1.1vw, 2.2rem);
+    color: var(--color-text-soft);
+    margin: 0;
+  }
+  .horario-label {
+    font-weight: 700;
+    color: var(--color-primary-dark);
+  }
+  .btn-mapa {
+    display: block;
+    text-align: center;
+    background: var(--color-primary);
+    color: #fff;
+    padding: clamp(0.6rem, 1vw, 2rem) clamp(1rem, 1.8vw, 3.5rem);
+    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
+    font-weight: 600;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+  }
+  .btn-mapa:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-0.15rem);
+  }
+  .mapa-placeholder {
+    min-height: clamp(16rem, 30vw, 60rem);
+    background: var(--color-primary-light);
+    border: 0.2rem dashed var(--color-primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 3vw, 6rem);
+    gap: clamp(1rem, 2vw, 4rem);
+  }
+  .pin-emoji {
+    font-size: clamp(3rem, 6vw, 12rem);
+    animation: bounce 2s infinite ease-in-out;
+  }
+  @keyframes bounce {
     0%,
     100% {
       transform: translateY(0);
@@ -708,43 +688,79 @@ const resenas = [
       transform: translateY(-1rem);
     }
   }
-
-  .border-top {
-    border-top: 0.1rem solid;
-  }
-  .border-border {
-    border-color: var(--color-border);
-  }
-  .mt-xs {
-    margin-top: var(--space-xs);
-  }
-  .mb-xs {
-    margin-bottom: var(--space-xs);
+  .mapa-texto {
+    font-size: clamp(1rem, 1.8vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    text-align: center;
+    line-height: 1.3;
+    margin: 0;
   }
 
-  .horarios-box p {
-    color: var(--color-text-soft);
+  /* ===== CTA FINAL ===== */
+  .cta-final {
+    background: var(--color-primary);
+    padding-block: clamp(3rem, 6vw, 12rem);
   }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
+  .cta-inner {
+    text-align: center;
   }
-  @media (min-width: 48rem) {
-    .grid-2 {
-      grid-template-columns: 1.3fr 1fr;
-    }
+  .cta-titulo {
+    font-size: clamp(1.6rem, 2.8vw, 5.5rem);
+    color: #fff;
+    margin-bottom: clamp(1rem, 1.5vw, 3rem);
+    line-height: 1.2;
   }
-
-  .maps-link {
-    color: inherit;
+  .cta-dir {
+    font-size: clamp(1rem, 1.4vw, 2.8rem);
+    margin-bottom: clamp(2rem, 3vw, 6rem);
+    max-width: none;
+  }
+  .maps-link-blanco {
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: underline;
-    text-decoration-color: var(--color-primary);
+    text-decoration-color: rgba(255, 255, 255, 0.5);
     text-underline-offset: 0.2rem;
     transition: color 0.2s;
   }
-  .maps-link:hover {
+  .maps-link-blanco:hover {
+    color: #fff;
+  }
+  .cta-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(0.8rem, 1.5vw, 3rem);
+    justify-content: center;
+  }
+  .btn-cta-blanco {
+    background: #fff;
     color: var(--color-primary);
+    padding: clamp(0.6rem, 1vw, 2rem) clamp(1.5rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
+    font-weight: 700;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+  .btn-cta-blanco:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-cta-outline {
+    border: 0.15rem solid #fff;
+    color: #fff;
+    padding: clamp(0.6rem, 1vw, 2rem) clamp(1.5rem, 2.5vw, 5rem);
+    font-size: clamp(0.9rem, 1.3vw, 2.6rem);
+    font-weight: 700;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-cta-outline:hover {
+    background: #fff;
+    color: var(--color-primary);
+    transform: translateY(-0.2rem);
   }
 </style>
