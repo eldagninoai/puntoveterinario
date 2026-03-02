@@ -3,32 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Schema from '../components/Schema.astro';
 
 const schema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Blog Veterinario | Punto Veterinario",
-    "url": "https://puntoveterinario.com/blog",
-    "description": "Artículos, consejos y guías sobre salud animal, cuidados, cirugías y más, redactados por médicos veterinarios zootecnistas en Coyoacán.",
-    "publisher": {
-      "@type": "VeterinaryCare",
-      "name": "Punto Veterinario"
+  {"@context": "https://schema.org","@type": "Blog","name": "Blog Veterinario | Punto Veterinario","url": "https://puntoveterinario.com/blog","description": "Artículos, consejos y guías sobre salud animal, cuidados, cirugías y más, redactados por médicos veterinarios zootecnistas en Coyoacán.","publisher": {"@type": "VeterinaryCare","name": "Punto Veterinario"
     }
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inicio",
-        "item": "https://puntoveterinario.com/"
+  {"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [
+      {"@type": "ListItem","position": 1,"name": "Inicio","item": "https://puntoveterinario.com/"
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": "https://puntoveterinario.com/blog"
+      {"@type": "ListItem","position": 2,"name": "Blog","item": "https://puntoveterinario.com/blog"
       }
     ]
   }
@@ -66,8 +47,8 @@ const articulos = [
     <div class="container hero-inner">
       <h1 class="titulo-principal">Blog Veterinario en Coyoacán | Consejos para tu Mascota</h1>
       <p class="subtitulo">
-        Descubre nuestros invaluables e informativos artículos médicos redactados directamente por la firme y diestra mano de nuestros mejores médicos tratantes. Una fuente inagotable de sabiduría animal zootécnica desde <strong>San Pablo Tepetlapa</strong> y la <strong>Av. División del Norte 3595</strong>, que empodera tu rol de tutor y resguarda con supremo conocimiento la inquebrantable vitalidad canina o felina de tu hogar sureño en particular.
-      </p>
+    Artículos y consejos veterinarios redactados por nuestros médicos desde San Pablo Tepetlapa, pensados para el bienestar de tu perro o gato.
+</p>
     </div>
   </section>
 
@@ -98,7 +79,7 @@ const articulos = [
 
   <!-- 3. CTA -->
   <section class="cta-section bg-primary py-xl text-center">
-    <div class="container max-w-lg mx-auto">
+    <div class="container">
       <h2 class="text-white mb-lg text-2xl lh-1">¿Tu mascota necesita atención veterinaria en Coyoacán?</h2>
       <div class="flex flex-wrap justify-center gap-md">
         <a href="/contacto" class="btn-white-theme text-primary fw-bold text-md px-lg py-sm border-radius transition-transform inline-block">📅 Agendar Cita</a>
@@ -108,6 +89,8 @@ const articulos = [
 </BaseLayout>
 
 <style>
+
+
 
     /* ===== HERO CENTRADO ===== */
     .hero-inner {
@@ -200,7 +183,7 @@ const articulos = [
   
   .lh-1 { line-height: 1.2; }
   .lh-relaxed { line-height: 1.6; }
-  .max-w-lg { max-width: 60rem; }
+  . {  }
   .opacity-50 { opacity: 0.5; }
   
   .border-radius { border-radius: var(--radius); }
@@ -245,4 +228,20 @@ const articulos = [
   }
   .card:nth-child(n+2) .btn-read:hover { text-decoration: underline; text-underline-offset: 0.2rem; }
 
+
+    .seccion {
+        padding-block: clamp(3rem, 6vw, 10vw);
+        width: 100%;
+    }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
 </style>

@@ -1,38 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const schema = {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "VeterinaryCare"],
+const schema = {"@context": "https://schema.org","@type": ["LocalBusiness", "VeterinaryCare"],
     name: "Punto Veterinario",
     url: "https://puntoveterinario.com/ubicacion",
     telephone: "+525513843004",
-    address: {
-        "@type": "PostalAddress",
+    address: {"@type": "PostalAddress",
         streetAddress: "Av. División del Norte 3595",
         addressLocality: "San Pablo Tepetlapa",
         addressRegion: "Coyoacán, Ciudad de México",
         postalCode: "04620",
         addressCountry: "MX",
     },
-    geo: {
-        "@type": "GeoCoordinates",
+    geo: {"@type": "GeoCoordinates",
         latitude: 19.322004,
         longitude: -99.13922,
     },
 };
 
-const colonias = [
-    "San Pablo Tepetlapa",
-    "Ajusco",
-    "Copilco el Alto",
-    "Pedregal de Carrasco",
-    "Los Reyes",
-    "Santo Domingo",
-    "El Caracol",
-    "San Pablo Tepetlapa",
-    "Ruiz Cortines",
-    "Pedregal de San Nicolás",
+const colonias = ["San Pablo Tepetlapa","Ajusco","Copilco el Alto","Pedregal de Carrasco","Los Reyes","Santo Domingo","El Caracol","San Pablo Tepetlapa","Ruiz Cortines","Pedregal de San Nicolás",
 ];
 
 const transporte = [
@@ -66,11 +52,8 @@ const transporte = [
                 Veterinaria en San Pablo Tepetlapa | Punto Veterinario
             </h1>
             <p class="subtitulo">
-                Encuentra nuestra clínica veterinaria en <strong
-                    >Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
-                    Coyoacán</strong
-                >.
-            </p>
+    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
+</p>
             <div class="botones">
             <a
                 href="https://wa.me/525513843004"
@@ -152,10 +135,8 @@ const transporte = [
                                     >Horario de atención</strong
                                 >
                                 <p class="text-soft text-sm lh-relaxed mt-xs">
-                                    Lunes: Cerrado<br />
-                                    Mar-Sáb 10:00-19:00<br />
-                                    Dom 10:00-17:00
-                                </p>
+    Lunes: Cerrado Mar-Sáb 10:00-19:00 Dom 10:00-17:00.
+</p>
                             </div>
                         </li>
                     </ul>
@@ -210,7 +191,7 @@ const transporte = [
                                     <!-- 4. COLONIAS QUE ATENDEMOS -->
                                     <section class="bg-soft py-xl">
                                         <div
-                                            class="container max-w-lg mx-auto text-center"
+                                            class="container text-center"
                                         >
                                             <h2 class="text-primary mb-md">
                                                 Atendemos mascotas de toda la
@@ -259,7 +240,7 @@ const transporte = [
                                     <section
                                         class="cta-section bg-primary py-xl text-center"
                                     >
-                                        <div class="container max-w-lg mx-auto">
+                                        <div class="container">
                                             <h2
                                                 class="text-white mb-lg text-2xl lh-1"
                                             >
@@ -294,6 +275,8 @@ const transporte = [
                                 </p>
 
                                 <style>
+
+
 
     /* ===== HERO CENTRADO ===== */
     .hero-inner {
@@ -457,8 +440,8 @@ const transporte = [
                                     .lh-relaxed {
                                         line-height: 1.6;
                                     }
-                                    .max-w-lg {
-                                        max-width: 60rem;
+                                    . {
+                                        
                                     }
                                     .opacity-90 {
                                         opacity: 0.9;
@@ -554,7 +537,23 @@ const transporte = [
                                     .maps-link:hover {
                                         color: var(--color-primary);
                                     }
-                                </style>
+                                
+    .seccion {
+        padding-block: clamp(3rem, 6vw, 10vw);
+        width: 100%;
+    }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
+</style>
                             </div>
                         </li>
                     </ul>

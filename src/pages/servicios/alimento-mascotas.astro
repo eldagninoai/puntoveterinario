@@ -3,18 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Schema from "../../components/Schema.astro";
 
 const schema = [
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
+    {"@context": "https://schema.org","@type": "Service",
         name: "Venta de Alimento para Mascotas en Coyoacán",
         url: "https://puntoveterinario.com/servicios/alimento-mascotas",
-        description:
-            "Tienda de alimento veterinario para mascotas en Coyoacán. Croquetas premium para perros y gatos en Av. División del Norte 3595, CP 04620.",
-        provider: {
-            "@type": "VeterinaryCare",
+        description:"Tienda de alimento veterinario para mascotas en Coyoacán. Croquetas premium para perros y gatos en Av. División del Norte 3595, CP 04620.",
+        provider: {"@type": "VeterinaryCare",
             name: "Punto Veterinario",
-            address: {
-                "@type": "PostalAddress",
+            address: {"@type": "PostalAddress",
                 streetAddress: "Av. División del Norte 3595",
                 addressLocality: "San Pablo Tepetlapa",
                 postalCode: "04620",
@@ -24,40 +19,30 @@ const schema = [
     },
 ];
 
-const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
+const faqSchema = {"@context": "https://schema.org","@type": "FAQPage",
     mainEntity: [
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Qué es mejor: alimento seco o húmedo para perros?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "La indiscutible respuesta óptima recae en una equilibrada combinación médica o en una elección rotundamente basada en los padecimientos individuales de tu mascota. Las excepcionales y fortificadas croquetas de corte seco benefician categóricamente de sobremanera toda la higiene periodontal mecánica y aportan la densidad calórica principal, mientras que las deliciosas dietas de sobrecitos húmedos son insuperables para estimular gratamente el esquivo apetito animal y potenciar crucialmente su rehidratación general diaria si beben poca agua.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "La indiscutible respuesta óptima recae en una equilibrada combinación médica o en una elección rotundamente basada en los padecimientos individuales.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Cómo elegir las croquetas correctas para mi perro?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "La delicada y responsable e integral elección de la futura bolsa nutricional recae obligatoriamente sobre formales variantes médicas de gran peso zootécnico como la exacta edad biológica, el minúsculo o mediano tamaño final de la raza representativa, su frenético o sedante nivel de incansable actividad metabólica diaria y el control de probables alergias dérmicas recurrentes. Aquí en nuestra sucursal recibes al instante imbatible prescripción de personal altamente calificado para hallar infaliblemente la dosis.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "La delicada y responsable e integral elección de la futura bolsa nutricional recae obligatoriamente sobre formales variantes médicas de gran.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Venden alimento para gatos con problemas renales en Coyoacán?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Por supuesto y de manera muy abundante y primordial. El crítico control sobre el fallo renal agudo en adorables felinos está inexorablemente anclado a severas e irrevocables restricciones de proteínas base sintéticas y limitantes cuotas fosfóricas en los sacos diarios. Mantenemos siempre disponible stock inmediato de maravillosas e impecables fórmulas certificadas y recetadas globales como Renal de Royal Canin o sus excelsas equivalencias en Coyoacán para sostener vitalmente su supervivencia de larga duración.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Por supuesto y de manera muy abundante y primordial.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Dónde comprar croquetas veterinarias cerca de San Pablo Tepetlapa?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "En Punto Veterinario dispones orgullosamente y siempre de la mayor y vasta y espectacular variedad capitalina de insuperables croquetas, concentrados y deliciosos aderezos de prescripción local en la célebre Av. División del Norte 3595, justo enclavados profundamente en la segura colonia San Pablo Tepetlapa englobada bajo el consabido CP 04620. Contamos enteramente con abastecimiento inagotable, fresco y genuino al inmejorable alcance vecinal sin desvíos mayúsculos automotrices foráneos agobiantes.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
             },
         },
     ],
@@ -67,32 +52,32 @@ const alimentosCards = [
     {
         emoji: "🐕",
         title: "Croquetas para perros adultos",
-        desc: "Bultos formulados biológicamente de manera equilibrada y contundente para mantener vitalicios y exuberantes la musculatura estriada y proporcionar sostenidas y admirables reservas calóricas diarias a sus paseos capitalinos.",
+        desc: "Bultos formulados biológicamente de manera equilibrada y contundente para mantener vitalicios y exuberantes la musculatura estriada y proporcionar sostenidas y.",
     },
     {
         emoji: "🐶",
         title: "Alimento para cachorros",
-        desc: "Potentísimas y formidables matrices repletas por montones de finísimo DHA neuronal y proteínas hidrolizadas en diminutas y crujientes esferas, que cimientan rotundamente su glorioso y vertiginoso y robusto crecimiento musculoesquelético temprano.",
+        desc: "Potentísimas y formidables matrices repletas por montones de finísimo DHA neuronal y proteínas hidrolizadas en diminutas y crujientes esferas, que.",
     },
     {
         emoji: "🐈",
         title: "Croquetas para gatos adultos",
-        desc: "Supremas y exquisitas fórmulas altamente balanceadas que controlan irrefutablemente las letales bolas de excesivo pelo ingerido esporádico y mantienen maravillosamente el tracto inferior urinario intocado con acidez estabilizada en todo momento.",
+        desc: "Supremas y exquisitas fórmulas altamente balanceadas que controlan irrefutablemente las letales bolas de excesivo pelo ingerido esporádico y mantienen maravillosamente.",
     },
     {
         emoji: "🐱",
         title: "Alimento para gatitos",
-        desc: "Sustento miniatura super premium denso en insuperables y formidables grasas provechosas y vital taurina que les permiten desbordar inconmensurable y grata energía traviesa para aprender e investigar insaciablemente su inexplorado y vasto entorno casero.",
+        desc: "Sustento miniatura super premium denso en insuperables y formidables grasas provechosas y vital taurina que les permiten desbordar inconmensurable y.",
     },
     {
         emoji: "🏥",
         title: "Dietas veterinarias especiales",
-        desc: "La élite absoluta científica comestible enfocada categóricamente en contener agresivos pero incesantes padecimientos sistémicos tales como las desgastantes anomalías de obesidad severa, la letal y silenciosa diabetes subte y los devastadores malestares cutáneos generalizados.",
+        desc: "La élite absoluta científica comestible enfocada categóricamente en contener agresivos pero incesantes padecimientos sistémicos tales como las desgastantes anomalías de.",
     },
     {
         emoji: "🌿",
         title: "Alimento natural y sin cereales",
-        desc: "Vasta selección sublime incondicionalmente reservada a estómagos ultra sensibles intolerantes o para ejemplares exóticos portadores de asimilación débil que reclaman encarecidamente exquisita saciedad ancestral silvestre libre rotundamente de gluten denso en Coyoacán.",
+        desc: "Vasta selección sublime incondicionalmente reservada a estómagos ultra sensibles intolerantes o para ejemplares exóticos portadores de asimilación débil que reclaman.",
     },
 ];
 
@@ -100,22 +85,22 @@ const porqueAlimentoCards = [
     {
         emoji: "💪",
         title: "Mejor nutrición = menos enfermedades",
-        desc: "Un insuperable sistema hermético inmunológico invencible se forja indudablemente comenzando desde lo profundo e interno del vasto tejido tracto digestivo, impidiendo colosalmente inusitados ingresos virales o bacterianos de contagio furtivo.",
+        desc: "Un insuperable sistema hermético inmunológico invencible se forja indudablemente comenzando desde lo profundo e interno del vasto tejido tracto digestivo,.",
     },
     {
         emoji: "🦷",
         title: "Cuida dientes y digestión",
-        desc: "La gran y precisa fricción estandarizada incesante sobre la fuerte e inquebrantable estructura ósea y maxilar en cada bocado seco disminuye infalible y progresivamente dolorosas e incómodas formaciones dentales de sarro calcificado amarillento adosado.",
+        desc: "La gran y precisa fricción estandarizada incesante sobre la fuerte e inquebrantable estructura ósea y maxilar en cada bocado seco.",
     },
     {
         emoji: "✨",
         title: "Pelaje sano y brillante",
-        desc: "La espléndida, lujosa y majestuosa adición inmaculada natural de insustituibles y esenciales aceites purificados omega tres propicia exuberantemente sedosas y brillantes texturas visuales envidiables libres de resequedades pruriginosas incómodas generalizadas.",
+        desc: "La espléndida, lujosa y majestuosa adición inmaculada natural de insustituibles y esenciales aceites purificados omega tres propicia exuberantemente sedosas y.",
     },
     {
         emoji: "🩺",
         title: "Recomendado por nuestros veterinarios",
-        desc: "Garantizamos y sustentamos ciegamente e irrefutablemente desde la noble y pura ética profesional nuestra rotunda sugerencia nutricional basados siempre en abrumadora evidencia casuística inesquivable empírica clínica contundente y local sureña.",
+        desc: "Garantizamos y sustentamos ciegamente e irrefutablemente desde la noble y pura ética profesional nuestra rotunda sugerencia nutricional basados siempre en.",
     },
 ];
 
@@ -123,17 +108,17 @@ const porQueElegirnosCards = [
     {
         emoji: "🩺",
         title: "Asesoría veterinaria incluida",
-        desc: "No somos categórica y simplemente aburridos despachadores apáticos, somos profesionales que en todo acto indicamos la proporción nutritiva intachable exenta de perjudiciales engordas infundadas. La dosis imperativa y los volúmenes en Coyoacán te los marcamos nosotros.",
+        desc: "No somos categórica y simplemente aburridos despachadores apáticos, somos profesionales que en todo acto indicamos la proporción nutritiva intachable exenta.",
     },
     {
         emoji: "🏆",
         title: "Marcas súper y ultra premium",
-        desc: "Nuestros robustos e imponentes estantes comerciales descansan albergando irrebatiblemente a las auténticas potencias nutritivas planetarias como Hill's Science Diet y la incuestionable Royal Canin genuinamente fresca sin riesgo alguno nocivo de severas caducidades rebasadas o alteradas.",
+        desc: "Nuestros robustos e imponentes estantes comerciales descansan albergando irrebatiblemente a las auténticas potencias nutritivas planetarias como Hill's Science Diet y.",
     },
     {
         emoji: "📍",
         title: "En San Pablo Tepetlapa CP 04620",
-        desc: "Proveerse de voluminosas e imponentes pacas fortificadas resultará increíblemente holgado transitar en auto localmente y regresar cargado a cualquier hogar radicado contiguo a tan legendaria avenida sureña del Pedregal. Olvida las pesadas horas foráneas desaprovechadas acarreando.",
+        desc: "Proveerse de voluminosas e imponentes pacas fortificadas resultará increíblemente holgado transitar en auto localmente y regresar cargado a cualquier hogar.",
     },
 ];
 
@@ -142,19 +127,19 @@ const relacionadosCards = [
         title: "Consulta Veterinaria",
         emoji: "🩺",
         href: "/servicios/consulta-veterinaria",
-        desc: "El dictamen esencial previo y oportuno de inmenso y gran valor médico referencial para determinar sin medias tintas la imperativa bolsa nutricional de rescate o de vigoroso fortalecimiento biológico.",
+        desc: "El dictamen esencial previo y oportuno de inmenso y gran valor médico referencial para determinar sin medias tintas la imperativa.",
     },
     {
         title: "Laboratorio Clínico",
         emoji: "🔬",
         href: "/servicios/laboratorio-clinico",
-        desc: "Conocer e identificar la cruda realidad metabólica interna revelada en las infalibles biometrías para afinar abrumadoramente el rumbo hacia una inigualable y correcta prescripción de alimento dietético curativo.",
+        desc: "Conocer e identificar la cruda realidad metabólica interna revelada en las infalibles biometrías para afinar abrumadoramente el rumbo hacia una.",
     },
     {
         title: "Estética Canina y Felina",
         emoji: "✂️",
         href: "/servicios/estetica-canina",
-        desc: "El colosal y supremo acompañante de belleza extrínseca de la nutrición; porque de nada sirve brillar y ostentar innegable salud desde el estómago, si no se luce y exuda externamente impecable.",
+        desc: "El colosal y supremo acompañante de belleza extrínseca de la nutrición; porque de nada sirve brillar y ostentar innegable salud.",
     },
 ];
 ---
@@ -173,17 +158,8 @@ const relacionadosCards = [
                 Alimento para Mascotas en Coyoacán, CDMX | Punto Veterinario
             </h1>
             <p class="subtitulo">
-                El fundamento invencible que resguarda absolutamente una
-                prolongada y espléndida estancia longeva es infaliblemente
-                inyectar la correcta combustión. Despliega majestuosos <strong
-                    >abastecimientos y costales en venta repletos de la
-                    excelencia en alimento premium, recomendado por veterinarios
-                    a nivel global en nuestro céntrico punto del San Pablo Tepetlapa (CP 04620)</strong
-                >. Respaldamos incondicionalmente los tractos y las estéticas
-                corporales proveyendo raciones formidables resguardadas
-                intachablemente en la afamada clínica apostada sobre Av.
-                División del Norte 3595.
-            </p>
+    Dietas especializadas y alimentos premium cuidadosamente seleccionados por médicos veterinarios para cuidar la nutrición de tu mascota.
+</p>
             <div class="flex flex-wrap gap-md">
                 <a
                     href="https://wa.me/525513843004"
@@ -210,7 +186,7 @@ const relacionadosCards = [
                 Alimento veterinario premium para tu mascota en Coyoacán
             </h2>
             <p
-                class="text-center text-soft text-md mb-lg lh-relaxed max-w-lg mx-auto"
+                class="text-center text-soft text-md mb-lg lh-relaxed"
             >
                 Sostenemos con sumo vigor en estantes los gigantes mundiales de
                 nutrición que invariablemente garantizan biológicamente una
@@ -238,18 +214,13 @@ const relacionadosCards = [
 
     <!-- 3. ¿POR QUÉ ALIMENTO VETERINARIO? -->
     <section class="bg-white py-xl">
-        <div class="container max-w-lg mx-auto text-center">
+        <div class="container text-center">
             <h2 class="text-primary-dark mb-md">
                 ¿Por qué tu mascota merece alimento de calidad?
             </h2>
             <p class="text-soft text-md mb-lg lh-relaxed">
-                Renunciar rotundamente y al instante a las dietas burdas de
-                supermercado comercial conformará de inmediato un inestimable
-                parteaguas abismal salvador entre interminables cuentas
-                infructuosas de apabullante hospitalización a plazos o años
-                desbordantes de jovial travesura. Destacamos a continuación
-                asombrosos argumentos.
-            </p>
+    Renunciar rotundamente y al instante a las dietas burdas de supermercado comercial conformará de inmediato un inestimable parteaguas abismal salvador...
+</p>
             <div
                 class="grid-2 gap-md text-left bg-soft p-lg border-radius mb-md"
             >
@@ -302,7 +273,7 @@ const relacionadosCards = [
 
     <!-- 5. FAQ -->
     <section class="bg-white py-xl">
-        <div class="container max-w-lg mx-auto">
+        <div class="container">
             <h2 class="text-center mb-xl text-primary-dark">
                 Preguntas Frecuentes sobre Alimento para Mascotas en Coyoacán
             </h2>
@@ -355,7 +326,7 @@ const relacionadosCards = [
 
     <!-- 7. CTA FINAL -->
     <section class="cta-section bg-primary py-xl text-center">
-        <div class="container max-w-lg mx-auto">
+        <div class="container">
             <h2 class="text-white mb-lg text-2xl lh-1">
                 ¿Buscas alimento premium para tu mascota en Coyoacán?
             </h2>
@@ -390,6 +361,8 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+
+
 
     /* ===== HERO CENTRADO ===== */
     .hero-inner {
@@ -574,8 +547,8 @@ const relacionadosCards = [
     .lh-relaxed {
         line-height: 1.6;
     }
-    .max-w-lg {
-        max-width: 60rem;
+    . {
+        
     }
     .opacity-90 {
         opacity: 0.9;
@@ -669,4 +642,20 @@ const relacionadosCards = [
   .maps-link:hover {
     color: var(--color-primary);
   }
+
+    .seccion {
+        padding-block: clamp(3rem, 6vw, 10vw);
+        width: 100%;
+    }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
 </style>

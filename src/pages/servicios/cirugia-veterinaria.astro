@@ -2,18 +2,13 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Schema from "../../components/Schema.astro";
 
-const schema = {
-    "@context": "https://schema.org",
-    "@type": "MedicalProcedure",
+const schema = {"@context": "https://schema.org","@type": "MedicalProcedure",
     name: "Cirugía Veterinaria en Coyoacán",
     url: "https://puntoveterinario.com/servicios/cirugia-veterinaria",
-    description:
-        "Cirugías veterinarias especializadas en Coyoacán CDMX. Tejidos blandos, ortopedia y más en Av. División del Norte 3595, CP 04620.",
-    provider: {
-        "@type": "VeterinaryCare",
+    description:"Cirugías veterinarias especializadas en Coyoacán CDMX. Tejidos blandos, ortopedia y más en Av. División del Norte 3595, CP 04620.",
+    provider: {"@type": "VeterinaryCare",
         name: "Punto Veterinario",
-        address: {
-            "@type": "PostalAddress",
+        address: {"@type": "PostalAddress",
             streetAddress: "Av. División del Norte 3595",
             addressLocality: "San Pablo Tepetlapa",
             postalCode: "04620",
@@ -22,40 +17,30 @@ const schema = {
     },
 };
 
-const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
+const faqSchema = {"@context": "https://schema.org","@type": "FAQPage",
     mainEntity: [
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Qué incluye la valoración pre-quirúrgica?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "La valoración pre-quirúrgica integral en Punto Veterinario es un riguroso paso médico previo para garantizar la máxima seguridad en la intervención y la administración de anestesia. Incluye de base una revisión exhaustiva de todo el sistema cardiovascular y respiratorio de tu mascota, la toma meticulosa de presión arterial, y por supuesto, el ineludible levantamiento de análisis sanguíneos preoperatorios o química sanguínea que dictaminan su estado metabólico actual.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Pruebas de sangre y laboratorio procesadas rápidamente para obtener diagnósticos biológicos exactos.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Cuánto tiempo dura la recuperación de una cirugía veterinaria?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "El lapso oficial de recuperación post-operatoria está irremediablemente sujeto a la invasividad de la intervención y la raza. Generalmente, una cirugía de tejidos blandos moderada permite una reintegración normal progresiva de entre 10 a 14 días con cuidados especiales. Las complejas cirugías ortopédicas perrunas o felinas suelen tomar semanas o incluso un par de meses acompañadas con terapias físicas especializadas en Coyoacán.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Procedimientos quirúrgicos seguros en instalaciones equipadas con anestesia monitoreada.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Hacen cirugías ortopédicas para perros en Coyoacán?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Correcto, en Punto Veterinario disponemos orgullosamente de renombrados y diestros especialistas ortopedistas certificados que asisten recurrentemente para ejecutar cirugías de suma complejidad. Desde la delicada corrección de hernias, luxaciones articulares y cruce de ligamentos, hasta el minucioso reacomodo por fracturas severas tras caídas o accidentes, logrando de nuevo la movilidad saludable de los pacientes caninos y felinos de la zona sur.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Procedimientos quirúrgicos seguros en instalaciones equipadas con anestesia monitoreada.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Dónde puedo operar a mi mascota cerca de San Pablo Tepetlapa?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Para una operación muy segura, vigilada y exitosa, nos ostentamos como tu opción médica premier indiscutible en la delegación. Ubicados de manera enteramente accesible para los capitalinos sureños, justo sobre la Av. División del Norte 3595, a lo largo de la reconocida colonia San Pablo Tepetlapa (CP 04620). Ponemos a tu disposición instalaciones dotadas de un higiénico y moderno quirófano plenamente adecuado.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
             },
         },
     ],
@@ -65,32 +50,32 @@ const cirugiasCards = [
     {
         emoji: "🏥",
         title: "Cirugía de tejidos blandos",
-        desc: "Atención especializada en sistema gastrointestinal, genitourinario y respiratorio. Abarcando enterotomías, extracción meticulosa de dolorosos cuerpos extraños ingeridos, y resolución de complejas hernias.",
+        desc: "Atención especializada en sistema gastrointestinal, genitourinario y respiratorio.",
     },
     {
         emoji: "🦴",
         title: "Cirugía ortopédica",
-        desc: "Procedimientos altamente técnicos para el arreglo de rupturas del ligamento cruzado, fracturas de huesos largos, y luxaciones rotulianas bajo el estricto comando de cirujanos ortopedistas diestros.",
+        desc: "Procedimientos altamente técnicos para el arreglo de rupturas del ligamento cruzado, fracturas de huesos largos, y luxaciones rotulianas bajo el.",
     },
     {
         emoji: "👁️",
         title: "Cirugía ocular",
-        desc: "Sutiles operaciones de corte oftalmológico para solventar padecimientos graves y desgastantes en úlceras corneales profundas, prolapso de glándulas lagrimales, cataratas o entropión crónico e irreversible.",
+        desc: "Sutiles operaciones de corte oftalmológico para solventar padecimientos graves y desgastantes en úlceras corneales profundas, prolapso de glándulas lagrimales, cataratas.",
     },
     {
         emoji: "🫀",
         title: "Cirugía abdominal",
-        desc: "Contamos con gran experiencia vital en las arriesgadas pero inminentes laparotomías y operaciones enfocadas en resolver torsiones o dilataciones gástricas, cálculos en vías urinarias o remolición vesical.",
+        desc: "Contamos con gran experiencia vital en las arriesgadas pero inminentes laparotomías y operaciones enfocadas en resolver torsiones o dilataciones gástricas,.",
     },
     {
         emoji: "🩹",
         title: "Cirugía de piel y tumores",
-        desc: "La tan demandada extirpación oncológica curativa o biopsia de raras masas cutáneas, asegurándonos de extraer tejidos malignos cuidando escrupulosamente los márgenes libres quirúrgicos del noble animal.",
+        desc: "La tan demandada extirpación oncológica curativa o biopsia de raras masas cutáneas, asegurándonos de extraer tejidos malignos cuidando escrupulosamente los.",
     },
     {
         emoji: "✂️",
         title: "Esterilización quirúrgica",
-        desc: "Practicamos ovariohisterectomías y eficaces orquiectomías electivas impecables a través de incisiones sumamente pequeñas, usando avanzadas drogas bloqueadoras para asegurar el bienestar sistémico integral.",
+        desc: "Practicamos ovariohisterectomías y eficaces orquiectomías electivas impecables a través de incisiones sumamente pequeñas, usando avanzadas drogas bloqueadoras para asegurar el.",
     },
 ];
 
@@ -98,22 +83,22 @@ const procesoPasos = [
     {
         num: "1️⃣",
         title: "Valoración pre-quirúrgica y análisis de laboratorio",
-        desc: "Nunca dejamos tu tranquilidad psicológica al azar. Exigimos perfiles sanguíneos basales obligatorios antes de toda incisión para asegurarnos del nulo riesgo en el frágil estado sistémico funcional orgánico interno canino o felino.",
+        desc: "Nunca dejamos tu tranquilidad psicológica al azar.",
     },
     {
         num: "2️⃣",
         title: "Anestesia monitoreada durante todo el procedimiento",
-        desc: "El manejo de vanguardia para mitigar la consciencia animal lo establecen nuestros calificados anestesiólogos veterinarios a través de anestesia inhalada, monitoreando oxígeno, presión, y pulsaciones milímetro a milímetro.",
+        desc: "El manejo de vanguardia para mitigar la consciencia animal lo establecen nuestros calificados anestesiólogos veterinarios a través de anestesia inhalada,.",
     },
     {
         num: "3️⃣",
         title: "Cirugía por médico especializado en quirófano equipado",
-        desc: "Bajo intensos reflectores halógenos sin sombra en nuestro pulcro y exclusivo quirófano aislado, se desempeñan las intervenciones manteniendo estrictas barreras instrumentales libres 100% de letales cargas bacterianas intrahospitalarias.",
+        desc: "Procedimientos quirúrgicos seguros en instalaciones equipadas con anestesia monitoreada.",
     },
     {
         num: "4️⃣",
         title: "Recuperación y seguimiento post-operatorio personalizado",
-        desc: "Una vez finalizada y concluida la inmersión médica en tejidos, iniciamos el tibio calor recuperativo controlando severamente cuadros de dolor con analgésicos supremos, supervisando su despertar fisiológico en nuestros limpios resguardos internos.",
+        desc: "Una vez finalizada y concluida la inmersión médica en tejidos, iniciamos el tibio calor recuperativo controlando severamente cuadros de dolor.",
     },
 ];
 
@@ -121,17 +106,17 @@ const porQueCards = [
     {
         emoji: "🏥",
         title: "Quirófano equipado al máximo nivel",
-        desc: "Salas operatorias cerradas e inmaculadas para el control de bioseguridad ambiental, con equipo ultrasónico y anestésico inhalado moderno, buscando el confort insuperable de tus preciadas mascotas en todo momento.",
+        desc: "Salas operatorias cerradas e inmaculadas para el control de bioseguridad ambiental, con equipo ultrasónico y anestésico inhalado moderno, buscando el.",
     },
     {
         emoji: "🏆",
         title: "Médicos altamente especializados",
-        desc: "Nuestro brillante equipo médico cirujano goza del respaldo invaluable de la continua educación global zootécnica. Actúan con rotunda firmeza y aplomo logrando estabilizar al animal aún en las urgentes o fatídicas etapas críticas operatorias.",
+        desc: "Nuestro brillante equipo médico cirujano goza del respaldo invaluable de la continua educación global zootécnica.",
     },
     {
         emoji: "📍",
         title: "En San Pablo Tepetlapa CP 04620",
-        desc: "Logísticamente invencibles por nuestra gran asequibilidad local en el sur. Contigua e intrínsecamente ligada al corredor citadino de Av. División del Norte en medio de la alcaldía Coyoacán, evitando fatigosos e indeseados acarreos automotrices distantes.",
+        desc: "Recomendamos agendar cita previa para evitar tiempos de espera y garantizar la atención ideal.",
     },
 ];
 
@@ -140,19 +125,19 @@ const relacionadosCards = [
         title: "Laboratorio Clínico",
         emoji: "🔬",
         href: "/servicios/laboratorio-clinico",
-        desc: "Meticulosa y obligada investigación fisiológica interna revelada en las infalibles biometrías para dar luz verde a cualquier tipo de peligrosa operación clínica.",
+        desc: "Meticulosa y obligada investigación fisiológica interna revelada en las infalibles biometrías para dar luz verde a cualquier tipo de peligrosa.",
     },
     {
         title: "Consulta Veterinaria",
         emoji: "🩺",
         href: "/servicios/consulta-veterinaria",
-        desc: "Paso ineludible y preliminar de inmenso valor para localizar e identificar anomalías u observar síntomas incipientes que justifiquen el eminente y delicado paso del bisturí.",
+        desc: "Paso ineludible y preliminar de inmenso valor para localizar e identificar anomalías u observar síntomas incipientes que justifiquen el eminente.",
     },
     {
         title: "Esterilización",
         emoji: "✂️",
         href: "/servicios/esterilizacion",
-        desc: "Una rutinaria intervención ampliamente recurrida y enteramente confiable que practicamos infinidad de veces anualmente para otorgar largas existencias salubres caninas y felinas plenas.",
+        desc: "Procedimiento quirúrgico seguro y privado con anestesia guiada.",
     },
 ];
 ---
@@ -171,15 +156,8 @@ const relacionadosCards = [
                 Cirugía Veterinaria en Coyoacán, CDMX | Punto Veterinario
             </h1>
             <p class="subtitulo">
-                Comprendemos entrañablemente la profunda angustia que toda noble
-                intervención clínica puede generarte emocionalmente. Proyectamos
-                este servicio quirúrgico excelso apoyándonos en instalaciones
-                supremas localizadas estratégicamente en el frondoso y seguro <strong
-                    >San Pablo Tepetlapa (CP 04620)</strong
-                >. Respaldados inquebrantablemente por insuperables cirujanos
-                zootecnistas egresados que entregan el alma interviniendo
-                certeramente ortopedia y tejidos en Coyoacán.
-            </p>
+    Intervenciones quirúrgicas de vanguardia bajo estrictos protocolos anestésicos para brindar total seguridad clínica a ti y a tu mascota.
+</p>
             <div class="flex flex-wrap gap-md">
                 <a
                     href="https://wa.me/525513843004"
@@ -206,7 +184,7 @@ const relacionadosCards = [
                 ¿Qué cirugías realizamos en Punto Veterinario?
             </h2>
             <p
-                class="text-center text-soft text-md mb-lg lh-relaxed max-w-lg mx-auto"
+                class="text-center text-soft text-md mb-lg lh-relaxed"
             >
                 Tanto para procedimientos agendados preventivos, como para
                 abrumadoras emergencias absolutas, nuestro robusto equipo sortea
@@ -235,16 +213,13 @@ const relacionadosCards = [
 
     <!-- 3. PROCESO QUIRÚRGICO -->
     <section class="bg-white py-xl">
-        <div class="container max-w-lg mx-auto text-center">
+        <div class="container text-center">
             <h2 class="text-primary-dark mb-md">
                 ¿Cómo es el proceso quirúrgico en Punto Veterinario?
             </h2>
             <p class="text-soft text-md mb-lg lh-relaxed">
-                El triunfo irreprochable final de cada sutil embate sobre los
-                tejidos lo basamos con firmeza estoica en nuestra minuciosa y
-                estricta metodología, planeada desde cero hasta lograr de nuevo
-                el andar animado del paciente peludo capitalino.
-            </p>
+    El triunfo irreprochable final de cada sutil embate sobre los tejidos lo basamos con firmeza estoica en nuestra minuciosa y...
+</p>
             <div
                 class="grid-2 gap-md text-left bg-soft p-lg border-radius mb-md"
             >
@@ -297,7 +272,7 @@ const relacionadosCards = [
 
     <!-- 5. FAQ -->
     <section class="bg-white py-xl">
-        <div class="container max-w-lg mx-auto">
+        <div class="container">
             <h2 class="text-center mb-xl text-primary-dark">
                 Preguntas Frecuentes sobre Cirugía Veterinaria en Coyoacán
             </h2>
@@ -350,7 +325,7 @@ const relacionadosCards = [
 
     <!-- 7. CTA FINAL -->
     <section class="cta-section bg-primary py-xl text-center">
-        <div class="container max-w-lg mx-auto">
+        <div class="container">
             <h2 class="text-white mb-lg text-2xl lh-1">
                 ¿Tu mascota necesita cirugía en Coyoacán?
             </h2>
@@ -385,6 +360,8 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+
+
 
     /* ===== HERO CENTRADO ===== */
     .hero-inner {
@@ -569,8 +546,8 @@ const relacionadosCards = [
     .lh-relaxed {
         line-height: 1.6;
     }
-    .max-w-lg {
-        max-width: 60rem;
+    . {
+        
     }
     .opacity-90 {
         opacity: 0.9;
@@ -664,4 +641,20 @@ const relacionadosCards = [
   .maps-link:hover {
     color: var(--color-primary);
   }
+
+    .seccion {
+        padding-block: clamp(3rem, 6vw, 10vw);
+        width: 100%;
+    }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
 </style>

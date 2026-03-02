@@ -42,17 +42,17 @@ const filosofias = [
     {
         emoji: "❤️",
         title: "Misión",
-        desc: "Brindar atención médica veterinaria de excelencia, promoviendo el bienestar y la salud integral de cada mascota con empatía, compasión y profesionalismo.",
+        desc: "Brindar atención médica veterinaria de excelencia, promoviendo el bienestar y la salud integral de cada mascota con empatía, compasión y...",
     },
     {
         emoji: "👁️",
         title: "Visión",
-        desc: "Ser la clínica veterinaria de referencia en el sur de la CDMX, destacada por nuestro compromiso humano y la calidad insuperable en cada servicio.",
+        desc: "Ser la clínica veterinaria de referencia en el sur de la CDMX, destacada por nuestro compromiso humano y la calidad...",
     },
     {
         emoji: "⭐",
         title: "Valores",
-        desc: "Ética médica, amor genuino por los animales, transparencia con las familias, honestidad en cada diagnóstico y mejora continua.",
+        desc: "Elaboramos planes terapéuticos efectivos basados en revisiones estrictas y pruebas de laboratorio.",
     },
 ];
 
@@ -60,12 +60,12 @@ const porqueConfiar = [
     {
         emoji: "🏆",
         title: "Años de experiencia",
-        desc: "Nuestro equipo médico cuenta con una sólida trayectoria en clínica de pequeñas especies.",
+        desc: "Sí, somos un equipo médico especializado exclusivamente en medicina interna y preventiva para perros y gatos.",
     },
     {
         emoji: "🧘",
         title: "Ambiente tranquilo",
-        desc: "Buscamos minimizar el estrés de tu mascota manejando cada consulta con amor y paciencia.",
+        desc: "Atendemos a cada paciente con la paciencia, cariño y compasión que merece en nuestra clínica.",
     },
     {
         emoji: "🤝",
@@ -75,7 +75,7 @@ const porqueConfiar = [
     {
         emoji: "📍",
         title: "Ubicación ideal",
-        desc: "Estratégicamente ubicados en San Pablo Tepetlapa para atender a todo Coyoacán sur.",
+        desc: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
     },
 ];
 
@@ -110,12 +110,8 @@ const resenas = [
                     Conoce a Punto Veterinario | Veterinaria en Coyoacán, CDMX
                 </h1>
                 <p>
-                    Somos una clínica veterinaria en San Pablo Tepetlapa,
-                    Coyoacán, especializada en atención médica profesional y
-                    llena de amor. Nuestro dedicado equipo de Punto Veterinario
-                    trata a cada paciente que cruza las puertas de la Av.
-                    División del Norte 3595 como si fuera propio.
-                </p>
+    Atendemos a cada paciente con la paciencia, cariño y compasión que merece en nuestra clínica.
+</p>
                 <a
                     href="https://wa.me/525513843004"
                     target="_blank"
@@ -125,19 +121,33 @@ const resenas = [
                     💬 Escríbenos por WhatsApp
                 </a>
             </div>
-            <div class="hero-video">
+            <div class="video-wrapper">
                 <video
                     autoplay
                     muted
                     loop
                     playsinline
                     class="video-hero"
+                    id="video-nosotros"
                     aria-label="Video de la clínica veterinaria Punto Veterinario en Coyoacán, San Pablo Tepetlapa CP 04620 — atención médica para perros"
                     title="Punto Veterinario — Clínica Veterinaria en Coyoacán, CDMX"
                 >
-                    <source src="/videos/veterinaria-coyoacan.mp4" type="video/mp4" />
-                    <source src="/videos/veterinaria-coyoacan.mov" type="video/quicktime" />
+                    <source
+                        src="/videos/veterinaria-coyoacan.mp4"
+                        type="video/mp4"
+                    />
+                    <source
+                        src="/videos/veterinaria-coyoacan.mov"
+                        type="video/quicktime"
+                    />
                 </video>
+                <button
+                    class="btn-sonido"
+                    id="btn-sonido"
+                    aria-label="Activar sonido del video"
+                >
+                    🔇
+                </button>
             </div>
         </div>
     </section>
@@ -146,14 +156,9 @@ const resenas = [
     <section class="seccion bg-suave">
         <div class="container text-center">
             <h2 class="titulo-sec">Nuestra Filosofía en Punto Veterinario</h2>
-            <p class="seccion__desc mx-auto">
-                Trabajamos todos los días desde la <strong
-                    >Av. División del Norte 3595</strong
-                > bajo la convicción de que cada perro merece la mejor atención. Somos
-                defensores del bienestar en todo <strong
-                    >San Pablo Tepetlapa</strong
-                > (<strong>CP 04620</strong>).
-            </p>
+            <p class="seccion__desc">
+    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
+</p>
 
             <div class="grid-3 mt-lg">
                 {
@@ -176,7 +181,7 @@ const resenas = [
                 Nuestro equipo veterinario en Coyoacán, CP 04620
             </h2>
 
-            <div class="equipo-wrapper mx-auto mt-lg text-left">
+            <div class="equipo-wrapper mt-lg text-left">
                 <div class="equipo-foto">
                     <span class="emoji-foto">👩‍⚕️</span>
                 </div>
@@ -184,15 +189,8 @@ const resenas = [
                     <h3 class="equipo-nombre">Dra. Pilar</h3>
                     <p class="equipo-puesto">Médico Veterinario Zootecnista</p>
                     <p class="equipo-bio mt-md">
-                        Con años de formación y una dedicación absoluta y cálida
-                        hacia el cuidado de pequeñas especies, la Dra. Pilar
-                        encabeza nuestro proyecto. Su pasión por los animales se
-                        refleja en cada diagnóstico preciso, en cada caricia en
-                        el consultorio y en la confianza que transmite a cada
-                        familia que cruza nuestras puertas. Para ella, la
-                        empatía y la actualización médica continua son los
-                        pilares fundamentales de la buena práctica veterinaria.
-                    </p>
+    Sí, somos un equipo médico especializado exclusivamente en medicina interna y preventiva para perros y gatos.
+</p>
                 </div>
             </div>
         </div>
@@ -245,16 +243,8 @@ const resenas = [
                 ¿Listo para formar parte de la familia de Punto Veterinario?
             </h2>
             <p class="cta-dir">
-                <a
-                    href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-                    target="_blank"
-                    rel="noopener"
-                    class="maps-link-blanco"
-                >
-                    Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
-                    Coyoacán, CDMX
-                </a>
-            </p>
+    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
+</p>
             <div class="cta-btns justify-center">
                 <a href="/contacto" class="btn-cta-blanco">📅 Agendar Cita</a>
                 <a
@@ -270,7 +260,71 @@ const resenas = [
     </section>
 </BaseLayout>
 
+<script is:inline>
+    const video = document.getElementById("video-nosotros");
+    const btn = document.getElementById("btn-sonido");
+
+    btn?.addEventListener("click", () => {
+        if (video.muted) {
+            video.muted = false;
+            btn.textContent = "🔊";
+            btn.setAttribute("aria-label", "Silenciar video");
+        } else {
+            video.muted = true;
+            btn.textContent = "🔇";
+            btn.setAttribute("aria-label", "Activar sonido del video");
+        }
+    });
+</script>
+
 <style>
+
+
+    /* ===== VIDEO WRAPPER & AUDIO BUTTON ===== */
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: clamp(14rem, 22vw, 35vw);
+    }
+    .video-hero {
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        object-fit: cover;
+        display: block;
+    }
+    .btn-sonido {
+        position: absolute;
+        bottom: clamp(0.5rem, 1vw, 1.5vw);
+        right: clamp(0.5rem, 1vw, 1.5vw);
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: clamp(2rem, 3vw, 4rem);
+        height: clamp(2rem, 3vw, 4rem);
+        font-size: clamp(0.9rem, 1.5vw, 2vw);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+            background 0.2s,
+            transform 0.2s;
+        backdrop-filter: blur(4px);
+    }
+    .btn-sonido:hover {
+        background: rgba(0, 0, 0, 0.75);
+        transform: scale(1.1);
+    }
+    @media (max-width: 48rem) {
+        .video-wrapper {
+            max-width: 60vw;
+            margin-inline: auto;
+        }
+    }
+
     /* ==============================================================
      ESTILOS FLUIDOS - NOSOTROS
      Todo basado en viewport width (vw) usando clamp(), excepto
@@ -313,7 +367,8 @@ const resenas = [
 
     /* Secciones */
     .seccion {
-        padding-block: clamp(3rem, 6vw, 12vw);
+        padding-block: clamp(3rem, 6vw, 10vw);
+        width: 100%;
     }
 
     .hero-nosotros {
@@ -337,7 +392,6 @@ const resenas = [
         color: var(--color-text-soft);
         line-height: 1.6;
         margin-bottom: clamp(1.5rem, 2.5vw, 4vw);
-        max-width: 90%;
     }
     .btn-wa {
         display: inline-block;
@@ -363,7 +417,7 @@ const resenas = [
     }
     .video-hero {
         width: 100%;
-        max-width: clamp(14rem, 22vw, 35vw);
+
         height: auto;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-md);
@@ -374,7 +428,6 @@ const resenas = [
             grid-template-columns: 1fr;
         }
         .video-hero {
-            max-width: 60vw;
             margin-inline: auto;
         }
     }
@@ -382,13 +435,13 @@ const resenas = [
     /* Grids */
     .grid-3 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
-        gap: clamp(1.5rem, 3vw, 6vw);
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1rem, 2vw, 3.5vw);
     }
     .grid-4 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
-        gap: clamp(1.5rem, 2.5vw, 5vw);
+        grid-template-columns: repeat(4, 1fr);
+        gap: clamp(1rem, 2vw, 3.5vw);
     }
 
     /* Cards comunes */
@@ -430,7 +483,7 @@ const resenas = [
         flex-wrap: wrap;
         align-items: center;
         gap: clamp(2rem, 4vw, 8vw);
-        max-width: clamp(50rem, 80vw, 100vw);
+
         background: #fafafa;
         padding: clamp(2rem, 4vw, 8vw);
         border-radius: var(--radius-lg);
@@ -474,8 +527,8 @@ const resenas = [
     /* Reseñas (Idénticas al home v2) */
     .grid-resenas {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
-        gap: clamp(1.5rem, 2vw, 4vw);
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1.5rem, 3vw, 5vw);
     }
     .card-resena {
         background: var(--color-bg-soft);
@@ -569,5 +622,16 @@ const resenas = [
     .btn-cta-outline:hover {
         background: rgba(255, 255, 255, 0.1);
         transform: translateY(-0.15rem);
+    }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
     }
 </style>

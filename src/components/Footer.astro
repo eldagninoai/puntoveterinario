@@ -131,6 +131,8 @@ const currentYear = new Date().getFullYear();
 </footer>
 
 <style>
+
+
   .footer {
     background: var(--color-primary-dark, #3dada9);
     color: var(--color-bg, #ffffff);
@@ -289,4 +291,15 @@ const currentYear = new Date().getFullYear();
     color: #fff;
     text-decoration-color: #fff;
   }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
 </style>

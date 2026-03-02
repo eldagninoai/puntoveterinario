@@ -2,18 +2,13 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Schema from "../../components/Schema.astro";
 
-const schema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
+const schema = {"@context": "https://schema.org","@type": "Service",
     name: "Estética Canina en Coyoacán",
     url: "https://puntoveterinario.com/servicios/estetica-canina",
-    description:
-        "Estética canina profesional en Coyoacán. Baño, corte y cuidado para tu perro. Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620.",
-    provider: {
-        "@type": "VeterinaryCare",
+    description:"Estética canina profesional en Coyoacán. Baño, corte y cuidado para tu perro. Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620.",
+    provider: {"@type": "VeterinaryCare",
         name: "Punto Veterinario",
-        address: {
-            "@type": "PostalAddress",
+        address: {"@type": "PostalAddress",
             streetAddress: "Av. División del Norte 3595",
             addressLocality: "San Pablo Tepetlapa",
             postalCode: "04620",
@@ -22,32 +17,24 @@ const schema = {
     },
 };
 
-const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
+const faqSchema = {"@context": "https://schema.org","@type": "FAQPage",
     mainEntity: [
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Cuánto cuesta el baño y corte para perros en Coyoacán?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "El precio varía según el tamaño, tipo de pelaje y condición del perro. En Punto Veterinario ofrecemos paquetes accesibles que incluyen baño, corte y corte de uñas. Escríbenos por WhatsApp con una foto de tu perro para darte un presupuesto exacto.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "El costo se evalúa individualmente en consulta según las necesidades específicas de tu mascota.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Con qué frecuencia debo llevar a mi perro a la estética?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Recomendamos estética canina al menos una vez al mes para razas de pelo largo, y cada mes y medio o dos meses para razas de pelo corto. Mantener esta frecuencia previene problemas de piel y parásitos.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Servicio profesional de estética, baño y cortes especializados respetando la tranquilidad de tu mascota.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Dónde hay peluquería para perros cerca de San Pablo Tepetlapa?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Punto Veterinario está ubicado en Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán, CDMX. Ofrecemos estética canina profesional a solo minutos de tu hogar en la zona sur de la ciudad.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
             },
         },
     ],
@@ -62,7 +49,7 @@ const incluyeCards = [
     {
         emoji: "✂️",
         title: "Corte de pelo según raza",
-        desc: "Realizamos cortes acordes al estándar de cada raza o al estilo que prefieras para tu mascota.",
+        desc: "Laceraciones, sangrados activos o sospechas tras accidentes.",
     },
     {
         emoji: "👂",
@@ -82,7 +69,7 @@ const incluyeCards = [
     {
         emoji: "🌸",
         title: "Perfumado y secado profesional",
-        desc: "Finalizamos con secado a temperatura controlada y una loción suave y duradera para que tu perro luzca y huela increíble.",
+        desc: "Revisión física integral para evaluar el estado general de salud y detectar anomalías tempranas.",
     },
 ];
 
@@ -100,12 +87,12 @@ const porQueCards = [
     {
         emoji: "📍",
         title: "En San Pablo Tepetlapa, CP 04620",
-        desc: "Ubicación central en el sur de la ciudad sobre Av. División del Norte. Fácil acceso sin largas travesías.",
+        desc: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
     },
     {
         emoji: "🩺",
         title: "Respaldado por equipo veterinario",
-        desc: "Nuestra estética opera junto a la clínica veterinaria. Si detectamos algo inusual en la piel de tu perro, lo evaluamos al momento.",
+        desc: "Servicio profesional de estética, baño y cortes especializados respetando la tranquilidad de tu mascota.",
     },
     {
         emoji: "💰",
@@ -125,7 +112,7 @@ const relacionadosCards = [
         title: "Esterilización",
         emoji: "✂️",
         href: "/servicios/esterilizacion",
-        desc: "Procedimiento seguro con seguimiento post-operatorio.",
+        desc: "Procedimiento quirúrgico seguro y privado con anestesia guiada.",
     },
     {
         title: "Alimentos",
@@ -150,14 +137,8 @@ const relacionadosCards = [
                 Estética Canina en Coyoacán, CDMX | Punto Veterinario
             </h1>
             <p class="subtitulo">
-                Servicio profesional de <strong
-                    >estética canina en San Pablo Tepetlapa, CP 04620</strong
-                >, Coyoacán. Baño, corte, limpieza de oídos, corte de uñas y más
-                — todo con productos especializados y personal capacitado en
-                trato animal. Ubicados en <strong
-                    >Av. División del Norte 3595</strong
-                >.
-            </p>
+    Baños refrescantes, cortes profesionales y cuidados de spa adaptados de forma segura a las necesidades de tu perro.
+</p>
             <div class="botones">
                 <a
                     href="https://wa.me/525513843004"
@@ -201,10 +182,8 @@ const relacionadosCards = [
                 Beneficios de la estética profesional para tu perro
             </h2>
             <p class="parrafo-intro">
-                La estética no es solo apariencia — es parte esencial del
-                cuidado preventivo de tu mascota. En Punto Veterinario lo
-                hacemos con dedicación y productos seguros.
-            </p>
+    Servicio profesional de estética, baño y cortes especializados respetando la tranquilidad de tu mascota.
+</p>
             <div class="grid-beneficios">
                 {
                     beneficiosCards.map((item) => (
@@ -285,16 +264,8 @@ const relacionadosCards = [
                 ¿Tu perro merece verse y sentirse bien en Coyoacán?
             </h2>
             <p class="texto-cta">
-                <a
-                    href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-                    target="_blank"
-                    rel="noopener"
-                    class="maps-link-blanco"
-                >
-                    Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
-                    Coyoacán, CDMX
-                </a>
-            </p>
+    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
+</p>
             <div class="botones">
                 <a href="/contacto" class="btn-blanco">📅 Agendar Cita</a>
                 <a
@@ -311,6 +282,8 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+
+
 
     /* ===== HERO CENTRADO ===== */
     .hero-inner {
@@ -345,6 +318,7 @@ const relacionadosCards = [
     /* ===== SECCIONES ===== */
     .seccion {
         padding-block: clamp(3rem, 6vw, 10vw);
+        width: 100%;
     }
     .fondo-blanco {
         background: var(--color-bg);
@@ -356,7 +330,7 @@ const relacionadosCards = [
         text-align: center;
     }
     .angosto {
-        max-width: 60rem;
+        
         margin-inline: auto;
     }
 
@@ -424,7 +398,7 @@ const relacionadosCards = [
         color: var(--color-text-soft);
         line-height: 1.6;
         margin-bottom: clamp(1.5rem, 3vw, 5vw);
-        max-width: 60ch;
+        
         margin-inline: auto;
     }
 
@@ -436,7 +410,7 @@ const relacionadosCards = [
     }
     .grid-3 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 22vw), 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: clamp(1rem, 2vw, 3.5vw);
     }
     .grid-beneficios {
@@ -539,7 +513,7 @@ const relacionadosCards = [
     .texto-cta {
         font-size: clamp(1rem, 1.4vw, 2.5vw);
         margin-bottom: clamp(2rem, 3vw, 5vw);
-        max-width: none;
+        
     }
     .maps-link-blanco {
         color: rgba(255, 255, 255, 0.9);
@@ -581,5 +555,16 @@ const relacionadosCards = [
         background: #fff;
         color: var(--color-primary);
         transform: translateY(-0.2rem);
+    }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
     }
 </style>

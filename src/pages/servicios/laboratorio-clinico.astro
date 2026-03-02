@@ -3,18 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Schema from "../../components/Schema.astro";
 
 const schema = [
-    {
-        "@context": "https://schema.org",
-        "@type": ["Service", "DiagnosticLab"],
+    {"@context": "https://schema.org","@type": ["Service", "DiagnosticLab"],
         name: "Laboratorio Veterinario en Coyoacán",
         url: "https://puntoveterinario.com/servicios/laboratorio-clinico",
-        description:
-            "Laboratorio clínico veterinario en Coyoacán. Análisis de sangre, perfil bioquímico, urianálisis y más. Av. División del Norte 3595, CP 04620.",
-        provider: {
-            "@type": "VeterinaryCare",
+        description:"Laboratorio clínico veterinario en Coyoacán. Análisis de sangre, perfil bioquímico, urianálisis y más. Av. División del Norte 3595, CP 04620.",
+        provider: {"@type": "VeterinaryCare",
             name: "Punto Veterinario",
-            address: {
-                "@type": "PostalAddress",
+            address: {"@type": "PostalAddress",
                 streetAddress: "Av. División del Norte 3595",
                 addressLocality: "San Pablo Tepetlapa",
                 postalCode: "04620",
@@ -24,40 +19,30 @@ const schema = [
     },
 ];
 
-const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
+const faqSchema = {"@context": "https://schema.org","@type": "FAQPage",
     mainEntity: [
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Cuánto tarda en estar listo un análisis de sangre para perros?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "La inmensa mayoría absoluta de nuestros resultados para análisis de sangre habituales de rutina preventiva (como biometrías hemáticas exhaustivas o químicas base) son procesados por los avanzados procesadores automatizados con suprema e incomparable velocidad, encontrándose comúnmente listos, corroborados médicamente y plenamente avalados para diagnóstico profesional el mismo día de la inicial extracción, usualmente transcurridas escasas horas de que tu incondicional y amado compañero nos ha facilitado la requerida y vital prueba vascular.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Elaboramos planes terapéuticos efectivos basados en revisiones estrictas y pruebas de laboratorio.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Necesita mi mascota ayuno para el análisis de sangre?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Definitivamente sí. En términos absolutamente invariables y protocolares, solicitamos de manera formal y encarecida que mantengas a tu paciente canino o paciente gatuno bajo un estricto, prolongado y muy cuidadoso ayuno sólido previo de por lo menos unas sólidas y bien contabilizadas 8 a 12 horas consecutivas sin prueba de bocado consistente, permitiéndole única y primordialmente el franco consumo limitado y racional de agua completamente natural bebible fresca, logrando con esto una muestra sanguínea purificada y nítida.",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Recomendamos agendar cita previa para evitar tiempos de espera y garantizar la atención ideal.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Qué es un perfil bioquímico veterinario?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "El célebre y sumamente utilizado perfil bioquímico veterinario extenso es en sí mismo una muy contundente, detallada y formidable radiografía metabólica e invisible. Consta integralmente de un impresionante y meticuloso conjunto simultáneo de invaluables pruebas sanguíneas fraccionadas que analizan al microscopio con minucioso y soberbio detalle científico el impecable desempeño funcional operativo interno de órganos mayúsculos vitales esenciales (como el hígado noble, los eficientes riñones filtradores y el complejo sistema endocrino pancreático).",
+            acceptedAnswer: {"@type": "Answer",
+                text: "El célebre y sumamente utilizado perfil bioquímico veterinario extenso es en sí mismo una muy contundente, detallada y formidable radiografía.",
             },
         },
-        {
-            "@type": "Question",
+        {"@type": "Question",
             name: "¿Dónde hacer análisis de sangre para mi perro cerca de Coyoacán?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Si requieres ejecutar de manera apremiante, diligente y urgente cualquier imperante estudio laboratorial microscópico a nivel periférico sanguíneo sin tener que cruzar de punta a punta la gigantesca ciudad esquivando el pesado y denso y abrumador tránsito automovilístico, Punto Veterinario es a todas luces tu máxima, incuestionable y formidable elección insuperable sureña. Nos encontramos estratégicamente e insuperablemente clavados sobre la célebre Av. División del Norte 3595, inmersos con un cómodo gran acceso en la entrañable e inconfundible y bullanguera colonia de San Pablo Tepetlapa (CP 04620).",
+            acceptedAnswer: {"@type": "Answer",
+                text: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
             },
         },
     ],
@@ -67,32 +52,32 @@ const estudiosCards = [
     {
         emoji: "🩸",
         title: "Biometría hemática completa",
-        desc: "Una profunda y exhaustiva cuantificación global irrefutable de los glóbulos rojos acarreadores sistémicos, robustos leucocitos guardianes y plaquetas regenerativas celulares para descartar anemias silenciosas ocultas.",
+        desc: "Una profunda y exhaustiva cuantificación global irrefutable de los glóbulos rojos acarreadores sistémicos, robustos leucocitos guardianes y plaquetas regenerativas celulares.",
     },
     {
         emoji: "🔬",
         title: "Perfil bioquímico",
-        desc: "Inmensurablemente vital herramienta decodificadora analítica que evidencia contundentemente, exponiendo en un lenguaje bioquímico cristalino todo el comportamiento estructural depuratorio que atraviesan los frágiles riñones e incesante hígado.",
+        desc: "Inmensurablemente vital herramienta decodificadora analítica que evidencia contundentemente, exponiendo en un lenguaje bioquímico cristalino todo el comportamiento estructural depuratorio que.",
     },
     {
         emoji: "🧪",
         title: "Urianálisis",
-        desc: "Magnífico y revelador escaneo preventivo minucioso a nivel líquido y molecular que atestigua mediante el sedimento toda la enorme capacidad funcional para desechar de sus formidables vías y microscópicos uréteres en Coyoacán.",
+        desc: "Magnífico y revelador escaneo preventivo minucioso a nivel líquido y molecular que atestigua mediante el sedimento toda la enorme capacidad.",
     },
     {
         emoji: "🦠",
         title: "Cultivos y antibiograma",
-        desc: "El invencible y definitivo escudo protector farmacológico por excelencia usado tras sembrar tenazmente intrusivas bacterias malignas latentes y constatar irrefutablemente frente a qué letal arsenal específico sintético ceden las mismas.",
+        desc: "El invencible y definitivo escudo protector farmacológico por excelencia usado tras sembrar tenazmente intrusivas bacterias malignas latentes y constatar irrefutablemente.",
     },
     {
         emoji: "📊",
         title: "Perfil tiroideo",
-        desc: "Soberbia y fina medición en base hormonal total para lograr dilucidar certera e instantáneamente el caótico origen real en súbitos incrementos ponderales dramáticos de peso inexplicable o lastimosa y extrema letargia prolongada.",
+        desc: "Soberbia y fina medición en base hormonal total para lograr dilucidar certera e instantáneamente el caótico origen real en súbitos.",
     },
     {
         emoji: "🩺",
         title: "Coprológico",
-        desc: "Un insigne e inesquivable protocolo de examen focalizado directo para desenterrar, confirmar y combatir mediante rotunda prueba incuestionable toda abrumadora e invisible parasitosis sistémica alojada en tramos fecales e intestinos.",
+        desc: "Un insigne e inesquivable protocolo de examen focalizado directo para desenterrar, confirmar y combatir mediante rotunda prueba incuestionable toda abrumadora.",
     },
 ];
 
@@ -100,22 +85,22 @@ const cuandoCards = [
     {
         emoji: "🚨",
         title: "Antes de cualquier cirugía o anestesia",
-        desc: "Representa innegable y fervientemente el absoluto resguardo de supervivencia obligatoria previa antes de transitar por nuestra sedación química o de recibir prolongada inhalación inducida narcótica. Los datos revelan viabilidad y mitigan las inestabilidades.",
+        desc: "Representa innegable y fervientemente el absoluto resguardo de supervivencia obligatoria previa antes de transitar por nuestra sedación química o de.",
     },
     {
         emoji: "📅",
         title: "Revisión anual preventiva",
-        desc: "Constituye y enarbola la gloriosa y silenciosa piedra angular monumental cimentada en pro de la grandiosa longevidad premonitoria. Se instalan invaluables y valiosos filtros anticipados en Coyoacán esquivando y desviando contundentes amenazas venideras.",
+        desc: "Constituye y enarbola la gloriosa y silenciosa piedra angular monumental cimentada en pro de la grandiosa longevidad premonitoria.",
     },
     {
         emoji: "💊",
         title: "Monitoreo de tratamientos crónicos",
-        desc: "Un blindaje analítico y sostenido formidablemente imperativo a plazos para constatar inobjetablemente toda la positiva asimilación hepatobiliar corporal ante terapias perennes por convulsiones o de disfunción cardíaca general.",
+        desc: "Un blindaje analítico y sostenido formidablemente imperativo a plazos para constatar inobjetablemente toda la positiva asimilación hepatobiliar corporal ante terapias.",
     },
     {
         emoji: "🤒",
         title: "Cuando el veterinario lo indica por síntomas",
-        desc: "El escalón y contundente fundamento irrefutable subsiguiente y decisorio definitivo después de sospechosos hallazgos físicos superficiales inquietantes de palidez en las encías, sed patológica agobiante insaciable o inusitada fatiga pasiva en reposo.",
+        desc: "El escalón y contundente fundamento irrefutable subsiguiente y decisorio definitivo después de sospechosos hallazgos físicos superficiales inquietantes de palidez en.",
     },
 ];
 
@@ -123,17 +108,17 @@ const porQueCards = [
     {
         emoji: "⚡",
         title: "Interpretación y resultados rápidos",
-        desc: "Exaltamos y empoderamos vertiginosamente al máximo el impagable bien absoluto de tus preciosos escasos segundos en asfixiantes momentos de apremiante incertidumbre médica apremiante devolviéndote valiosísimos diagnósticos precisos ultra-fluidos y veraces relámpago.",
+        desc: "El costo se evalúa individualmente en consulta según las necesidades específicas de tu mascota.",
     },
     {
         emoji: "🔬",
         title: "Equipo de laboratorio moderno",
-        desc: "Gozamos ferviente y gratamente de una espectacular e irrenunciable inversión de altísima gama en maquinaria digitalizada con calibración de precisión nanoscópica automatizada para descartar implacablemente e íntegramente las desastrosas y letales falencias accidentales de ojo humano local.",
+        desc: "Gozamos ferviente y gratamente de una espectacular e irrenunciable inversión de altísima gama en maquinaria digitalizada con calibración de precisión.",
     },
     {
         emoji: "📍",
         title: "En San Pablo Tepetlapa CP 04620",
-        desc: "Una imbatible y monumental ventaja logística sureña capitalina asequible que evita exponer irrazonablemente al cansado paciente agobiado, ubicándonos al pie exacto en el colosal y sumamente vial transcurso citable que representa a diario las banquetas en Av. División del Norte.",
+        desc: "Recomendamos agendar cita previa para evitar tiempos de espera y garantizar la atención ideal.",
     },
 ];
 
@@ -142,19 +127,19 @@ const relacionadosCards = [
         title: "Consulta Veterinaria",
         emoji: "🩺",
         href: "/servicios/consulta-veterinaria",
-        desc: "El punto germinal y base interpretativa inmaculada global, fundamental para que cada minúsculo resultado bioquímico adquiera un colosal y supremo sentido en la estrategia recuperativa curativa.",
+        desc: "El punto germinal y base interpretativa inmaculada global, fundamental para que cada minúsculo resultado bioquímico adquiera un colosal y supremo.",
     },
     {
         title: "Cirugía Veterinaria",
         emoji: "🏥",
         href: "/servicios/cirugia-veterinaria",
-        desc: "Trascendental paso posterior resolutivo dependiente y atado íntimamente a los positivos análisis preventivos para otorgar siempre colosales e impolutas salvaguardas fisiológicas al quirófano.",
+        desc: "Procedimientos quirúrgicos seguros en instalaciones equipadas con anestesia monitoreada.",
     },
     {
         title: "Esterilización",
         emoji: "✂️",
         href: "/servicios/esterilizacion",
-        desc: "Formidable y excelso servicio definitivo poblacional cuya extrema fiabilidad general inalterable depende fuertemente siempre de la favorable aptitud funcional que reportan los incondicionales estudios preoperatorios.",
+        desc: "Procedimiento quirúrgico seguro y privado con anestesia guiada.",
     },
 ];
 ---
@@ -173,18 +158,8 @@ const relacionadosCards = [
                 Laboratorio Veterinario en Coyoacán, CDMX | Punto Veterinario
             </h1>
             <p class="subtitulo">
-                Comprendemos profundamente que ante latentes e inquietantes
-                sospechas silentes, la colosal y grandísima precisión de
-                veredicto microscópico lo abarca y representa categóricamente
-                absolutamente todo para preservar la sanidad intocable. Por ello
-                apostamos y brindamos unos espectaculares y sorprendentes <strong
-                    >resultados rápidos que salvan irrebatibles e inocentes
-                    vidas desde San Pablo Tepetlapa (CP 04620)</strong
-                >. Un espléndido apoyo de analítica irrenunciable e impecable
-                siempre localizable sobre las márgenes de la célebre arteria
-                citadina Av. División del Norte 3595 con la calidez y el
-                resguardo de nuestro equipo zootecnista.
-            </p>
+    Estudios clínicos rigurosos, desde perfiles hemáticos completos hasta pruebas de enfermedades infecciosas, asegurando diagnósticos precisos mediante ciencia.
+</p>
             <div class="flex flex-wrap gap-md">
                 <a
                     href="https://wa.me/525513843004"
@@ -211,7 +186,7 @@ const relacionadosCards = [
                 ¿Qué estudios realizamos en nuestro laboratorio?
             </h2>
             <p
-                class="text-center text-soft text-md mb-lg lh-relaxed max-w-lg mx-auto"
+                class="text-center text-soft text-md mb-lg lh-relaxed"
             >
                 Ponemos categórica y permanentemente al servicio absoluto de tu
                 familia multiespecie nuestra inestimable plataforma abastada
@@ -240,17 +215,13 @@ const relacionadosCards = [
 
     <!-- 3. ¿CUÁNDO NECESITA TU MASCOTA LABORATORIO? -->
     <section class="bg-white py-xl">
-        <div class="container max-w-lg mx-auto text-center">
+        <div class="container text-center">
             <h2 class="text-primary-dark mb-md">
                 ¿Cuándo debes llevar a tu mascota al laboratorio en Coyoacán?
             </h2>
             <p class="text-soft text-md mb-lg lh-relaxed">
-                Cimentamos y propugnamos irrefutablemente frente a la comunidad
-                capitalina la enorme importancia cardinal de las recolecciones
-                vasculares regulares por encima del apresurado y extenuante
-                pánico reaccionario emergente frente al agudo decaimiento
-                perruno y gatuno generalizado e instalado de facto.
-            </p>
+    Cimentamos y propugnamos irrefutablemente frente a la comunidad capitalina la enorme importancia cardinal de las recolecciones vasculares regulares por encima...
+</p>
             <div
                 class="grid-2 gap-md text-left bg-soft p-lg border-radius mb-md"
             >
@@ -303,7 +274,7 @@ const relacionadosCards = [
 
     <!-- 5. FAQ -->
     <section class="bg-white py-xl">
-        <div class="container max-w-lg mx-auto">
+        <div class="container">
             <h2 class="text-center mb-xl text-primary-dark">
                 Preguntas Frecuentes sobre Laboratorio Veterinario en Coyoacán
             </h2>
@@ -356,7 +327,7 @@ const relacionadosCards = [
 
     <!-- 7. CTA FINAL -->
     <section class="cta-section bg-primary py-xl text-center">
-        <div class="container max-w-lg mx-auto">
+        <div class="container">
             <h2 class="text-white mb-lg text-2xl lh-1">
                 ¿Tu mascota necesita estudios de laboratorio en Coyoacán?
             </h2>
@@ -391,6 +362,8 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+
+
 
     /* ===== HERO CENTRADO ===== */
     .hero-inner {
@@ -575,8 +548,8 @@ const relacionadosCards = [
     .lh-relaxed {
         line-height: 1.6;
     }
-    .max-w-lg {
-        max-width: 60rem;
+    . {
+        
     }
     .opacity-90 {
         opacity: 0.9;
@@ -670,4 +643,20 @@ const relacionadosCards = [
   .maps-link:hover {
     color: var(--color-primary);
   }
+
+    .seccion {
+        padding-block: clamp(3rem, 6vw, 10vw);
+        width: 100%;
+    }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
 </style>

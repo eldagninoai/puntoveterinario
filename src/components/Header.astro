@@ -103,6 +103,8 @@ const serviciosActivo = currentPath.startsWith("/servicios");
 </header>
 
 <style>
+
+
   .header {
     position: sticky;
     top: 0;
@@ -387,6 +389,17 @@ const serviciosActivo = currentPath.startsWith("/servicios");
       padding: 0.5rem 0.6rem;
     }
   }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
 </style>
 
 <script is:inline>

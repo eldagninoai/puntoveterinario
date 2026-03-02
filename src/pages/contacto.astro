@@ -3,17 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Schema from "../components/Schema.astro";
 
 const schema = [
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+    {"@context": "https://schema.org","@type": "LocalBusiness",
         name: "Punto Veterinario",
         url: "https://puntoveterinario.com/contacto",
         telephone: "+525513843004",
         email: "puntovetcdmx@gmail.com",
-        description:
-            "Veterinaria en Coyoacán CDMX, ubicada en San Pablo Tepetlapa. Consultas, cirugías, estética, laboratorio y farmacia.",
-        address: {
-            "@type": "PostalAddress",
+        description:"Veterinaria en Coyoacán CDMX, ubicada en San Pablo Tepetlapa. Consultas, cirugías, estética, laboratorio y farmacia.",
+        address: {"@type": "PostalAddress",
             streetAddress: "Av. División del Norte 3595",
             addressLocality: "San Pablo Tepetlapa",
             addressRegion: "Coyoacán, Ciudad de México",
@@ -21,20 +17,13 @@ const schema = [
             addressCountry: "MX",
         },
         openingHoursSpecification: [
-            {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: [
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
+            {"@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Tuesday","Wednesday","Thursday","Friday","Saturday",
                 ],
                 opens: "10:00",
                 closes: "19:00",
             },
-            {
-                "@type": "OpeningHoursSpecification",
+            {"@type": "OpeningHoursSpecification",
                 dayOfWeek: ["Sunday"],
                 opens: "10:00",
                 closes: "17:00",
@@ -56,12 +45,8 @@ const schema = [
                 Contacto y Citas | Punto Veterinario Coyoacán
             </h1>
             <p class="subtitulo">
-                Nos encantará grandemente agilizar sin demora la tan urgente
-                atención primaria para tu querido perro o gato incondicional.
-                Ingrésanos amablemente tus datos generales en instantes para
-                agendar firmemente tu lugar en nuestro consultorio o estética,
-                ¡o mándanos un WhatsApp si deseas velocidad extrema!
-            </p>
+    Servicio profesional de estética, baño y cortes especializados respetando la tranquilidad de tu mascota.
+</p>
         </div>
     </section>
 
@@ -282,7 +267,7 @@ const schema = [
 
     <!-- 3. MAPA PLACEHOLDER -->
     <section class="bg-white py-xl">
-        <div class="container text-center max-w-lg mx-auto">
+        <div class="container text-center">
             <h2 class="text-primary-dark mb-lg lh-1">
                 Encuéntranos fácilmente en Coyoacán
             </h2>
@@ -296,22 +281,13 @@ const schema = [
 
     <!-- 4. CTA FINAL -->
     <section class="cta-section bg-primary py-xl text-center">
-        <div class="container max-w-lg mx-auto">
+        <div class="container">
             <h2 class="text-white mb-lg text-2xl lh-1">
                 ¡Te esperamos pronto en Coyoacán!
             </h2>
             <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-                <a
-                    href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Ver ubicación en Google Maps"
-                    class="maps-link"
-                >
-                    Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
-                    Coyoacán, CDMX
-                </a>
-            </p>
+    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
+</p>
             <div class="flex flex-wrap justify-center gap-md">
                 <a
                     href="https://wa.me/525513843004"
@@ -326,6 +302,8 @@ const schema = [
 </BaseLayout>
 
 <style>
+
+
 
     /* ===== HERO CENTRADO ===== */
     .hero-inner {
@@ -510,8 +488,8 @@ const schema = [
     .lh-relaxed {
         line-height: 1.6;
     }
-    .max-w-lg {
-        max-width: 60rem;
+    . {
+        
     }
     .opacity-90 {
         opacity: 0.9;
@@ -747,5 +725,21 @@ const schema = [
     .form-nota a {
         color: var(--color-primary-dark);
         font-weight: 600;
+    }
+
+    .seccion {
+        padding-block: clamp(3rem, 6vw, 10vw);
+        width: 100%;
+    }
+
+    @media (max-width: 48rem) {
+        [class*="grid-"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+    @media (max-width: 30rem) {
+        [class*="grid-"] {
+            grid-template-columns: 1fr !important;
+        }
     }
 </style>
