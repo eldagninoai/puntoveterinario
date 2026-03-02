@@ -125,165 +125,163 @@ const relacionadosCards = [
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-            <div class="hero__text">
-                <h1 class="h1-hero">
-                    Laboratorio Clínico Veterinario en Coyoacán
-                </h1>
-                <p class="hero__desc">
-                    Diagnóstico temprano y preciso para perros y gatos.
-                    Realizamos análisis de sangre, química sanguínea y estudios
-                    prequirúrgicos en San Pablo Tepetlapa para detectar
-                    problemas de salud antes de que se conviertan en urgencias.
-                </p>
-                <div class="hero__btns">
-                    <a
-                        href="https://wa.me/525513843004"
-                        class="btn-wa"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        💬 Cotizar estudios por WhatsApp
-                    </a>
-                    <a href="#estudios" class="btn-sec">
-                        Ver tipos de análisis ↓
-                    </a>
-                </div>
+        <div class="hero__text">
+            <h1 class="h1-hero">Laboratorio Clínico Veterinario en Coyoacán</h1>
+            <p class="hero__desc">
+                Diagnóstico temprano y preciso para perros y gatos. Realizamos
+                análisis de sangre, química sanguínea y estudios prequirúrgicos
+                en San Pablo Tepetlapa para detectar problemas de salud antes de
+                que se conviertan en urgencias.
+            </p>
+            <div class="hero__btns">
+                <a
+                    href="https://wa.me/525513843004"
+                    class="btn-wa"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 Cotizar estudios por WhatsApp
+                </a>
+                <a href="#estudios" class="btn-sec">
+                    Ver tipos de análisis ↓
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- SECCIÓN 2 — ¿QUÉ ANALIZAMOS? -->
     <section id="estudios" class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                Estudios de laboratorio para un diagnóstico exacto
-            </h2>
-            <div class="grid-estudios">
-                {
-                    estudiosCards.map((item) => (
-                        <div class="card card-estudio">
-                            <span class="card-emoji">{item.emoji}</span>
-                            <h3 class="card-titulo">{item.title}</h3>
-                            <p class="card-desc">{item.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">
+            Estudios de laboratorio para un diagnóstico exacto
+        </h2>
+        <div class="grid-auto">
+            {
+                estudiosCards.map((item) => (
+                    <div class="card-ui">
+                        <span class="icon-scalable">{item.emoji}</span>
+                        <h3 class="card-titulo">{item.title}</h3>
+                        <p class="card-desc">{item.desc}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 3 — MITO VS REALIDAD (ENFERMEDADES SILENTES) -->
     <section class="content-section">
-            <h2 class="titulo-sec">
-                ¿Por qué no esperar a que tu mascota se sienta mal?
-            </h2>
+        <h2 class="titulo-sec">
+            ¿Por qué no esperar a que tu mascota se sienta mal?
+        </h2>
 
-            <div class="mito-realidad-box mb-fluid">
-                <div class="mito-block">
-                    <span class="bad-icon">❌</span>
-                    <p>
-                        <strong>El Mito:</strong> "Si mi mascota come bien y juega,
-                        no necesita análisis de sangre."
-                    </p>
-                </div>
-                <div class="realidad-block">
-                    <span class="good-icon">✅</span>
-                    <p>
-                        <strong>La Realidad:</strong> Enfermedades gravísimas como
-                        la insuficiencia renal, problemas hepáticos o la diabetes
-                        son "silentes". No dan síntomas visibles (como dejar de comer
-                        o decaimiento) hasta que la enfermedad está en etapas muy
-                        avanzadas e irreversibles. Un chequeo de laboratorio anual
-                        las detecta años antes.
-                    </p>
-                </div>
+        <div class="mito-realidad-box mb-fluid">
+            <div class="mito-block">
+                <span class="icon-scalable bad-icon">❌</span>
+                <p>
+                    <strong>El Mito:</strong> "Si mi mascota come bien y juega, no
+                    necesita análisis de sangre."
+                </p>
             </div>
+            <div class="realidad-block">
+                <span class="icon-scalable good-icon">✅</span>
+                <p>
+                    <strong>La Realidad:</strong> Enfermedades gravísimas como la
+                    insuficiencia renal, problemas hepáticos o la diabetes son "silentes".
+                    No dan síntomas visibles (como dejar de comer o decaimiento) hasta
+                    que la enfermedad está en etapas muy avanzadas e irreversibles.
+                    Un chequeo de laboratorio anual las detecta años antes.
+                </p>
+            </div>
+        </div>
 
-            <blockquote class="valor-quote text-center">
-                "Muchos dueños en Coyoacán esperan a que su mascota esté muy
-                decaída para traerla a consulta. Para entonces, el problema ya
-                es grave. Un perfil bioquímico preventivo cuesta
-                significativamente menos que la hospitalización por una
-                enfermedad detectada tarde."
-            </blockquote>
-        </section>
+        <blockquote class="valor-quote text-center">
+            "Muchos dueños en Coyoacán esperan a que su mascota esté muy decaída
+            para traerla a consulta. Para entonces, el problema ya es grave. Un
+            perfil bioquímico preventivo cuesta significativamente menos que la
+            hospitalización por una enfermedad detectada tarde."
+        </blockquote>
+    </section>
 
     <!-- SECCIÓN 4 — LA VENTAJA DE HACERLO EN CLÍNICA -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">Precisión y rapidez en el sur de CDMX</h2>
+        <h2 class="titulo-sec">Precisión y rapidez en el sur de CDMX</h2>
 
-            <div class="ventajas-lista">
-                {
-                    ventajasLista.map((vent) => (
-                        <div class="ventaja-item card">
-                            <div class="ventaja-icon">✅</div>
-                            <div class="ventaja-texto">
-                                <h3 class="ventaja-titulo">{vent.title}</h3>
-                                <p class="ventaja-desc">{vent.desc}</p>
-                            </div>
+        <div class="ventajas-lista">
+            {
+                ventajasLista.map((vent) => (
+                    <div class="ventaja-item card-ui">
+                        <div class="ventaja-icon">
+                            <span class="icon-scalable">✅</span>
                         </div>
-                    ))
-                }
-            </div>
-        </section>
+                        <div class="ventaja-texto">
+                            <h3 class="ventaja-titulo">{vent.title}</h3>
+                            <p class="ventaja-desc">{vent.desc}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
-            <h2 class="titulo-sec">
-                Preguntas comunes sobre nuestros análisis clínicos
-            </h2>
-            <div class="faq-accordion">
-                {
-                    faqs.map((faq) => (
-                        <details class="faq-item">
-                            <summary class="faq-question">{faq.name}</summary>
-                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
-                        </details>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">
+            Preguntas comunes sobre nuestros análisis clínicos
+        </h2>
+        <div class="faq-accordion">
+            {
+                faqs.map((faq) => (
+                    <details class="faq-item">
+                        <summary class="faq-question">{faq.name}</summary>
+                        <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 6 — SERVICIOS VINCULADOS -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                Servicios complementarios en Punto Veterinario
-            </h2>
-            <div class="grid-relacionados">
-                {
-                    relacionadosCards.map((s) => (
-                        <a href={s.href} class="card card-servicio">
-                            <span class="card-emoji">{s.emoji}</span>
-                            <h3 class="card-titulo">{s.title}</h3>
-                            <p class="card-desc">{s.desc}</p>
-                            <span class="card-ver">Ver detalles →</span>
-                        </a>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">
+            Servicios complementarios en Punto Veterinario
+        </h2>
+        <div class="grid-auto">
+            {
+                relacionadosCards.map((s) => (
+                    <a href={s.href} class="card-ui">
+                        <span class="icon-scalable">{s.emoji}</span>
+                        <h3 class="card-titulo">{s.title}</h3>
+                        <p class="card-desc">{s.desc}</p>
+                        <span class="card-ver">Ver detalles →</span>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
-            <h2 class="cta-titulo-blanc">
-                ¿Tu mascota necesita estudios de laboratorio?
-            </h2>
-            <p class="cta-desc-blanc">
-                Agenda su toma de muestra de forma rápida y con el menor estrés
-                posible. Estamos en Av. División del Norte 3595, San Pablo
-                Tepetlapa, atendiendo a pacientes de todo Coyoacán.
-            </p>
-            <div class="cta-btns">
-                <a
-                    href="https://wa.me/525513843004"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-cta-blanco"
-                >
-                    💬 Agendar cita por WhatsApp
-                </a>
-                <a href="/ubicacion" class="btn-cta-outline">
-                    📍 Ver mapa y horarios
-                </a>
-            </div>
-        </section>
+        <h2 class="cta-titulo-blanc">
+            ¿Tu mascota necesita estudios de laboratorio?
+        </h2>
+        <p class="cta-desc-blanc">
+            Agenda su toma de muestra de forma rápida y con el menor estrés
+            posible. Estamos en Av. División del Norte 3595, San Pablo
+            Tepetlapa, atendiendo a pacientes de todo Coyoacán.
+        </p>
+        <div class="cta-btns">
+            <a
+                href="https://wa.me/525513843004"
+                target="_blank"
+                rel="noopener"
+                class="btn-cta-blanco"
+            >
+                💬 Agendar cita por WhatsApp
+            </a>
+            <a href="/ubicacion" class="btn-cta-outline">
+                📍 Ver mapa y horarios
+            </a>
+        </div>
+    </section>
 </BaseLayout>
 
 <style>
@@ -336,7 +334,6 @@ const relacionadosCards = [
     }
     @media (min-width: 48rem) {
         .hero__text {
-            
         }
     }
 
@@ -657,5 +654,5 @@ const relacionadosCards = [
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
-    }
+    };
 </style>

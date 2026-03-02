@@ -129,170 +129,167 @@ const relacionadosCards = [
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-            <div class="hero__text">
-                <h1 class="h1-hero">
-                    Alimento Premium y Dietas Terapéuticas en Coyoacán
-                </h1>
-                <p class="hero__desc">
-                    La nutrición es el factor más importante en la longevidad y
-                    calidad de vida de tu mascota. Encuentra croquetas de alta
-                    digestibilidad y dietas especializadas en San Pablo
-                    Tepetlapa, CDMX, con la asesoría directa de nuestros médicos
-                    veterinarios.
-                </p>
-                <div class="hero__btns">
-                    <a
-                        href="https://wa.me/525513843004"
-                        class="btn-wa"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        💬 Consultar disponibilidad por WhatsApp
-                    </a>
-                    <a href="/ubicacion" class="btn-sec">
-                        📍 Ver ubicación de la clínica
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    <!-- SECCIÓN 2 — TIPOS DE ALIMENTO QUE MANEJAMOS -->
-    <section class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                Nutrición especializada para cada etapa y necesidad
-            </h2>
-            <div class="grid-tres">
-                {
-                    alimentosCards.map((item) => (
-                        <div class="card card-hover">
-                            <span class="card-emoji">{item.emoji}</span>
-                            <h3 class="card-titulo">{item.title}</h3>
-                            <p class="card-desc">{item.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
-
-    <!-- SECCIÓN 3 — MITO VS REALIDAD (LA TRAMPA DEL SUPERMERCADO) -->
-    <section class="content-section">
-            <h2 class="titulo-sec">
-                Lo que el alimento económico le cuesta a su salud
-            </h2>
-
-            <div class="mito-realidad-box mb-fluid">
-                <div class="mito-block">
-                    <span class="bad-icon">❌</span>
-                    <p>
-                        <strong>El Mito:</strong> "El alimento caro es igual al barato
-                        pero con mejor empaque, y los gatos pueden comer lo mismo
-                        que los perros."
-                    </p>
-                </div>
-                <div class="realidad-block">
-                    <span class="good-icon">✅</span>
-                    <p>
-                        <strong>La Realidad:</strong> Totalmente falso. El alimento
-                        comercial de baja calidad usa "rellenos" difíciles de procesar
-                        que a largo plazo dañan los riñones y articulaciones. Además,
-                        los gatos son carnívoros obligados y necesitan taurina en
-                        su dieta; darles alimento de perro puede causarles ceguera
-                        y problemas cardíacos graves.
-                    </p>
-                </div>
-            </div>
-
-            <blockquote class="valor-quote text-center">
-                "La diferencia principal entre un alimento premium y uno
-                económico está en la digestibilidad. Tu mascota aprovecha casi
-                todos los nutrientes del alimento premium, lo que significa que
-                comerá menos cantidad para llenarse, sus heces serán más
-                pequeñas y su salud estará protegida a largo plazo."
-            </blockquote>
-        </section>
-
-    <!-- SECCIÓN 4 — LA VENTAJA DE COMPRAR EN LA VETERINARIA -->
-    <section class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                ¿Por qué comprar el alimento de tu mascota con nosotros?
-            </h2>
-
-            <div class="ventajas-lista">
-                {
-                    ventajasLista.map((vent) => (
-                        <div class="ventaja-item card">
-                            <div class="ventaja-icon">✅</div>
-                            <div class="ventaja-texto">
-                                <h3 class="ventaja-titulo">{vent.title}</h3>
-                                <p class="ventaja-desc">{vent.desc}</p>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
-
-    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
-    <section class="content-section">
-            <h2 class="titulo-sec">
-                Dudas frecuentes sobre nutrición canina y felina
-            </h2>
-            <div class="faq-accordion">
-                {
-                    faqs.map((faq) => (
-                        <details class="faq-item">
-                            <summary class="faq-question">{faq.name}</summary>
-                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
-                        </details>
-                    ))
-                }
-            </div>
-        </section>
-
-    <!-- SECCIÓN 6 — SERVICIOS VINCULADOS -->
-    <section class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                La nutrición es parte del cuidado integral
-            </h2>
-            <div class="grid-tres">
-                {
-                    relacionadosCards.map((s) => (
-                        <a href={s.href} class="card card-hover">
-                            <span class="card-emoji">{s.emoji}</span>
-                            <h3 class="card-titulo">{s.title}</h3>
-                            <p class="card-desc">{s.desc}</p>
-                            <span class="card-ver">Ver detalles →</span>
-                        </a>
-                    ))
-                }
-            </div>
-        </section>
-
-    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
-    <section class="cta-final content-section">
-            <h2 class="cta-titulo-blanc">
-                ¿Buscas un alimento específico para tu mascota?
-            </h2>
-            <p class="cta-desc-blanc">
-                Escríbenos para confirmar disponibilidad de marcas y fórmulas
-                especiales. Visítanos en Av. División del Norte 3595, San Pablo
-                Tepetlapa, CDMX, y mejora la nutrición de tu mejor amigo hoy
-                mismo.
+        <div class="hero__text">
+            <h1 class="h1-hero">
+                Alimento Premium y Dietas Terapéuticas en Coyoacán
+            </h1>
+            <p class="hero__desc">
+                La nutrición es el factor más importante en la longevidad y
+                calidad de vida de tu mascota. Encuentra croquetas de alta
+                digestibilidad y dietas especializadas en San Pablo Tepetlapa,
+                CDMX, con la asesoría directa de nuestros médicos veterinarios.
             </p>
-            <div class="cta-btns">
+            <div class="hero__btns">
                 <a
                     href="https://wa.me/525513843004"
+                    class="btn-wa"
                     target="_blank"
                     rel="noopener"
-                    class="btn-cta-blanco"
                 >
                     💬 Consultar disponibilidad por WhatsApp
                 </a>
-                <a href="/ubicacion" class="btn-cta-outline">
-                    📍 Ver ubicación y horarios
+                <a href="/ubicacion" class="btn-sec">
+                    📍 Ver ubicación de la clínica
                 </a>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2 — TIPOS DE ALIMENTO QUE MANEJAMOS -->
+    <section class="content-section bg-soft">
+        <h2 class="titulo-sec">
+            Nutrición especializada para cada etapa y necesidad
+        </h2>
+        <div class="grid-auto">
+            {
+                alimentosCards.map((item) => (
+                    <div class="card-ui">
+                        <span class="icon-scalable">{item.emoji}</span>
+                        <h3 class="card-titulo">{item.title}</h3>
+                        <p class="card-desc">{item.desc}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3 — MITO VS REALIDAD (LA TRAMPA DEL SUPERMERCADO) -->
+    <section class="content-section">
+        <h2 class="titulo-sec">
+            Lo que el alimento económico le cuesta a su salud
+        </h2>
+
+        <div class="mito-realidad-box mb-fluid">
+            <div class="mito-block">
+                <span class="icon-scalable bad-icon">❌</span>
+                <p>
+                    <strong>El Mito:</strong> "El alimento caro es igual al barato
+                    pero con mejor empaque, y los gatos pueden comer lo mismo que
+                    los perros."
+                </p>
+            </div>
+            <div class="realidad-block">
+                <span class="icon-scalable good-icon">✅</span>
+                <p>
+                    <strong>La Realidad:</strong> Totalmente falso. El alimento comercial
+                    de baja calidad usa "rellenos" difíciles de procesar que a largo
+                    plazo dañan los riñones y articulaciones. Además, los gatos son
+                    carnívoros obligados y necesitan taurina en su dieta; darles alimento
+                    de perro puede causarles ceguera y problemas cardíacos graves.
+                </p>
+            </div>
+        </div>
+
+        <blockquote class="valor-quote text-center">
+            "La diferencia principal entre un alimento premium y uno económico
+            está en la digestibilidad. Tu mascota aprovecha casi todos los
+            nutrientes del alimento premium, lo que significa que comerá menos
+            cantidad para llenarse, sus heces serán más pequeñas y su salud
+            estará protegida a largo plazo."
+        </blockquote>
+    </section>
+
+    <!-- SECCIÓN 4 — LA VENTAJA DE COMPRAR EN LA VETERINARIA -->
+    <section class="content-section bg-soft">
+        <h2 class="titulo-sec">
+            ¿Por qué comprar el alimento de tu mascota con nosotros?
+        </h2>
+
+        <div class="ventajas-lista">
+            {
+                ventajasLista.map((vent) => (
+                    <div class="ventaja-item card-ui">
+                        <div class="ventaja-icon">
+                            <span class="icon-scalable">✅</span>
+                        </div>
+                        <div class="ventaja-texto">
+                            <h3 class="ventaja-titulo">{vent.title}</h3>
+                            <p class="ventaja-desc">{vent.desc}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <section class="content-section">
+        <h2 class="titulo-sec">
+            Dudas frecuentes sobre nutrición canina y felina
+        </h2>
+        <div class="faq-accordion">
+            {
+                faqs.map((faq) => (
+                    <details class="faq-item">
+                        <summary class="faq-question">{faq.name}</summary>
+                        <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6 — SERVICIOS VINCULADOS -->
+    <section class="content-section bg-soft">
+        <h2 class="titulo-sec">La nutrición es parte del cuidado integral</h2>
+        <div class="grid-auto">
+            {
+                relacionadosCards.map((s) => (
+                    <a href={s.href} class="card-ui">
+                        <span class="icon-scalable">{s.emoji}</span>
+                        <h3 class="card-titulo">{s.title}</h3>
+                        <p class="card-desc">{s.desc}</p>
+                        <span class="card-ver">Ver detalles →</span>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <section class="cta-final content-section">
+        <h2 class="cta-titulo-blanc">
+            ¿Buscas un alimento específico para tu mascota?
+        </h2>
+        <p class="cta-desc-blanc">
+            Escríbenos para confirmar disponibilidad de marcas y fórmulas
+            especiales. Visítanos en Av. División del Norte 3595, San Pablo
+            Tepetlapa, CDMX, y mejora la nutrición de tu mejor amigo hoy mismo.
+        </p>
+        <div class="cta-btns">
+            <a
+                href="https://wa.me/525513843004"
+                target="_blank"
+                rel="noopener"
+                class="btn-cta-blanco"
+            >
+                💬 Consultar disponibilidad por WhatsApp
+            </a>
+            <a href="/ubicacion" class="btn-cta-outline">
+                📍 Ver ubicación y horarios
+            </a>
+        </div>
+    </section>
 </BaseLayout>
 
 <style>
@@ -345,7 +342,6 @@ const relacionadosCards = [
     }
     @media (min-width: 48rem) {
         .hero__text {
-            
         }
     }
 
@@ -655,5 +651,5 @@ const relacionadosCards = [
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
-    }
+    };
 </style>

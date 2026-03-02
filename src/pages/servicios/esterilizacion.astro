@@ -150,178 +150,175 @@ const relacionadosCards = [
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-            <div class="hero__text">
-                <h1 class="h1-hero">
-                    Esterilización y Castración de Perros y Gatos en Coyoacán
-                </h1>
-                <p class="hero__desc">
-                    Una decisión preventiva que puede salvarle la vida.
-                    Realizamos cirugías seguras con estudios prequirúrgicos y
-                    monitoreo anestésico en San Pablo Tepetlapa, CDMX. Protege a
-                    tu mascota contra tumores, infecciones y problemas de
-                    comportamiento.
-                </p>
-                <div class="hero__btns">
-                    <a
-                        href="https://wa.me/525513843004"
-                        class="btn-wa"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        💬 Cotizar cirugía por WhatsApp
-                    </a>
-                    <a href="#protocolo" class="btn-sec">
-                        Conoce el proceso seguro →
-                    </a>
-                </div>
+        <div class="hero__text">
+            <h1 class="h1-hero">
+                Esterilización y Castración de Perros y Gatos en Coyoacán
+            </h1>
+            <p class="hero__desc">
+                Una decisión preventiva que puede salvarle la vida. Realizamos
+                cirugías seguras con estudios prequirúrgicos y monitoreo
+                anestésico en San Pablo Tepetlapa, CDMX. Protege a tu mascota
+                contra tumores, infecciones y problemas de comportamiento.
+            </p>
+            <div class="hero__btns">
+                <a
+                    href="https://wa.me/525513843004"
+                    class="btn-wa"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 Cotizar cirugía por WhatsApp
+                </a>
+                <a href="#protocolo" class="btn-sec">
+                    Conoce el proceso seguro →
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- SECCIÓN 2 — DATOS MÉDICOS (E-E-A-T) -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                ¿Por qué la esterilización es el mejor acto de amor?
-            </h2>
-            <p class="text-center text-soft intro-desc">
-                Esterilizar a tu mascota no solo evita camadas no deseadas; es
-                la intervención médica preventiva más importante para extender
-                su esperanza de vida y evitar problemas como el cáncer de
-                glándula mamaria o piometra.
-            </p>
-            <div class="grid-datos-medicos">
-                {
-                    datosCards.map((item) => (
-                        <div class="card card-dato">
-                            <span class="dato-emoji">{item.emoji}</span>
-                            <div class="dato-content">
-                                <h3 class="dato-numero">{item.dato}</h3>
-                                <p class="card-desc">{item.desc}</p>
-                            </div>
+        <h2 class="titulo-sec">
+            ¿Por qué la esterilización es el mejor acto de amor?
+        </h2>
+        <p class="text-center text-soft intro-desc">
+            Esterilizar a tu mascota no solo evita camadas no deseadas; es la
+            intervención médica preventiva más importante para extender su
+            esperanza de vida y evitar problemas como el cáncer de glándula
+            mamaria o piometra.
+        </p>
+        <div class="grid-auto">
+            {
+                datosCards.map((item) => (
+                    <div class="card-ui">
+                        <span class="icon-scalable">{item.emoji}</span>
+                        <div class="dato-content">
+                            <h3 class="dato-numero">{item.dato}</h3>
+                            <p class="card-desc">{item.desc}</p>
                         </div>
-                    ))
-                }
-            </div>
-        </section>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 3 — MITO VS REALIDAD -->
     <section class="content-section">
-            <h2 class="titulo-sec">
-                Mitos comunes sobre la esterilización y castración de perros
-                CDMX
-            </h2>
-            <div class="mitos-lista">
-                {
-                    mitos.map((m, index) => (
-                        <div class="mito-realidad-box-vertical">
-                            <div class="mito-block">
-                                <span class="bad-icon">❌</span>
-                                <p>
-                                    <strong>Mito {index + 1}:</strong> "{m.mito}
-                                    "
-                                </p>
-                            </div>
-                            <div class="realidad-block">
-                                <span class="good-icon">✅</span>
-                                <p>
-                                    <strong>Realidad:</strong> {m.realidad}
-                                </p>
-                            </div>
+        <h2 class="titulo-sec">
+            Mitos comunes sobre la esterilización y castración de perros CDMX
+        </h2>
+        <div class="mitos-lista">
+            {
+                mitos.map((m, index) => (
+                    <div class="mito-realidad-box-vertical">
+                        <div class="mito-block">
+                            <span class="icon-scalable bad-icon">❌</span>
+                            <p>
+                                <strong>Mito {index + 1}:</strong> "{m.mito}"
+                            </p>
                         </div>
-                    ))
-                }
-            </div>
-        </section>
+                        <div class="realidad-block">
+                            <span class="icon-scalable good-icon">✅</span>
+                            <p>
+                                <strong>Realidad:</strong> {m.realidad}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 4 — EL PROTOCOLO SEGURO -->
     <section id="protocolo" class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                ¿Por qué elegir Punto Veterinario para la cirugía de tu mascota?
-            </h2>
+        <h2 class="titulo-sec">
+            ¿Por qué elegir Punto Veterinario para la cirugía de tu mascota?
+        </h2>
 
-            <blockquote class="valor-quote text-center">
-                "En CDMX existen campañas de esterilización gratuita, pero
-                muchas operan sin conocer el estado interno de la mascota. En
-                Punto Veterinario no tomamos riesgos con la vida de tu mejor
-                amigo. Nuestro protocolo quirúrgico es estricto y seguro."
-            </blockquote>
+        <blockquote class="valor-quote text-center">
+            "En CDMX existen campañas de esterilización gratuita, pero muchas
+            operan sin conocer el estado interno de la mascota. En Punto
+            Veterinario no tomamos riesgos con la vida de tu mejor amigo.
+            Nuestro protocolo quirúrgico es estricto y seguro."
+        </blockquote>
 
-            <div class="timeline-protocolo mt-fluid">
-                {
-                    protocoloPasos.map((paso, index) => (
-                        <div class="timeline-item">
-                            <div class="timeline-marker protocol-marker">
-                                {paso.emoji}
-                            </div>
-                            <div class="timeline-content card card-protocolo">
-                                <span class="paso-num">Paso {index + 1}</span>
-                                <h3 class="timeline-titulo">{paso.title}</h3>
-                                <p class="card-desc">{paso.desc}</p>
-                            </div>
+        <div class="timeline-protocolo mt-fluid">
+            {
+                protocoloPasos.map((paso, index) => (
+                    <div class="timeline-item">
+                        <div class="timeline-marker protocol-marker">
+                            {paso.emoji}
                         </div>
-                    ))
-                }
-            </div>
-        </section>
+                        <div class="timeline-content card-ui">
+                            <span class="paso-num">Paso {index + 1}</span>
+                            <h3 class="timeline-titulo">{paso.title}</h3>
+                            <p class="card-desc">{paso.desc}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
-            <h2 class="titulo-sec">
-                Preguntas frecuentes sobre la esterilización en Coyoacán
-            </h2>
-            <div class="faq-accordion">
-                {
-                    faqs.map((faq) => (
-                        <details class="faq-item">
-                            <summary class="faq-question">{faq.name}</summary>
-                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
-                        </details>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">
+            Preguntas frecuentes sobre la esterilización en Coyoacán
+        </h2>
+        <div class="faq-accordion">
+            {
+                faqs.map((faq) => (
+                    <details class="faq-item">
+                        <summary class="faq-question">{faq.name}</summary>
+                        <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 6 — OTROS SERVICIOS RELACIONADOS -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">Cuidado integral en San Pablo Tepetlapa</h2>
-            <div class="grid-relacionados">
-                {
-                    relacionadosCards.map((s) => (
-                        <a href={s.href} class="card card-servicio">
-                            <span class="card-emoji">{s.emoji}</span>
-                            <h3 class="card-titulo">{s.title}</h3>
-                            <p class="card-desc">{s.desc}</p>
-                            <span class="card-ver">Ver detalles →</span>
-                        </a>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">Cuidado integral en San Pablo Tepetlapa</h2>
+        <div class="grid-auto">
+            {
+                relacionadosCards.map((s) => (
+                    <a href={s.href} class="card-ui">
+                        <span class="icon-scalable">{s.emoji}</span>
+                        <h3 class="card-titulo">{s.title}</h3>
+                        <p class="card-desc">{s.desc}</p>
+                        <span class="card-ver">Ver detalles →</span>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
-            <h2 class="cta-titulo-blanc">
-                ¿Listo para agendar la esterilización de tu mascota?
-            </h2>
-            <p class="cta-desc-blanc">
-                El costo de prevenir hoy es mucho menor al de tratar una
-                urgencia médica mañana. Contáctanos para cotizar la cirugía de
-                tu perro o gato. Estamos en Av. División del Norte 3595, a
-                minutos del Pedregal de Santo Domingo y Copilco.
-            </p>
-            <div class="cta-btns">
-                <a
-                    href="https://wa.me/525513843004"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-cta-blanco"
-                >
-                    💬 Cotizar por WhatsApp
-                </a>
-                <a href="tel:+525513843004" class="btn-cta-outline">
-                    📞 Llamar al 55 1384 3004
-                </a>
-            </div>
-        </section>
+        <h2 class="cta-titulo-blanc">
+            ¿Listo para agendar la esterilización de tu mascota?
+        </h2>
+        <p class="cta-desc-blanc">
+            El costo de prevenir hoy es mucho menor al de tratar una urgencia
+            médica mañana. Contáctanos para cotizar la cirugía de tu perro o
+            gato. Estamos en Av. División del Norte 3595, a minutos del Pedregal
+            de Santo Domingo y Copilco.
+        </p>
+        <div class="cta-btns">
+            <a
+                href="https://wa.me/525513843004"
+                target="_blank"
+                rel="noopener"
+                class="btn-cta-blanco"
+            >
+                💬 Cotizar por WhatsApp
+            </a>
+            <a href="tel:+525513843004" class="btn-cta-outline">
+                📞 Llamar al 55 1384 3004
+            </a>
+        </div>
+    </section>
 </BaseLayout>
 
 <style>
@@ -359,7 +356,7 @@ const relacionadosCards = [
 
     .intro-desc {
         font-size: max(0.95rem, 1.4vw);
-        
+
         margin-inline: auto;
         margin-bottom: max(2rem, 4vw);
         line-height: 1.6;
@@ -381,7 +378,6 @@ const relacionadosCards = [
     }
     @media (min-width: 48rem) {
         .hero__text {
-            
         }
     }
 
@@ -737,5 +733,5 @@ const relacionadosCards = [
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
-    }
+    };
 </style>

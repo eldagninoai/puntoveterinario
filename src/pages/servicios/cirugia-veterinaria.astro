@@ -137,169 +137,167 @@ const relacionadosCards = [
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-            <div class="hero__text">
-                <h1 class="h1-hero">
-                    Cirugía Veterinaria para Perros y Gatos en Coyoacán
-                </h1>
-                <p class="hero__desc">
-                    Intervenciones seguras con quirófano equipado y monitoreo
-                    anestésico continuo en San Pablo Tepetlapa. Operar en
-                    nuestras instalaciones significa menos traslados y menos
-                    estrés para tu mascota, con la tranquilidad de un protocolo
-                    médico estricto.
-                </p>
-                <div class="hero__btns">
-                    <a
-                        href="https://wa.me/525513843004"
-                        class="btn-wa"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        💬 Evaluar caso por WhatsApp
-                    </a>
-                    <a href="tel:+525513843004" class="btn-sec btn-urgencia">
-                        📞 Urgencia: Llamar ahora
-                    </a>
-                </div>
+        <div class="hero__text">
+            <h1 class="h1-hero">
+                Cirugía Veterinaria para Perros y Gatos en Coyoacán
+            </h1>
+            <p class="hero__desc">
+                Intervenciones seguras con quirófano equipado y monitoreo
+                anestésico continuo en San Pablo Tepetlapa. Operar en nuestras
+                instalaciones significa menos traslados y menos estrés para tu
+                mascota, con la tranquilidad de un protocolo médico estricto.
+            </p>
+            <div class="hero__btns">
+                <a
+                    href="https://wa.me/525513843004"
+                    class="btn-wa"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 Evaluar caso por WhatsApp
+                </a>
+                <a href="tel:+525513843004" class="btn-sec btn-urgencia">
+                    📞 Urgencia: Llamar ahora
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- SECCIÓN 2 — TIPOS DE CIRUGÍAS -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                Procedimientos quirúrgicos seguros en el sur de CDMX
-            </h2>
-            <p class="text-center text-soft intro-desc">
-                Nuestro veterinario cirujano está capacitado para resolver las
-                emergencias y patologías más comunes que requieren entrar a
-                quirófano, enfocándonos en cirugías de tejidos blandos.
-            </p>
-            <div class="grid-cirugias">
-                {
-                    cirugiasCards.map((item) => (
-                        <div class="card card-cirugia">
-                            <span class="card-emoji">{item.emoji}</span>
-                            <h3 class="card-titulo">{item.title}</h3>
-                            <p class="card-desc">{item.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">
+            Procedimientos quirúrgicos seguros en el sur de CDMX
+        </h2>
+        <p class="text-center text-soft intro-desc">
+            Nuestro veterinario cirujano está capacitado para resolver las
+            emergencias y patologías más comunes que requieren entrar a
+            quirófano, enfocándonos en cirugías de tejidos blandos.
+        </p>
+        <div class="grid-auto">
+            {
+                cirugiasCards.map((item) => (
+                    <div class="card-ui">
+                        <span class="icon-scalable">{item.emoji}</span>
+                        <h3 class="card-titulo">{item.title}</h3>
+                        <p class="card-desc">{item.desc}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 3 — EL PROTOCOLO DE SEGURIDAD -->
     <section class="content-section">
-            <h2 class="titulo-sec">
-                Nuestra regla de oro: No hay cirugía sin estudios prequirúrgicos
-            </h2>
+        <h2 class="titulo-sec">
+            Nuestra regla de oro: No hay cirugía sin estudios prequirúrgicos
+        </h2>
 
-            <div class="timeline-protocolo">
-                {
-                    protocoloPasos.map((paso) => (
-                        <div class="timeline-item">
-                            <div class="timeline-marker protocol-marker">
-                                {paso.num}
-                            </div>
-                            <div class="timeline-content card card-protocolo">
-                                <h3 class="timeline-titulo">{paso.title}</h3>
-                                <p class="card-desc">{paso.desc}</p>
-                            </div>
+        <div class="timeline-protocolo">
+            {
+                protocoloPasos.map((paso) => (
+                    <div class="timeline-item">
+                        <div class="timeline-marker protocol-marker">
+                            {paso.num}
                         </div>
-                    ))
-                }
-            </div>
-        </section>
+                        <div class="timeline-content card-ui">
+                            <h3 class="timeline-titulo">{paso.title}</h3>
+                            <p class="card-desc">{paso.desc}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 4 — MITO VS REALIDAD (LA ANESTESIA) -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">Desmitificando el quirófano veterinario</h2>
+        <h2 class="titulo-sec">Desmitificando el quirófano veterinario</h2>
 
-            <div class="mito-realidad-box-vertical mb-fluid">
-                <div class="mito-block">
-                    <span class="bad-icon">❌</span>
-                    <p>
-                        <strong>El Mito:</strong> "La anestesia veterinaria es demasiado
-                        peligrosa, sobre todo si mi mascota ya está grande."
-                    </p>
-                </div>
-                <div class="realidad-block">
-                    <span class="good-icon">✅</span>
-                    <p>
-                        <strong>La Realidad:</strong> En animales sanos y evaluados
-                        previamente, el riesgo anestésico es mínimo y comparable al
-                        de los humanos. El verdadero peligro ocurre cuando se opera
-                        "a ciegas", sin una valoración sanguínea previa. Por eso nuestros
-                        estudios prequirúrgicos son la garantía de que la cirugía
-                        veterinaria será segura.
-                    </p>
-                </div>
+        <div class="mito-realidad-box-vertical mb-fluid">
+            <div class="mito-block">
+                <span class="icon-scalable bad-icon">❌</span>
+                <p>
+                    <strong>El Mito:</strong> "La anestesia veterinaria es demasiado
+                    peligrosa, sobre todo si mi mascota ya está grande."
+                </p>
             </div>
+            <div class="realidad-block">
+                <span class="icon-scalable good-icon">✅</span>
+                <p>
+                    <strong>La Realidad:</strong> En animales sanos y evaluados previamente,
+                    el riesgo anestésico es mínimo y comparable al de los humanos.
+                    El verdadero peligro ocurre cuando se opera "a ciegas", sin una
+                    valoración sanguínea previa. Por eso nuestros estudios prequirúrgicos
+                    son la garantía de que la cirugía veterinaria será segura.
+                </p>
+            </div>
+        </div>
 
-            <blockquote class="valor-quote text-center">
-                "No todos los consultorios están preparados para operar. Las
-                cirugías requieren instalaciones adecuadas, esterilización
-                instrumental y protocolo de recuperación. En Punto Veterinario
-                tienes todo en un solo lugar."
-            </blockquote>
-        </section>
+        <blockquote class="valor-quote text-center">
+            "No todos los consultorios están preparados para operar. Las
+            cirugías requieren instalaciones adecuadas, esterilización
+            instrumental y protocolo de recuperación. En Punto Veterinario
+            tienes todo en un solo lugar."
+        </blockquote>
+    </section>
 
     <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
-            <h2 class="titulo-sec">Dudas frecuentes antes de una cirugía</h2>
-            <div class="faq-accordion">
-                {
-                    faqs.map((faq) => (
-                        <details class="faq-item">
-                            <summary class="faq-question">{faq.name}</summary>
-                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
-                        </details>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">Dudas frecuentes antes de una cirugía</h2>
+        <div class="faq-accordion">
+            {
+                faqs.map((faq) => (
+                    <details class="faq-item">
+                        <summary class="faq-question">{faq.name}</summary>
+                        <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 6 — SERVICIOS DIRECTAMENTE RELACIONADOS -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">Servicios complementarios a la cirugía</h2>
-            <div class="grid-relacionados">
-                {
-                    relacionadosCards.map((s) => (
-                        <a href={s.href} class="card card-servicio">
-                            <span class="card-emoji">{s.emoji}</span>
-                            <h3 class="card-titulo">{s.title}</h3>
-                            <p class="card-desc">{s.desc}</p>
-                            <span class="card-ver">Ver detalles →</span>
-                        </a>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">Servicios complementarios a la cirugía</h2>
+        <div class="grid-auto">
+            {
+                relacionadosCards.map((s) => (
+                    <a href={s.href} class="card-ui">
+                        <span class="icon-scalable">{s.emoji}</span>
+                        <h3 class="card-titulo">{s.title}</h3>
+                        <p class="card-desc">{s.desc}</p>
+                        <span class="card-ver">Ver detalles →</span>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
-            <h2 class="cta-titulo-blanc">
-                ¿El veterinario te recomendó una cirugía para tu mascota?
-            </h2>
-            <p class="cta-desc-blanc">
-                Si notas un bulto extraño, sufrió un accidente o necesita una
-                cirugía de tejidos blandos programada, estamos aquí para
-                ayudarte. Operamos con los más altos estándares de seguridad en
-                San Pablo Tepetlapa, Coyoacán.
-            </p>
-            <div class="cta-btns">
-                <a
-                    href="https://wa.me/525513843004"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-cta-blanco"
-                >
-                    💬 Consultar caso por WhatsApp
-                </a>
-                <a href="/ubicacion" class="btn-cta-outline">
-                    📍 Ver ubicación y horarios
-                </a>
-            </div>
-        </section>
+        <h2 class="cta-titulo-blanc">
+            ¿El veterinario te recomendó una cirugía para tu mascota?
+        </h2>
+        <p class="cta-desc-blanc">
+            Si notas un bulto extraño, sufrió un accidente o necesita una
+            cirugía de tejidos blandos programada, estamos aquí para ayudarte.
+            Operamos con los más altos estándares de seguridad en San Pablo
+            Tepetlapa, Coyoacán.
+        </p>
+        <div class="cta-btns">
+            <a
+                href="https://wa.me/525513843004"
+                target="_blank"
+                rel="noopener"
+                class="btn-cta-blanco"
+            >
+                💬 Consultar caso por WhatsApp
+            </a>
+            <a href="/ubicacion" class="btn-cta-outline">
+                📍 Ver ubicación y horarios
+            </a>
+        </div>
+    </section>
 </BaseLayout>
 
 <style>
@@ -337,7 +335,7 @@ const relacionadosCards = [
 
     .intro-desc {
         font-size: max(0.95rem, 1.4vw);
-        
+
         margin-inline: auto;
         margin-bottom: max(2rem, 4vw);
         line-height: 1.6;
@@ -359,7 +357,6 @@ const relacionadosCards = [
     }
     @media (min-width: 48rem) {
         .hero__text {
-            
         }
     }
 
@@ -693,5 +690,5 @@ const relacionadosCards = [
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
-    }
+    };
 </style>

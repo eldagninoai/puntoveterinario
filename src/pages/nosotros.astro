@@ -87,145 +87,143 @@ const instalacionesImgs = [
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-            <div class="hero__text">
-                <h1 class="h1-hero">
-                    Médicos Veterinarios de Confianza en Coyoacán
-                </h1>
-                <p class="hero__desc">
-                    Sabemos que tu perro o gato no es solo una mascota, es parte
-                    de tu familia. En Punto Veterinario combinamos experiencia
-                    médica, instalaciones seguras y un trato profundamente
-                    humano para cuidar de ellos en San Pablo Tepetlapa.
-                </p>
-                <div class="hero__btns">
-                    <a
-                        href="https://wa.me/525513843004"
-                        class="btn-wa"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        💬 Hablar con el equipo
-                    </a>
-                </div>
+        <div class="hero__text">
+            <h1 class="h1-hero">
+                Médicos Veterinarios de Confianza en Coyoacán
+            </h1>
+            <p class="hero__desc">
+                Sabemos que tu perro o gato no es solo una mascota, es parte de
+                tu familia. En Punto Veterinario combinamos experiencia médica,
+                instalaciones seguras y un trato profundamente humano para
+                cuidar de ellos en San Pablo Tepetlapa.
+            </p>
+            <div class="hero__btns">
+                <a
+                    href="https://wa.me/525513843004"
+                    class="btn-wa"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 Hablar con el equipo
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- SECCIÓN 2 — EL VIDEO (IMPLEMENTACIÓN FACADE) -->
     <section class="content-section bg-soft">
-            <h2 class="visually-hidden">Nuestra clínica por dentro</h2>
+        <h2 class="visually-hidden">Nuestra clínica por dentro</h2>
 
-            <div class="video-container" id="video-facade">
-                <!-- Fachada Initial Load -->
-                <img
-                    src="/video-thumbnail.webp"
-                    alt="Recorrido por la clínica Punto Veterinario en Coyoacán"
-                    class="video-thumbnail"
-                    width="800"
-                    height="450"
-                    loading="lazy"
-                    decoding="async"
-                />
-                <button
-                    class="play-btn"
-                    aria-label="Reproducir video de presentación"
-                >
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M8 5v14l11-7z" fill="currentColor"></path>
-                    </svg>
-                </button>
-            </div>
-        </section>
+        <div class="video-container" id="video-facade">
+            <!-- Fachada Initial Load -->
+            <img
+                src="/video-thumbnail.webp"
+                alt="Recorrido por la clínica Punto Veterinario en Coyoacán"
+                class="video-thumbnail"
+                width="800"
+                height="450"
+                loading="lazy"
+                decoding="async"
+            />
+            <button
+                class="play-btn"
+                aria-label="Reproducir video de presentación"
+            >
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                </svg>
+            </button>
+        </div>
+    </section>
 
     <!-- SECCIÓN 3 — NUESTRO EQUIPO MÉDICO -->
     <section class="content-section">
-            <h2 class="titulo-sec">
-                Conoce a los expertos detrás de la salud de tu mascota
-            </h2>
-            <div class="grid-equipo">
-                {
-                    equipoCards.map((doc) => (
-                        <div class="card-equipo">
-                            <img
-                                src={doc.imagen}
-                                alt={`Fotografía de ${doc.nombre}, médico veterinario en Coyoacán CDMX`}
-                                class="equipo-img"
-                                width="400"
-                                height="400"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                            <div class="equipo-info">
-                                <h3 class="equipo-nombre">MVZ. {doc.nombre}</h3>
-                                <p class="equipo-exp">{doc.experiencia}</p>
-                            </div>
+        <h2 class="titulo-sec">
+            Conoce a los expertos detrás de la salud de tu mascota
+        </h2>
+        <div class="grid-equipo">
+            {
+                equipoCards.map((doc) => (
+                    <div class="card-equipo">
+                        <img
+                            src={doc.imagen}
+                            alt={`Fotografía de ${doc.nombre}, médico veterinario en Coyoacán CDMX`}
+                            class="equipo-img"
+                            width="400"
+                            height="400"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="equipo-info">
+                            <h3 class="equipo-nombre">MVZ. {doc.nombre}</h3>
+                            <p class="equipo-exp">{doc.experiencia}</p>
                         </div>
-                    ))
-                }
-            </div>
-        </section>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 4 — NUESTRA FILOSOFÍA Y VALORES -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">Nuestra promesa para ti y tu mascota</h2>
-            <div class="grid-tres">
-                {
-                    filosofiaCards.map((item) => (
-                        <div class="card card-hover">
-                            <span class="card-emoji">{item.emoji}</span>
-                            <h3 class="card-titulo">{item.titulo}</h3>
-                            <p class="card-desc">{item.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">Nuestra promesa para ti y tu mascota</h2>
+        <div class="grid-auto">
+            {
+                filosofiaCards.map((item) => (
+                    <div class="card-ui">
+                        <span class="icon-scalable">{item.emoji}</span>
+                        <h3 class="card-titulo">{item.titulo}</h3>
+                        <p class="card-desc">{item.desc}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 5 — INSTALACIONES (PRUEBA SOCIAL VISUAL BENTO GRID) -->
     <section class="content-section">
-            <h2 class="titulo-sec">Un espacio diseñado para su bienestar</h2>
-            <div class="bento-gallery">
-                {
-                    instalacionesImgs.map((img, index) => (
-                        <div class={`bento-item bento-item--${index + 1}`}>
-                            <img
-                                src={img.src}
-                                alt={img.alt}
-                                class="bento-img"
-                                width="800"
-                                height="600"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">Un espacio diseñado para su bienestar</h2>
+        <div class="bento-gallery">
+            {
+                instalacionesImgs.map((img, index) => (
+                    <div class={`bento-item bento-item--${index + 1}`}>
+                        <img
+                            src={img.src}
+                            alt={img.alt}
+                            class="bento-img"
+                            width="800"
+                            height="600"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 6 — CTA FINAL LOCAL -->
     <section class="cta-final content-section">
-            <h2 class="cta-titulo-blanc">
-                Pon la salud de tu mejor amigo en buenas manos
-            </h2>
-            <p class="cta-desc-blanc">
-                Estamos listos para recibir a tu mascota en Av. División del
-                Norte 3595, San Pablo Tepetlapa. Únete a las familias de
-                Coyoacán que confían en Punto Veterinario.
-            </p>
-            <div class="cta-btns">
-                <a
-                    href="https://wa.me/525513843004"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-cta-blanco"
-                >
-                    💬 Contactar por WhatsApp
-                </a>
-                <a href="/ubicacion" class="btn-cta-outline">
-                    📍 ¿Cómo llegar?
-                </a>
-            </div>
-        </section>
+        <h2 class="cta-titulo-blanc">
+            Pon la salud de tu mejor amigo en buenas manos
+        </h2>
+        <p class="cta-desc-blanc">
+            Estamos listos para recibir a tu mascota en Av. División del Norte
+            3595, San Pablo Tepetlapa. Únete a las familias de Coyoacán que
+            confían en Punto Veterinario.
+        </p>
+        <div class="cta-btns">
+            <a
+                href="https://wa.me/525513843004"
+                target="_blank"
+                rel="noopener"
+                class="btn-cta-blanco"
+            >
+                💬 Contactar por WhatsApp
+            </a>
+            <a href="/ubicacion" class="btn-cta-outline"> 📍 ¿Cómo llegar? </a>
+        </div>
+    </section>
 </BaseLayout>
 
 <script>
@@ -428,7 +426,7 @@ const instalacionesImgs = [
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: max(1.5rem, 3vw);
-        
+
         margin: 0 auto;
     }
     @media (
@@ -678,5 +676,5 @@ const instalacionesImgs = [
     .btn-cta-outline:hover {
         transform: translateY(-0.15rem);
         background: rgba(255, 255, 255, 0.1);
-    }
+    };
 </style>

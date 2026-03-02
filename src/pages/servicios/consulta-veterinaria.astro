@@ -3,61 +3,64 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Consulta Veterinaria General",
-    provider: {
-        "@type": "VeterinaryCare",
-        name: "Punto Veterinario",
-        image: "https://puntoveterinario.com/logo.png",
-        address: {
-            "@type": "PostalAddress",
-            streetAddress: "Av. División del Norte 3595",
-            addressLocality: "San Pablo Tepetlapa",
-            addressRegion: "Coyoacán, Ciudad de México",
-            postalCode: "04620",
-            addressCountry: "MX",
-        },
-    },
-    areaServed: {
-        "@type": "City",
-        name: "Coyoacán",
-    },
-    description:
-        "Consulta médica, chequeo general y medicina preventiva para perros y gatos en el sur de la CDMX. Incluye exploración física completa y anamnesis.",
-};
-
-const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
+    "@graph": [
         {
-            "@type": "Question",
-            name: "¿Cuánto cuesta una consulta veterinaria en Coyoacán?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "En Punto Veterinario ofrecemos consultas a precios accesibles. Escríbenos por WhatsApp al 55 1384 3004 para darte el costo exacto y orientarte sobre lo que necesita tu mascota.",
+            "@type": "Service",
+            name: "Consulta Veterinaria General",
+            provider: {
+                "@type": "VeterinaryCare",
+                "@id": "https://puntoveterinario.com/#localbusiness",
+                name: "Punto Veterinario",
+                image: "https://puntoveterinario.com/logo.png",
+                address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "Av. División del Norte 3595",
+                    addressLocality: "Coyoacán",
+                    addressRegion: "CDMX",
+                    postalCode: "04620",
+                    addressCountry: "MX",
+                },
             },
+            areaServed: {
+                "@type": "AdministrativeArea",
+                name: "Coyoacán",
+            },
+            description:
+                "Consulta médica, chequeo general y medicina preventiva para perros y gatos en el sur de la CDMX. Incluye exploración física completa y anamnesis.",
         },
         {
-            "@type": "Question",
-            name: "¿Cada cuánto debo llevar a mi perro al veterinario si parece sano?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Los perros adultos deben ir al menos 1 vez al año. Los cachorros necesitan 3 a 4 consultas en sus primeros 6 meses. Si tu mascota tiene más de 7 años, recomendamos una revisión cada 6 meses para detectar enfermedades silentes.",
-            },
-        },
-        {
-            "@type": "Question",
-            name: "¿Qué incluye exactamente una consulta general?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Incluye anamnesis (historial clínico) y una exploración física completa: auscultación cardíaca y pulmonar, revisión de ojos, oídos, boca, palpación abdominal, revisión de piel, control de peso y temperatura.",
-            },
+            "@type": "FAQPage",
+            mainEntity: [
+                {
+                    "@type": "Question",
+                    name: "¿Cuánto cuesta una consulta veterinaria en Coyoacán?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "En Punto Veterinario ofrecemos consultas a precios accesibles. Escríbenos por WhatsApp al 55 1384 3004 para darte el costo exacto y orientarte sobre lo que necesita tu mascota.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "¿Cada cuánto debo llevar a mi perro al veterinario si parece sano?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Los perros adultos deben ir al menos 1 vez al año. Los cachorros necesitan 3 a 4 consultas en sus primeros 6 meses. Si tu mascota tiene más de 7 años, recomendamos una revisión cada 6 meses para detectar enfermedades silentes.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "¿Qué incluye exactamente una consulta general?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Incluye anamnesis (historial clínico) y una exploración física completa: auscultación cardíaca y pulmonar, revisión de ojos, oídos, boca, palpación abdominal, revisión de piel, control de peso y temperatura.",
+                    },
+                },
+            ],
         },
     ],
 };
 
-const faqs = faqSchema.mainEntity;
+const faqs = (schema as any)["@graph"][1].mainEntity;
 
 const incluyeCards = [
     {
@@ -138,87 +141,86 @@ const relacionadosCards = [
     canonical="https://puntoveterinario.com/servicios/consulta-veterinaria"
 >
     <Fragment slot="head">
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_MX" />
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-        <script
-            type="application/ld+json"
-            set:html={JSON.stringify(faqSchema)}
-        />
     </Fragment>
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-            <div class="hero__text">
-                <h1 class="h1-hero">
-                    Consulta Veterinaria en Coyoacán para Perros y Gatos
-                </h1>
-                <p class="hero__desc">
-                    Medicina preventiva, diagnósticos precisos y trato empático
-                    para tu mascota en San Pablo Tepetlapa. No esperes a que se
-                    ponga grave para traerlo — una consulta de rutina hoy te
-                    puede ahorrar una urgencia mañana.
-                </p>
-                <div class="hero__btns">
-                    <a
-                        href="https://wa.me/525513843004"
-                        class="btn-wa"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        💬 Agendar consulta por WhatsApp
-                    </a>
-                    <a href="tel:+525513843004" class="btn-sec">
-                        📞 Llamar al 55 1384 3004
-                    </a>
-                </div>
+        <div class="hero__text">
+            <h1 class="h1-hero">
+                Consulta Veterinaria en Coyoacán para Perros y Gatos
+            </h1>
+            <p class="hero__desc">
+                Medicina preventiva, diagnósticos precisos y trato empático para
+                tu mascota en San Pablo Tepetlapa. No esperes a que se ponga
+                grave para traerlo — una consulta de rutina hoy te puede ahorrar
+                una urgencia mañana.
+            </p>
+            <div class="hero__btns">
+                <a
+                    href="https://wa.me/525513843004"
+                    class="btn-wa"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 Agendar consulta por WhatsApp
+                </a>
+                <a href="tel:+525513843004" class="btn-sec">
+                    📞 Llamar al 55 1384 3004
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- SECCIÓN 2 — ¿QUÉ INCLUYE NUESTRO CHEQUEO? -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">
-                ¿Qué incluye una revisión veterinaria completa?
-            </h2>
-            <p class="text-center text-soft intro-desc">
-                Una consulta general no es solo "ver" a tu mascota. Realizamos
-                una exploración física completa de nariz a cola y una anamnesis
-                (historial clínico detallado) para asegurar su bienestar total.
-            </p>
-            <div class="grid-incluye">
-                {
-                    incluyeCards.map((item) => (
-                        <div class="card card-incluye">
-                            <span class="card-emoji">{item.emoji}</span>
-                            <h3 class="card-titulo">{item.title}</h3>
-                            <p class="card-desc">{item.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">
+            ¿Qué incluye una revisión veterinaria completa?
+        </h2>
+        <p class="text-center text-soft intro-desc">
+            Una consulta general no es solo "ver" a tu mascota. Realizamos una
+            exploración física completa de nariz a cola y una anamnesis
+            (historial clínico detallado) para asegurar su bienestar total.
+        </p>
+        <div class="grid-auto">
+            {
+                incluyeCards.map((item: any) => (
+                    <div class="card-ui">
+                        <span class="icon-scalable">{item.emoji}</span>
+                        <h3 class="card-titulo">{item.title}</h3>
+                        <p class="card-desc">{item.desc}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 3 — ¿CADA CUÁNTO DEBE IR AL VETERINARIO? -->
     <section class="content-section">
-            <h2 class="titulo-sec">
-                Frecuencia recomendada para visitar al médico veterinario
-            </h2>
-            <div class="timeline">
-                {
-                    frecuenciaCards.map((frec, index) => (
-                        <div class="timeline-item">
-                            <div class="timeline-marker">{index + 1}</div>
-                            <div class="timeline-content card">
-                                <h3 class="timeline-titulo">{frec.etapa}</h3>
-                                <p class="timeline-sub">{frec.frecuencia}</p>
-                                <p class="card-desc">{frec.desc}</p>
-                            </div>
+        <h2 class="titulo-sec">
+            Frecuencia recomendada para visitar al médico veterinario
+        </h2>
+        <div class="timeline">
+            {
+                frecuenciaCards.map((frec: any, index: number) => (
+                    <div class="timeline-item">
+                        <div class="timeline-marker">{index + 1}</div>
+                        <div class="timeline-content card-ui">
+                            <h3 class="timeline-titulo">{frec.etapa}</h3>
+                            <p class="timeline-sub">{frec.frecuencia}</p>
+                            <p class="card-desc">{frec.desc}</p>
                         </div>
-                    ))
-                }
-            </div>
-        </section>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 4 — EL VALOR DE LA MEDICINA PREVENTIVA (MITO VS. REALIDAD) -->
     <section class="content-section bg-soft">
+        <div class="mito-vs-realidad-grid">
             <div class="mito-content">
                 <h2 class="titulo-sec left-align">
                     Por qué no debes esperar a que tu mascota se enferme
@@ -229,22 +231,21 @@ const relacionadosCards = [
                         <span class="bad-icon">❌</span>
                         <p>
                             <strong>El Mito:</strong> "Si mi mascota come bien y está
-                            activa, no necesita ir al médico veterinario para perros
-                            en el sur CDMX."
+                            activa, no necesita ir al veterinario."
                         </p>
                     </div>
                     <div class="realidad-block">
                         <span class="good-icon">✅</span>
                         <p>
                             <strong>La Realidad:</strong> Muchas enfermedades graves
-                            (como la insuficiencia renal, problemas cardíacos o tumores
-                            internos) no presentan síntomas visibles hasta que están
-                            muy avanzadas. El chequeo preventivo es la única forma
-                            de detectarlas a tiempo.
+                            (insuficiencia renal, problemas cardíacos o tumores) no
+                            presentan síntomas visibles hasta que están muy avanzadas.
+                            El chequeo preventivo las detecta a tiempo.
                         </p>
                     </div>
                 </div>
-
+            </div>
+            <div class="mito-quote-box">
                 <blockquote class="valor-quote">
                     "Detectar una enfermedad temprano mediante medicina
                     preventiva cuesta hasta 5 veces menos que tratar una
@@ -252,74 +253,67 @@ const relacionadosCards = [
                     Cuidamos la salud de tu mascota y tu economía."
                 </blockquote>
             </div>
-            <div class="mito-img-box">
-                <!-- Placeholder required by user rule instead of AI generated images unless requested -->
-                <div class="placeholder-img">
-                    <span class="pt-icon">🩺</span>
-                    <p>Consulta Veterinaria</p>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
     <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
-            <h2 class="titulo-sec">
-                Preguntas comunes sobre nuestras consultas en Coyoacán
-            </h2>
-            <div class="faq-accordion">
-                {
-                    faqs.map((faq) => (
-                        <details class="faq-item">
-                            <summary class="faq-question">{faq.name}</summary>
-                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
-                        </details>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">
+            Preguntas comunes sobre nuestras consultas en Coyoacán
+        </h2>
+        <div class="faq-accordion">
+            {
+                faqs.map((faq: any) => (
+                    <details class="faq-item">
+                        <summary class="faq-question">{faq.name}</summary>
+                        <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 6 — OTROS SERVICIOS RELACIONADOS -->
     <section class="content-section bg-soft">
-            <h2 class="titulo-sec">Otros servicios en nuestra clínica</h2>
-            <div class="grid-relacionados">
-                {
-                    relacionadosCards.map((s) => (
-                        <a href={s.href} class="card card-servicio">
-                            <span class="card-emoji">{s.emoji}</span>
-                            <h3 class="card-titulo">{s.title}</h3>
-                            <p class="card-desc">{s.desc}</p>
-                            <span class="card-ver">Ver detalles →</span>
-                        </a>
-                    ))
-                }
-            </div>
-        </section>
+        <h2 class="titulo-sec">Otros servicios en nuestra clínica</h2>
+        <div class="grid-auto">
+            {
+                relacionadosCards.map((s: any) => (
+                    <a href={s.href} class="card-ui">
+                        <span class="icon-scalable">{s.emoji}</span>
+                        <h3 class="card-titulo">{s.title}</h3>
+                        <p class="card-desc">{s.desc}</p>
+                        <span class="card-ver">Ver detalles →</span>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
 
     <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
-            <h2 class="cta-titulo-blanc">
-                ¿Tu mascota necesita una revisión médica?
-            </h2>
-            <p class="cta-desc-blanc">
-                Agenda tu consulta veterinaria hoy mismo. Nuestro consultorio
-                está ubicado en Av. División del Norte 3595, San Pablo
-                Tepetlapa, Coyoacán. Atendemos a pacientes de todo el sur de la
-                CDMX.
-            </p>
-            <div class="cta-btns">
-                <a
-                    href="https://wa.me/525513843004"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-cta-blanco"
-                >
-                    💬 Agendar consulta por WhatsApp
-                </a>
-                <a href="/ubicacion" class="btn-cta-outline">
-                    📍 Ver ubicación en el mapa
-                </a>
-            </div>
-        </section>
+        <h2 class="cta-titulo-blanc">
+            ¿Tu mascota necesita una revisión médica?
+        </h2>
+        <p class="cta-desc-blanc">
+            Agenda tu consulta veterinaria hoy mismo. Nuestro consultorio está
+            ubicado en Av. División del Norte 3595, San Pablo Tepetlapa,
+            Coyoacán.
+        </p>
+        <div class="cta-btns">
+            <a
+                href="https://wa.me/525513843004"
+                target="_blank"
+                rel="noopener"
+                class="btn-cta-blanco"
+            >
+                💬 Agendar consulta por WhatsApp
+            </a>
+            <a href="/ubicacion" class="btn-cta-outline">
+                📍 Ver ubicación en el mapa
+            </a>
+        </div>
+    </section>
 </BaseLayout>
 
 <style>
@@ -356,7 +350,7 @@ const relacionadosCards = [
 
     .intro-desc {
         font-size: max(0.95rem, 1.4vw);
-        
+
         margin-inline: auto;
         margin-bottom: max(2rem, 4vw);
         line-height: 1.6;
@@ -364,6 +358,10 @@ const relacionadosCards = [
 
     /* HERO CLASSES */
     .hero {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         background: var(--color-bg);
     }
     .hero__inner {
@@ -378,7 +376,6 @@ const relacionadosCards = [
     }
     @media (min-width: 48rem) {
         .hero__text {
-            
             text-align: center;
         }
     }
@@ -436,53 +433,6 @@ const relacionadosCards = [
         transform: translateY(-0.15rem);
     }
 
-    /* GRID LAYOUTS */
-    .grid-incluye {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: max(1rem, 2vw);
-    }
-    .grid-relacionados {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: max(1rem, 2vw);
-    }
-    @media (
-        }
-        .grid-relacionados {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media (
-        }
-    }
-
-    /* CARDS */
-    .card {
-        background: var(--color-bg);
-        border: max(0.05rem, 0.1vw) solid var(--color-border);
-        border-radius: max(0.5rem, 1.5vw);
-        padding: max(1.2rem, 2vw);
-        display: flex;
-        flex-direction: column;
-        text-decoration: none;
-        transition:
-            transform 0.3s,
-            box-shadow 0.3s;
-    }
-    .card-incluye:hover,
-    .card-servicio:hover {
-        transform: translateY(-0.25rem);
-        box-shadow: var(--shadow-md);
-    }
-
-    .card-emoji {
-        font-size: max(2rem, 3.5vw);
-        margin-bottom: max(0.8rem, 1.2vw);
-        display: block;
-        text-align: center;
-    }
-
     .card-titulo {
         font-size: max(1.1rem, 1.6vw);
         color: var(--color-primary-dark);
@@ -513,7 +463,7 @@ const relacionadosCards = [
         display: flex;
         flex-direction: column;
         gap: max(1.5rem, 3vw);
-        
+
         margin-inline: auto;
     }
     .timeline-item {
@@ -554,18 +504,18 @@ const relacionadosCards = [
         font-weight: 600;
         margin-bottom: max(0.8rem, 1.2vw);
     }
-    @media (
-        grid-template-columns: 1fr 1fr;
+
+    .mito-vs-realidad-grid {
+        display: grid;
+        grid-template-columns: 1fr;
         gap: max(2rem, 4vw);
         align-items: center;
     }
-    @media (
-        }
-        .mito-img-box {
-            display: none;
+    @media (min-width: 64rem) {
+        .mito-vs-realidad-grid {
+            grid-template-columns: 1.2fr 1fr;
         }
     }
-
     .mito-realidad-box {
         display: flex;
         flex-direction: column;
@@ -632,70 +582,6 @@ const relacionadosCards = [
     }
 
     .placeholder-img {
-        width: 100%;
-        aspect-ratio: 4/5;
-        background: var(--color-primary);
-        border-radius: max(0.5rem, 1.5vw);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        opacity: 0.8;
-    }
-    .pt-icon {
-        font-size: max(4rem, 8vw);
-        margin-bottom: max(1rem, 2vw);
-    }
-
-    /* FAQ ACCORDION */
-    .faq-accordion {
-        display: flex;
-        flex-direction: column;
-        gap: max(0.8rem, 1.2vw);
-    }
-    .faq-item {
-        background: var(--color-bg);
-        border: max(0.05rem, 0.1vw) solid var(--color-border);
-        border-radius: max(0.5rem, 1vw);
-        padding: max(1rem, 1.5vw);
-    }
-    .faq-item[open] .faq-question {
-        color: var(--color-primary-dark);
-        margin-bottom: max(0.8rem, 1vw);
-    }
-    .faq-question {
-        font-size: max(1rem, 1.3vw);
-        font-weight: 600;
-        color: var(--color-text);
-        cursor: pointer;
-        list-style: none; /* Hide default arrow */
-        position: relative;
-        padding-right: max(2rem, 3vw);
-        line-height: 1.4;
-    }
-    .faq-question::-webkit-details-marker {
-        display: none;
-    }
-    .faq-question::after {
-        content: "+";
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-size: max(1.2rem, 1.8vw);
-        color: var(--color-primary);
-    }
-    .faq-item[open] .faq-question::after {
-        content: "-";
-    }
-    .faq-answer {
-        font-size: max(0.95rem, 1.2vw);
-        color: var(--color-text-soft);
-        line-height: 1.6;
-        margin: 0;
-    }
-
-    /* CTA FINAL */
     .cta-final {
         background: var(--color-primary);
         text-align: center;
@@ -710,15 +596,23 @@ const relacionadosCards = [
     .cta-desc-blanc {
         font-size: max(1rem, 1.3vw);
         margin-bottom: max(1.5rem, 2.5vw);
-        
+
         margin-inline: auto;
         color: #fff;
         opacity: 0.9;
     }
-    @media (
+    .cta-btns {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
-        gap: max(0.8rem, 1.5vw);
+        gap: max(1rem, 2vw);
+    }
+    @media (min-width: 48rem) {
+        .cta-btns {
+            flex-direction: row;
+        }
     }
     .btn-cta-blanco {
         background: #fff;
