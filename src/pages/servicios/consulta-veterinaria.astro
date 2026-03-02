@@ -147,7 +147,6 @@ const relacionadosCards = [
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-        <div class="container hero__inner">
             <div class="hero__text">
                 <h1 class="h1-hero">
                     Consulta Veterinaria en Coyoacán para Perros y Gatos
@@ -172,12 +171,10 @@ const relacionadosCards = [
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 2 — ¿QUÉ INCLUYE NUESTRO CHEQUEO? -->
     <section class="content-section bg-soft">
-        <div class="container">
             <h2 class="titulo-sec">
                 ¿Qué incluye una revisión veterinaria completa?
             </h2>
@@ -197,12 +194,10 @@ const relacionadosCards = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 3 — ¿CADA CUÁNTO DEBE IR AL VETERINARIO? -->
     <section class="content-section">
-        <div class="container">
             <h2 class="titulo-sec">
                 Frecuencia recomendada para visitar al médico veterinario
             </h2>
@@ -220,12 +215,10 @@ const relacionadosCards = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 4 — EL VALOR DE LA MEDICINA PREVENTIVA (MITO VS. REALIDAD) -->
     <section class="content-section bg-soft">
-        <div class="container split-grid">
             <div class="mito-content">
                 <h2 class="titulo-sec left-align">
                     Por qué no debes esperar a que tu mascota se enferme
@@ -266,12 +259,10 @@ const relacionadosCards = [
                     <p>Consulta Veterinaria</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
-        <div class="container container--narrow">
             <h2 class="titulo-sec">
                 Preguntas comunes sobre nuestras consultas en Coyoacán
             </h2>
@@ -285,12 +276,10 @@ const relacionadosCards = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 6 — OTROS SERVICIOS RELACIONADOS -->
     <section class="content-section bg-soft">
-        <div class="container">
             <h2 class="titulo-sec">Otros servicios en nuestra clínica</h2>
             <div class="grid-relacionados">
                 {
@@ -304,12 +293,10 @@ const relacionadosCards = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
-        <div class="container cta-inner">
             <h2 class="cta-titulo-blanc">
                 ¿Tu mascota necesita una revisión médica?
             </h2>
@@ -332,8 +319,7 @@ const relacionadosCards = [
                     📍 Ver ubicación en el mapa
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 </BaseLayout>
 
 <style>
@@ -370,7 +356,7 @@ const relacionadosCards = [
 
     .intro-desc {
         font-size: clamp(0.95rem, 1.4vw, 2.8rem);
-        max-width: 80%;
+        
         margin-inline: auto;
         margin-bottom: clamp(2rem, 4vw, 7rem);
         line-height: 1.6;
@@ -392,7 +378,7 @@ const relacionadosCards = [
     }
     @media (min-width: 48rem) {
         .hero__text {
-            max-width: 80%;
+            
             text-align: center;
         }
     }
@@ -532,7 +518,7 @@ const relacionadosCards = [
         display: flex;
         flex-direction: column;
         gap: clamp(1.5rem, 3vw, 6rem);
-        max-width: 80%;
+        
         margin-inline: auto;
     }
     .timeline-item {
@@ -575,7 +561,7 @@ const relacionadosCards = [
     }
     @media (max-width: 48rem) {
         .timeline {
-            max-width: 100%;
+            
         }
     }
 
@@ -739,14 +725,14 @@ const relacionadosCards = [
     .cta-desc-blanc {
         font-size: clamp(1rem, 1.3vw, 2.6rem);
         margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
-        max-width: 60%;
+        
         margin-inline: auto;
         color: #fff;
         opacity: 0.9;
     }
     @media (max-width: 48rem) {
         .cta-desc-blanc {
-            max-width: 90%;
+            
         }
     }
     .cta-btns {

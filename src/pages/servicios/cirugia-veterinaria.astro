@@ -137,7 +137,6 @@ const relacionadosCards = [
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-        <div class="container hero__inner">
             <div class="hero__text">
                 <h1 class="h1-hero">
                     Cirugía Veterinaria para Perros y Gatos en Coyoacán
@@ -163,12 +162,10 @@ const relacionadosCards = [
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 2 — TIPOS DE CIRUGÍAS -->
     <section class="content-section bg-soft">
-        <div class="container">
             <h2 class="titulo-sec">
                 Procedimientos quirúrgicos seguros en el sur de CDMX
             </h2>
@@ -188,12 +185,10 @@ const relacionadosCards = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 3 — EL PROTOCOLO DE SEGURIDAD -->
     <section class="content-section">
-        <div class="container">
             <h2 class="titulo-sec">
                 Nuestra regla de oro: No hay cirugía sin estudios prequirúrgicos
             </h2>
@@ -213,12 +208,10 @@ const relacionadosCards = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 4 — MITO VS REALIDAD (LA ANESTESIA) -->
     <section class="content-section bg-soft">
-        <div class="container container--narrow">
             <h2 class="titulo-sec">Desmitificando el quirófano veterinario</h2>
 
             <div class="mito-realidad-box-vertical mb-fluid">
@@ -248,12 +241,10 @@ const relacionadosCards = [
                 instrumental y protocolo de recuperación. En Punto Veterinario
                 tienes todo en un solo lugar."
             </blockquote>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
-        <div class="container container--narrow">
             <h2 class="titulo-sec">Dudas frecuentes antes de una cirugía</h2>
             <div class="faq-accordion">
                 {
@@ -265,12 +256,10 @@ const relacionadosCards = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 6 — SERVICIOS DIRECTAMENTE RELACIONADOS -->
     <section class="content-section bg-soft">
-        <div class="container">
             <h2 class="titulo-sec">Servicios complementarios a la cirugía</h2>
             <div class="grid-relacionados">
                 {
@@ -284,12 +273,10 @@ const relacionadosCards = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
-        <div class="container cta-inner">
             <h2 class="cta-titulo-blanc">
                 ¿El veterinario te recomendó una cirugía para tu mascota?
             </h2>
@@ -312,8 +299,7 @@ const relacionadosCards = [
                     📍 Ver ubicación y horarios
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 </BaseLayout>
 
 <style>
@@ -351,7 +337,7 @@ const relacionadosCards = [
 
     .intro-desc {
         font-size: clamp(0.95rem, 1.4vw, 2.8rem);
-        max-width: 80%;
+        
         margin-inline: auto;
         margin-bottom: clamp(2rem, 4vw, 7rem);
         line-height: 1.6;
@@ -373,7 +359,7 @@ const relacionadosCards = [
     }
     @media (min-width: 48rem) {
         .hero__text {
-            max-width: 80%;
+            
         }
     }
 
@@ -510,7 +496,7 @@ const relacionadosCards = [
         display: flex;
         flex-direction: column;
         gap: clamp(1.5rem, 3vw, 6rem);
-        max-width: 80%;
+        
         margin-inline: auto;
     }
     .timeline-item {
@@ -524,7 +510,7 @@ const relacionadosCards = [
             text-align: center;
         }
         .timeline-protocolo {
-            max-width: 100%;
+            
         }
     }
 
@@ -627,7 +613,7 @@ const relacionadosCards = [
         line-height: 1.6;
         margin: 0 auto;
         position: relative;
-        max-width: 90%;
+        
     }
 
     /* FAQ ACCORDION */
@@ -692,7 +678,7 @@ const relacionadosCards = [
     .cta-desc-blanc {
         font-size: clamp(1rem, 1.4vw, 2.8rem);
         margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
-        max-width: 70%;
+        
         margin-inline: auto;
         color: #fff;
         opacity: 0.9;
@@ -700,7 +686,7 @@ const relacionadosCards = [
     }
     @media (max-width: 48rem) {
         .cta-desc-blanc {
-            max-width: 90%;
+            
         }
     }
     .cta-btns {

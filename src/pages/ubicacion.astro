@@ -62,7 +62,6 @@ const schema = {
 
     <!-- SECCIÓN 1 — HERO & DATOS DE CONTACTO (NAP) -->
     <section class="hero content-section">
-        <div class="container hero__inner">
             <div class="hero__text">
                 <h1 class="h1-hero">
                     Cómo llegar a Punto Veterinario en Coyoacán
@@ -120,12 +119,10 @@ const schema = {
                     🗺️ Abrir en Google Maps
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 2 — MAPA INTERACTIVO Y FACHADA -->
     <section class="content-section bg-soft">
-        <div class="container">
             <h2 class="titulo-sec">Nuestra clínica en San Pablo Tepetlapa</h2>
 
             <div class="map-grid">
@@ -146,17 +143,18 @@ const schema = {
                         src="/fachada-clinica.jpg"
                         alt="Fachada de la clínica Punto Veterinario sobre Av. División del Norte en San Pablo Tepetlapa"
                         class="fachada-img"
+                        width="800"
+                        height="600"
                         loading="lazy"
+                        decoding="async"
                         onerror="this.src='/placeholder-fachada.webp'; this.alt='Imagen representativa de la fachada local en Coyoacán';"
                     />
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 3 — RUTAS DE LLEGADA (SEO HIPERLOCAL) -->
     <section class="content-section">
-        <div class="container">
             <h2 class="titulo-sec">
                 Indicaciones para llegar desde el sur de CDMX
             </h2>
@@ -206,12 +204,10 @@ const schema = {
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 4 — CTA FINAL (¿TIENES UNA URGENCIA?) -->
     <section class="content-section bg-soft">
-        <div class="container cta-urgencia-inner">
             <h2 class="cta-titulo-urgencia">
                 ¿Necesitas agendar o tienes una urgencia en horario laboral?
             </h2>
@@ -234,8 +230,7 @@ const schema = {
                     💬 Avisar por WhatsApp
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 </BaseLayout>
 
 <style>
@@ -281,7 +276,6 @@ const schema = {
     }
     @media (min-width: 48rem) {
         .hero__text {
-            max-width: 80%;
         }
     }
 

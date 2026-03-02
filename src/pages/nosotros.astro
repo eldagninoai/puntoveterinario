@@ -87,7 +87,6 @@ const instalacionesImgs = [
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="hero content-section">
-        <div class="container hero__inner">
             <div class="hero__text">
                 <h1 class="h1-hero">
                     Médicos Veterinarios de Confianza en Coyoacán
@@ -109,12 +108,10 @@ const instalacionesImgs = [
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 2 — EL VIDEO (IMPLEMENTACIÓN FACADE) -->
     <section class="content-section bg-soft">
-        <div class="container">
             <h2 class="visually-hidden">Nuestra clínica por dentro</h2>
 
             <div class="video-container" id="video-facade">
@@ -123,7 +120,10 @@ const instalacionesImgs = [
                     src="/video-thumbnail.webp"
                     alt="Recorrido por la clínica Punto Veterinario en Coyoacán"
                     class="video-thumbnail"
+                    width="800"
+                    height="450"
                     loading="lazy"
+                    decoding="async"
                 />
                 <button
                     class="play-btn"
@@ -134,12 +134,10 @@ const instalacionesImgs = [
                     </svg>
                 </button>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 3 — NUESTRO EQUIPO MÉDICO -->
     <section class="content-section">
-        <div class="container">
             <h2 class="titulo-sec">
                 Conoce a los expertos detrás de la salud de tu mascota
             </h2>
@@ -151,7 +149,10 @@ const instalacionesImgs = [
                                 src={doc.imagen}
                                 alt={`Fotografía de ${doc.nombre}, médico veterinario en Coyoacán CDMX`}
                                 class="equipo-img"
+                                width="400"
+                                height="400"
                                 loading="lazy"
+                                decoding="async"
                             />
                             <div class="equipo-info">
                                 <h3 class="equipo-nombre">MVZ. {doc.nombre}</h3>
@@ -161,12 +162,10 @@ const instalacionesImgs = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 4 — NUESTRA FILOSOFÍA Y VALORES -->
     <section class="content-section bg-soft">
-        <div class="container">
             <h2 class="titulo-sec">Nuestra promesa para ti y tu mascota</h2>
             <div class="grid-tres">
                 {
@@ -179,12 +178,10 @@ const instalacionesImgs = [
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 5 — INSTALACIONES (PRUEBA SOCIAL VISUAL BENTO GRID) -->
     <section class="content-section">
-        <div class="container">
             <h2 class="titulo-sec">Un espacio diseñado para su bienestar</h2>
             <div class="bento-gallery">
                 {
@@ -194,18 +191,19 @@ const instalacionesImgs = [
                                 src={img.src}
                                 alt={img.alt}
                                 class="bento-img"
+                                width="800"
+                                height="600"
                                 loading="lazy"
+                                decoding="async"
                             />
                         </div>
                     ))
                 }
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- SECCIÓN 6 — CTA FINAL LOCAL -->
     <section class="cta-final content-section">
-        <div class="container cta-inner">
             <h2 class="cta-titulo-blanc">
                 Pon la salud de tu mejor amigo en buenas manos
             </h2>
@@ -227,8 +225,7 @@ const instalacionesImgs = [
                     📍 ¿Cómo llegar?
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 </BaseLayout>
 
 <script>

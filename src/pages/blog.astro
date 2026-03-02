@@ -63,7 +63,6 @@ const articulos = [
 
   <!-- SECCIÓN 1 — HERO DEL BLOG -->
   <section class="hero content-section">
-    <div class="container hero__inner">
       <div class="hero__text">
         <h1 class="h1-hero">
           Blog y Consejos Veterinarios para Mascotas en CDMX
@@ -74,12 +73,10 @@ const articulos = [
           diario de tu perro o gato.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- SECCIÓN 2 — GRID DE ARTÍCULOS RECIENTES -->
   <section class="content-section bg-soft">
-    <div class="container">
       <div class="grid-blog">
         {
           articulos.map((articulo) => (
@@ -89,7 +86,10 @@ const articulos = [
                   src={articulo.imagen}
                   alt={`Imagen representativa del artículo: ${articulo.titulo}`}
                   class="blog-img"
+                  width="800"
+                  height="450"
                   loading="lazy"
+                  decoding="async"
                   onerror="this.src='/placeholder-fachada.webp'; this.alt='Imagen por defecto del blog veterinario';"
                 />
                 <span class="blog-categoria">{articulo.categoria}</span>
@@ -113,12 +113,10 @@ const articulos = [
           ))
         }
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- SECCIÓN 3 — CTA URGENCIA -->
   <section class="content-section bg-soft-alt">
-    <div class="container cta-inner">
       <h2 class="cta-titulo">
         ¿No encuentras lo que buscas o tu mascota se siente mal?
       </h2>
@@ -136,8 +134,7 @@ const articulos = [
           💬 Consultar por WhatsApp
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 </BaseLayout>
 
 <style>
