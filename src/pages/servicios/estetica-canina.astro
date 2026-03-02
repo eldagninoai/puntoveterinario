@@ -1,173 +1,182 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Schema from "../../components/Schema.astro";
 
-const schema = {"@context": "https://schema.org","@type": "Service",
-    name: "Estética Canina en Coyoacán",
-    url: "https://puntoveterinario.com/servicios/estetica-canina",
-    description:"Estética canina profesional en Coyoacán. Baño, corte y cuidado para tu perro. Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620.",
-    provider: {"@type": "VeterinaryCare",
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Estética Canina y Grooming",
+    provider: {
+        "@type": "VeterinaryCare",
         name: "Punto Veterinario",
-        address: {"@type": "PostalAddress",
+        image: "https://puntoveterinario.com/og-image.jpg",
+        address: {
+            "@type": "PostalAddress",
             streetAddress: "Av. División del Norte 3595",
-            addressLocality: "San Pablo Tepetlapa",
+            addressLocality: "Coyoacán",
+            addressRegion: "CDMX",
             postalCode: "04620",
             addressCountry: "MX",
         },
     },
+    areaServed: {
+        "@type": "AdministrativeArea",
+        name: "Coyoacán",
+    },
+    description:
+        "Servicio de estética canina, baño, corte de pelo y grooming para perros en el sur de CDMX. Cuidado del pelaje, uñas y glándulas con enfoque en salud preventiva.",
 };
 
-const faqSchema = {"@context": "https://schema.org","@type": "FAQPage",
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     mainEntity: [
-        {"@type": "Question",
-            name: "¿Cuánto cuesta el baño y corte para perros en Coyoacán?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "El costo se evalúa individualmente en consulta según las necesidades específicas de tu mascota.",
+        {
+            "@type": "Question",
+            name: "¿Cuánto cuesta el baño y corte de un perro en Coyoacán?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "El precio de la estética canina depende del tamaño de tu perro, tipo de pelaje y el servicio que requiera (solo baño o corte completo). Escríbenos por WhatsApp al 55 1384 3004 con la raza de tu perro para darte una cotización exacta.",
             },
         },
-        {"@type": "Question",
-            name: "¿Con qué frecuencia debo llevar a mi perro a la estética?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Servicio profesional de estética, baño y cortes especializados respetando la tranquilidad de tu mascota.",
+        {
+            "@type": "Question",
+            name: "¿Qué incluye el servicio de estética canina?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Nuestro servicio de grooming incluye baño con champú específico según su tipo de piel, secado, cepillado profesional, corte de pelo (si lo requiere), limpieza de oídos, drenado de glándulas perianales y corte de uñas.",
             },
         },
-        {"@type": "Question",
-            name: "¿Dónde hay peluquería para perros cerca de San Pablo Tepetlapa?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
+        {
+            "@type": "Question",
+            name: "¿Cada cuánto debo bañar a mi perro?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Depende de la raza y el tipo de pelo. Los perros de pelo largo o rizado necesitan grooming profesional cada 4 a 6 semanas para evitar nudos y dermatitis. Los perros de pelo corto pueden bañarse cada 1 a 2 meses.",
             },
         },
     ],
 };
 
+const faqs = faqSchema.mainEntity;
+
 const incluyeCards = [
     {
         emoji: "🛁",
-        title: "Baño con shampoo especializado",
-        desc: "Usamos productos dermatológicos hipoalergénicos que limpian e hidratan sin alterar el pH natural de la piel de tu perro.",
+        title: "Baño Profundo",
+        desc: "Uso de champú específico para su tipo de piel (sensible, seca, grasa o con hongos) respetando el pH canino.",
     },
     {
         emoji: "✂️",
-        title: "Corte de pelo según raza",
-        desc: "Laceraciones, sangrados activos o sospechas tras accidentes.",
+        title: "Corte y Estilismo",
+        desc: "Cortes a tijera o máquina según la raza, incluyendo técnicas como deshedding para razas de doble capa.",
+    },
+    {
+        emoji: "🐾",
+        title: "Corte de Uñas",
+        desc: "Previene el dolor al caminar y deformaciones posturales a largo plazo.",
     },
     {
         emoji: "👂",
-        title: "Limpieza de oídos",
-        desc: "Prevenimos infecciones bacterianas y acumulación de humedad con una limpieza ótica cuidadosa y segura.",
+        title: "Limpieza de Oídos",
+        desc: "Remoción de exceso de cera y humedad para prevenir infecciones dolorosas (otitis).",
     },
     {
-        emoji: "💅",
-        title: "Corte de uñas",
-        desc: "Evitamos deformaciones articulares y rasguños involuntarios con un corte profesional e indoloro.",
+        emoji: "💨",
+        title: "Secado Profesional",
+        desc: "Eliminación total de la humedad desde la raíz para evitar la proliferación de hongos y malos olores.",
     },
     {
-        emoji: "🪮",
-        title: "Cepillado y desenredado",
-        desc: "Retiramos el pelo muerto y deshacemos nudos con paciencia, sin jalones, dejando el manto liso y oxigenado.",
-    },
-    {
-        emoji: "🌸",
-        title: "Perfumado y secado profesional",
-        desc: "Revisión física integral para evaluar el estado general de salud y detectar anomalías tempranas.",
-    },
-];
-
-const beneficiosCards = [
-    { emoji: "🐕", text: "Detectamos problemas de piel y alergias a tiempo." },
-    {
-        emoji: "❤️",
-        text: "Usamos productos 100% seguros y especializados para perros.",
-    },
-    { emoji: "😌", text: "Ambiente tranquilo y sin estrés para tu mascota." },
-    { emoji: "🏆", text: "Personal capacitado en manejo y trato animal." },
-];
-
-const porQueCards = [
-    {
-        emoji: "📍",
-        title: "En San Pablo Tepetlapa, CP 04620",
-        desc: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
-    },
-    {
-        emoji: "🩺",
-        title: "Respaldado por equipo veterinario",
-        desc: "Servicio profesional de estética, baño y cortes especializados respetando la tranquilidad de tu mascota.",
-    },
-    {
-        emoji: "💰",
-        title: "Precios accesibles en Coyoacán",
-        desc: "Calidad profesional a precios honestos y competitivos en la zona sur de CDMX.",
+        emoji: "🍑",
+        title: "Glándulas Perianales",
+        desc: "Drenaje cuidadoso (si el paciente lo requiere) para evitar inflamaciones crónicas.",
     },
 ];
 
 const relacionadosCards = [
     {
-        title: "Consulta Veterinaria",
+        title: "Consulta Médica",
         emoji: "🩺",
         href: "/servicios/consulta-veterinaria",
-        desc: "Diagnóstico preciso y medicina preventiva.",
+        desc: "Revisión general y medicina preventiva.",
     },
     {
         title: "Esterilización",
         emoji: "✂️",
         href: "/servicios/esterilizacion",
-        desc: "Procedimiento quirúrgico seguro y privado con anestesia guiada.",
+        desc: "Procedimiento seguro para perros y gatos.",
     },
     {
-        title: "Alimentos",
-        emoji: "🛒",
-        href: "/servicios/alimento-mascotas",
-        desc: "Croquetas y dietas premium para tu perro.",
+        title: "Laboratorio Clínico",
+        emoji: "🔬",
+        href: "/servicios/laboratorio-clinico",
+        desc: "Análisis de sangre y perfiles bioquímicos.",
     },
 ];
 ---
 
 <BaseLayout
-    title="Estética Canina Coyoacán | Baño y Corte para Perros"
-    description="Estética canina profesional en Coyoacán. Baño, corte y cuidado para tu perro. Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620."
-    schema={schema}
+    title="Estética Canina en Coyoacán (Solo Perros) | Punto Veterinario"
+    description="Baño, corte y grooming profesional para perros en Coyoacán. Higiene preventiva con productos específicos para su pH. ¡Agenda en San Pablo Tepetlapa!"
+    canonical="https://puntoveterinario.com/servicios/estetica-canina"
 >
-    <Schema schema={faqSchema} />
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(faqSchema)}
+        />
+    </Fragment>
 
-    <!-- 1. HERO -->
-    <section class="seccion fondo-blanco">
-        <div class="container hero-inner">
-            <h1 class="titulo-principal">
-                Estética Canina en Coyoacán, CDMX | Punto Veterinario
-            </h1>
-            <p class="subtitulo">
-    Baños refrescantes, cortes profesionales y cuidados de spa adaptados de forma segura a las necesidades de tu perro.
-</p>
-            <div class="botones">
-                <a
-                    href="https://wa.me/525513843004"
-                    class="btn-primario"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    💬 Agendar por WhatsApp
-                </a>
-                <a href="tel:+525513843004" class="btn-secundario">
-                    📞 Llamar ahora
-                </a>
+    <!-- SECCIÓN 1 — HERO -->
+    <section class="hero content-section">
+        <div class="container hero__inner">
+            <div class="hero__text">
+                <h1 class="h1-hero">
+                    Estética Canina y Grooming en Coyoacán (Exclusivo para
+                    Perros)
+                </h1>
+                <p class="hero__desc">
+                    Baño, corte y cuidado profesional del pelaje en San Pablo
+                    Tepetlapa. Usamos productos formulados específicamente para
+                    el pH canino, convirtiendo la estética canina Coyoacán en
+                    una sesión de higiene preventiva para tu mejor amigo.
+                </p>
+                <div class="hero__btns">
+                    <a
+                        href="https://wa.me/525513843004"
+                        class="btn-wa"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        💬 Cotizar estética por WhatsApp
+                    </a>
+                    <a href="/ubicacion" class="btn-sec">
+                        📍 Ver cómo llegar
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. ¿QUÉ INCLUYE? -->
-    <section class="seccion fondo-suave">
+    <!-- SECCIÓN 2 — ¿QUÉ INCLUYE? (GROOMING E-E-A-T) -->
+    <section class="content-section bg-soft">
         <div class="container">
-            <h2 class="titulo-seccion">
-                ¿Qué incluye la estética en Punto Veterinario?
+            <h2 class="titulo-sec">
+                Más que un corte de pelo: higiene preventiva de nariz a cola
             </h2>
-            <div class="grid-cards">
+            <p class="text-center text-soft intro-desc">
+                Durante una sesión de estética en nuestra clínica, no solo
+                dejamos a tu perro luciendo increíble; nuestros estilistas están
+                capacitados para detectar bultos, infecciones cutáneas o
+                parásitos que a veces pasan desapercibidos en casa.
+            </p>
+            <div class="grid-incluye">
                 {
                     incluyeCards.map((item) => (
-                        <div class="card centrado">
-                            <span class="emoji-grande">{item.emoji}</span>
-                            <h3 class="titulo-card">{item.title}</h3>
-                            <p class="texto-suave">{item.desc}</p>
+                        <div class="card card-incluye">
+                            <span class="card-emoji">{item.emoji}</span>
+                            <h3 class="card-titulo">{item.title}</h3>
+                            <p class="card-desc">{item.desc}</p>
                         </div>
                     ))
                 }
@@ -175,81 +184,121 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 3. BENEFICIOS -->
-    <section class="seccion fondo-blanco">
-        <div class="container angosto centrado">
-            <h2 class="titulo-seccion">
-                Beneficios de la estética profesional para tu perro
-            </h2>
-            <p class="parrafo-intro">
-    Servicio profesional de estética, baño y cortes especializados respetando la tranquilidad de tu mascota.
-</p>
-            <div class="grid-beneficios">
-                {
-                    beneficiosCards.map((item) => (
-                        <div class="card-beneficio">
-                            <span class="emoji-mediano">{item.emoji}</span>
-                            <span class="texto-beneficio">{item.text}</span>
-                        </div>
-                    ))
-                }
+    <!-- SECCIÓN 3 — MITO VS REALIDAD (EL PH) -->
+    <section class="content-section">
+        <div class="container split-grid">
+            <div class="mito-content">
+                <h2 class="titulo-sec left-align">
+                    ¿Por qué no deberías bañar a tu perro con tu shampoo?
+                </h2>
+
+                <div class="mito-realidad-box">
+                    <div class="mito-block">
+                        <span class="bad-icon">❌</span>
+                        <p>
+                            <strong>El Mito:</strong> "Puedo bañar a mi perro con
+                            mi shampoo para personas, o bañarlo muy seguido le hace
+                            daño."
+                        </p>
+                    </div>
+                    <div class="realidad-block">
+                        <span class="good-icon">✅</span>
+                        <p>
+                            <strong>La Realidad:</strong> La piel del perro tiene
+                            un pH diferente (más alcalino) que la humana. Usar productos
+                            para humanos elimina sus aceites naturales y causa resequedad,
+                            caspa e irritación. Con el champú veterinario adecuado,
+                            la frecuencia correcta de un baño profesional y limpieza
+                            en peluquería canina San Pablo Tepetlapa es 100% beneficiosa
+                            para su piel e higiene preventiva.
+                        </p>
+                    </div>
+                </div>
+
+                <blockquote class="valor-quote">
+                    "En la CDMX, el calor y la contaminación aceleran la
+                    acumulación de suciedad y ácaros en el pelaje. Un perro sin
+                    nudos y con la piel limpia es un perro menos ansioso, más
+                    fresco y mucho más cómodo."
+                </blockquote>
+            </div>
+            <div class="mito-img-box">
+                <!-- Placeholder required by user rule instead of AI generated images unless requested -->
+                <div class="placeholder-img">
+                    <span class="pt-icon">🛁</span>
+                    <p>Higiene Preventiva</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. ¿POR QUÉ ELEGIRNOS? -->
-    <section class="seccion fondo-suave">
+    <!-- SECCIÓN 4 — FRECUENCIA IDEAL -->
+    <section class="content-section bg-soft">
         <div class="container">
-            <h2 class="titulo-seccion">
-                ¿Por qué elegir la estética de Punto Veterinario?
+            <h2 class="titulo-sec">
+                ¿Cada cuánto necesita venir a la estética?
             </h2>
-            <div class="grid-3">
+
+            <div class="frecuencia-grid">
+                <div class="card card-frecuencia card-largo">
+                    <h3 class="frec-titulo">
+                        Perros de pelo largo o rizado (Poodles, Schnauzers,
+                        Maltés)
+                    </h3>
+                    <p class="frec-sub">Cada 4 a 6 semanas</p>
+                    <p class="card-desc">
+                        Su pelo se enreda fácilmente. Los nudos no tratados
+                        evitan la ventilación de la piel y provocan dermatitis
+                        severas.
+                    </p>
+                </div>
+                <div class="card card-frecuencia card-corto">
+                    <h3 class="frec-titulo">
+                        Perros de pelo corto (Pugs, Chihuahuas, Bulldogs)
+                    </h3>
+                    <p class="frec-sub">Cada 1 a 2 meses</p>
+                    <p class="card-desc">
+                        Aunque no requieren corte, el baño profesional con
+                        técnica de deshedding ayuda a controlar la caída
+                        excesiva de pelo en casa y mantiene sus pliegues
+                        limpios.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <section class="content-section">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">
+                Preguntas comunes sobre la estética canina en Punto Veterinario
+            </h2>
+            <div class="faq-accordion">
                 {
-                    porQueCards.map((item) => (
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="emoji-mediano">{item.emoji}</span>
-                                <h3 class="titulo-card">{item.title}</h3>
-                            </div>
-                            <p class="texto-suave">{item.desc}</p>
-                        </div>
+                    faqs.map((faq) => (
+                        <details class="faq-item">
+                            <summary class="faq-question">{faq.name}</summary>
+                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                        </details>
                     ))
                 }
             </div>
         </div>
     </section>
 
-    <!-- 5. FAQ -->
-    <section class="seccion fondo-blanco">
-        <div class="container angosto">
-            <h2 class="titulo-seccion centrado">
-                Preguntas Frecuentes sobre Estética Canina en Coyoacán
-            </h2>
-            <div class="faqs">
-                {
-                    faqSchema.mainEntity.map((faq) => (
-                        <div class="faq-item">
-                            <h3 class="faq-pregunta">{faq.name}</h3>
-                            <p class="texto-suave">{faq.acceptedAnswer.text}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. SERVICIOS RELACIONADOS -->
-    <section class="seccion fondo-suave">
+    <!-- SECCIÓN 6 — OTROS SERVICIOS RELACIONADOS -->
+    <section class="content-section bg-soft">
         <div class="container">
-            <h2 class="titulo-seccion">Otros servicios en Punto Veterinario</h2>
-            <div class="grid-3">
+            <h2 class="titulo-sec">Cuidado integral para tu mascota</h2>
+            <div class="grid-relacionados">
                 {
                     relacionadosCards.map((s) => (
-                        <a href={s.href} class="card card-link centrado">
-                            <span class="emoji-grande">{s.emoji}</span>
-                            <h3 class="titulo-card">{s.title}</h3>
-                            <p class="texto-suave">{s.desc}</p>
-                            <span class="ver-mas">Ver detalles →</span>
+                        <a href={s.href} class="card card-servicio">
+                            <span class="card-emoji">{s.emoji}</span>
+                            <h3 class="card-titulo">{s.title}</h3>
+                            <p class="card-desc">{s.desc}</p>
+                            <span class="card-ver">Ver detalles →</span>
                         </a>
                     ))
                 }
@@ -257,24 +306,28 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 7. CTA FINAL -->
-    <section class="seccion cta-final centrado">
-        <div class="container angosto">
-            <h2 class="titulo-cta">
-                ¿Tu perro merece verse y sentirse bien en Coyoacán?
+    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <section class="cta-final content-section">
+        <div class="container cta-inner">
+            <h2 class="cta-titulo-blanc">
+                ¿Tu perro necesita un baño profesional?
             </h2>
-            <p class="texto-cta">
-    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
-</p>
-            <div class="botones">
-                <a href="/contacto" class="btn-blanco">📅 Agendar Cita</a>
+            <p class="cta-desc-blanc">
+                Tratamos a tu perro con paciencia y sin estrés. Agenda su cita
+                de estética canina en Av. División del Norte 3595, San Pablo
+                Tepetlapa. ¡Estamos muy cerca de ti en el sur de CDMX!
+            </p>
+            <div class="cta-btns">
                 <a
                     href="https://wa.me/525513843004"
                     target="_blank"
                     rel="noopener"
-                    class="btn-outline-blanco"
+                    class="btn-cta-blanco"
                 >
-                    💬 WhatsApp
+                    💬 Cotizar por WhatsApp
+                </a>
+                <a href="tel:+525513843004" class="btn-cta-outline">
+                    📞 Llamar al 55 1384 3004
                 </a>
             </div>
         </div>
@@ -282,289 +335,413 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+    /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
 
+    .content-section {
+        padding-block: clamp(3rem, 6vw, 12rem);
+    }
+    .bg-soft {
+        background: var(--color-bg-soft);
+    }
 
+    .h1-hero {
+        font-size: clamp(1.8rem, 3.2vw, 6rem);
+        color: var(--color-text);
+        line-height: 1.15;
+        margin-bottom: clamp(1rem, 2vw, 3rem);
+    }
 
-    /* ===== HERO CENTRADO ===== */
-    .hero-inner {
+    .titulo-sec {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        color: var(--color-primary);
+        text-align: center;
+        margin-bottom: clamp(2rem, 4vw, 7rem);
+        line-height: 1.2;
+    }
+    .left-align {
+        text-align: left;
+        margin-bottom: clamp(1.5rem, 3vw, 5rem);
+    }
+
+    .intro-desc {
+        font-size: clamp(0.95rem, 1.4vw, 2.8rem);
+        max-width: 80%;
+        margin-inline: auto;
+        margin-bottom: clamp(2rem, 4vw, 7rem);
+        line-height: 1.6;
+    }
+
+    /* HERO CLASSES */
+    .hero {
+        background: var(--color-bg);
+    }
+    .hero__inner {
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
-        gap: clamp(1rem, 2vw, 3vw);
+        text-align: left;
+    }
+    .hero__text {
         width: 100%;
+        margin-inline: auto;
     }
-    .titulo-principal {
-        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
-        color: var(--color-primary-dark);
-        line-height: 1.15;
-        margin: 0;
-    }
-    .subtitulo {
-        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
-        color: var(--color-text-soft);
-        line-height: 1.6;
-        margin: 0 auto;
-        max-width: 75ch;
-        text-align: center;
-    }
-    .botones {
-        display: flex;
-        flex-wrap: wrap;
-        gap: clamp(0.8rem, 1.5vw, 2.5vw);
-        justify-content: center;
+    @media (min-width: 48rem) {
+        .hero__text {
+            max-width: 80%;
+            text-align: center;
+        }
     }
 
-    /* ===== SECCIONES ===== */
-    .seccion {
-        padding-block: clamp(3rem, 6vw, 10vw);
-        width: 100%;
-    }
-    .fondo-blanco {
-        background: var(--color-bg);
-    }
-    .fondo-suave {
-        background: var(--color-bg-soft);
-    }
-    .centrado {
-        text-align: center;
-    }
-    .angosto {
-        
+    .hero__desc {
+        font-size: clamp(0.95rem, 1.4vw, 2.8rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin-bottom: clamp(1.5rem, 2vw, 4rem);
         margin-inline: auto;
     }
 
-    
-    
-    
-    
+    .hero__btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 3rem);
+        margin-bottom: clamp(1rem, 2vw, 4rem);
+    }
+    @media (min-width: 48rem) {
+        .hero__btns {
+            justify-content: center;
+        }
+    }
 
-    /* ===== BOTONES ===== */
-    
-    .btn-primario {
+    .btn-wa {
         background: var(--color-primary);
         color: #fff;
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.2rem, 2.5vw, 4vw);
-        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
-        border-radius: var(--radius);
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
         font-weight: 600;
         text-decoration: none;
         transition:
             background 0.2s,
             transform 0.2s;
     }
-    .btn-primario:hover {
+    .btn-wa:hover {
         background: var(--color-primary-dark);
         transform: translateY(-0.15rem);
     }
-    .btn-secundario {
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.2rem, 2.5vw, 4vw);
-        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
-        border: 0.15rem solid var(--color-primary-dark);
-        color: var(--color-primary-dark);
-        border-radius: var(--radius);
+
+    .btn-sec {
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid var(--color-secondary);
+        color: var(--color-secondary-dark);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
         font-weight: 600;
         text-decoration: none;
         transition: all 0.2s;
     }
-    .btn-secundario:hover {
-        background: var(--color-primary-dark);
+    .btn-sec:hover {
+        background: var(--color-secondary);
         color: #fff;
         transform: translateY(-0.15rem);
     }
 
-    /* ===== TÍTULOS ===== */
-    .titulo-seccion {
-        font-size: clamp(1.5rem, 2.8vw, 5vw);
-        color: var(--color-primary);
-        text-align: center;
-        margin-bottom: clamp(2rem, 4vw, 7vw);
-        line-height: 1.2;
+    /* GRID LAYOUTS */
+    .grid-incluye {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1rem, 2vw, 4rem);
     }
-    .titulo-card {
-        font-size: clamp(1rem, 1.6vw, 2.8vw);
+    .grid-relacionados {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1rem, 2vw, 4rem);
+    }
+    .frecuencia-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(1rem, 2vw, 4rem);
+    }
+    @media (max-width: 60rem) {
+        .grid-incluye {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-relacionados {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 35rem) {
+        .grid-incluye,
+        .grid-relacionados,
+        .frecuencia-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* CARDS */
+    .card {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        padding: clamp(1.2rem, 2vw, 4rem);
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+    }
+    .card-incluye:hover,
+    .card-servicio:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: var(--shadow-md);
+    }
+    .card-frecuencia {
+        border-left: clamp(0.3rem, 0.5vw, 1rem) solid var(--color-primary);
+    }
+    .card-corto {
+        border-left-color: var(--color-secondary);
+    }
+
+    .card-emoji {
+        font-size: clamp(2rem, 3.5vw, 7rem);
+        margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+        display: block;
+        text-align: center;
+    }
+
+    .card-titulo {
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
         color: var(--color-primary-dark);
-        margin-bottom: clamp(0.5rem, 0.8vw, 1.5vw);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.3;
+        text-align: center;
+    }
+    .card-desc {
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        flex-grow: 1;
+        margin: 0;
+        text-align: center;
+    }
+
+    .frec-titulo {
+        font-size: clamp(1.1rem, 1.5vw, 3rem);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.2rem, 0.5vw, 1rem);
         line-height: 1.3;
     }
-    .texto-suave {
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
+    .frec-sub {
+        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        color: var(--color-text);
+        font-weight: 600;
+        margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+    }
+    .card-frecuencia .card-desc {
+        text-align: left;
+    }
+
+    .card-ver {
+        font-size: clamp(0.9rem, 1.1vw, 2.2rem);
+        color: var(--color-primary);
+        font-weight: 700;
+        margin-top: clamp(0.8rem, 1.2vw, 2.5rem);
+        display: inline-block;
+        text-align: center;
+    }
+
+    /* MITO VS REALIDAD */
+    .split-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(2rem, 4vw, 8rem);
+        align-items: center;
+    }
+    @media (max-width: 48rem) {
+        .split-grid {
+            grid-template-columns: 1fr;
+        }
+        .mito-img-box {
+            display: none;
+        }
+    }
+
+    .mito-realidad-box {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 2vw, 4rem);
+        margin-bottom: clamp(1.5rem, 3vw, 6rem);
+    }
+
+    .mito-block,
+    .realidad-block {
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(0.8rem, 1.2vw, 2.5rem);
+        background: var(--color-bg-soft);
+        padding: clamp(1rem, 1.5vw, 3rem);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        border-left: clamp(0.3rem, 0.5vw, 1rem) solid;
+        box-shadow: var(--shadow);
+    }
+    .mito-block {
+        border-left-color: var(--color-urgencia);
+    }
+    .realidad-block {
+        border-left-color: #4caf50;
+    }
+    .mito-block p,
+    .realidad-block p {
+        font-size: clamp(0.95rem, 1.2vw, 2.4rem);
+        color: var(--color-text-soft);
+        margin: 0;
+        line-height: 1.5;
+    }
+    .mito-block p strong,
+    .realidad-block p strong {
+        color: var(--color-text);
+    }
+    .bad-icon,
+    .good-icon {
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        flex-shrink: 0;
+        margin-top: clamp(0.2rem, 0.4vw, 0.8rem);
+    }
+
+    .valor-quote {
+        background: var(--color-primary-light);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(1.2rem, 2vw, 4rem);
+        font-size: clamp(1.05rem, 1.4vw, 2.8rem);
+        color: var(--color-primary-dark);
+        font-style: italic;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0;
+        position: relative;
+    }
+    .valor-quote::before {
+        content: "«";
+        font-size: clamp(2rem, 4vw, 8rem);
+        position: absolute;
+        top: clamp(-0.5rem, -1vw, -2rem);
+        left: clamp(0.5rem, 1vw, 2rem);
+        opacity: 0.2;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .placeholder-img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        background: var(--color-primary);
+        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        opacity: 0.8;
+    }
+    .pt-icon {
+        font-size: clamp(4rem, 8vw, 16rem);
+        margin-bottom: clamp(1rem, 2vw, 4rem);
+    }
+
+    /* FAQ ACCORDION */
+    .faq-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.8rem, 1.2vw, 2.5rem);
+    }
+    .faq-item {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(1rem, 1.5vw, 3rem);
+    }
+    .faq-item[open] .faq-question {
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.8rem, 1vw, 2rem);
+    }
+    .faq-question {
+        font-size: clamp(1rem, 1.3vw, 2.6rem);
+        font-weight: 600;
+        color: var(--color-text);
+        cursor: pointer;
+        list-style: none; /* Hide default arrow */
+        position: relative;
+        padding-right: clamp(2rem, 3vw, 6rem);
+        line-height: 1.4;
+    }
+    .faq-question::-webkit-details-marker {
+        display: none;
+    }
+    .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        color: var(--color-primary);
+    }
+    .faq-item[open] .faq-question::after {
+        content: "-";
+    }
+    .faq-answer {
+        font-size: clamp(0.95rem, 1.2vw, 2.4rem);
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 0;
     }
-    .parrafo-intro {
-        font-size: clamp(0.95rem, 1.3vw, 2.3vw);
-        color: var(--color-text-soft);
-        line-height: 1.6;
-        margin-bottom: clamp(1.5rem, 3vw, 5vw);
-        
-        margin-inline: auto;
-    }
 
-    /* ===== GRIDS ===== */
-    .grid-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18vw), 1fr));
-        gap: clamp(1rem, 2vw, 3.5vw);
-    }
-    .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: clamp(1rem, 2vw, 3.5vw);
-    }
-    .grid-beneficios {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 22vw), 1fr));
-        gap: clamp(0.8rem, 1.5vw, 2.5vw);
-        text-align: left;
-        background: var(--color-bg-soft);
-        padding: clamp(1.2rem, 2.5vw, 4vw);
-        border-radius: var(--radius-lg);
-    }
-
-    /* ===== CARDS ===== */
-    .card {
-        background: var(--color-bg);
-        border: 0.06rem solid var(--color-border);
-        border-radius: var(--radius-lg);
-        padding: clamp(1.2rem, 2.5vw, 4vw);
-        transition:
-            transform 0.2s,
-            box-shadow 0.2s;
-    }
-    .card:hover {
-        transform: translateY(-0.2rem);
-        box-shadow: var(--shadow-md);
-    }
-    .card-header {
-        display: flex;
-        align-items: center;
-        gap: clamp(0.6rem, 1vw, 1.8vw);
-        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .card-link {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-    }
-    .ver-mas {
-        color: var(--color-primary);
-        font-weight: 700;
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
-        margin-top: clamp(0.8rem, 1.2vw, 2vw);
-    }
-    .card-beneficio {
-        display: flex;
-        align-items: center;
-        gap: clamp(0.6rem, 1vw, 1.8vw);
-        background: var(--color-bg);
-        border-radius: var(--radius);
-        padding: clamp(0.6rem, 1vw, 1.8vw);
-        border: 0.06rem solid var(--color-border);
-    }
-    .texto-beneficio {
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
-        color: var(--color-primary-dark);
-        font-weight: 600;
-        line-height: 1.4;
-    }
-
-    /* ===== EMOJIS ===== */
-    .emoji-grande {
-        font-size: clamp(2rem, 3.5vw, 6vw);
-        display: block;
-        margin-bottom: clamp(0.8rem, 1.2vw, 2vw);
-    }
-    .emoji-mediano {
-        font-size: clamp(1.2rem, 2vw, 3.5vw);
-        flex-shrink: 0;
-    }
-
-    /* ===== FAQ ===== */
-    .faqs {
-        display: flex;
-        flex-direction: column;
-        gap: clamp(1rem, 2vw, 3.5vw);
-    }
-    .faq-item {
-        background: var(--color-bg-soft);
-        border: 0.06rem solid var(--color-border);
-        border-radius: var(--radius-lg);
-        padding: clamp(1.2rem, 2.5vw, 4vw);
-    }
-    .faq-pregunta {
-        font-size: clamp(1rem, 1.6vw, 2.8vw);
-        color: var(--color-primary);
-        margin-bottom: clamp(0.5rem, 0.8vw, 1.5vw);
-    }
-
-    /* ===== CTA FINAL ===== */
+    /* CTA FINAL */
     .cta-final {
         background: var(--color-primary);
-    }
-    .titulo-cta {
-        font-size: clamp(1.6rem, 2.8vw, 5vw);
+        text-align: center;
         color: #fff;
-        margin-bottom: clamp(1rem, 1.5vw, 2.5vw);
+    }
+    .cta-titulo-blanc {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        color: #fff;
+        margin-bottom: clamp(1rem, 1.5vw, 3rem);
         line-height: 1.2;
     }
-    .texto-cta {
-        font-size: clamp(1rem, 1.4vw, 2.5vw);
-        margin-bottom: clamp(2rem, 3vw, 5vw);
-        
-    }
-    .maps-link-blanco {
-        color: rgba(255, 255, 255, 0.9);
-        text-decoration: underline;
-        text-decoration-color: rgba(255, 255, 255, 0.5);
-        text-underline-offset: 0.2rem;
-        transition: color 0.2s;
-    }
-    .maps-link-blanco:hover {
+    .cta-desc-blanc {
+        font-size: clamp(1rem, 1.3vw, 2.6rem);
+        margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+        max-width: 60%;
+        margin-inline: auto;
         color: #fff;
+        opacity: 0.9;
     }
-    .btn-blanco {
-        background: #fff;
-        color: var(--color-primary);
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 2.5vw, 4vw);
-        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
-        font-weight: 700;
-        border-radius: var(--radius);
-        text-decoration: none;
-        transition:
-            transform 0.2s,
-            box-shadow 0.2s;
-    }
-    .btn-blanco:hover {
-        transform: translateY(-0.2rem);
-        box-shadow: var(--shadow-md);
-    }
-    .btn-outline-blanco {
-        border: 0.15rem solid #fff;
-        color: #fff;
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 2.5vw, 4vw);
-        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
-        font-weight: 700;
-        border-radius: var(--radius);
-        text-decoration: none;
-        transition: all 0.2s;
-    }
-    .btn-outline-blanco:hover {
-        background: #fff;
-        color: var(--color-primary);
-        transform: translateY(-0.2rem);
-    }
-
     @media (max-width: 48rem) {
-        [class*="grid-"] {
-            grid-template-columns: repeat(2, 1fr) !important;
+        .cta-desc-blanc {
+            max-width: 90%;
         }
     }
-    @media (max-width: 30rem) {
-        [class*="grid-"] {
-            grid-template-columns: 1fr !important;
-        }
+    .cta-btns {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 3rem);
+    }
+    .btn-cta-blanco {
+        background: #fff;
+        color: var(--color-primary-dark);
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .btn-cta-outline {
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid #fff;
+        color: #fff;
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
     }
 </style>

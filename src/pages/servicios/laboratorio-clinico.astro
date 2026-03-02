@@ -1,211 +1,171 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Schema from "../../components/Schema.astro";
 
-const schema = [
-    {"@context": "https://schema.org","@type": ["Service", "DiagnosticLab"],
-        name: "Laboratorio Veterinario en Coyoacán",
-        url: "https://puntoveterinario.com/servicios/laboratorio-clinico",
-        description:"Laboratorio clínico veterinario en Coyoacán. Análisis de sangre, perfil bioquímico, urianálisis y más. Av. División del Norte 3595, CP 04620.",
-        provider: {"@type": "VeterinaryCare",
-            name: "Punto Veterinario",
-            address: {"@type": "PostalAddress",
-                streetAddress: "Av. División del Norte 3595",
-                addressLocality: "San Pablo Tepetlapa",
-                postalCode: "04620",
-                addressCountry: "MX",
-            },
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Laboratorio Clínico Veterinario",
+    provider: {
+        "@type": "VeterinaryCare",
+        name: "Punto Veterinario",
+        image: "https://puntoveterinario.com/og-image.jpg",
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "Av. División del Norte 3595",
+            addressLocality: "Coyoacán",
+            addressRegion: "CDMX",
+            postalCode: "04620",
+            addressCountry: "MX",
         },
     },
-];
+    areaServed: {
+        "@type": "AdministrativeArea",
+        name: "Coyoacán",
+    },
+    description:
+        "Servicio de laboratorio clínico para mascotas en CDMX. Realizamos hemogramas, perfiles bioquímicos, urianálisis y estudios prequirúrgicos para perros y gatos.",
+};
 
-const faqSchema = {"@context": "https://schema.org","@type": "FAQPage",
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     mainEntity: [
-        {"@type": "Question",
-            name: "¿Cuánto tarda en estar listo un análisis de sangre para perros?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Elaboramos planes terapéuticos efectivos basados en revisiones estrictas y pruebas de laboratorio.",
+        {
+            "@type": "Question",
+            name: "¿Para qué sirve un análisis de sangre en perros y gatos?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Los análisis de sangre permiten evaluar el funcionamiento de órganos vitales (riñones, hígado, páncreas) y detectar infecciones, anemia, diabetes o insuficiencia renal años antes de que la mascota muestre síntomas visibles de enfermedad.",
             },
         },
-        {"@type": "Question",
-            name: "¿Necesita mi mascota ayuno para el análisis de sangre?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Recomendamos agendar cita previa para evitar tiempos de espera y garantizar la atención ideal.",
+        {
+            "@type": "Question",
+            name: "¿Cuánto cuesta un análisis veterinario en Coyoacán?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "El costo depende del tipo de estudio que tu mascota necesite (hemograma básico, perfil bioquímico completo, urianálisis, etc.). Contáctanos por WhatsApp al 55 1384 3004 para indicarte el precio exacto del panel requerido.",
             },
         },
-        {"@type": "Question",
-            name: "¿Qué es un perfil bioquímico veterinario?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "El célebre y sumamente utilizado perfil bioquímico veterinario extenso es en sí mismo una muy contundente, detallada y formidable radiografía.",
-            },
-        },
-        {"@type": "Question",
-            name: "¿Dónde hacer análisis de sangre para mi perro cerca de Coyoacán?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
+        {
+            "@type": "Question",
+            name: "¿Mi perro necesita ayuno para el análisis de sangre?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sí, para la mayoría de los estudios de laboratorio (especialmente los perfiles bioquímicos) se requiere un ayuno estricto de sólidos de 8 a 12 horas para garantizar que los resultados de glucosa y enzimas sean precisos y no se alteren.",
             },
         },
     ],
 };
 
+const faqs = faqSchema.mainEntity;
+
 const estudiosCards = [
     {
         emoji: "🩸",
-        title: "Biometría hemática completa",
-        desc: "Una profunda y exhaustiva cuantificación global irrefutable de los glóbulos rojos acarreadores sistémicos, robustos leucocitos guardianes y plaquetas regenerativas celulares.",
-    },
-    {
-        emoji: "🔬",
-        title: "Perfil bioquímico",
-        desc: "Inmensurablemente vital herramienta decodificadora analítica que evidencia contundentemente, exponiendo en un lenguaje bioquímico cristalino todo el comportamiento estructural depuratorio que.",
+        title: "Hemograma Completo",
+        desc: "Cuenta y evalúa los glóbulos rojos, glóbulos blancos, plaquetas y hemoglobina. Es esencial para detectar anemia, infecciones agudas, problemas de coagulación o enfermedades como la leucemia felina.",
     },
     {
         emoji: "🧪",
-        title: "Urianálisis",
-        desc: "Magnífico y revelador escaneo preventivo minucioso a nivel líquido y molecular que atestigua mediante el sedimento toda la enorme capacidad.",
-    },
-    {
-        emoji: "🦠",
-        title: "Cultivos y antibiograma",
-        desc: "El invencible y definitivo escudo protector farmacológico por excelencia usado tras sembrar tenazmente intrusivas bacterias malignas latentes y constatar irrefutablemente.",
-    },
-    {
-        emoji: "📊",
-        title: "Perfil tiroideo",
-        desc: "Soberbia y fina medición en base hormonal total para lograr dilucidar certera e instantáneamente el caótico origen real en súbitos.",
-    },
-    {
-        emoji: "🩺",
-        title: "Coprológico",
-        desc: "Un insigne e inesquivable protocolo de examen focalizado directo para desenterrar, confirmar y combatir mediante rotunda prueba incuestionable toda abrumadora.",
-    },
-];
-
-const cuandoCards = [
-    {
-        emoji: "🚨",
-        title: "Antes de cualquier cirugía o anestesia",
-        desc: "Representa innegable y fervientemente el absoluto resguardo de supervivencia obligatoria previa antes de transitar por nuestra sedación química o de.",
-    },
-    {
-        emoji: "📅",
-        title: "Revisión anual preventiva",
-        desc: "Constituye y enarbola la gloriosa y silenciosa piedra angular monumental cimentada en pro de la grandiosa longevidad premonitoria.",
-    },
-    {
-        emoji: "💊",
-        title: "Monitoreo de tratamientos crónicos",
-        desc: "Un blindaje analítico y sostenido formidablemente imperativo a plazos para constatar inobjetablemente toda la positiva asimilación hepatobiliar corporal ante terapias.",
-    },
-    {
-        emoji: "🤒",
-        title: "Cuando el veterinario lo indica por síntomas",
-        desc: "El escalón y contundente fundamento irrefutable subsiguiente y decisorio definitivo después de sospechosos hallazgos físicos superficiales inquietantes de palidez en.",
-    },
-];
-
-const porQueCards = [
-    {
-        emoji: "⚡",
-        title: "Interpretación y resultados rápidos",
-        desc: "El costo se evalúa individualmente en consulta según las necesidades específicas de tu mascota.",
+        title: "Perfil Bioquímico",
+        desc: "Un panel vital que evalúa el funcionamiento de los órganos internos. Medimos enzimas hepáticas (ALT/AST), marcadores de función renal (Creatinina y BUN) y glucosa para detectar diabetes o insuficiencia renal temprana.",
     },
     {
         emoji: "🔬",
-        title: "Equipo de laboratorio moderno",
-        desc: "Gozamos ferviente y gratamente de una espectacular e irrenunciable inversión de altísima gama en maquinaria digitalizada con calibración de precisión.",
+        title: "Urianálisis y Coproparasitoscópico",
+        desc: "Análisis completo de orina para detectar infecciones del tracto urinario o enfermedad renal, y estudio de heces para identificar parásitos intestinales que no siempre son visibles.",
+    },
+];
+
+const ventajasLista = [
+    {
+        title: "Menor margen de error",
+        desc: "Aproximadamente el 70% de los resultados inconsistentes en laboratorio se deben a errores en la toma o conservación de la muestra. Al tomar la muestra en nuestra clínica con el protocolo correcto, garantizamos resultados fiables.",
     },
     {
-        emoji: "📍",
-        title: "En San Pablo Tepetlapa CP 04620",
-        desc: "Recomendamos agendar cita previa para evitar tiempos de espera y garantizar la atención ideal.",
+        title: "Resultados oportunos para actuar rápido",
+        desc: "Contar con la información clínica rápidamente nos permite iniciar el tratamiento médico correcto sin perder tiempo valioso para la salud de tu mascota. (Nota: Estos estudios son pre-requisito obligatorio antes de cualquier cirugía o procedimiento anestésico).",
     },
 ];
 
 const relacionadosCards = [
     {
-        title: "Consulta Veterinaria",
-        emoji: "🩺",
-        href: "/servicios/consulta-veterinaria",
-        desc: "El punto germinal y base interpretativa inmaculada global, fundamental para que cada minúsculo resultado bioquímico adquiera un colosal y supremo.",
-    },
-    {
         title: "Cirugía Veterinaria",
         emoji: "🏥",
         href: "/servicios/cirugia-veterinaria",
-        desc: "Procedimientos quirúrgicos seguros en instalaciones equipadas con anestesia monitoreada.",
+        desc: "Operaciones seguras respaldadas por estudios prequirúrgicos.",
     },
     {
-        title: "Esterilización",
-        emoji: "✂️",
-        href: "/servicios/esterilizacion",
-        desc: "Procedimiento quirúrgico seguro y privado con anestesia guiada.",
+        title: "Consulta Médica",
+        emoji: "🩺",
+        href: "/servicios/consulta-veterinaria",
+        desc: "Valoración e interpretación profesional de los resultados.",
+    },
+    {
+        title: "Alimento para Mascotas",
+        emoji: "🥩",
+        href: "/servicios/alimento-mascotas",
+        desc: "Dietas terapéuticas prescritas según los resultados del laboratorio.",
     },
 ];
 ---
 
 <BaseLayout
-    title="Laboratorio Veterinario Coyoacán | Análisis Clínicos"
-    description="Análisis de sangre, perfil bioquímico y estudios clínicos para mascotas en Coyoacán. Resultados rápidos. Av. División del Norte 3595, CP 04620."
-    schema={schema[0]}
+    title="Laboratorio Clínico Veterinario en Coyoacán | Punto Veterinario"
+    description="Análisis de sangre, hemogramas y perfiles bioquímicos para perros y gatos en Coyoacán. Diagnóstico temprano y resultados precisos en CDMX. ¡Contáctanos!"
+    canonical="https://puntoveterinario.com/servicios/laboratorio-clinico"
 >
-    <Schema schema={faqSchema} />
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(faqSchema)}
+        />
+    </Fragment>
 
-    <!-- 1. HERO -->
-    <section class="seccion fondo-blanco">
-        <div class="container hero-inner">
-            <h1 class="titulo-principal">
-                Laboratorio Veterinario en Coyoacán, CDMX | Punto Veterinario
-            </h1>
-            <p class="subtitulo">
-    Estudios clínicos rigurosos, desde perfiles hemáticos completos hasta pruebas de enfermedades infecciosas, asegurando diagnósticos precisos mediante ciencia.
-</p>
-            <div class="flex flex-wrap gap-md">
-                <a
-                    href="https://wa.me/525513843004"
-                    class="btn-primary text-md px-lg py-sm fw-bold border-radius transition-transform inline-block"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    💬 Agendar por WhatsApp
-                </a>
-                <a
-                    href="tel:+525513843004"
-                    class="btn-outline text-primary-dark text-md px-lg py-sm fw-bold border-radius transition-transform inline-block"
-                >
-                    📞 Llamar ahora
-                </a>
+    <!-- SECCIÓN 1 — HERO -->
+    <section class="hero content-section">
+        <div class="container hero__inner">
+            <div class="hero__text">
+                <h1 class="h1-hero">
+                    Laboratorio Clínico Veterinario en Coyoacán
+                </h1>
+                <p class="hero__desc">
+                    Diagnóstico temprano y preciso para perros y gatos.
+                    Realizamos análisis de sangre, química sanguínea y estudios
+                    prequirúrgicos en San Pablo Tepetlapa para detectar
+                    problemas de salud antes de que se conviertan en urgencias.
+                </p>
+                <div class="hero__btns">
+                    <a
+                        href="https://wa.me/525513843004"
+                        class="btn-wa"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        💬 Cotizar estudios por WhatsApp
+                    </a>
+                    <a href="#estudios" class="btn-sec">
+                        Ver tipos de análisis ↓
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. ¿QUÉ ESTUDIOS? -->
-    <section class="bg-soft py-xl">
+    <!-- SECCIÓN 2 — ¿QUÉ ANALIZAMOS? -->
+    <section id="estudios" class="content-section bg-soft">
         <div class="container">
-            <h2 class="text-center mb-xl text-primary">
-                ¿Qué estudios realizamos en nuestro laboratorio?
+            <h2 class="titulo-sec">
+                Estudios de laboratorio para un diagnóstico exacto
             </h2>
-            <p
-                class="text-center text-soft text-md mb-lg lh-relaxed"
-            >
-                Ponemos categórica y permanentemente al servicio absoluto de tu
-                familia multiespecie nuestra inestimable plataforma abastada
-                biotecnológica provista del extenso y resolutivo catálogo
-                minúsculo molecular orgánico.
-            </p>
-            <div class="grid-3 gap-md">
+            <div class="grid-estudios">
                 {
                     estudiosCards.map((item) => (
-                        <div class="card p-lg border-subtle bg-white hover-lift flex-col text-center items-center">
-                            <span class="emoji-xl mb-sm block">
-                                {item.emoji}
-                            </span>
-                            <h3 class="text-primary-dark mb-xs text-md">
-                                {item.title}
-                            </h3>
-                            <p class="text-soft text-sm lh-relaxed mt-sm m-0">
-                                {item.desc}
-                            </p>
+                        <div class="card card-estudio">
+                            <span class="card-emoji">{item.emoji}</span>
+                            <h3 class="card-titulo">{item.title}</h3>
+                            <p class="card-desc">{item.desc}</p>
                         </div>
                     ))
                 }
@@ -213,32 +173,58 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 3. ¿CUÁNDO NECESITA TU MASCOTA LABORATORIO? -->
-    <section class="bg-white py-xl">
-        <div class="container text-center">
-            <h2 class="text-primary-dark mb-md">
-                ¿Cuándo debes llevar a tu mascota al laboratorio en Coyoacán?
+    <!-- SECCIÓN 3 — MITO VS REALIDAD (ENFERMEDADES SILENTES) -->
+    <section class="content-section">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">
+                ¿Por qué no esperar a que tu mascota se sienta mal?
             </h2>
-            <p class="text-soft text-md mb-lg lh-relaxed">
-    Cimentamos y propugnamos irrefutablemente frente a la comunidad capitalina la enorme importancia cardinal de las recolecciones vasculares regulares por encima...
-</p>
-            <div
-                class="grid-2 gap-md text-left bg-soft p-lg border-radius mb-md"
-            >
+
+            <div class="mito-realidad-box mb-fluid">
+                <div class="mito-block">
+                    <span class="bad-icon">❌</span>
+                    <p>
+                        <strong>El Mito:</strong> "Si mi mascota come bien y juega,
+                        no necesita análisis de sangre."
+                    </p>
+                </div>
+                <div class="realidad-block">
+                    <span class="good-icon">✅</span>
+                    <p>
+                        <strong>La Realidad:</strong> Enfermedades gravísimas como
+                        la insuficiencia renal, problemas hepáticos o la diabetes
+                        son "silentes". No dan síntomas visibles (como dejar de comer
+                        o decaimiento) hasta que la enfermedad está en etapas muy
+                        avanzadas e irreversibles. Un chequeo de laboratorio anual
+                        las detecta años antes.
+                    </p>
+                </div>
+            </div>
+
+            <blockquote class="valor-quote text-center">
+                "Muchos dueños en Coyoacán esperan a que su mascota esté muy
+                decaída para traerla a consulta. Para entonces, el problema ya
+                es grave. Un perfil bioquímico preventivo cuesta
+                significativamente menos que la hospitalización por una
+                enfermedad detectada tarde."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4 — LA VENTAJA DE HACERLO EN CLÍNICA -->
+    <section class="content-section bg-soft">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">Precisión y rapidez en el sur de CDMX</h2>
+
+            <div class="ventajas-lista">
                 {
-                    cuandoCards.map((item) => (
-                        <div class="flex flex-col items-start gap-sm hover-lift card border-subtle bg-white p-sm border-radius-sm">
-                            <div class="flex items-center gap-xs">
-                                <span class="emoji-md block mt-xs">
-                                    {item.emoji}
-                                </span>
-                                <span class="text-primary-dark fw-bold text-sm lh-relaxed">
-                                    {item.title}
-                                </span>
+                    ventajasLista.map((vent) => (
+                        <div class="ventaja-item card">
+                            <div class="ventaja-icon">✅</div>
+                            <div class="ventaja-texto">
+                                <h3 class="ventaja-titulo">{vent.title}</h3>
+                                <p class="ventaja-desc">{vent.desc}</p>
                             </div>
-                            <p class="text-soft text-sm lh-relaxed m-0 mt-xs">
-                                {item.desc}
-                            </p>
                         </div>
                     ))
                 }
@@ -246,78 +232,39 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 4. ¿POR QUÉ ELEGIRNOS? -->
-    <section class="bg-soft py-xl">
-        <div class="container">
-            <h2 class="text-center mb-xl text-primary">
-                ¿Por qué confiar en Punto Veterinario para su diagnóstico?
+    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <section class="content-section">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">
+                Preguntas comunes sobre nuestros análisis clínicos
             </h2>
-            <div class="grid-3 gap-lg">
+            <div class="faq-accordion">
                 {
-                    porQueCards.map((item) => (
-                        <div class="card p-lg border-subtle bg-white flex-col gap-sm hover-lift">
-                            <div class="flex items-center gap-md mb-sm">
-                                <span class="emoji-lg">{item.emoji}</span>
-                                <h3 class="text-primary-dark text-md m-0">
-                                    {item.title}
-                                </h3>
-                            </div>
-                            <p class="text-soft text-sm lh-relaxed m-0">
-                                {item.desc}
-                            </p>
-                        </div>
+                    faqs.map((faq) => (
+                        <details class="faq-item">
+                            <summary class="faq-question">{faq.name}</summary>
+                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                        </details>
                     ))
                 }
             </div>
         </div>
     </section>
 
-    <!-- 5. FAQ -->
-    <section class="bg-white py-xl">
+    <!-- SECCIÓN 6 — SERVICIOS VINCULADOS -->
+    <section class="content-section bg-soft">
         <div class="container">
-            <h2 class="text-center mb-xl text-primary-dark">
-                Preguntas Frecuentes sobre Laboratorio Veterinario en Coyoacán
+            <h2 class="titulo-sec">
+                Servicios complementarios en Punto Veterinario
             </h2>
-            <div class="flex-col gap-lg">
-                {
-                    faqSchema.mainEntity.map((faq) => (
-                        <div class="faq-item p-lg border-subtle bg-soft border-radius transition-transform hover-lift">
-                            <h3 class="text-primary text-md mb-sm">
-                                {faq.name}
-                            </h3>
-                            <p class="text-soft text-sm lh-relaxed m-0">
-                                {faq.acceptedAnswer.text}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. SERVICIOS RELACIONADOS -->
-    <section class="bg-soft py-xl">
-        <div class="container">
-            <h2 class="text-center mb-xl text-primary">
-                Otros servicios en Punto Veterinario
-            </h2>
-            <div class="grid-3 gap-md">
+            <div class="grid-relacionados">
                 {
                     relacionadosCards.map((s) => (
-                        <a
-                            href={s.href}
-                            class="card p-lg border-subtle bg-white text-center hover-lift flex-col items-center"
-                        >
-                            <span class="emoji-xl mb-sm block">{s.emoji}</span>
-                            <h3 class="text-primary-dark mb-xs text-md">
-                                {s.title}
-                            </h3>
-                            <p class="text-soft text-sm lh-relaxed my-sm m-0">
-                                {s.desc}
-                            </p>
-                            <span class="text-primary fw-bold text-sm mt-auto inline-block pt-sm">
-                                Saber más →
-                            </span>
+                        <a href={s.href} class="card card-servicio">
+                            <span class="card-emoji">{s.emoji}</span>
+                            <h3 class="card-titulo">{s.title}</h3>
+                            <p class="card-desc">{s.desc}</p>
+                            <span class="card-ver">Ver detalles →</span>
                         </a>
                     ))
                 }
@@ -325,338 +272,420 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 7. CTA FINAL -->
-    <section class="cta-section bg-primary py-xl text-center">
-        <div class="container">
-            <h2 class="text-white mb-lg text-2xl lh-1">
-                ¿Tu mascota necesita estudios de laboratorio en Coyoacán?
+    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <section class="cta-final content-section">
+        <div class="container cta-inner">
+            <h2 class="cta-titulo-blanc">
+                ¿Tu mascota necesita estudios de laboratorio?
             </h2>
-            <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-                <a 
-  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-  target="_blank"
-  rel="noopener"
-  aria-label="Ver ubicación en Google Maps"
-  class="maps-link"
->
-  Av. División del Norte 3595, San Pablo Tepetlapa, 
-  CP 04620, Coyoacán, CDMX
-</a>
+            <p class="cta-desc-blanc">
+                Agenda su toma de muestra de forma rápida y con el menor estrés
+                posible. Estamos en Av. División del Norte 3595, San Pablo
+                Tepetlapa, atendiendo a pacientes de todo Coyoacán.
             </p>
-            <div class="flex flex-wrap justify-center gap-md">
-                <a
-                    href="/contacto"
-                    class="btn-white-theme text-primary fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
-                    >📅 Agendar Cita</a
-                >
+            <div class="cta-btns">
                 <a
                     href="https://wa.me/525513843004"
                     target="_blank"
                     rel="noopener"
-                    class="btn-outline-white text-white fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
-                    >💬 WhatsApp</a
+                    class="btn-cta-blanco"
                 >
+                    💬 Agendar cita por WhatsApp
+                </a>
+                <a href="/ubicacion" class="btn-cta-outline">
+                    📍 Ver mapa y horarios
+                </a>
             </div>
         </div>
     </section>
 </BaseLayout>
 
 <style>
+    /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
+    /* No Tailwind/Bootstrap allowed, 100% Fluid Vanilla CSS */
 
-
-
-    /* ===== HERO CENTRADO ===== */
-    .hero-inner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: clamp(1rem, 2vw, 3vw);
-        width: 100%;
-    }
-    .titulo-principal {
-        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
-        color: var(--color-primary-dark);
-        line-height: 1.15;
-        margin: 0;
-    }
-    .subtitulo {
-        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
-        color: var(--color-text-soft);
-        line-height: 1.6;
-        margin: 0 auto;
-        max-width: 75ch;
-        text-align: center;
-    }
-    .botones {
-        display: flex;
-        flex-wrap: wrap;
-        gap: clamp(0.8rem, 1.5vw, 2.5vw);
-        justify-content: center;
-    }
-
-
-    
-    
-    
-    
-
-    /* Local Fluid CSS Utilities - NO FIXED PX */
-    .bg-white {
-        background-color: var(--color-bg);
+    .content-section {
+        padding-block: clamp(3rem, 6vw, 12rem);
     }
     .bg-soft {
-        background-color: var(--color-bg-soft);
-    }
-    .bg-primary {
-        background-color: var(--color-primary);
+        background: var(--color-bg-soft);
     }
 
-    .text-white {
-        color: var(--color-bg);
+    .h1-hero {
+        font-size: clamp(1.8rem, 3.2vw, 6rem);
+        color: var(--color-text);
+        line-height: 1.15;
+        margin-bottom: clamp(1rem, 2vw, 3rem);
     }
-    .text-primary {
+
+    .titulo-sec {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
         color: var(--color-primary);
-    }
-    .text-primary-dark {
-        color: var(--color-primary-dark);
-    }
-    .text-soft {
-        color: var(--color-text-soft);
+        text-align: center;
+        margin-bottom: clamp(2rem, 4vw, 7rem);
+        line-height: 1.2;
     }
 
     .text-center {
         text-align: center;
     }
-    .text-left {
-        text-align: left;
-    }
-    .text-sm {
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
-    }
-    .text-md {
-        font-size: clamp(1.1rem, 1.8vw, 3vw);
-    }
-    .text-lg {
-        font-size: clamp(1.4rem, 2.5vw, 4vw);
-    }
-    .text-2xl {
-        font-size: clamp(2.2rem, 4vw, 6vw);
-    }
-    .fw-bold {
-        font-weight: 700;
+
+    .mb-fluid {
+        margin-bottom: clamp(2rem, 4vw, 7rem);
     }
 
-    .block {
-        display: block;
+    /* HERO CLASSES */
+    .hero {
+        background: var(--color-bg);
     }
-    .inline-block {
-        display: inline-block;
-    }
-    .flex {
-        display: flex;
-    }
-    .flex-col {
+    .hero__inner {
         display: flex;
         flex-direction: column;
-    }
-    .flex-wrap {
-        flex-wrap: wrap;
-    }
-    .flex-fill {
-        flex: 1;
-    }
-    .items-center {
         align-items: center;
+        text-align: center;
     }
-    .items-start {
-        align-items: flex-start;
+    .hero__text {
+        width: 100%;
+        margin-inline: auto;
     }
-    .justify-center {
-        justify-content: center;
+    @media (min-width: 48rem) {
+        .hero__text {
+            max-width: 80%;
+        }
     }
 
-    .m-0 {
-        margin: 0;
-    }
-    .my-sm {
-        margin-block: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .mt-sm {
-        margin-top: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .mt-xs {
-        margin-top: clamp(0.4rem, 0.8vw, 1.4vw);
-    }
-    .mt-auto {
-        margin-top: auto;
-    }
-    .mb-xs {
-        margin-bottom: clamp(0.4rem, 0.8vw, 1.4vw);
-    }
-    .mb-sm {
-        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .mb-md {
-        margin-bottom: clamp(1rem, 2vw, 3.5vw);
-    }
-    .mb-lg {
-        margin-bottom: clamp(1.5rem, 3vw, 5vw);
-    }
-    .mb-xl {
-        margin-bottom: clamp(2.5rem, 5vw, 8vw);
-    }
-    .mx-auto {
+    .hero__desc {
+        font-size: clamp(0.95rem, 1.4vw, 2.8rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin-bottom: clamp(1.5rem, 2vw, 4rem);
         margin-inline: auto;
     }
 
-    .py-sm {
-        padding-block: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .p-sm {
-        padding: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .pt-sm {
-        padding-top: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .py-xl {
-        padding-block: clamp(2.5rem, 5vw, 8vw);
-    }
-    .p-lg {
-        padding: clamp(1.5rem, 3vw, 5vw);
-    }
-    .px-lg {
-        padding-inline: clamp(1.5rem, 3vw, 5vw);
+    .hero__btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 3rem);
+        margin-bottom: clamp(1rem, 2vw, 4rem);
+        justify-content: center;
     }
 
-    .gap-xs {
-        gap: clamp(0.4rem, 0.8vw, 1.4vw);
+    .btn-wa {
+        background: var(--color-primary);
+        color: #fff;
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+            background 0.2s,
+            transform 0.2s;
     }
-    .gap-sm {
-        gap: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .gap-md {
-        gap: clamp(1rem, 2vw, 3.5vw);
-    }
-    .gap-lg {
-        gap: clamp(1.5rem, 3vw, 5vw);
+    .btn-wa:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-0.15rem);
     }
 
-    .lh-1 {
-        line-height: 1.2;
+    .btn-sec {
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid var(--color-primary-dark);
+        color: var(--color-primary-dark);
+        background: transparent;
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
     }
-    .lh-relaxed {
+    .btn-sec:hover {
+        background: var(--color-primary-dark);
+        color: #fff;
+        transform: translateY(-0.15rem);
+    }
+
+    /* GRID LAYOUTS */
+    .grid-estudios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1.5rem, 3vw, 6rem);
+    }
+    .grid-relacionados {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1rem, 2vw, 4rem);
+    }
+    @media (max-width: 60rem) {
+        .grid-estudios,
+        .grid-relacionados {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 35rem) {
+        .grid-estudios,
+        .grid-relacionados {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* CARDS */
+    .card {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        padding: clamp(1.2rem, 2vw, 4rem);
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+    }
+    .card-estudio,
+    .card-servicio,
+    .ventaja-item {
+        box-shadow: var(--shadow-sm);
+    }
+    .card-estudio:hover,
+    .card-servicio:hover,
+    .ventaja-item:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: var(--shadow-md);
+    }
+
+    .card-emoji {
+        font-size: clamp(2rem, 3.5vw, 7rem);
+        margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+        display: block;
+        text-align: center;
+    }
+
+    .card-titulo {
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.3;
+        text-align: center;
+    }
+    .card-desc {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        flex-grow: 1;
+        margin: 0;
+        text-align: center;
+    }
+
+    .card-ver {
+        display: block;
+        text-align: center;
+        margin-top: clamp(1rem, 2vw, 3rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        color: var(--color-primary);
+        font-weight: bold;
+    }
+
+    /* MITO VS REALIDAD (VERTICAL STACK) */
+    .mito-realidad-box {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0rem, 0vw, 0rem); /* No gap, attached */
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    }
+
+    .mito-block,
+    .realidad-block {
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(0.8rem, 1.2vw, 2.5rem);
+        padding: clamp(1rem, 1.5vw, 3rem);
+    }
+    .mito-block {
+        background: var(--color-bg);
+        border-bottom: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    }
+    .realidad-block {
+        background: var(--color-bg-soft);
+    }
+    .mito-block p,
+    .realidad-block p {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        margin: 0;
         line-height: 1.6;
     }
-    . {
-        
+    .mito-block p strong {
+        color: var(--color-urgencia);
     }
-    .opacity-90 {
-        opacity: 0.9;
+    .realidad-block p strong {
+        color: #4caf50;
     }
-
-    .border-radius {
-        border-radius: var(--radius);
-    }
-    .border-radius-sm {
-        border-radius: var(--radius-sm);
-    }
-    .border-subtle {
-        border: 0.1rem solid var(--color-border);
-        border-radius: var(--radius-lg);
+    .bad-icon,
+    .good-icon {
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        flex-shrink: 0;
+        margin-top: clamp(0.2rem, 0.4vw, 0.8rem);
     }
 
-    .emoji-md {
-        font-size: clamp(1.2rem, 2vw, 3.6vw);
-        line-height: 1;
-        display: block;
-    }
-    .emoji-lg {
-        font-size: clamp(1.5rem, 3vw, 5.4vw);
-    }
-    .emoji-xl {
-        font-size: clamp(2.5rem, 5vw, 9vw);
-    }
-
-    .transition-transform {
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease,
-            background-color 0.2s ease,
-            color 0.2s ease;
-    }
-    .hover-lift:hover {
-        transform: translateY(-0.2rem);
-        box-shadow: var(--shadow-md);
+    /* BLOCKQUOTE */
+    .valor-quote {
+        background: var(--color-primary-light);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(1.5rem, 3vw, 6rem);
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+        color: var(--color-primary-dark);
+        font-style: italic;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0 auto;
+        position: relative;
+        max-width: 90%;
     }
 
-    a {
-        text-decoration: none;
+    /* VENTAJAS LISTA */
+    .ventajas-lista {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 2vw, 4rem);
     }
 
-    .btn-primary {
-        background-color: var(--color-primary);
-        color: var(--color-bg);
+    .ventaja-item {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: clamp(1rem, 2vw, 4rem);
+        text-align: left;
     }
-    .btn-primary:hover {
-        background-color: var(--color-primary-dark);
-        transform: translateY(-0.15rem);
-    }
-
-    .btn-outline {
-        background-color: transparent;
-        border: 0.15rem solid var(--color-primary-dark);
-    }
-    .btn-outline:hover {
-        background-color: var(--color-primary-dark);
-        color: var(--color-bg);
-        transform: translateY(-0.15rem);
+    @media (max-width: 35rem) {
+        .ventaja-item {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
     }
 
-    .btn-white-theme {
-        background-color: var(--color-bg);
-        border: 0.15rem solid var(--color-bg);
+    .ventaja-icon {
+        font-size: clamp(1.5rem, 2.5vw, 5rem);
+        flex-shrink: 0;
+        margin-top: clamp(0.2rem, 0.4vw, 0.8rem);
     }
-    .btn-white-theme:hover {
-        transform: translateY(-0.2rem);
-        box-shadow: var(--shadow-md);
-        background-color: var(--color-bg-soft);
+    @media (max-width: 35rem) {
+        .ventaja-icon {
+            margin-top: 0;
+        }
     }
 
-    .btn-outline-white {
-        background-color: transparent;
-        border: 0.15rem solid var(--color-bg);
+    .ventaja-titulo {
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.3;
     }
-    .btn-outline-white:hover {
-        transform: translateY(-0.2rem);
-        background-color: var(--color-bg);
+    .ventaja-desc {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* FAQ ACCORDION */
+    .faq-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.8rem, 1.2vw, 2.5rem);
+    }
+    .faq-item {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(1rem, 1.5vw, 3rem);
+    }
+    .faq-item[open] .faq-question {
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.8rem, 1vw, 2rem);
+    }
+    .faq-question {
+        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        font-weight: 600;
+        color: var(--color-text);
+        cursor: pointer;
+        list-style: none; /* Hide default arrow */
+        position: relative;
+        padding-right: clamp(2rem, 3vw, 6rem);
+        line-height: 1.4;
+    }
+    .faq-question::-webkit-details-marker {
+        display: none;
+    }
+    .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
         color: var(--color-primary);
     }
-
-  .maps-link {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-color: var(--color-primary);
-    text-underline-offset: 0.2rem;
-    transition: color 0.2s;
-  }
-  .maps-link:hover {
-    color: var(--color-primary);
-  }
-
-    .seccion {
-        padding-block: clamp(3rem, 6vw, 10vw);
-        width: 100%;
+    .faq-item[open] .faq-question::after {
+        content: "-";
+    }
+    .faq-answer {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0;
     }
 
+    /* CTA FINAL */
+    .cta-final {
+        background: var(--color-primary);
+        text-align: center;
+        color: #fff;
+    }
+    .cta-titulo-blanc {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        color: #fff;
+        margin-bottom: clamp(1rem, 1.5vw, 3rem);
+        line-height: 1.2;
+    }
+    .cta-desc-blanc {
+        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+        max-width: 70%;
+        margin-inline: auto;
+        color: #fff;
+        opacity: 0.9;
+        line-height: 1.6;
+    }
     @media (max-width: 48rem) {
-        [class*="grid-"] {
-            grid-template-columns: repeat(2, 1fr) !important;
+        .cta-desc-blanc {
+            max-width: 90%;
         }
     }
-    @media (max-width: 30rem) {
-        [class*="grid-"] {
-            grid-template-columns: 1fr !important;
-        }
+    .cta-btns {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 3rem);
+    }
+    .btn-cta-blanco {
+        background: #fff;
+        color: var(--color-primary-dark);
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .btn-cta-outline {
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid #fff;
+        color: #fff;
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
     }
 </style>

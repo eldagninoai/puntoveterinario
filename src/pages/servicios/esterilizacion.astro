@@ -1,98 +1,115 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Schema from "../../components/Schema.astro";
 
-const schema = {"@context": "https://schema.org","@type": "MedicalProcedure",
-    name: "Esterilización Veterinaria en Coyoacán",
-    url: "https://puntoveterinario.com/servicios/esterilizacion",
-    description:"Servicio de esterilización para perros y gatos en Coyoacán, CDMX. Anestesia monitoreada, seguimiento post-operatorio y atención personalizada.",
-    provider: {"@type": "VeterinaryCare",
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Esterilización y Castración Veterinaria",
+    provider: {
+        "@type": "VeterinaryCare",
         name: "Punto Veterinario",
-        address: {"@type": "PostalAddress",
+        image: "https://puntoveterinario.com/og-image.jpg",
+        address: {
+            "@type": "PostalAddress",
             streetAddress: "Av. División del Norte 3595",
-            addressLocality: "San Pablo Tepetlapa",
+            addressLocality: "Coyoacán",
+            addressRegion: "CDMX",
             postalCode: "04620",
             addressCountry: "MX",
         },
     },
+    areaServed: {
+        "@type": "AdministrativeArea",
+        name: "Coyoacán",
+    },
+    description:
+        "Cirugía de esterilización (ovariohisterectomía) para hembras y castración (orquiectomía) para machos en CDMX. Prevención de piometra, tumores y cuidado integral.",
 };
 
-const faqSchema = {"@context": "https://schema.org","@type": "FAQPage",
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     mainEntity: [
-        {"@type": "Question",
-            name: "¿Cuánto cuesta esterilizar a un perro en Coyoacán?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "El costo se evalúa individualmente en consulta según las necesidades específicas de tu mascota.",
+        {
+            "@type": "Question",
+            name: "¿Cuánto cuesta esterilizar a un perro o gato en Coyoacán?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "El costo de la esterilización depende del peso, especie y sexo de tu mascota. En Punto Veterinario, nuestras cirugías incluyen estudios prequirúrgicos para garantizar su seguridad. Escríbenos por WhatsApp al 55 1384 3004 para darte un presupuesto exacto.",
             },
         },
-        {"@type": "Question",
-            name: "¿A qué edad se puede esterilizar a mi mascota?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Generalmente recomendamos la esterilización a partir de los 6 meses de edad, antes de que alcancen la madurez sexual plena.",
+        {
+            "@type": "Question",
+            name: "¿A qué edad se recomienda esterilizar a mi mascota?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Recomendamos esterilizar a hembras y machos antes de su primer celo o etapa reproductiva (generalmente entre los 4 y 6 meses de edad). Esto reduce drásticamente el riesgo de desarrollar cáncer mamario o prostático en el futuro.",
             },
         },
-        {"@type": "Question",
-            name: "¿Cuánto tiempo dura la recuperación?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Sí, somos un equipo médico especializado exclusivamente en medicina interna y preventiva para perros y gatos.",
-            },
-        },
-        {"@type": "Question",
-            name: "¿La esterilización privada es mejor que la gratuita?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Monitoreo constante y comunicación abierta durante toda la recuperación médica en casa.",
-            },
-        },
-        {"@type": "Question",
-            name: "¿Dónde esterilizar a mi perro cerca de San Pablo Tepetlapa?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
+        {
+            "@type": "Question",
+            name: "¿Mi gata o perra necesita tener una camada antes de esterilizarse?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "No, esto es un mito. No existe ningún beneficio médico ni emocional en permitir que tengan una camada. Al contrario, cada celo que pasan sin reproducirse aumenta su riesgo de desarrollar piometra (infección uterina grave) y tumores.",
             },
         },
     ],
 };
 
-const incluyeCards = [
+const faqs = faqSchema.mainEntity;
+
+const datosCards = [
     {
-        emoji: "🩺",
-        title: "Valoración pre-quirúrgica",
-        desc: "Examen físico integral previo para asegurar que tu mascota esté en óptimas condiciones corporales.",
+        emoji: "📉",
+        dato: "De 25% a 0.05%",
+        desc: "Esterilizar a una hembra antes de su primer celo reduce el riesgo de cáncer de glándula mamaria a casi cero.",
     },
     {
-        emoji: "💉",
-        title: "Anestesia monitoreada",
-        desc: "Protocolos anestésicos seguros con monitoreo constante de signos vitales durante todo el procedimiento.",
+        emoji: "🚨",
+        dato: "80% de riesgo de Piometra",
+        desc: "Las perras no esterilizadas tienen una altísima probabilidad de desarrollar esta infección uterina mortal que requiere cirugía de emergencia.",
     },
     {
-        emoji: "✂️",
-        title: "Cirugía por médico especializado",
-        desc: "Técnicas modernas en quirófano equipado para garantizar mínimas molestias y riesgos.",
+        emoji: "🐈",
+        dato: "7 veces más riesgo en gatas",
+        desc: "Las gatas sin esterilizar son sumamente propensas a tumores mamarios, de los cuales más del 80% suelen ser malignos.",
     },
     {
-        emoji: "🩹",
-        title: "Seguimiento post-operatorio",
-        desc: "Revisiones detalladas para cuidar la correcta cicatrización y pronta recuperación de tu compañero.",
+        emoji: "🐕",
+        dato: "95% en machos senior",
+        desc: "Casi todos los perros machos no castrados (orquiectomía) desarrollan problemas de próstata a partir de los 9 años.",
     },
 ];
 
-const privadaCards = ["Sin lista de espera, agendamos pronto","Anestesia monitoreada todo el tiempo","Seguimiento post-op incluido","Mismo médico que conoce a tu mascota","Atención el mismo día que agendas","En tu colonia — San Pablo Tepetlapa, CP 04620",
+const mitos = [
+    {
+        mito: "Hay que dejarla tener una camada antes de operarla para que no se deprima.",
+        realidad:
+            "Completamente falso. Las mascotas no tienen el deseo psicológico de ser madres. No existe ningún beneficio médico en esperar; de hecho, cada celo aumenta dramáticamente el riesgo de cáncer y piometra.",
+    },
+    {
+        mito: "La cirugía los hace flojos, tristes y gordos.",
+        realidad:
+            "Parcialmente incorrecto. La esterilización disminuye su metabolismo basal porque ya no gastan energía en buscar pareja, pero no cambia su personalidad. El aumento de peso se controla fácilmente ajustando su porción de alimento y manteniendo sus paseos diarios.",
+    },
 ];
 
-const porQueCards = [
+const protocoloPasos = [
     {
-        emoji: "❤️",
-        title: "Sin estrés adicional",
-        desc: "Un ambiente privado y tranquilo hace que la experiencia sea menos traumática para tu mascota.",
+        emoji: "🩸",
+        title: "Estudios Prequirúrgicos Obligatorios",
+        desc: "Antes de la anestesia, realizamos análisis de sangre para verificar que sus riñones e hígado funcionen perfectamente y pueda procesar los medicamentos sin riesgo.",
     },
     {
-        emoji: "🛡️",
-        title: "Seguridad garantizada",
-        desc: "Material quirúrgico esterilizado, medicamentos de alta calidad y protocolos estrictos de higiene.",
+        emoji: "🏥",
+        title: "Quirófano Equipado",
+        desc: "Contamos con monitoreo anestésico constante durante toda la ovariohisterectomía (hembras) o castración (machos).",
     },
     {
-        emoji: "📍",
-        title: "Cerca de ti en Coyoacán",
-        desc: "Ubicados en San Pablo Tepetlapa, facilitando significativamente los traslados y citas post-operatorias.",
+        emoji: "💊",
+        title: "Protocolo del Dolor y Recuperación",
+        desc: "Tu mascota se va a casa el mismo día, caminando, con una receta clara de analgésicos y antibióticos para que su recuperación sea rápida y sin dolor.",
     },
 ];
 
@@ -101,159 +118,190 @@ const relacionadosCards = [
         title: "Consulta Médica",
         emoji: "🩺",
         href: "/servicios/consulta-veterinaria",
-        desc: "Diagnóstico preciso, responsable y medicina preventiva para tu mascota.",
-    },
-    {
-        title: "Cirugías",
-        emoji: "🏥",
-        href: "/servicios/cirugia-veterinaria",
-        desc: "Intervenciones quirúrgicas especializadas.",
+        desc: "Chequeos generales y medicina preventiva.",
     },
     {
         title: "Laboratorio Clínico",
         emoji: "🔬",
         href: "/servicios/laboratorio-clinico",
-        desc: "Análisis clínicos para un diagnóstico exacto.",
+        desc: "Estudios prequirúrgicos y perfiles completos.",
+    },
+    {
+        title: "Estética Canina",
+        emoji: "🛁",
+        href: "/servicios/estetica-canina",
+        desc: "Grooming profesional exclusivo para perros.",
     },
 ];
 ---
 
 <BaseLayout
-    title="Esterilización Veterinaria Coyoacán | Segura y Confiable"
-    description="Esterilización privada para perros y gatos en Coyoacán. Sin filas, anestesia monitoreada y seguimiento post-op. CP 04620. Agenda hoy ☎️ 55 1384 3004"
-    schema={schema}
+    title="Esterilización de Perros y Gatos en Coyoacán | Punto Veterinario"
+    description="Cirugía de esterilización y castración segura en Coyoacán, sur de CDMX. Previene tumores y piometra. Incluye valoración prequirúrgica. ¡Agenda por WhatsApp!"
+    canonical="https://puntoveterinario.com/servicios/esterilizacion"
 >
-    <Schema schema={faqSchema} />
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(faqSchema)}
+        />
+    </Fragment>
 
-    <!-- 1. HERO -->
-    <section class="seccion fondo-blanco">
-        <div class="container hero-inner">
-            <h1 class="titulo-principal">
-                Esterilización Veterinaria en Coyoacán, CDMX | Punto Veterinario
-            </h1>
-            <p class="subtitulo">
-    Ofrecemos esterilización privada para perros y gatos en Coyoacán. Priorizamos la seguridad clínica con anestesia constante y seguimiento.
-</p>
-            <div class="botones">
-                <a
-                    href="https://wa.me/525513843004"
-                    class="btn-primary"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    💬 Agendar por WhatsApp
-                </a>
-                <a href="tel:+525513843004" class="btn-outline">
-                    📞 Llamar ahora
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. ¿QUÉ INCLUYE? -->
-    <section class="seccion fondo-suave">
-        <div class="container">
-            <h2 class="titulo-seccion">
-                ¿Qué incluye la esterilización en Punto Veterinario?
-            </h2>
-            <div class="grid-4">
-                {
-                    incluyeCards.map((item) => (
-                        <div class="card centrado">
-                            <span class="emoji-grande">{item.emoji}</span>
-                            <h3 class="titulo-card">{item.title}</h3>
-                            <p class="texto-suave">{item.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. PRIVADA VS GRATUITA -->
-    <section class="seccion bg-white">
-        <div class="container centrado">
-            <h2 class="titulo-seccion">
-                ¿Por qué elegir esterilización privada en Coyoacán?
-            </h2>
-            <p class="texto-suave parrafo-intro">
-    En Punto Veterinario blindamos la integridad de tu mascota evitando largas filas y atención masiva de las campañas.
-</p>
-            <div class="grid-ventajas fondo-suave">
-                {
-                    privadaCards.map((texto) => (
-                        <div class="ventaja-item">
-                            <span class="check">✅</span>
-                            <span class="ventaja-texto">{texto}</span>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. ¿POR QUÉ ELEGIRNOS? -->
-    <section class="seccion fondo-suave">
-        <div class="container">
-            <h2 class="titulo-seccion">
-                ¿Por qué elegir Punto Veterinario en Coyoacán?
-            </h2>
-            <div class="grid-3">
-                {
-                    porQueCards.map((item) => (
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="emoji-mediano">{item.emoji}</span>
-                                <h3 class="titulo-card">{item.title}</h3>
-                            </div>
-                            <p class="texto-suave">{item.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. FAQ -->
-    <section class="seccion bg-white">
-        <div class="container ">
-            <h2 class="titulo-seccion centrado">
-                Preguntas Frecuentes sobre Esterilización en Coyoacán
-            </h2>
-            <div class="faqs">
-                {
-                    faqSchema.mainEntity.map((faq) => (
-                        <div class="faq-item fondo-suave">
-                            <h3 class="faq-pregunta">{faq.name}</h3>
-                            <p class="texto-suave">{faq.acceptedAnswer.text}</p>
-                        </div>
-                    ))
-                }
-                <div class="faq-item fondo-suave">
-                    <h3 class="faq-pregunta">
-                        ¿Dónde esterilizar a mi perro cerca de San Pablo
-                        Tepetlapa?
-                    </h3>
-                    <p class="texto-suave">
-    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
-</p>
+    <!-- SECCIÓN 1 — HERO -->
+    <section class="hero content-section">
+        <div class="container hero__inner">
+            <div class="hero__text">
+                <h1 class="h1-hero">
+                    Esterilización y Castración de Perros y Gatos en Coyoacán
+                </h1>
+                <p class="hero__desc">
+                    Una decisión preventiva que puede salvarle la vida.
+                    Realizamos cirugías seguras con estudios prequirúrgicos y
+                    monitoreo anestésico en San Pablo Tepetlapa, CDMX. Protege a
+                    tu mascota contra tumores, infecciones y problemas de
+                    comportamiento.
+                </p>
+                <div class="hero__btns">
+                    <a
+                        href="https://wa.me/525513843004"
+                        class="btn-wa"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        💬 Cotizar cirugía por WhatsApp
+                    </a>
+                    <a href="#protocolo" class="btn-sec">
+                        Conoce el proceso seguro →
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. SERVICIOS RELACIONADOS -->
-    <section class="seccion fondo-suave">
+    <!-- SECCIÓN 2 — DATOS MÉDICOS (E-E-A-T) -->
+    <section class="content-section bg-soft">
         <div class="container">
-            <h2 class="titulo-seccion">Otros servicios en Punto Veterinario</h2>
-            <div class="grid-3">
+            <h2 class="titulo-sec">
+                ¿Por qué la esterilización es el mejor acto de amor?
+            </h2>
+            <p class="text-center text-soft intro-desc">
+                Esterilizar a tu mascota no solo evita camadas no deseadas; es
+                la intervención médica preventiva más importante para extender
+                su esperanza de vida y evitar problemas como el cáncer de
+                glándula mamaria o piometra.
+            </p>
+            <div class="grid-datos-medicos">
+                {
+                    datosCards.map((item) => (
+                        <div class="card card-dato">
+                            <span class="dato-emoji">{item.emoji}</span>
+                            <div class="dato-content">
+                                <h3 class="dato-numero">{item.dato}</h3>
+                                <p class="card-desc">{item.desc}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3 — MITO VS REALIDAD -->
+    <section class="content-section">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">
+                Mitos comunes sobre la esterilización y castración de perros
+                CDMX
+            </h2>
+            <div class="mitos-lista">
+                {
+                    mitos.map((m, index) => (
+                        <div class="mito-realidad-box-vertical">
+                            <div class="mito-block">
+                                <span class="bad-icon">❌</span>
+                                <p>
+                                    <strong>Mito {index + 1}:</strong> "{m.mito}
+                                    "
+                                </p>
+                            </div>
+                            <div class="realidad-block">
+                                <span class="good-icon">✅</span>
+                                <p>
+                                    <strong>Realidad:</strong> {m.realidad}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4 — EL PROTOCOLO SEGURO -->
+    <section id="protocolo" class="content-section bg-soft">
+        <div class="container">
+            <h2 class="titulo-sec">
+                ¿Por qué elegir Punto Veterinario para la cirugía de tu mascota?
+            </h2>
+
+            <blockquote class="valor-quote text-center">
+                "En CDMX existen campañas de esterilización gratuita, pero
+                muchas operan sin conocer el estado interno de la mascota. En
+                Punto Veterinario no tomamos riesgos con la vida de tu mejor
+                amigo. Nuestro protocolo quirúrgico es estricto y seguro."
+            </blockquote>
+
+            <div class="timeline-protocolo mt-fluid">
+                {
+                    protocoloPasos.map((paso, index) => (
+                        <div class="timeline-item">
+                            <div class="timeline-marker protocol-marker">
+                                {paso.emoji}
+                            </div>
+                            <div class="timeline-content card card-protocolo">
+                                <span class="paso-num">Paso {index + 1}</span>
+                                <h3 class="timeline-titulo">{paso.title}</h3>
+                                <p class="card-desc">{paso.desc}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <section class="content-section">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">
+                Preguntas frecuentes sobre la esterilización en Coyoacán
+            </h2>
+            <div class="faq-accordion">
+                {
+                    faqs.map((faq) => (
+                        <details class="faq-item">
+                            <summary class="faq-question">{faq.name}</summary>
+                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6 — OTROS SERVICIOS RELACIONADOS -->
+    <section class="content-section bg-soft">
+        <div class="container">
+            <h2 class="titulo-sec">Cuidado integral en San Pablo Tepetlapa</h2>
+            <div class="grid-relacionados">
                 {
                     relacionadosCards.map((s) => (
-                        <a href={s.href} class="card card-link centrado">
-                            <span class="emoji-grande">{s.emoji}</span>
-                            <h3 class="titulo-card">{s.title}</h3>
-                            <p class="texto-suave">{s.desc}</p>
-                            <span class="ver-mas">Ver detalles →</span>
+                        <a href={s.href} class="card card-servicio">
+                            <span class="card-emoji">{s.emoji}</span>
+                            <h3 class="card-titulo">{s.title}</h3>
+                            <p class="card-desc">{s.desc}</p>
+                            <span class="card-ver">Ver detalles →</span>
                         </a>
                     ))
                 }
@@ -261,32 +309,29 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 7. CTA FINAL -->
-    <section class="seccion cta-final centrado">
-        <div class="container ">
-            <h2 class="titulo-cta">
-                ¿Lista para agendar la esterilización en Coyoacán?
+    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <section class="cta-final content-section">
+        <div class="container cta-inner">
+            <h2 class="cta-titulo-blanc">
+                ¿Listo para agendar la esterilización de tu mascota?
             </h2>
-            <p class="texto-cta">
-                <a
-                    href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-                    target="_blank"
-                    rel="noopener"
-                    class="maps-link-blanco"
-                >
-                    Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
-                    Coyoacán
-                </a>
+            <p class="cta-desc-blanc">
+                El costo de prevenir hoy es mucho menor al de tratar una
+                urgencia médica mañana. Contáctanos para cotizar la cirugía de
+                tu perro o gato. Estamos en Av. División del Norte 3595, a
+                minutos del Pedregal de Santo Domingo y Copilco.
             </p>
-            <div class="botones">
-                <a href="/contacto" class="btn-blanco">📅 Agendar Cita</a>
+            <div class="cta-btns">
                 <a
                     href="https://wa.me/525513843004"
                     target="_blank"
                     rel="noopener"
-                    class="btn-outline-blanco"
+                    class="btn-cta-blanco"
                 >
-                    💬 WhatsApp
+                    💬 Cotizar por WhatsApp
+                </a>
+                <a href="tel:+525513843004" class="btn-cta-outline">
+                    📞 Llamar al 55 1384 3004
                 </a>
             </div>
         </div>
@@ -294,274 +339,437 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+    /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
 
+    .content-section {
+        padding-block: clamp(3rem, 6vw, 12rem);
+    }
+    .bg-soft {
+        background: var(--color-bg-soft);
+    }
 
+    .h1-hero {
+        font-size: clamp(1.8rem, 3.2vw, 6rem);
+        color: var(--color-text);
+        line-height: 1.15;
+        margin-bottom: clamp(1rem, 2vw, 3rem);
+    }
 
-    /* ===== HERO CENTRADO ===== */
-    .hero-inner {
+    .titulo-sec {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        color: var(--color-primary);
+        text-align: center;
+        margin-bottom: clamp(2rem, 4vw, 7rem);
+        line-height: 1.2;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .mt-fluid {
+        margin-top: clamp(2rem, 4vw, 7rem);
+    }
+
+    .intro-desc {
+        font-size: clamp(0.95rem, 1.4vw, 2.8rem);
+        max-width: 80%;
+        margin-inline: auto;
+        margin-bottom: clamp(2rem, 4vw, 7rem);
+        line-height: 1.6;
+    }
+
+    /* HERO CLASSES */
+    .hero {
+        background: var(--color-bg);
+    }
+    .hero__inner {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: clamp(1rem, 2vw, 3vw);
+    }
+    .hero__text {
         width: 100%;
+        margin-inline: auto;
     }
-    .titulo-principal {
-        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
-        color: var(--color-primary-dark);
-        line-height: 1.15;
-        margin: 0;
+    @media (min-width: 48rem) {
+        .hero__text {
+            max-width: 80%;
+        }
     }
-    .subtitulo {
-        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
+
+    .hero__desc {
+        font-size: clamp(0.95rem, 1.4vw, 2.8rem);
         color: var(--color-text-soft);
         line-height: 1.6;
-        margin: 0 auto;
-        max-width: 75ch;
-        text-align: center;
+        margin-bottom: clamp(1.5rem, 2vw, 4rem);
+        margin-inline: auto;
     }
-    .botones {
+
+    .hero__btns {
         display: flex;
         flex-wrap: wrap;
-        gap: clamp(0.8rem, 1.5vw, 2.5vw);
+        gap: clamp(0.8rem, 1.5vw, 3rem);
+        margin-bottom: clamp(1rem, 2vw, 4rem);
         justify-content: center;
     }
 
-
-    /* ===== SECCIONES ===== */
-    .seccion {
-        padding-block: clamp(3rem, 6vw, 10vw);
-        width: 100%;
-    }
-    .bg-white {
-        background: var(--color-bg);
-    }
-    .fondo-suave {
-        background: var(--color-bg-soft);
-    }
-    .centrado {
-        text-align: center;
-    }
-    . {
-        
-        margin-inline: auto;
-    }
-
-    /* ===== TIPOGRAFÍA ===== */
-    
-    .parrafo-intro {
-        margin-bottom: clamp(1.5rem, 3vw, 5vw);
-        
-        margin-inline: auto;
-    }
-
-    /* ===== BOTONES ===== */
-    
-    .btn-primary {
+    .btn-wa {
         background: var(--color-primary);
         color: #fff;
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 3vw, 5vw);
-        border-radius: var(--radius);
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
         font-weight: 600;
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
         text-decoration: none;
         transition:
             background 0.2s,
             transform 0.2s;
     }
-    .btn-primary:hover {
+    .btn-wa:hover {
         background: var(--color-primary-dark);
         transform: translateY(-0.15rem);
     }
-    .btn-outline {
-        border: 0.125rem solid var(--color-primary-dark);
-        color: var(--color-primary-dark);
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 3vw, 5vw);
-        border-radius: var(--radius);
+
+    .btn-sec {
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid var(--color-secondary);
+        color: var(--color-secondary-dark);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
         font-weight: 600;
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
         text-decoration: none;
         transition: all 0.2s;
     }
-    .btn-outline:hover {
-        background: var(--color-primary-dark);
+    .btn-sec:hover {
+        background: var(--color-secondary);
         color: #fff;
         transform: translateY(-0.15rem);
     }
 
-    /* ===== GRIDS ===== */
-    .grid-3 {
+    /* GRID LAYOUTS */
+    .grid-datos-medicos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(1.5rem, 3vw, 6rem);
+    }
+    .grid-relacionados {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: clamp(1rem, 2vw, 3.5vw);
+        gap: clamp(1rem, 2vw, 4rem);
     }
-    .grid-4 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: clamp(1rem, 2vw, 3.5vw);
+    @media (max-width: 60rem) {
+        .grid-datos-medicos {
+            grid-template-columns: 1fr;
+        }
+        .grid-relacionados {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 35rem) {
+        .grid-relacionados {
+            grid-template-columns: 1fr;
+        }
     }
 
-    /* ===== CARDS ===== */
+    /* CARDS */
     .card {
         background: var(--color-bg);
-        border: 0.06rem solid var(--color-border);
-        border-radius: var(--radius-lg);
-        padding: clamp(1rem, 2vw, 3.5vw);
-        transition:
-            transform 0.2s,
-            box-shadow 0.2s;
-    }
-    .card:hover {
-        transform: translateY(-0.2rem);
-        box-shadow: var(--shadow-md);
-    }
-    .card-header {
-        display: flex;
-        align-items: center;
-        gap: clamp(0.6rem, 1vw, 1.8vw);
-        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .card-link {
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        padding: clamp(1.2rem, 2vw, 4rem);
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-    }
-    .ver-mas {
-        color: var(--color-primary);
-        font-weight: 700;
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
-        margin-top: clamp(0.6rem, 1vw, 1.8vw);
-    }
-
-    /* ===== EMOJIS ===== */
-    .emoji-grande {
-        font-size: clamp(2.5rem, 5vw, 9vw);
-        display: block;
-        margin-bottom: clamp(0.4rem, 0.8vw, 1.4vw);
-    }
-    .emoji-mediano {
-        font-size: clamp(1.5rem, 3vw, 5.4vw);
-    }
-
-    /* ===== VENTAJAS ===== */
-    .grid-ventajas {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: clamp(0.6rem, 1vw, 1.8vw);
-        padding: clamp(1.5rem, 3vw, 5vw);
-        border-radius: var(--radius-lg);
-        text-align: left;
-    }
-    .ventaja-item {
-        display: flex;
-        align-items: center;
-        gap: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .check {
-        font-size: clamp(1.1rem, 1.8vw, 3vw);
-    }
-    .ventaja-texto {
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
-        font-weight: 600;
-        color: var(--color-primary-dark);
-    }
-
-    /* ===== FAQ ===== */
-    .faqs {
-        display: flex;
-        flex-direction: column;
-        gap: clamp(1rem, 2vw, 3.5vw);
-    }
-    .faq-item {
-        padding: clamp(1.5rem, 3vw, 5vw);
-        border-radius: var(--radius-lg);
-        border: 0.06rem solid var(--color-border);
-    }
-    .faq-pregunta {
-        font-size: clamp(1.1rem, 1.8vw, 3vw);
-        color: var(--color-primary);
-        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
-    }
-
-    /* ===== MAPS LINK ===== */
-    .maps-link {
-        color: var(--color-primary-dark);
-        text-decoration: underline;
-        text-decoration-color: var(--color-primary);
-        text-underline-offset: 0.2rem;
-        transition: color 0.2s;
-    }
-    .maps-link:hover {
-        color: var(--color-primary);
-    }
-
-    /* ===== CTA FINAL ===== */
-    .cta-final {
-        background: var(--color-primary);
-    }
-    .titulo-cta {
-        font-size: clamp(2.2rem, 4vw, 6vw);
-        color: #fff;
-        margin-bottom: clamp(1rem, 2vw, 3.5vw);
-        line-height: 1.2;
-    }
-    .texto-cta {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: clamp(1.1rem, 1.8vw, 3vw);
-        margin-bottom: clamp(2.5rem, 5vw, 8vw);
-        
-    }
-    .maps-link-blanco {
-        color: rgba(255, 255, 255, 0.9);
-        text-decoration: underline;
-        text-decoration-color: rgba(255, 255, 255, 0.5);
-        text-underline-offset: 0.2rem;
-        transition: color 0.2s;
-    }
-    .maps-link-blanco:hover {
-        color: #fff;
-    }
-    .btn-blanco {
-        background: #fff;
-        color: var(--color-primary);
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 3vw, 5vw);
-        border-radius: var(--radius);
-        font-weight: 700;
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
         text-decoration: none;
         transition:
-            transform 0.2s,
-            box-shadow 0.2s;
+            transform 0.3s,
+            box-shadow 0.3s;
     }
-    .btn-blanco:hover {
-        transform: translateY(-0.2rem);
+    .card-servicio:hover {
+        transform: translateY(-0.25rem);
         box-shadow: var(--shadow-md);
     }
-    .btn-outline-blanco {
-        border: 0.125rem solid #fff;
-        color: #fff;
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.5rem, 3vw, 5vw);
-        border-radius: var(--radius);
-        font-weight: 700;
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
-        text-decoration: none;
-        transition: all 0.2s;
-    }
-    .btn-outline-blanco:hover {
-        background: #fff;
-        color: var(--color-primary);
-        transform: translateY(-0.2rem);
+
+    .card-dato {
+        flex-direction: row;
+        align-items: center;
+        gap: clamp(1rem, 2vw, 4rem);
+        border-left: clamp(0.3rem, 0.5vw, 1rem) solid var(--color-secondary);
+        background: var(--color-bg);
     }
 
     @media (max-width: 48rem) {
-        [class*="grid-"] {
-            grid-template-columns: repeat(2, 1fr) !important;
+        .card-dato {
+            flex-direction: column;
+            text-align: center;
         }
     }
-    @media (max-width: 30rem) {
-        [class*="grid-"] {
-            grid-template-columns: 1fr !important;
+
+    .dato-emoji {
+        font-size: clamp(3rem, 5vw, 10rem);
+        flex-shrink: 0;
+    }
+
+    .dato-numero {
+        font-size: clamp(1.2rem, 1.8vw, 3.6rem);
+        color: var(--color-secondary-dark);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.2;
+        font-weight: 800;
+    }
+
+    .card-emoji {
+        font-size: clamp(2rem, 3.5vw, 7rem);
+        margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+        display: block;
+        text-align: center;
+    }
+
+    .card-titulo {
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.3;
+        text-align: center;
+    }
+    .card-desc {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        flex-grow: 1;
+        margin: 0;
+    }
+
+    .card-servicio .card-desc {
+        text-align: center;
+    }
+
+    .card-ver {
+        font-size: clamp(0.9rem, 1.1vw, 2.2rem);
+        color: var(--color-primary);
+        font-weight: 700;
+        margin-top: clamp(0.8rem, 1.2vw, 2.5rem);
+        display: inline-block;
+        text-align: center;
+    }
+
+    /* MITO VS REALIDAD (VERTICAL STACK) */
+    .mitos-lista {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1.5rem, 3vw, 6rem);
+    }
+
+    .mito-realidad-box-vertical {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0rem, 0vw, 0rem); /* No gap, attached */
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    }
+
+    .mito-block,
+    .realidad-block {
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(0.8rem, 1.2vw, 2.5rem);
+        padding: clamp(1rem, 1.5vw, 3rem);
+    }
+    .mito-block {
+        background: var(--color-bg-soft);
+        border-bottom: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    }
+    .realidad-block {
+        background: var(--color-bg);
+    }
+    .mito-block p,
+    .realidad-block p {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        margin: 0;
+        line-height: 1.6;
+    }
+    .mito-block p strong {
+        color: var(--color-urgencia);
+    }
+    .realidad-block p strong {
+        color: #4caf50;
+    }
+    .bad-icon,
+    .good-icon {
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        flex-shrink: 0;
+        margin-top: clamp(0.2rem, 0.4vw, 0.8rem);
+    }
+
+    /* BLOCKQUOTE */
+    .valor-quote {
+        background: var(--color-primary-light);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(1.5rem, 3vw, 6rem);
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+        color: var(--color-primary-dark);
+        font-style: italic;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0 auto;
+        position: relative;
+        max-width: 90%;
+    }
+
+    /* TIMELINE PROTOCOLO */
+    .timeline-protocolo {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1.5rem, 3vw, 6rem);
+        max-width: 80%;
+        margin-inline: auto;
+    }
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        gap: clamp(1rem, 2vw, 4rem);
+    }
+    .protocol-marker {
+        flex-shrink: 0;
+        width: clamp(3rem, 5vw, 10rem);
+        height: clamp(3rem, 5vw, 10rem);
+        background: var(--color-bg);
+        border: clamp(0.15rem, 0.2vw, 0.4rem) solid var(--color-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(1.5rem, 2.5vw, 5rem);
+        box-shadow: var(--shadow);
+    }
+    .timeline-content {
+        flex-grow: 1;
+        text-align: left;
+    }
+    .card-protocolo {
+        position: relative;
+    }
+    .paso-num {
+        font-size: clamp(0.8rem, 1vw, 2rem);
+        color: var(--color-primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: clamp(0.05rem, 0.1vw, 0.2rem);
+        margin-bottom: clamp(0.2rem, 0.5vw, 1rem);
+        display: block;
+    }
+    .timeline-titulo {
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.2;
+    }
+
+    @media (max-width: 48rem) {
+        .timeline-protocolo {
+            max-width: 100%;
         }
+    }
+
+    /* FAQ ACCORDION */
+    .faq-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.8rem, 1.2vw, 2.5rem);
+    }
+    .faq-item {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(1rem, 1.5vw, 3rem);
+    }
+    .faq-item[open] .faq-question {
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.8rem, 1vw, 2rem);
+    }
+    .faq-question {
+        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        font-weight: 600;
+        color: var(--color-text);
+        cursor: pointer;
+        list-style: none; /* Hide default arrow */
+        position: relative;
+        padding-right: clamp(2rem, 3vw, 6rem);
+        line-height: 1.4;
+    }
+    .faq-question::-webkit-details-marker {
+        display: none;
+    }
+    .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        color: var(--color-primary);
+    }
+    .faq-item[open] .faq-question::after {
+        content: "-";
+    }
+    .faq-answer {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* CTA FINAL */
+    .cta-final {
+        background: var(--color-primary);
+        text-align: center;
+        color: #fff;
+    }
+    .cta-titulo-blanc {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        color: #fff;
+        margin-bottom: clamp(1rem, 1.5vw, 3rem);
+        line-height: 1.2;
+    }
+    .cta-desc-blanc {
+        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+        max-width: 70%;
+        margin-inline: auto;
+        color: #fff;
+        opacity: 0.9;
+        line-height: 1.6;
+    }
+    @media (max-width: 48rem) {
+        .cta-desc-blanc {
+            max-width: 90%;
+        }
+    }
+    .cta-btns {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 3rem);
+    }
+    .btn-cta-blanco {
+        background: #fff;
+        color: var(--color-primary-dark);
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .btn-cta-outline {
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid #fff;
+        color: #fff;
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
     }
 </style>
