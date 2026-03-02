@@ -262,8 +262,16 @@ const resenas = [
         <div class="flex-col gap-md bg-soft p-lg border-subtle border-radius">
           <p class="text-soft text-md lh-relaxed m-0 text-primary-dark">
             <span class="fw-bold block">Ubicación central en el sur:</span>
-            Av. División del Norte 3595, San Pablo Tepetlapa,<br />
-            CP 04620, Coyoacán, CDMX.
+            <a 
+  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+  target="_blank"
+  rel="noopener"
+  aria-label="Ver ubicación en Google Maps"
+  class="maps-link"
+>
+  Av. División del Norte 3595, San Pablo Tepetlapa, 
+  CP 04620, Coyoacán, CDMX
+</a>
           </p>
 
           <div class="flex-col gap-sm">
@@ -333,7 +341,16 @@ const resenas = [
         ¿Tu mascota necesita atención en Coyoacán?
       </h2>
       <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-        Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620
+        <a 
+  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+  target="_blank"
+  rel="noopener"
+  aria-label="Ver ubicación en Google Maps"
+  class="maps-link"
+>
+  Av. División del Norte 3595, San Pablo Tepetlapa, 
+  CP 04620, Coyoacán, CDMX
+</a>
       </p>
       <div class="flex-wrap justify-center gap-md">
         <a
@@ -718,5 +735,16 @@ const resenas = [
     .grid-2 {
       grid-template-columns: 1.3fr 1fr;
     }
+  }
+
+  .maps-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 0.2rem;
+    transition: color 0.2s;
+  }
+  .maps-link:hover {
+    color: var(--color-primary);
   }
 </style>

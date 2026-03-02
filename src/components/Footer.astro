@@ -13,7 +13,6 @@ const servicios = [
 
 const linksExtra = [
   { href: "/ubicacion", label: "📍 Cómo llegar" },
-  { href: "/urgencias", label: "🚨 Urgencias" },
   { href: "/blog", label: "📝 Blog veterinario" },
   { href: "/contacto", label: "📅 Agendar cita" },
 ];
@@ -62,9 +61,16 @@ const currentYear = new Date().getFullYear();
         <li>
           <span>📍</span>
           <div>
-            Av. División del Norte 3595<br />
-            San Pablo Tepetlapa<br />
-            CP 04620, Coyoacán, CDMX
+            <a 
+  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+  target="_blank"
+  rel="noopener"
+  aria-label="Ver ubicación en Google Maps"
+  class="maps-link"
+>
+  Av. División del Norte 3595, San Pablo Tepetlapa, 
+  CP 04620, Coyoacán, CDMX
+</a>
           </div>
         </li>
         <li>
@@ -108,7 +114,16 @@ const currentYear = new Date().getFullYear();
   <div class="footer__bottom">
     <div class="container footer__bottom-inner">
       <p>© {currentYear} Punto Veterinario · Coyoacán, CDMX</p>
-      <p>Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620</p>
+      <p><a 
+  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+  target="_blank"
+  rel="noopener"
+  aria-label="Ver ubicación en Google Maps"
+  class="maps-link"
+>
+  Av. División del Norte 3595, San Pablo Tepetlapa, 
+  CP 04620, Coyoacán, CDMX
+</a></p>
     </div>
   </div>
 </footer>
@@ -260,5 +275,16 @@ const currentYear = new Date().getFullYear();
       justify-content: space-between;
       text-align: left;
     }
+  }
+
+  .maps-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 0.2rem;
+    transition: color 0.2s;
+  }
+  .maps-link:hover {
+    color: var(--color-primary);
   }
 </style>

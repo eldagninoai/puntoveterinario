@@ -345,7 +345,16 @@ const relacionadosCards = [
                 ¿Tu mascota merece verse y sentirse bien en Coyoacán?
             </h2>
             <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-                Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620
+                <a 
+  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+  target="_blank"
+  rel="noopener"
+  aria-label="Ver ubicación en Google Maps"
+  class="maps-link"
+>
+  Av. División del Norte 3595, San Pablo Tepetlapa, 
+  CP 04620, Coyoacán, CDMX
+</a>
             </p>
             <div class="flex flex-wrap justify-center gap-md">
                 <a
@@ -594,4 +603,15 @@ const relacionadosCards = [
         background-color: var(--color-bg);
         color: var(--color-primary);
     }
+
+  .maps-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 0.2rem;
+    transition: color 0.2s;
+  }
+  .maps-link:hover {
+    color: var(--color-primary);
+  }
 </style>

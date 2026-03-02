@@ -110,5 +110,13 @@ const { title, description, canonical, ogImage, schema } = Astro.props;
         }
       }
     </style>
+    <script is:inline>
+      // Scroll al tope en cada navegación
+      document.addEventListener('astro:page-load', () => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      });
+      // Para navegación normal sin View Transitions
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    </script>
   </body>
 </html>

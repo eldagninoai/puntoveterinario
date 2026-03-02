@@ -1,4 +1,5 @@
 ---
+const currentPath = Astro.url.pathname;
 const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/servicios/consulta-veterinaria", label: "Consulta Médica" },
@@ -31,15 +32,12 @@ const navLinks = [
         {
           navLinks.map((link) => (
             <li>
-              <a href={link.href} class="nav-link">
+              <a href={link.href} class={`nav-link ${currentPath === link.href ? 'nav-link--active' : ''}`}>
                 {link.label}
               </a>
             </li>
           ))
         }
-        <li>
-          <a href="/urgencias" class="nav-link nav-urgencias">🚨 Urgencias</a>
-        </li>
       </ul>
     </nav>
 
@@ -87,6 +85,8 @@ const navLinks = [
   }
 
   .nav-link {
+    display: block;
+    width: 100%;
     text-decoration: none;
     color: var(--color-text);
     font-size: var(--text-sm);
@@ -103,9 +103,9 @@ const navLinks = [
     background: var(--color-primary-light);
     color: var(--color-primary);
   }
-
-  .nav-urgencias {
-    color: var(--color-urgencia);
+  .nav-link--active {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
     font-weight: 600;
   }
 
@@ -199,6 +199,13 @@ const navLinks = [
     toggle?.addEventListener("click", () => {
       const isOpen = nav?.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.addEventListener('click', (e) => {
+      if (!nav || !toggle) return;
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 </script>
