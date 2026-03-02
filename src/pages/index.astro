@@ -8,7 +8,13 @@ const schema = {
   url: "https://puntoveterinario.com",
   telephone: "+525513843004",
   email: "puntovetcdmx@gmail.com",
-  description: "Veterinaria en Coyoacán CDMX.",
+  description:
+    "Clínica veterinaria en Coyoacán. Consultas médicas, cirugías, estética canina, laboratorio clínico y esterilización en San Pablo Tepetlapa, CP 04620.",
+  image:
+    "https://puntoveterinario.com/images/veterinaria-coyoacan-punto-veterinario.svg",
+  priceRange: "$$",
+  currenciesAccepted: "MXN",
+  paymentAccepted: "Cash, Credit Card",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Av. División del Norte 3595",
@@ -22,6 +28,7 @@ const schema = {
     latitude: 19.322004,
     longitude: -99.13922,
   },
+  hasMap: "https://maps.app.goo.gl/GricGKCzpp6BXJgE7",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -37,6 +44,60 @@ const schema = {
     },
   ],
   sameAs: ["https://www.instagram.com/punto_veterinario/"],
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: 19.322004,
+      longitude: -99.13922,
+    },
+    geoRadius: "5000",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios Veterinarios",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Consulta Veterinaria Coyoacán",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Estética Canina Coyoacán" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Esterilización de mascotas Coyoacán",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Cirugía Veterinaria Coyoacán",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Laboratorio Clínico Veterinario Coyoacán",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Alimento para mascotas San Pablo Tepetlapa",
+        },
+      },
+    ],
+  },
 };
 
 const servicios = [
@@ -121,24 +182,32 @@ const resenas = [
 ---
 
 <BaseLayout
-  title="Veterinaria Coyoacán CDMX | Punto Veterinario"
-  description="Veterinaria en Av. División del Norte, Coyoacán. Consultas, cirugías, estética canina, laboratorio y esterilización. Atendemos a tu mascota con amor. ☎️ 55 1384 3004"
+  title="Veterinaria en Coyoacán CDMX | Punto Veterinario — San Pablo Tepetlapa"
+  description="Clínica veterinaria en Av. División del Norte 3595, San Pablo Tepetlapa CP 04620, Coyoacán CDMX. Consultas, cirugías, estética canina, laboratorio y esterilización. ☎️ 55 1384 3004"
+  canonical="https://puntoveterinario.com"
+  ogImage="/images/veterinaria-coyoacan-punto-veterinario.svg"
   schema={schema}
 >
+  <Fragment slot="head">
+    <link
+      rel="preload"
+      as="video"
+      href="/videos/veterinaria-coyoacan.mp4"
+      type="video/mp4"
+    />
+  </Fragment>
+
   <!-- 1. HERO -->
   <section class="hero">
     <div class="container hero__inner">
       <div class="hero__text">
         <h1>Veterinaria en Coyoacán, CDMX | Punto Veterinario</h1>
-
         <p class="hero__slogan">¡De cola a nariz, tu mascota feliz!</p>
-
         <p class="hero__desc">
-          Atención veterinaria integral con amor y profesionalismo. Encuéntranos
-          en Av. División del Norte, San Pablo Tepetlapa. Ofrecemos consultas
-          médicas, laboratorio, cirugías, estética y esterilización.
+          Clínica veterinaria en Av. División del Norte 3595, San Pablo
+          Tepetlapa CP 04620, Coyoacán. Atendemos perros y gatos con consultas
+          médicas, cirugías, estética canina y laboratorio clínico.
         </p>
-
         <div class="hero__btns">
           <a
             href="https://wa.me/525513843004"
@@ -152,7 +221,6 @@ const resenas = [
             Ver Servicios
           </a>
         </div>
-
         <div class="hero__datos">
           <span>📞 <a href="tel:+525513843004">55 1384 3004</a></span>
           <span>📍 Av. División del Norte 3595, CDMX</span>
@@ -164,24 +232,34 @@ const resenas = [
         </div>
       </div>
 
-      <div class="hero__img">
-        <figure class="hero__figure">
-          <img
-            src="/images/veterinaria-coyoacan-punto-veterinario.svg"
-            alt="Veterinaria Punto Veterinario en Coyoacán, San Pablo Tepetlapa — atención médica para perros y gatos"
-            title="Punto Veterinario — Clínica Veterinaria en Coyoacán, CDMX"
-            class="hero__img-real"
-            width="800"
-            height="600"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-          <figcaption class="visually-hidden">
-            Clínica veterinaria Punto Veterinario ubicada en Av. División del
-            Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán, CDMX
-          </figcaption>
-        </figure>
+      <!-- VIDEO — mismo estilo que nosotros.astro -->
+      <div class="hero-video">
+        <div class="video-wrapper">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="none"
+            class="video-hero"
+            id="video-hero"
+            aria-label="Clínica veterinaria Punto Veterinario en Coyoacán — Av. División del Norte 3595, San Pablo Tepetlapa CP 04620, CDMX"
+            title="Punto Veterinario — Veterinaria en Coyoacán CDMX"
+          >
+            <source src="/videos/veterinaria-coyoacan.mp4" type="video/mp4" />
+            <source
+              src="/videos/veterinaria-coyoacan.mov"
+              type="video/quicktime"
+            />
+          </video>
+          <button
+            class="btn-sonido"
+            id="btn-sonido-hero"
+            aria-label="Activar sonido del video"
+          >
+            🔇
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -257,7 +335,6 @@ const resenas = [
             Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
             Coyoacán, CDMX
           </a>
-
           <div class="transporte-lista">
             <div class="transporte-item">
               <span>🚇</span>
@@ -272,17 +349,14 @@ const resenas = [
               <p><b>En auto:</b> Vía rápida Av. División del Norte 3595</p>
             </div>
           </div>
-
           <div class="horario-box">
             <p><span class="horario-label">Lunes:</span> Cerrado</p>
             <p><span class="horario-label">Mar-Sáb:</span> 10:00 - 19:00 hrs</p>
             <p><span class="horario-label">Dom:</span> 10:00 - 17:00 hrs</p>
           </div>
-
           <a href="/ubicacion" class="btn-mapa">📍 Ver cómo llegar en el mapa</a
           >
         </div>
-
         <div class="mapa-placeholder">
           <span class="pin-emoji">📍</span>
           <p class="mapa-texto">Av. División del Norte 3595,<br />Coyoacán</p>
@@ -321,18 +395,77 @@ const resenas = [
   </section>
 </BaseLayout>
 
+<script is:inline>
+  const videoHero = document.getElementById("video-hero");
+  const btnHero = document.getElementById("btn-sonido-hero");
+  btnHero?.addEventListener("click", () => {
+    if (videoHero.muted) {
+      videoHero.muted = false;
+      btnHero.textContent = "🔊";
+      btnHero.setAttribute("aria-label", "Silenciar video");
+    } else {
+      videoHero.muted = true;
+      btnHero.textContent = "🔇";
+      btnHero.setAttribute("aria-label", "Activar sonido del video");
+    }
+  });
+</script>
+
 <style>
-  /* =============================================
-     SISTEMA DE ESCALA
-     Referencia base: 1920px = 100vw
-     Fórmula: clamp(mobile-min, vw-proporcional, 4K-max)
-     
-     Ejemplos a 1920px | 4K (3840px):
-     2vw  = 38px  | 77px
-     2.5vw = 48px | 96px  
-     3vw  = 58px  | 115px
-     4vw  = 77px  | 154px
-  ============================================= */
+  /* ===== HERO VIDEO — idéntico a nosotros.astro ===== */
+  .hero-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: clamp(14rem, 22vw, 35vw);
+    margin-inline: auto;
+  }
+  .video-hero {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 48rem) {
+    .video-wrapper {
+      max-width: 60vw;
+    }
+  }
+  .btn-sonido {
+    position: absolute;
+    bottom: clamp(0.5rem, 1vw, 1.5vw);
+    right: clamp(0.5rem, 1vw, 1.5vw);
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: clamp(2rem, 3vw, 4rem);
+    height: clamp(2rem, 3vw, 4rem);
+    font-size: clamp(0.9rem, 1.5vw, 2vw);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+    backdrop-filter: blur(4px);
+  }
+  .btn-sonido:hover {
+    background: rgba(0, 0, 0, 0.75);
+    transform: scale(1.1);
+  }
+  @media (max-width: 48rem) {
+    .video-hero {
+      margin-inline: auto;
+    }
+  }
 
   /* ===== SECCIONES ===== */
   .seccion {
@@ -361,9 +494,14 @@ const resenas = [
   }
   .hero__inner {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+    grid-template-columns: 1.4fr 1fr;
     gap: clamp(2rem, 4vw, 8rem);
     align-items: center;
+  }
+  @media (max-width: 48rem) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+    }
   }
   .hero__text h1 {
     font-size: clamp(1.8rem, 3.2vw, 6rem);
@@ -438,38 +576,39 @@ const resenas = [
   .hero__datos a:hover {
     text-decoration: underline;
   }
-  .hero__img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .hero__figure {
-    margin: 0;
-    width: 100%;
-  }
-  .hero__img-real {
-    width: 100%;
-    height: clamp(16rem, 35vw, 70rem);
-    object-fit: contain;
-    border-radius: var(--radius-lg);
-  }
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
 
-  /* ===== CARDS SERVICIOS ===== */
+  /* ===== GRIDS ===== */
   .grid-servicios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: clamp(1rem, 2vw, 4rem);
   }
+  .grid-porque {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1rem, 2vw, 4rem);
+  }
+  .grid-resenas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 4rem);
+  }
+  @media (max-width: 48rem) {
+    .grid-servicios,
+    .grid-porque,
+    .grid-resenas {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 30rem) {
+    .grid-servicios,
+    .grid-porque,
+    .grid-resenas {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== CARDS ===== */
   .card-servicio {
     display: flex;
     flex-direction: column;
@@ -485,13 +624,6 @@ const resenas = [
   .card-servicio:hover {
     transform: translateY(-0.3rem);
     box-shadow: var(--shadow-md);
-  }
-
-  /* ===== CARDS PORQUE ===== */
-  .grid-porque {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-    gap: clamp(1rem, 2vw, 4rem);
   }
   .card-porque {
     display: flex;
@@ -510,13 +642,6 @@ const resenas = [
     transform: translateY(-0.2rem);
     box-shadow: var(--shadow-md);
   }
-
-  /* ===== CARDS RESEÑAS ===== */
-  .grid-resenas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: clamp(1rem, 2vw, 4rem);
-  }
   .card-resena {
     display: flex;
     flex-direction: column;
@@ -525,8 +650,6 @@ const resenas = [
     border-radius: var(--radius-lg);
     padding: clamp(1.2rem, 2.5vw, 5rem);
   }
-
-  /* ===== ELEMENTOS COMPARTIDOS DE CARDS ===== */
   .card-emoji {
     font-size: clamp(2rem, 3.5vw, 7rem);
     display: block;
@@ -575,9 +698,14 @@ const resenas = [
   /* ===== CÓMO LLEGAR ===== */
   .como-llegar-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: clamp(2rem, 4vw, 8rem);
     align-items: center;
+  }
+  @media (max-width: 48rem) {
+    .como-llegar-grid {
+      grid-template-columns: 1fr;
+    }
   }
   .como-llegar-info {
     display: flex;

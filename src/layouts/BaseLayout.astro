@@ -25,6 +25,7 @@ const { title, description, canonical, ogImage, schema } = Astro.props;
       ogImage={ogImage}
       schema={schema}
     />
+      <slot name="head" />
   </head>
   <body>
     <Header />

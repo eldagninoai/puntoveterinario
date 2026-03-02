@@ -121,34 +121,24 @@ const resenas = [
                     💬 Escríbenos por WhatsApp
                 </a>
             </div>
-            <div class="video-wrapper">
-                <video
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    class="video-hero"
-                    id="video-nosotros"
-                    aria-label="Video de la clínica veterinaria Punto Veterinario en Coyoacán, San Pablo Tepetlapa CP 04620 — atención médica para perros"
+            <figure class="nosotros__figure">
+                <img
+                    src="/images/veterinaria-coyoacan-punto-veterinario.svg"
+                    alt="Veterinaria Punto Veterinario en Coyoacán, San Pablo Tepetlapa — atención médica para perros"
                     title="Punto Veterinario — Clínica Veterinaria en Coyoacán, CDMX"
-                >
-                    <source
-                        src="/videos/veterinaria-coyoacan.mp4"
-                        type="video/mp4"
-                    />
-                    <source
-                        src="/videos/veterinaria-coyoacan.mov"
-                        type="video/quicktime"
-                    />
-                </video>
-                <button
-                    class="btn-sonido"
-                    id="btn-sonido"
-                    aria-label="Activar sonido del video"
-                >
-                    🔇
-                </button>
-            </div>
+                    class="nosotros__img"
+                    width="800"
+                    height="600"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                />
+                <figcaption class="visually-hidden">
+                    Clínica veterinaria Punto Veterinario en 
+                    Av. División del Norte 3595, San Pablo Tepetlapa, 
+                    CP 04620, Coyoacán, CDMX
+                </figcaption>
+            </figure>
         </div>
     </section>
 
@@ -260,69 +250,27 @@ const resenas = [
     </section>
 </BaseLayout>
 
-<script is:inline>
-    const video = document.getElementById("video-nosotros");
-    const btn = document.getElementById("btn-sonido");
 
-    btn?.addEventListener("click", () => {
-        if (video.muted) {
-            video.muted = false;
-            btn.textContent = "🔊";
-            btn.setAttribute("aria-label", "Silenciar video");
-        } else {
-            video.muted = true;
-            btn.textContent = "🔇";
-            btn.setAttribute("aria-label", "Activar sonido del video");
-        }
-    });
-</script>
 
 <style>
 
 
-    /* ===== VIDEO WRAPPER & AUDIO BUTTON ===== */
-    .video-wrapper {
-        position: relative;
+    
+    .nosotros__figure { margin: 0; width: 100%; }
+    .nosotros__img {
         width: 100%;
-        max-width: clamp(14rem, 22vw, 35vw);
-    }
-    .video-hero {
-        width: 100%;
-        height: auto;
+        height: clamp(16rem, 35vw, 55vw);
+        object-fit: contain;
         border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-        object-fit: cover;
-        display: block;
     }
-    .btn-sonido {
+    .visually-hidden {
         position: absolute;
-        bottom: clamp(0.5rem, 1vw, 1.5vw);
-        right: clamp(0.5rem, 1vw, 1.5vw);
-        background: rgba(0, 0, 0, 0.55);
-        color: #fff;
-        border: none;
-        border-radius: 50%;
-        width: clamp(2rem, 3vw, 4rem);
-        height: clamp(2rem, 3vw, 4rem);
-        font-size: clamp(0.9rem, 1.5vw, 2vw);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition:
-            background 0.2s,
-            transform 0.2s;
-        backdrop-filter: blur(4px);
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
     }
-    .btn-sonido:hover {
-        background: rgba(0, 0, 0, 0.75);
-        transform: scale(1.1);
-    }
-    @media (max-width: 48rem) {
-        .video-wrapper {
-            max-width: 60vw;
-            margin-inline: auto;
-        }
     }
 
     /* ==============================================================
