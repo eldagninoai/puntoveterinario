@@ -3,222 +3,160 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const schema = {
     "@context": "https://schema.org",
-    "@type": "VeterinaryCare",
-    name: "Punto Veterinario",
-    url: "https://puntoveterinario.com/nosotros",
-    description:
-        "Clínica veterinaria en Coyoacán especializada en atención médica para perros. Equipo de médicos veterinarios en San Pablo Tepetlapa, CP 04620.",
-    address: {
-        "@type": "PostalAddress",
-        streetAddress: "Av. División del Norte 3595",
-        addressLocality: "San Pablo Tepetlapa",
-        postalCode: "04620",
-        addressCountry: "MX",
-    },
-    telephone: "+525513843004",
-    openingHoursSpecification: [
+    "@graph": [
         {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: [
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-            ],
-            opens: "10:00",
-            closes: "19:00",
+            "@type": "AboutPage",
+            name: "Sobre Punto Veterinario",
+            url: "https://puntoveterinario.com/nosotros",
+            description:
+                "Clínica veterinaria familiar en Coyoacán, CDMX. Conoce a nuestro equipo de médicos especialistas enfocados en el bienestar animal.",
         },
         {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Sunday"],
-            opens: "10:00",
-            closes: "17:00",
+            "@type": "VideoObject",
+            name: "Conoce Punto Veterinario - Nuestra Clínica en Coyoacán",
+            description:
+                "Un recorrido por nuestras instalaciones y nuestra filosofía de cuidado y medicina preventiva para perros y gatos en San Pablo Tepetlapa, CDMX.",
+            thumbnailUrl: "https://puntoveterinario.com/video-thumbnail.webp",
+            uploadDate: "2024-01-01T08:00:00+08:00",
+            contentUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         },
     ],
 };
 
-const filosofias = [
+const equipoCards = [
     {
-        emoji: "❤️",
-        title: "Misión",
-        desc: "Brindar atención médica veterinaria de excelencia, promoviendo el bienestar y la salud integral de cada mascota con empatía, compasión y...",
+        imagen: "/placeholder-doctora.webp",
+        nombre: "Dra. Pilar",
+        experiencia:
+            "Medicina interna y preventiva. Especialista en asegurar el bienestar de perros y gatos desde el primer día.",
     },
     {
-        emoji: "👁️",
-        title: "Visión",
-        desc: "Ser la clínica veterinaria de referencia en el sur de la CDMX, destacada por nuestro compromiso humano y la calidad...",
-    },
-    {
-        emoji: "⭐",
-        title: "Valores",
-        desc: "Elaboramos planes terapéuticos efectivos basados en revisiones estrictas y pruebas de laboratorio.",
+        imagen: "/placeholder-doctor.webp",
+        nombre: "Dr. [Nombre del Doctor]",
+        experiencia:
+            "Cirugía de tejidos blandos y odontología canina. Enfoque riguroso en procedimientos seguros y libres de estrés.",
     },
 ];
 
-const porqueConfiar = [
+const filosofiaCards = [
     {
-        emoji: "🏆",
-        title: "Años de experiencia",
-        desc: "Sí, somos un equipo médico especializado exclusivamente en medicina interna y preventiva para perros y gatos.",
+        emoji: "🔍",
+        titulo: "Transparencia Médica",
+        desc: "Nunca te pediremos estudios innecesarios. Te explicamos cada diagnóstico de forma clara y honesta para que tomes la mejor decisión.",
     },
     {
         emoji: "🧘",
-        title: "Ambiente tranquilo",
-        desc: "Atendemos a cada paciente con la paciencia, cariño y compasión que merece en nuestra clínica.",
+        titulo: "Trato Libre de Estrés",
+        desc: "Entendemos que ir al veterinario puede darles miedo. Nos tomamos el tiempo para que se relajen, usando premios y un manejo paciente.",
     },
     {
-        emoji: "🤝",
-        title: "Seguimiento personalizado",
-        desc: "Conocemos a cada paciente por su nombre y a su familia, llevando un control médico estricto.",
-    },
-    {
-        emoji: "📍",
-        title: "Ubicación ideal",
-        desc: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
+        emoji: "📚",
+        titulo: "Actualización Constante",
+        desc: "La medicina veterinaria avanza rápido. Nuestro equipo se capacita continuamente para ofrecerte los tratamientos más seguros y modernos del sur de CDMX.",
     },
 ];
 
-const resenas = [
+const instalacionesImgs = [
     {
-        texto: "Profesionales, excelente servicio al cliente. Las mascotas son atendidas como si fueran las de ellos. Altamente recomendable.",
-        nombre: "Rodrigo Maldonado",
+        src: "/placeholder-recepcion.webp",
+        alt: "Recepción limpia y moderna en Punto Veterinario Coyoacán",
     },
     {
-        texto: "Muy buena atención por parte de la Dra. Pilar. Nos apoyó con la esterilización de mi gatita y salió perfecto.",
-        nombre: "Marcelo Caraveo",
+        src: "/placeholder-quirofano.webp",
+        alt: "Quirófano totalmente equipado en Punto Veterinario Coyoacán",
     },
     {
-        texto: "La Dra. fue la única que dio el diagnóstico correcto. Gracias a eso Max sigue con nosotros y lo mantiene estable.",
-        nombre: "Monica Alvarez",
+        src: "/placeholder-consultorio.webp",
+        alt: "Consultorio amplio para atención libre de estrés en Punto Veterinario Coyoacán",
+    },
+    {
+        src: "/placeholder-estetica.webp",
+        alt: "Área de estética canina e higiene preventiva en Punto Veterinario Coyoacán",
     },
 ];
 ---
 
 <BaseLayout
-    title="Nosotros | Veterinaria en Coyoacán | Punto Veterinario"
-    description="Conoce al equipo de Punto Veterinario, clínica veterinaria en San Pablo Tepetlapa, Coyoacán. Médicos especializados con atención personalizada para tu perro. Av. División del Norte 3595, CP 04620."
+    title="Médicos Veterinarios de Confianza en Coyoacán | Punto Veterinario"
+    description="Conoce a nuestro equipo de médicos veterinarios en Coyoacán. Especialistas en medicina preventiva, cirugía y cuidado animal en San Pablo Tepetlapa."
     canonical="https://puntoveterinario.com/nosotros"
-    ogImage="/images/veterinaria-coyoacan-punto-veterinario.svg"
-    schema={schema}
 >
-    <!-- 1. HERO -->
-    <section class="hero-nosotros">
-        <div class="container hero-inner">
-            <div class="hero-texto">
-                <h1>
-                    Conoce a Punto Veterinario | Veterinaria en Coyoacán, CDMX
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    </Fragment>
+
+    <!-- SECCIÓN 1 — HERO -->
+    <section class="hero content-section">
+        <div class="container hero__inner">
+            <div class="hero__text">
+                <h1 class="h1-hero">
+                    Médicos Veterinarios de Confianza en Coyoacán
                 </h1>
-                <p>
-    Atendemos a cada paciente con la paciencia, cariño y compasión que merece en nuestra clínica.
-</p>
-                <a
-                    href="https://wa.me/525513843004"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-wa"
-                >
-                    💬 Escríbenos por WhatsApp
-                </a>
-            </div>
-            <figure class="nosotros__figure">
-                <img
-                    src="/images/veterinaria-coyoacan-punto-veterinario.svg"
-                    alt="Veterinaria Punto Veterinario en Coyoacán, San Pablo Tepetlapa — atención médica para perros"
-                    title="Punto Veterinario — Clínica Veterinaria en Coyoacán, CDMX"
-                    class="nosotros__img"
-                    width="800"
-                    height="600"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                />
-                <figcaption class="visually-hidden">
-                    Clínica veterinaria Punto Veterinario en 
-                    Av. División del Norte 3595, San Pablo Tepetlapa, 
-                    CP 04620, Coyoacán, CDMX
-                </figcaption>
-            </figure>
-        </div>
-    </section>
-
-    <!-- 2. NUESTRA MISIÓN -->
-    <section class="seccion bg-suave">
-        <div class="container text-center">
-            <h2 class="titulo-sec">Nuestra Filosofía en Punto Veterinario</h2>
-            <p class="seccion__desc">
-    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
-</p>
-
-            <div class="grid-3 mt-lg">
-                {
-                    filosofias.map((f) => (
-                        <div class="card bg-blanco">
-                            <span class="card-emoji d-block">{f.emoji}</span>
-                            <h3 class="card-titulo">{f.title}</h3>
-                            <p class="card-texto">{f.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. NUESTRO EQUIPO -->
-    <section class="seccion bg-blanco">
-        <div class="container text-center">
-            <h2 class="titulo-sec">
-                Nuestro equipo veterinario en Coyoacán, CP 04620
-            </h2>
-
-            <div class="equipo-wrapper mt-lg text-left">
-                <div class="equipo-foto">
-                    <span class="emoji-foto">👩‍⚕️</span>
-                </div>
-                <div class="equipo-info">
-                    <h3 class="equipo-nombre">Dra. Pilar</h3>
-                    <p class="equipo-puesto">Médico Veterinario Zootecnista</p>
-                    <p class="equipo-bio mt-md">
-    Sí, somos un equipo médico especializado exclusivamente en medicina interna y preventiva para perros y gatos.
-</p>
+                <p class="hero__desc">
+                    Sabemos que tu perro o gato no es solo una mascota, es parte
+                    de tu familia. En Punto Veterinario combinamos experiencia
+                    médica, instalaciones seguras y un trato profundamente
+                    humano para cuidar de ellos en San Pablo Tepetlapa.
+                </p>
+                <div class="hero__btns">
+                    <a
+                        href="https://wa.me/525513843004"
+                        class="btn-wa"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        💬 Hablar con el equipo
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. POR QUÉ CONFIAR EN NOSOTROS -->
-    <section class="seccion bg-suave">
-        <div class="container text-center">
-            <h2 class="titulo-sec">
-                ¿Por qué confiar en <strong>Punto Veterinario</strong>?
-            </h2>
-            <div class="grid-4 mt-lg">
-                {
-                    porqueConfiar.map((p) => (
-                        <div class="card bg-blanco hover-lift">
-                            <span class="card-emoji d-block">{p.emoji}</span>
-                            <h3 class="card-titulo">{p.title}</h3>
-                            <p class="card-texto">{p.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. RESEÑAS (Idénticas al home) -->
-    <section class="seccion bg-blanco">
+    <!-- SECCIÓN 2 — EL VIDEO (IMPLEMENTACIÓN FACADE) -->
+    <section class="content-section bg-soft">
         <div class="container">
-            <h2 class="titulo-sec text-center">
-                Lo que dicen nuestros clientes
+            <h2 class="visually-hidden">Nuestra clínica por dentro</h2>
+
+            <div class="video-container" id="video-facade">
+                <!-- Fachada Initial Load -->
+                <img
+                    src="/video-thumbnail.webp"
+                    alt="Recorrido por la clínica Punto Veterinario en Coyoacán"
+                    class="video-thumbnail"
+                    loading="lazy"
+                />
+                <button
+                    class="play-btn"
+                    aria-label="Reproducir video de presentación"
+                >
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3 — NUESTRO EQUIPO MÉDICO -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="titulo-sec">
+                Conoce a los expertos detrás de la salud de tu mascota
             </h2>
-            <div class="grid-resenas mt-lg">
+            <div class="grid-equipo">
                 {
-                    resenas.map((r) => (
-                        <div class="card-resena bg-suave">
-                            <p class="estrellas">⭐⭐⭐⭐⭐</p>
-                            <p class="resena-texto">"{r.texto}"</p>
-                            <p class="resena-nombre">— {r.nombre}</p>
+                    equipoCards.map((doc) => (
+                        <div class="card-equipo">
+                            <img
+                                src={doc.imagen}
+                                alt={`Fotografía de ${doc.nombre}, médico veterinario en Coyoacán CDMX`}
+                                class="equipo-img"
+                                loading="lazy"
+                            />
+                            <div class="equipo-info">
+                                <h3 class="equipo-nombre">MVZ. {doc.nombre}</h3>
+                                <p class="equipo-exp">{doc.experiencia}</p>
+                            </div>
                         </div>
                     ))
                 }
@@ -226,129 +164,186 @@ const resenas = [
         </div>
     </section>
 
-    <!-- 6. CTA FINAL -->
-    <section class="cta-final text-center">
+    <!-- SECCIÓN 4 — NUESTRA FILOSOFÍA Y VALORES -->
+    <section class="content-section bg-soft">
+        <div class="container">
+            <h2 class="titulo-sec">Nuestra promesa para ti y tu mascota</h2>
+            <div class="grid-tres">
+                {
+                    filosofiaCards.map((item) => (
+                        <div class="card card-hover">
+                            <span class="card-emoji">{item.emoji}</span>
+                            <h3 class="card-titulo">{item.titulo}</h3>
+                            <p class="card-desc">{item.desc}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5 — INSTALACIONES (PRUEBA SOCIAL VISUAL BENTO GRID) -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="titulo-sec">Un espacio diseñado para su bienestar</h2>
+            <div class="bento-gallery">
+                {
+                    instalacionesImgs.map((img, index) => (
+                        <div class={`bento-item bento-item--${index + 1}`}>
+                            <img
+                                src={img.src}
+                                alt={img.alt}
+                                class="bento-img"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6 — CTA FINAL LOCAL -->
+    <section class="cta-final content-section">
         <div class="container cta-inner">
-            <h2 class="cta-titulo">
-                ¿Listo para formar parte de la familia de Punto Veterinario?
+            <h2 class="cta-titulo-blanc">
+                Pon la salud de tu mejor amigo en buenas manos
             </h2>
-            <p class="cta-dir">
-    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
-</p>
-            <div class="cta-btns justify-center">
-                <a href="/contacto" class="btn-cta-blanco">📅 Agendar Cita</a>
+            <p class="cta-desc-blanc">
+                Estamos listos para recibir a tu mascota en Av. División del
+                Norte 3595, San Pablo Tepetlapa. Únete a las familias de
+                Coyoacán que confían en Punto Veterinario.
+            </p>
+            <div class="cta-btns">
                 <a
                     href="https://wa.me/525513843004"
                     target="_blank"
                     rel="noopener"
-                    class="btn-cta-outline"
+                    class="btn-cta-blanco"
                 >
-                    💬 Escribir WhatsApp
+                    💬 Contactar por WhatsApp
+                </a>
+                <a href="/ubicacion" class="btn-cta-outline">
+                    📍 ¿Cómo llegar?
                 </a>
             </div>
         </div>
     </section>
 </BaseLayout>
 
+<script>
+    // PATRÓN FACADE PARA VIDEO
+    // Inyecta el iframe solo tras el evento click para salvar métrica TBT en Lighthouse.
+    document.addEventListener("DOMContentLoaded", () => {
+        const facade = document.getElementById("video-facade");
+        if (!facade) return;
 
+        facade.addEventListener(
+            "click",
+            () => {
+                const iframeUrl =
+                    "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0";
+                // NOTA AL CLIENTE: Sustituir dQw4w9WgXcQ por el ID real del video de YouTube.
+
+                const iframe = document.createElement("iframe");
+                iframe.setAttribute("src", iframeUrl);
+                iframe.setAttribute("frameborder", "0");
+                iframe.setAttribute(
+                    "allow",
+                    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+                );
+                iframe.setAttribute("allowfullscreen", "true");
+                iframe.classList.add("video-iframe");
+
+                facade.innerHTML = "";
+                facade.appendChild(iframe);
+            },
+            { once: true },
+        );
+    });
+</script>
 
 <style>
+    /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
+    /* No Tailwind/Bootstrap allowed, 100% Fluid Vanilla CSS */
 
-
-    
-    .nosotros__figure { margin: 0; width: 100%; }
-    .nosotros__img {
-        width: 100%;
-        height: clamp(16rem, 35vw, 55vw);
-        object-fit: contain;
-        border-radius: var(--radius-lg);
+    .content-section {
+        padding-block: clamp(3rem, 6vw, 12rem);
     }
+    .bg-soft {
+        background: var(--color-bg-soft);
+    }
+
     .visually-hidden {
         position: absolute;
-        width: 1px; height: 1px;
-        padding: 0; margin: -1px;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
         overflow: hidden;
-        clip: rect(0,0,0,0);
+        clip: rect(0, 0, 0, 0);
         border: 0;
     }
+
+    .h1-hero {
+        font-size: clamp(1.8rem, 3.2vw, 6rem);
+        color: var(--color-text);
+        line-height: 1.15;
+        margin-bottom: clamp(1rem, 2vw, 3rem);
     }
 
-    /* ==============================================================
-     ESTILOS FLUIDOS - NOSOTROS
-     Todo basado en viewport width (vw) usando clamp(), excepto
-     border-width y opacidades.
-  ============================================================== */
-
-    /* Colores */
-    .bg-blanco {
-        background-color: var(--color-bg);
-    }
-    .bg-suave {
-        background-color: #fafafa;
+    .titulo-sec {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        color: var(--color-primary);
+        text-align: center;
+        margin-bottom: clamp(2rem, 4vw, 7rem);
+        line-height: 1.2;
     }
 
-    /* Utilidades */
     .text-center {
         text-align: center;
     }
-    .text-left {
-        text-align: left;
+
+    /* HERO CLASSES */
+    .hero {
+        background: var(--color-bg);
     }
-    .inline-block {
-        display: inline-block;
+    .hero__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-    .d-block {
-        display: block;
-    }
-    .mx-auto {
+    .hero__text {
+        width: 100%;
         margin-inline: auto;
     }
-    .mt-md {
-        margin-top: clamp(1rem, 2vw, 4vw);
+    @media (min-width: 48rem) {
+        .hero__text {
+            max-width: 80%;
+        }
     }
-    .mt-lg {
-        margin-top: clamp(2rem, 4vw, 8vw);
+
+    .hero__desc {
+        font-size: clamp(0.95rem, 1.4vw, 2.8rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin-bottom: clamp(1.5rem, 2vw, 4rem);
+        margin-inline: auto;
     }
-    .justify-center {
+
+    .hero__btns {
+        display: flex;
         justify-content: center;
     }
 
-    /* Secciones */
-    .seccion {
-        padding-block: clamp(3rem, 6vw, 10vw);
-        width: 100%;
-    }
-
-    .hero-nosotros {
-        padding-block: clamp(2rem, 5vw, 8vw);
-        background: var(--color-bg);
-    }
-    .hero-inner {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: clamp(2rem, 4vw, 7vw);
-        align-items: center;
-    }
-    .hero-texto h1 {
-        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
-        line-height: 1.15;
-        color: var(--color-text);
-        margin-bottom: clamp(1rem, 1.5vw, 2.5vw);
-    }
-    .hero-texto p {
-        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
-        color: var(--color-text-soft);
-        line-height: 1.6;
-        margin-bottom: clamp(1.5rem, 2.5vw, 4vw);
-    }
     .btn-wa {
-        display: inline-block;
         background: var(--color-primary);
         color: #fff;
-        padding: clamp(0.6rem, 1vw, 1.8vw) clamp(1.2rem, 2.5vw, 4vw);
-        font-size: clamp(0.9rem, 1.3vw, 2.2vw);
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
         font-weight: 600;
-        border-radius: var(--radius);
         text-decoration: none;
         transition:
             background 0.2s,
@@ -358,204 +353,329 @@ const resenas = [
         background: var(--color-primary-dark);
         transform: translateY(-0.15rem);
     }
-    .hero-video {
+
+    /* VIDEO FACADE */
+    .video-container {
+        position: relative;
+        width: 100%;
+        max-width: clamp(20rem, 80vw, 800px);
+        margin: 0 auto;
+        aspect-ratio: 16 / 9;
+        background: #000; /* Placeholder color before img loads */
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        transition:
+            transform 0.2s,
+            box-shadow 0.2s;
+    }
+    .video-container:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: var(--shadow-lg);
+    }
+    .video-container:hover .play-btn {
+        transform: translate(-50%, -50%) scale(1.1);
+        background: rgba(98, 215, 213, 0.95); /* Primary hover */
+    }
+
+    .video-thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0.8; /* Slight dim for play button contrast */
+        transition: opacity 0.3s;
+    }
+    .video-container:hover .video-thumbnail {
+        opacity: 0.9;
+    }
+
+    .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: clamp(4rem, 6vw, 10rem);
+        height: clamp(4rem, 6vw, 10rem);
+        background: rgba(98, 215, 213, 0.85); /* Primary */
+        color: #fff;
+        border: none;
+        border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        transition:
+            transform 0.2s,
+            background 0.2s;
+        backdrop-filter: blur(4px);
     }
-    .video-hero {
-        width: 100%;
-
+    .play-btn svg {
+        width: clamp(2rem, 3vw, 5rem);
         height: auto;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-        object-fit: cover;
+        margin-left: clamp(
+            0.2rem,
+            0.4vw,
+            0.8rem
+        ); /* Visual balance for triangle */
+    }
+
+    :global(.video-iframe) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+    }
+
+    /* GRID EQUIPO MÉDICO */
+    .grid-equipo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(1.5rem, 3vw, 6rem);
+        max-width: 900px;
+        margin: 0 auto;
     }
     @media (max-width: 48rem) {
-        .hero-inner {
+        .grid-equipo {
             grid-template-columns: 1fr;
-        }
-        .video-hero {
-            margin-inline: auto;
+            max-width: 500px;
         }
     }
 
-    /* Grids */
-    .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: clamp(1rem, 2vw, 3.5vw);
-    }
-    .grid-4 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: clamp(1rem, 2vw, 3.5vw);
-    }
-
-    /* Cards comunes */
-    .card {
-        padding: clamp(1.5rem, 3vw, 6vw);
-        border-radius: var(--radius-lg);
-        border: 0.1rem solid var(--color-border);
-        box-shadow: 0 clamp(0.2rem, 0.5vw, 1vw) clamp(0.8rem, 1.5vw, 3vw)
-            rgba(0, 0, 0, 0.04);
+    .card-equipo {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
         transition:
             transform 0.3s,
             box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
     }
-    .hover-lift:hover {
-        transform: translateY(clamp(-0.2rem, -0.4vw, -0.8vw));
-        box-shadow: 0 clamp(0.4rem, 0.8vw, 1.5vw) clamp(1.2rem, 2vw, 4vw)
-            rgba(0, 0, 0, 0.08);
+    .card-equipo:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: var(--shadow-md);
+    }
+
+    .equipo-img {
+        width: 100%;
+        height: clamp(15rem, 25vw, 35rem);
+        object-fit: cover;
+        object-position: top center;
+        background: var(--color-bg-soft);
+        border-bottom: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    }
+
+    .equipo-info {
+        padding: clamp(1.2rem, 2vw, 4rem);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .equipo-nombre {
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.2;
+    }
+    .equipo-exp {
+        font-size: clamp(0.95rem, 1.2vw, 2.4rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* GRID FILOSOFÍA (3 COLS) */
+    .grid-tres {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1.5rem, 3vw, 6rem);
+    }
+    @media (max-width: 60rem) {
+        .grid-tres {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 35rem) {
+        .grid-tres {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .card {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        padding: clamp(1.2rem, 2vw, 4rem);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+        box-shadow: var(--shadow-sm);
+    }
+    .card-hover:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: var(--shadow-md);
     }
 
     .card-emoji {
-        font-size: clamp(2.5rem, 4.5vw, 8vw);
-        margin-bottom: clamp(1rem, 1.5vw, 3vw);
+        font-size: clamp(2rem, 3.5vw, 7rem);
+        margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+        display: block;
     }
+
     .card-titulo {
-        font-size: clamp(1.2rem, 1.8vw, 3.5vw);
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
         color: var(--color-primary-dark);
-        margin: 0 0 clamp(0.8rem, 1.2vw, 2.5vw) 0;
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.3;
     }
-    .card-texto {
-        font-size: clamp(0.95rem, 1.1vw, 2.2vw);
+    .card-desc {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 0;
     }
 
-    /* Equipo */
-    .equipo-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: clamp(2rem, 4vw, 8vw);
-
-        background: #fafafa;
-        padding: clamp(2rem, 4vw, 8vw);
-        border-radius: var(--radius-lg);
-        border: 0.1rem solid var(--color-border);
-    }
-    .equipo-foto {
-        flex-shrink: 0;
-        width: clamp(12rem, 20vw, 40vw);
-        height: clamp(12rem, 20vw, 40vw);
-        background: var(--color-primary);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-    }
-    .emoji-foto {
-        font-size: clamp(5rem, 8vw, 15vw);
-    }
-    .equipo-info {
-        flex: 1;
-        min-width: clamp(15rem, 30vw, 100%);
-    }
-    .equipo-nombre {
-        font-size: clamp(1.8rem, 2.8vw, 5vw);
-        color: var(--color-primary-dark);
-        margin: 0;
-    }
-    .equipo-puesto {
-        font-size: clamp(1.1rem, 1.4vw, 3vw);
-        font-weight: 600;
-        color: var(--color-primary);
-        margin: clamp(0.3rem, 0.5vw, 1.5vw) 0 0 0;
-    }
-    .equipo-bio {
-        font-size: clamp(0.95rem, 1.1vw, 2.2vw);
-        color: var(--color-text-soft);
-        line-height: 1.7;
-    }
-
-    /* Reseñas (Idénticas al home v2) */
-    .grid-resenas {
+    /* BENTO GALLERY INSTALACIONES */
+    .bento-gallery {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: clamp(1.5rem, 3vw, 5vw);
-    }
-    .card-resena {
-        background: var(--color-bg-soft);
-        padding: clamp(1.5rem, 2.5vw, 5vw);
-        border-radius: var(--radius-lg);
-        border: 0.1rem solid var(--color-border);
-        transition: transform 0.2s;
-    }
-    .card-resena:hover {
-        transform: translateY(clamp(-0.1rem, -0.3vw, -0.6vw));
-    }
-    .estrellas {
-        font-size: clamp(1rem, 1.2vw, 2.5vw);
-        margin: 0 0 clamp(0.5rem, 1vw, 2vw) 0;
-    }
-    .resena-texto {
-        font-size: clamp(0.95rem, 1.1vw, 2.2vw);
-        color: var(--color-text);
-        font-style: italic;
-        line-height: 1.6;
-        margin: 0 0 clamp(1rem, 1.5vw, 3vw) 0;
-    }
-    .resena-nombre {
-        font-size: clamp(0.9rem, 1vw, 2vw);
-        font-weight: 600;
-        color: var(--color-primary-dark);
-        margin: 0;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: clamp(8rem, 15vw, 25rem);
+        gap: clamp(0.8rem, 1.5vw, 3rem);
     }
 
-    /* CTA Final */
-    .cta-final {
-        background: #62d7d5;
-        padding-block: clamp(4rem, 7vw, 15vw);
+    .bento-item {
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        overflow: hidden;
+        position: relative;
+        box-shadow: var(--shadow-sm);
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+        background: var(--color-bg-soft);
     }
-    .cta-titulo {
-        font-size: clamp(1.6rem, 2.8vw, 5vw);
+    .bento-item:hover {
+        transform: translateY(-0.15rem);
+        box-shadow: var(--shadow-md);
+    }
+    .bento-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    .bento-item:hover .bento-img {
+        transform: scale(1.05);
+    }
+
+    /* Desktop Layout */
+    .bento-item--1 {
+        grid-column: span 2;
+        grid-row: span 2;
+    } /* Large Hero Image */
+    .bento-item--2 {
+        grid-column: span 2;
+        grid-row: span 1;
+    } /* Wide Top Right */
+    .bento-item--3 {
+        grid-column: span 1;
+        grid-row: span 1;
+    } /* Square Bottom Middle */
+    .bento-item--4 {
+        grid-column: span 1;
+        grid-row: span 1;
+    } /* Square Bottom Right */
+
+    /* Tablet Layout */
+    @media (max-width: 60rem) {
+        .bento-gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .bento-item--1 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .bento-item--2 {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .bento-item--3 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .bento-item--4 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+    }
+    /* Mobile Layout */
+    @media (max-width: 35rem) {
+        .bento-gallery {
+            grid-template-columns: 1fr;
+            grid-auto-rows: clamp(12rem, 40vw, 25rem);
+        }
+        .bento-item--1,
+        .bento-item--2,
+        .bento-item--3,
+        .bento-item--4 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+    }
+
+    /* CTA FINAL */
+    .cta-final {
+        background: var(--color-primary);
+        text-align: center;
         color: #fff;
-        margin: 0 0 clamp(1rem, 1.5vw, 3vw) 0;
+    }
+    .cta-titulo-blanc {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        color: #fff;
+        margin-bottom: clamp(1rem, 1.5vw, 3rem);
         line-height: 1.2;
     }
-    .cta-dir {
-        font-size: clamp(1.1rem, 1.5vw, 3vw);
+    .cta-desc-blanc {
+        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+        max-width: 70%;
+        margin-inline: auto;
         color: #fff;
-        text-align: center;
-        margin: 0 0 clamp(2rem, 3.5vw, 6vw) 0;
+        opacity: 0.9;
+        line-height: 1.6;
     }
-    .maps-link-blanco {
-        color: inherit;
-        text-decoration: underline;
-        text-decoration-color: rgba(255, 255, 255, 0.5);
-        text-underline-offset: 0.2rem;
-        transition: text-decoration-color 0.2s;
+    @media (max-width: 48rem) {
+        .cta-desc-blanc {
+            max-width: 90%;
+        }
     }
-    .maps-link-blanco:hover {
-        text-decoration-color: #fff;
-    }
-
     .cta-btns {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
-        gap: clamp(1rem, 1.5vw, 3vw);
+        gap: clamp(0.8rem, 1.5vw, 3rem);
     }
-
-    .btn-cta-blanco,
-    .btn-cta-outline {
-        font-size: clamp(1rem, 1.3vw, 2.6vw);
-        padding: clamp(0.8rem, 1vw, 2vw) clamp(1.5rem, 2.5vw, 5vw);
-        border-radius: var(--radius);
-        font-weight: 700;
-        text-decoration: none;
-        transition:
-            transform 0.2s,
-            background 0.2s,
-            color 0.2s;
-    }
-
     .btn-cta-blanco {
         background: #fff;
         color: var(--color-primary-dark);
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+            transform 0.2s,
+            background 0.2s;
     }
     .btn-cta-blanco:hover {
         transform: translateY(-0.15rem);
@@ -563,23 +683,19 @@ const resenas = [
     }
 
     .btn-cta-outline {
-        background: transparent;
-        border: clamp(0.1rem, 0.15vw, 0.3vw) solid #fff;
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid #fff;
         color: #fff;
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+            transform 0.2s,
+            background 0.2s;
     }
     .btn-cta-outline:hover {
-        background: rgba(255, 255, 255, 0.1);
         transform: translateY(-0.15rem);
-    }
-
-    @media (max-width: 48rem) {
-        [class*="grid-"] {
-            grid-template-columns: repeat(2, 1fr) !important;
-        }
-    }
-    @media (max-width: 30rem) {
-        [class*="grid-"] {
-            grid-template-columns: 1fr !important;
-        }
+        background: rgba(255, 255, 255, 0.1);
     }
 </style>

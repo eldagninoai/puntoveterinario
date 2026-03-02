@@ -1,210 +1,176 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Schema from "../../components/Schema.astro";
 
-const schema = [
-    {"@context": "https://schema.org","@type": "Service",
-        name: "Venta de Alimento para Mascotas en Coyoacán",
-        url: "https://puntoveterinario.com/servicios/alimento-mascotas",
-        description:"Tienda de alimento veterinario para mascotas en Coyoacán. Croquetas premium para perros y gatos en Av. División del Norte 3595, CP 04620.",
-        provider: {"@type": "VeterinaryCare",
-            name: "Punto Veterinario",
-            address: {"@type": "PostalAddress",
-                streetAddress: "Av. División del Norte 3595",
-                addressLocality: "San Pablo Tepetlapa",
-                postalCode: "04620",
-                addressCountry: "MX",
-            },
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Venta de Alimento y Asesoría Nutricional",
+    provider: {
+        "@type": "VeterinaryCare",
+        name: "Punto Veterinario",
+        image: "https://puntoveterinario.com/og-image.jpg",
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "Av. División del Norte 3595",
+            addressLocality: "Coyoacán",
+            addressRegion: "CDMX",
+            postalCode: "04620",
+            addressCountry: "MX",
         },
     },
-];
+    areaServed: {
+        "@type": "AdministrativeArea",
+        name: "Coyoacán",
+    },
+    description:
+        "Alimento premium para perros y gatos en el sur de CDMX. Venta de croquetas de mantenimiento y dietas medicadas/terapéuticas (renal, hepático, urinario).",
+};
 
-const faqSchema = {"@context": "https://schema.org","@type": "FAQPage",
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     mainEntity: [
-        {"@type": "Question",
-            name: "¿Qué es mejor: alimento seco o húmedo para perros?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "La indiscutible respuesta óptima recae en una equilibrada combinación médica o en una elección rotundamente basada en los padecimientos individuales.",
+        {
+            "@type": "Question",
+            name: "¿Cuál es el mejor alimento para mi perro o gato?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "El mejor alimento depende de la edad, tamaño, raza y condición médica de tu mascota (por ejemplo, si está esterilizado o tiene problemas renales). Visítanos en Coyoacán para evaluar su condición corporal y recomendarte la dieta ideal.",
             },
         },
-        {"@type": "Question",
-            name: "¿Cómo elegir las croquetas correctas para mi perro?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "La delicada y responsable e integral elección de la futura bolsa nutricional recae obligatoriamente sobre formales variantes médicas de gran.",
+        {
+            "@type": "Question",
+            name: "¿El alimento de veterinaria es mejor que el del supermercado?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sí. La diferencia principal radica en la digestibilidad, el origen de las proteínas y la densidad de nutrientes. Los alimentos de supermercado suelen tener muchos rellenos que, a largo plazo, pueden causar problemas renales, cutáneos y articulares.",
             },
         },
-        {"@type": "Question",
-            name: "¿Venden alimento para gatos con problemas renales en Coyoacán?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Por supuesto y de manera muy abundante y primordial.",
-            },
-        },
-        {"@type": "Question",
-            name: "¿Dónde comprar croquetas veterinarias cerca de San Pablo Tepetlapa?",
-            acceptedAnswer: {"@type": "Answer",
-                text: "Excelente ubicación al sur de la CDMX en Av. División del Norte 3595, CP 04620, Coyoacán.",
+        {
+            "@type": "Question",
+            name: "¿Venden alimento terapéutico o medicado para mascotas enfermas?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sí, contamos con dietas terapéuticas especializadas (para problemas renales, hepáticos, urinarios o alergias alimentarias) que solo se venden bajo prescripción veterinaria.",
             },
         },
     ],
 };
 
+const faqs = faqSchema.mainEntity;
+
 const alimentosCards = [
     {
-        emoji: "🐕",
-        title: "Croquetas para perros adultos",
-        desc: "Bultos formulados biológicamente de manera equilibrada y contundente para mantener vitalicios y exuberantes la musculatura estriada y proporcionar sostenidas y.",
-    },
-    {
-        emoji: "🐶",
-        title: "Alimento para cachorros",
-        desc: "Potentísimas y formidables matrices repletas por montones de finísimo DHA neuronal y proteínas hidrolizadas en diminutas y crujientes esferas, que.",
-    },
-    {
-        emoji: "🐈",
-        title: "Croquetas para gatos adultos",
-        desc: "Supremas y exquisitas fórmulas altamente balanceadas que controlan irrefutablemente las letales bolas de excesivo pelo ingerido esporádico y mantienen maravillosamente.",
-    },
-    {
-        emoji: "🐱",
-        title: "Alimento para gatitos",
-        desc: "Sustento miniatura super premium denso en insuperables y formidables grasas provechosas y vital taurina que les permiten desbordar inconmensurable y.",
-    },
-    {
-        emoji: "🏥",
-        title: "Dietas veterinarias especiales",
-        desc: "La élite absoluta científica comestible enfocada categóricamente en contener agresivos pero incesantes padecimientos sistémicos tales como las desgastantes anomalías de.",
-    },
-    {
-        emoji: "🌿",
-        title: "Alimento natural y sin cereales",
-        desc: "Vasta selección sublime incondicionalmente reservada a estómagos ultra sensibles intolerantes o para ejemplares exóticos portadores de asimilación débil que reclaman.",
-    },
-];
-
-const porqueAlimentoCards = [
-    {
-        emoji: "💪",
-        title: "Mejor nutrición = menos enfermedades",
-        desc: "Un insuperable sistema hermético inmunológico invencible se forja indudablemente comenzando desde lo profundo e interno del vasto tejido tracto digestivo,.",
-    },
-    {
-        emoji: "🦷",
-        title: "Cuida dientes y digestión",
-        desc: "La gran y precisa fricción estandarizada incesante sobre la fuerte e inquebrantable estructura ósea y maxilar en cada bocado seco.",
-    },
-    {
-        emoji: "✨",
-        title: "Pelaje sano y brillante",
-        desc: "La espléndida, lujosa y majestuosa adición inmaculada natural de insustituibles y esenciales aceites purificados omega tres propicia exuberantemente sedosas y.",
+        emoji: "🦴",
+        title: "Alimento de Mantenimiento",
+        desc: "Fórmulas balanceadas para perros y gatos adultos sanos. Ingredientes de alta digestibilidad que garantizan heces firmes, pelaje brillante y energía constante.",
     },
     {
         emoji: "🩺",
-        title: "Recomendado por nuestros veterinarios",
-        desc: "Garantizamos y sustentamos ciegamente e irrefutablemente desde la noble y pura ética profesional nuestra rotunda sugerencia nutricional basados siempre en.",
+        title: "Dietas Terapéuticas / Medicadas",
+        desc: "Alimentos formulados específicamente para tratar enfermedades (insuficiencia renal, problemas hepáticos, cálculos urinarios o alergias). Estas dietas son parte vital del tratamiento y requieren prescripción veterinaria.",
+    },
+    {
+        emoji: "⚖️",
+        title: "Control de Peso y Esterilizados",
+        desc: "Alimento bajo en calorías para prevenir la obesidad, especialmente diseñado para mascotas esterilizadas o senior que tienen un metabolismo basal más lento.",
     },
 ];
 
-const porQueElegirnosCards = [
+const ventajasLista = [
     {
-        emoji: "🩺",
-        title: "Asesoría veterinaria incluida",
-        desc: "No somos categórica y simplemente aburridos despachadores apáticos, somos profesionales que en todo acto indicamos la proporción nutritiva intachable exenta.",
+        title: "Asesoría sobre la porción correcta",
+        desc: "Evaluamos la condición corporal de tu mascota (escala del 1 al 9) para indicarte exactamente cuántos gramos debe comer al día y evitar la obesidad.",
     },
     {
-        emoji: "🏆",
-        title: "Marcas súper y ultra premium",
-        desc: "Nuestros robustos e imponentes estantes comerciales descansan albergando irrebatiblemente a las auténticas potencias nutritivas planetarias como Hill's Science Diet y.",
+        title: "Transición segura de alimento",
+        desc: "Te explicamos el protocolo gradual de 7 a 10 días para cambiar de croquetas sin causarle vómito o diarrea.",
     },
     {
-        emoji: "📍",
-        title: "En San Pablo Tepetlapa CP 04620",
-        desc: "Proveerse de voluminosas e imponentes pacas fortificadas resultará increíblemente holgado transitar en auto localmente y regresar cargado a cualquier hogar.",
+        title: "Almacenamiento y frescura garantizada",
+        desc: "A diferencia de negocios informales o tianguis, garantizamos la cadena de almacenamiento correcto para que el alimento no pierda propiedades ni desarrolle hongos.",
     },
 ];
 
 const relacionadosCards = [
     {
-        title: "Consulta Veterinaria",
+        title: "Consulta Médica",
         emoji: "🩺",
         href: "/servicios/consulta-veterinaria",
-        desc: "El dictamen esencial previo y oportuno de inmenso y gran valor médico referencial para determinar sin medias tintas la imperativa.",
+        desc: "Evaluación de la condición corporal y prescripción de dieta.",
     },
     {
         title: "Laboratorio Clínico",
         emoji: "🔬",
         href: "/servicios/laboratorio-clinico",
-        desc: "Conocer e identificar la cruda realidad metabólica interna revelada en las infalibles biometrías para afinar abrumadoramente el rumbo hacia una.",
+        desc: "Análisis para determinar si tu mascota necesita alimento terapéutico renal o hepático.",
     },
     {
-        title: "Estética Canina y Felina",
+        title: "Esterilización",
         emoji: "✂️",
-        href: "/servicios/estetica-canina",
-        desc: "El colosal y supremo acompañante de belleza extrínseca de la nutrición; porque de nada sirve brillar y ostentar innegable salud.",
+        href: "/servicios/esterilizacion",
+        desc: "Te asesoramos sobre el alimento ideal post-cirugía para evitar el aumento de peso.",
     },
 ];
 ---
 
 <BaseLayout
-    title="Alimento para Mascotas Coyoacán | Tienda Veterinaria"
-    description="Venta de croquetas y alimento premium para perros y gatos en Coyoacán. Royal Canin, Hills y más. Av. División del Norte 3595, CP 04620, Coyoacán."
-    schema={schema[0]}
+    title="Alimento para Perros y Gatos en Coyoacán | Punto Veterinario"
+    description="Venta de alimento premium y dietas terapéuticas para mascotas en Coyoacán. Croquetas especializadas, control de peso y asesoría nutricional. ¡Visítanos!"
+    canonical="https://puntoveterinario.com/servicios/alimento-mascotas"
 >
-    <Schema schema={faqSchema} />
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(faqSchema)}
+        />
+    </Fragment>
 
-    <!-- 1. HERO -->
-    <section class="seccion fondo-blanco">
-        <div class="container hero-inner">
-            <h1 class="titulo-principal">
-                Alimento para Mascotas en Coyoacán, CDMX | Punto Veterinario
-            </h1>
-            <p class="subtitulo">
-    Dietas especializadas y alimentos premium cuidadosamente seleccionados por médicos veterinarios para cuidar la nutrición de tu mascota.
-</p>
-            <div class="flex flex-wrap gap-md">
-                <a
-                    href="https://wa.me/525513843004"
-                    class="btn-primary text-md px-lg py-sm fw-bold border-radius transition-transform inline-block"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    💬 Agendar por WhatsApp
-                </a>
-                <a
-                    href="tel:+525513843004"
-                    class="btn-outline text-primary-dark text-md px-lg py-sm fw-bold border-radius transition-transform inline-block"
-                >
-                    📞 Llamar ahora
-                </a>
+    <!-- SECCIÓN 1 — HERO -->
+    <section class="hero content-section">
+        <div class="container hero__inner">
+            <div class="hero__text">
+                <h1 class="h1-hero">
+                    Alimento Premium y Dietas Terapéuticas en Coyoacán
+                </h1>
+                <p class="hero__desc">
+                    La nutrición es el factor más importante en la longevidad y
+                    calidad de vida de tu mascota. Encuentra croquetas de alta
+                    digestibilidad y dietas especializadas en San Pablo
+                    Tepetlapa, CDMX, con la asesoría directa de nuestros médicos
+                    veterinarios.
+                </p>
+                <div class="hero__btns">
+                    <a
+                        href="https://wa.me/525513843004"
+                        class="btn-wa"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        💬 Consultar disponibilidad por WhatsApp
+                    </a>
+                    <a href="/ubicacion" class="btn-sec">
+                        📍 Ver ubicación de la clínica
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. ¿QUÉ ALIMENTOS MANEJAMOS? -->
-    <section class="bg-soft py-xl">
+    <!-- SECCIÓN 2 — TIPOS DE ALIMENTO QUE MANEJAMOS -->
+    <section class="content-section bg-soft">
         <div class="container">
-            <h2 class="text-center mb-xl text-primary">
-                Alimento veterinario premium para tu mascota en Coyoacán
+            <h2 class="titulo-sec">
+                Nutrición especializada para cada etapa y necesidad
             </h2>
-            <p
-                class="text-center text-soft text-md mb-lg lh-relaxed"
-            >
-                Sostenemos con sumo vigor en estantes los gigantes mundiales de
-                nutrición que invariablemente garantizan biológicamente una
-                incuestionable pureza exenta de letales desperdicios calóricos.
-            </p>
-            <div class="grid-3 gap-md">
+            <div class="grid-tres">
                 {
                     alimentosCards.map((item) => (
-                        <div class="card p-lg border-subtle bg-white hover-lift flex-col text-center items-center">
-                            <span class="emoji-xl mb-sm block">
-                                {item.emoji}
-                            </span>
-                            <h3 class="text-primary-dark mb-xs text-md">
-                                {item.title}
-                            </h3>
-                            <p class="text-soft text-sm lh-relaxed mt-sm m-0">
-                                {item.desc}
-                            </p>
+                        <div class="card card-hover">
+                            <span class="card-emoji">{item.emoji}</span>
+                            <h3 class="card-titulo">{item.title}</h3>
+                            <p class="card-desc">{item.desc}</p>
                         </div>
                     ))
                 }
@@ -212,32 +178,61 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 3. ¿POR QUÉ ALIMENTO VETERINARIO? -->
-    <section class="bg-white py-xl">
-        <div class="container text-center">
-            <h2 class="text-primary-dark mb-md">
-                ¿Por qué tu mascota merece alimento de calidad?
+    <!-- SECCIÓN 3 — MITO VS REALIDAD (LA TRAMPA DEL SUPERMERCADO) -->
+    <section class="content-section">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">
+                Lo que el alimento económico le cuesta a su salud
             </h2>
-            <p class="text-soft text-md mb-lg lh-relaxed">
-    Renunciar rotundamente y al instante a las dietas burdas de supermercado comercial conformará de inmediato un inestimable parteaguas abismal salvador...
-</p>
-            <div
-                class="grid-2 gap-md text-left bg-soft p-lg border-radius mb-md"
-            >
+
+            <div class="mito-realidad-box mb-fluid">
+                <div class="mito-block">
+                    <span class="bad-icon">❌</span>
+                    <p>
+                        <strong>El Mito:</strong> "El alimento caro es igual al barato
+                        pero con mejor empaque, y los gatos pueden comer lo mismo
+                        que los perros."
+                    </p>
+                </div>
+                <div class="realidad-block">
+                    <span class="good-icon">✅</span>
+                    <p>
+                        <strong>La Realidad:</strong> Totalmente falso. El alimento
+                        comercial de baja calidad usa "rellenos" difíciles de procesar
+                        que a largo plazo dañan los riñones y articulaciones. Además,
+                        los gatos son carnívoros obligados y necesitan taurina en
+                        su dieta; darles alimento de perro puede causarles ceguera
+                        y problemas cardíacos graves.
+                    </p>
+                </div>
+            </div>
+
+            <blockquote class="valor-quote text-center">
+                "La diferencia principal entre un alimento premium y uno
+                económico está en la digestibilidad. Tu mascota aprovecha casi
+                todos los nutrientes del alimento premium, lo que significa que
+                comerá menos cantidad para llenarse, sus heces serán más
+                pequeñas y su salud estará protegida a largo plazo."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4 — LA VENTAJA DE COMPRAR EN LA VETERINARIA -->
+    <section class="content-section bg-soft">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">
+                ¿Por qué comprar el alimento de tu mascota con nosotros?
+            </h2>
+
+            <div class="ventajas-lista">
                 {
-                    porqueAlimentoCards.map((item) => (
-                        <div class="flex flex-col items-start gap-sm hover-lift card border-subtle bg-white p-sm border-radius-sm">
-                            <div class="flex items-center gap-xs">
-                                <span class="emoji-md block mt-xs">
-                                    {item.emoji}
-                                </span>
-                                <span class="text-primary-dark fw-bold text-sm lh-relaxed">
-                                    {item.title}
-                                </span>
+                    ventajasLista.map((vent) => (
+                        <div class="ventaja-item card">
+                            <div class="ventaja-icon">✅</div>
+                            <div class="ventaja-texto">
+                                <h3 class="ventaja-titulo">{vent.title}</h3>
+                                <p class="ventaja-desc">{vent.desc}</p>
                             </div>
-                            <p class="text-soft text-sm lh-relaxed m-0 mt-xs">
-                                {item.desc}
-                            </p>
                         </div>
                     ))
                 }
@@ -245,78 +240,39 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 4. ¿POR QUÉ ELEGIRNOS? -->
-    <section class="bg-soft py-xl">
-        <div class="container">
-            <h2 class="text-center mb-xl text-primary">
-                ¿Por qué adquirir su sustento con nosotros?
+    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <section class="content-section">
+        <div class="container container--narrow">
+            <h2 class="titulo-sec">
+                Dudas frecuentes sobre nutrición canina y felina
             </h2>
-            <div class="grid-3 gap-lg">
+            <div class="faq-accordion">
                 {
-                    porQueElegirnosCards.map((item) => (
-                        <div class="card p-lg border-subtle bg-white flex-col gap-sm hover-lift">
-                            <div class="flex items-center gap-md mb-sm">
-                                <span class="emoji-lg">{item.emoji}</span>
-                                <h3 class="text-primary-dark text-md m-0">
-                                    {item.title}
-                                </h3>
-                            </div>
-                            <p class="text-soft text-sm lh-relaxed m-0">
-                                {item.desc}
-                            </p>
-                        </div>
+                    faqs.map((faq) => (
+                        <details class="faq-item">
+                            <summary class="faq-question">{faq.name}</summary>
+                            <p class="faq-answer">{faq.acceptedAnswer.text}</p>
+                        </details>
                     ))
                 }
             </div>
         </div>
     </section>
 
-    <!-- 5. FAQ -->
-    <section class="bg-white py-xl">
+    <!-- SECCIÓN 6 — SERVICIOS VINCULADOS -->
+    <section class="content-section bg-soft">
         <div class="container">
-            <h2 class="text-center mb-xl text-primary-dark">
-                Preguntas Frecuentes sobre Alimento para Mascotas en Coyoacán
+            <h2 class="titulo-sec">
+                La nutrición es parte del cuidado integral
             </h2>
-            <div class="flex-col gap-lg">
-                {
-                    faqSchema.mainEntity.map((faq) => (
-                        <div class="faq-item p-lg border-subtle bg-soft border-radius transition-transform hover-lift">
-                            <h3 class="text-primary text-md mb-sm">
-                                {faq.name}
-                            </h3>
-                            <p class="text-soft text-sm lh-relaxed m-0">
-                                {faq.acceptedAnswer.text}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. SERVICIOS RELACIONADOS -->
-    <section class="bg-soft py-xl">
-        <div class="container">
-            <h2 class="text-center mb-xl text-primary">
-                Otros servicios en Punto Veterinario
-            </h2>
-            <div class="grid-3 gap-md">
+            <div class="grid-tres">
                 {
                     relacionadosCards.map((s) => (
-                        <a
-                            href={s.href}
-                            class="card p-lg border-subtle bg-white text-center hover-lift flex-col items-center"
-                        >
-                            <span class="emoji-xl mb-sm block">{s.emoji}</span>
-                            <h3 class="text-primary-dark mb-xs text-md">
-                                {s.title}
-                            </h3>
-                            <p class="text-soft text-sm lh-relaxed my-sm m-0">
-                                {s.desc}
-                            </p>
-                            <span class="text-primary fw-bold text-sm mt-auto inline-block pt-sm">
-                                Saber más →
-                            </span>
+                        <a href={s.href} class="card card-hover">
+                            <span class="card-emoji">{s.emoji}</span>
+                            <h3 class="card-titulo">{s.title}</h3>
+                            <p class="card-desc">{s.desc}</p>
+                            <span class="card-ver">Ver detalles →</span>
                         </a>
                     ))
                 }
@@ -324,338 +280,408 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- 7. CTA FINAL -->
-    <section class="cta-section bg-primary py-xl text-center">
-        <div class="container">
-            <h2 class="text-white mb-lg text-2xl lh-1">
-                ¿Buscas alimento premium para tu mascota en Coyoacán?
+    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <section class="cta-final content-section">
+        <div class="container cta-inner">
+            <h2 class="cta-titulo-blanc">
+                ¿Buscas un alimento específico para tu mascota?
             </h2>
-            <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-                <a 
-  href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
-  target="_blank"
-  rel="noopener"
-  aria-label="Ver ubicación en Google Maps"
-  class="maps-link"
->
-  Av. División del Norte 3595, San Pablo Tepetlapa, 
-  CP 04620, Coyoacán, CDMX
-</a>
+            <p class="cta-desc-blanc">
+                Escríbenos para confirmar disponibilidad de marcas y fórmulas
+                especiales. Visítanos en Av. División del Norte 3595, San Pablo
+                Tepetlapa, CDMX, y mejora la nutrición de tu mejor amigo hoy
+                mismo.
             </p>
-            <div class="flex flex-wrap justify-center gap-md">
-                <a
-                    href="/contacto"
-                    class="btn-white-theme text-primary fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
-                    >📅 Agendar Cita</a
-                >
+            <div class="cta-btns">
                 <a
                     href="https://wa.me/525513843004"
                     target="_blank"
                     rel="noopener"
-                    class="btn-outline-white text-white fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
-                    >💬 WhatsApp</a
+                    class="btn-cta-blanco"
                 >
+                    💬 Consultar disponibilidad por WhatsApp
+                </a>
+                <a href="/ubicacion" class="btn-cta-outline">
+                    📍 Ver ubicación y horarios
+                </a>
             </div>
         </div>
     </section>
 </BaseLayout>
 
 <style>
+    /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
+    /* No Tailwind/Bootstrap allowed, 100% Fluid Vanilla CSS */
 
-
-
-    /* ===== HERO CENTRADO ===== */
-    .hero-inner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: clamp(1rem, 2vw, 3vw);
-        width: 100%;
-    }
-    .titulo-principal {
-        font-size: clamp(1.8rem, 3.2vw, 5.5vw);
-        color: var(--color-primary-dark);
-        line-height: 1.15;
-        margin: 0;
-    }
-    .subtitulo {
-        font-size: clamp(0.95rem, 1.4vw, 2.5vw);
-        color: var(--color-text-soft);
-        line-height: 1.6;
-        margin: 0 auto;
-        max-width: 75ch;
-        text-align: center;
-    }
-    .botones {
-        display: flex;
-        flex-wrap: wrap;
-        gap: clamp(0.8rem, 1.5vw, 2.5vw);
-        justify-content: center;
-    }
-
-
-    
-    
-    
-    
-
-    /* Local Fluid CSS Utilities - NO FIXED PX */
-    .bg-white {
-        background-color: var(--color-bg);
+    .content-section {
+        padding-block: clamp(3rem, 6vw, 12rem);
     }
     .bg-soft {
-        background-color: var(--color-bg-soft);
-    }
-    .bg-primary {
-        background-color: var(--color-primary);
+        background: var(--color-bg-soft);
     }
 
-    .text-white {
-        color: var(--color-bg);
+    .h1-hero {
+        font-size: clamp(1.8rem, 3.2vw, 6rem);
+        color: var(--color-text);
+        line-height: 1.15;
+        margin-bottom: clamp(1rem, 2vw, 3rem);
     }
-    .text-primary {
+
+    .titulo-sec {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
         color: var(--color-primary);
-    }
-    .text-primary-dark {
-        color: var(--color-primary-dark);
-    }
-    .text-soft {
-        color: var(--color-text-soft);
+        text-align: center;
+        margin-bottom: clamp(2rem, 4vw, 7rem);
+        line-height: 1.2;
     }
 
     .text-center {
         text-align: center;
     }
-    .text-left {
-        text-align: left;
-    }
-    .text-sm {
-        font-size: clamp(0.9rem, 1.2vw, 2.2vw);
-    }
-    .text-md {
-        font-size: clamp(1.1rem, 1.8vw, 3vw);
-    }
-    .text-lg {
-        font-size: clamp(1.4rem, 2.5vw, 4vw);
-    }
-    .text-2xl {
-        font-size: clamp(2.2rem, 4vw, 6vw);
-    }
-    .fw-bold {
-        font-weight: 700;
+
+    .mb-fluid {
+        margin-bottom: clamp(2rem, 4vw, 7rem);
     }
 
-    .block {
-        display: block;
+    /* HERO CLASSES */
+    .hero {
+        background: var(--color-bg);
     }
-    .inline-block {
-        display: inline-block;
-    }
-    .flex {
-        display: flex;
-    }
-    .flex-col {
+    .hero__inner {
         display: flex;
         flex-direction: column;
-    }
-    .flex-wrap {
-        flex-wrap: wrap;
-    }
-    .flex-fill {
-        flex: 1;
-    }
-    .items-center {
         align-items: center;
+        text-align: center;
     }
-    .items-start {
-        align-items: flex-start;
+    .hero__text {
+        width: 100%;
+        margin-inline: auto;
     }
-    .justify-center {
-        justify-content: center;
+    @media (min-width: 48rem) {
+        .hero__text {
+            max-width: 80%;
+        }
     }
 
-    .m-0 {
-        margin: 0;
-    }
-    .my-sm {
-        margin-block: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .mt-sm {
-        margin-top: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .mt-xs {
-        margin-top: clamp(0.4rem, 0.8vw, 1.4vw);
-    }
-    .mt-auto {
-        margin-top: auto;
-    }
-    .mb-xs {
-        margin-bottom: clamp(0.4rem, 0.8vw, 1.4vw);
-    }
-    .mb-sm {
-        margin-bottom: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .mb-md {
-        margin-bottom: clamp(1rem, 2vw, 3.5vw);
-    }
-    .mb-lg {
-        margin-bottom: clamp(1.5rem, 3vw, 5vw);
-    }
-    .mb-xl {
-        margin-bottom: clamp(2.5rem, 5vw, 8vw);
-    }
-    .mx-auto {
+    .hero__desc {
+        font-size: clamp(0.95rem, 1.4vw, 2.8rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin-bottom: clamp(1.5rem, 2vw, 4rem);
         margin-inline: auto;
     }
 
-    .py-sm {
-        padding-block: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .p-sm {
-        padding: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .pt-sm {
-        padding-top: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .py-xl {
-        padding-block: clamp(2.5rem, 5vw, 8vw);
-    }
-    .p-lg {
-        padding: clamp(1.5rem, 3vw, 5vw);
-    }
-    .px-lg {
-        padding-inline: clamp(1.5rem, 3vw, 5vw);
+    .hero__btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 3rem);
+        margin-bottom: clamp(1rem, 2vw, 4rem);
+        justify-content: center;
     }
 
-    .gap-xs {
-        gap: clamp(0.4rem, 0.8vw, 1.4vw);
+    .btn-wa {
+        background: var(--color-primary);
+        color: #fff;
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+            background 0.2s,
+            transform 0.2s;
     }
-    .gap-sm {
-        gap: clamp(0.6rem, 1vw, 1.8vw);
-    }
-    .gap-md {
-        gap: clamp(1rem, 2vw, 3.5vw);
-    }
-    .gap-lg {
-        gap: clamp(1.5rem, 3vw, 5vw);
+    .btn-wa:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-0.15rem);
     }
 
-    .lh-1 {
-        line-height: 1.2;
+    .btn-sec {
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid var(--color-primary-dark);
+        color: var(--color-primary-dark);
+        background: transparent;
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
     }
-    .lh-relaxed {
+    .btn-sec:hover {
+        background: var(--color-primary-dark);
+        color: #fff;
+        transform: translateY(-0.15rem);
+    }
+
+    /* GRID LAYOUTS */
+    .grid-tres {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1.5rem, 3vw, 6rem);
+    }
+    @media (max-width: 60rem) {
+        .grid-tres {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 35rem) {
+        .grid-tres {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* CARDS */
+    .card {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1.5vw, 2.5rem);
+        padding: clamp(1.2rem, 2vw, 4rem);
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+        box-shadow: var(--shadow-sm);
+    }
+    .card-hover:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: var(--shadow-md);
+    }
+
+    .card-emoji {
+        font-size: clamp(2rem, 3.5vw, 7rem);
+        margin-bottom: clamp(0.8rem, 1.2vw, 2.5rem);
+        display: block;
+        text-align: center;
+    }
+
+    .card-titulo {
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.3;
+        text-align: center;
+    }
+    .card-desc {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        flex-grow: 1;
+        margin: 0;
+        text-align: center;
+    }
+
+    .card-ver {
+        display: block;
+        text-align: center;
+        margin-top: clamp(1rem, 2vw, 3rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        color: var(--color-primary);
+        font-weight: bold;
+    }
+
+    /* MITO VS REALIDAD (VERTICAL STACK) */
+    .mito-realidad-box {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0rem, 0vw, 0rem); /* No gap, attached */
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    }
+
+    .mito-block,
+    .realidad-block {
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(0.8rem, 1.2vw, 2.5rem);
+        padding: clamp(1rem, 1.5vw, 3rem);
+    }
+    .mito-block {
+        background: var(--color-bg);
+        border-bottom: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+    }
+    .realidad-block {
+        background: var(--color-bg-soft);
+    }
+    .mito-block p,
+    .realidad-block p {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        margin: 0;
         line-height: 1.6;
     }
-    . {
-        
+    .mito-block p strong {
+        color: var(--color-urgencia);
     }
-    .opacity-90 {
-        opacity: 0.9;
+    .realidad-block p strong {
+        color: #4caf50;
     }
-
-    .border-radius {
-        border-radius: var(--radius);
-    }
-    .border-radius-sm {
-        border-radius: var(--radius-sm);
-    }
-    .border-subtle {
-        border: 0.1rem solid var(--color-border);
-        border-radius: var(--radius-lg);
+    .bad-icon,
+    .good-icon {
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
+        flex-shrink: 0;
+        margin-top: clamp(0.2rem, 0.4vw, 0.8rem);
     }
 
-    .emoji-md {
-        font-size: clamp(1.2rem, 2vw, 3.6vw);
-        line-height: 1;
-        display: block;
-    }
-    .emoji-lg {
-        font-size: clamp(1.5rem, 3vw, 5.4vw);
-    }
-    .emoji-xl {
-        font-size: clamp(2.5rem, 5vw, 9vw);
-    }
-
-    .transition-transform {
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease,
-            background-color 0.2s ease,
-            color 0.2s ease;
-    }
-    .hover-lift:hover {
-        transform: translateY(-0.2rem);
-        box-shadow: var(--shadow-md);
+    /* BLOCKQUOTE */
+    .valor-quote {
+        background: var(--color-primary-light);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(1.5rem, 3vw, 6rem);
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+        color: var(--color-primary-dark);
+        font-style: italic;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0 auto;
+        position: relative;
+        max-width: 90%;
     }
 
-    a {
-        text-decoration: none;
+    /* VENTAJAS LISTA */
+    .ventajas-lista {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 2vw, 4rem);
     }
 
-    .btn-primary {
-        background-color: var(--color-primary);
-        color: var(--color-bg);
+    .ventaja-item {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: clamp(1rem, 2vw, 4rem);
+        text-align: left;
     }
-    .btn-primary:hover {
-        background-color: var(--color-primary-dark);
-        transform: translateY(-0.15rem);
-    }
-
-    .btn-outline {
-        background-color: transparent;
-        border: 0.15rem solid var(--color-primary-dark);
-    }
-    .btn-outline:hover {
-        background-color: var(--color-primary-dark);
-        color: var(--color-bg);
-        transform: translateY(-0.15rem);
+    @media (max-width: 35rem) {
+        .ventaja-item {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
     }
 
-    .btn-white-theme {
-        background-color: var(--color-bg);
-        border: 0.15rem solid var(--color-bg);
+    .ventaja-icon {
+        font-size: clamp(1.5rem, 2.5vw, 5rem);
+        flex-shrink: 0;
+        margin-top: clamp(0.2rem, 0.4vw, 0.8rem);
     }
-    .btn-white-theme:hover {
-        transform: translateY(-0.2rem);
-        box-shadow: var(--shadow-md);
-        background-color: var(--color-bg-soft);
+    @media (max-width: 35rem) {
+        .ventaja-icon {
+            margin-top: 0;
+        }
     }
 
-    .btn-outline-white {
-        background-color: transparent;
-        border: 0.15rem solid var(--color-bg);
+    .ventaja-titulo {
+        font-size: clamp(1.1rem, 1.6vw, 3.2rem);
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        line-height: 1.3;
     }
-    .btn-outline-white:hover {
-        transform: translateY(-0.2rem);
-        background-color: var(--color-bg);
+    .ventaja-desc {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* FAQ ACCORDION */
+    .faq-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.8rem, 1.2vw, 2.5rem);
+    }
+    .faq-item {
+        background: var(--color-bg);
+        border: clamp(0.05rem, 0.1vw, 0.2rem) solid var(--color-border);
+        border-radius: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(1rem, 1.5vw, 3rem);
+    }
+    .faq-item[open] .faq-question {
+        color: var(--color-primary-dark);
+        margin-bottom: clamp(0.8rem, 1vw, 2rem);
+    }
+    .faq-question {
+        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        font-weight: 600;
+        color: var(--color-text);
+        cursor: pointer;
+        list-style: none; /* Hide default arrow */
+        position: relative;
+        padding-right: clamp(2rem, 3vw, 6rem);
+        line-height: 1.4;
+    }
+    .faq-question::-webkit-details-marker {
+        display: none;
+    }
+    .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: clamp(1.2rem, 1.8vw, 3.5rem);
         color: var(--color-primary);
     }
-
-  .maps-link {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-color: var(--color-primary);
-    text-underline-offset: 0.2rem;
-    transition: color 0.2s;
-  }
-  .maps-link:hover {
-    color: var(--color-primary);
-  }
-
-    .seccion {
-        padding-block: clamp(3rem, 6vw, 10vw);
-        width: 100%;
+    .faq-item[open] .faq-question::after {
+        content: "-";
+    }
+    .faq-answer {
+        font-size: clamp(0.95rem, 1.3vw, 2.6rem);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 0;
     }
 
+    /* CTA FINAL */
+    .cta-final {
+        background: var(--color-primary);
+        text-align: center;
+        color: #fff;
+    }
+    .cta-titulo-blanc {
+        font-size: clamp(1.6rem, 2.8vw, 5rem);
+        color: #fff;
+        margin-bottom: clamp(1rem, 1.5vw, 3rem);
+        line-height: 1.2;
+    }
+    .cta-desc-blanc {
+        font-size: clamp(1rem, 1.4vw, 2.8rem);
+        margin-bottom: clamp(1.5rem, 2.5vw, 5rem);
+        max-width: 70%;
+        margin-inline: auto;
+        color: #fff;
+        opacity: 0.9;
+        line-height: 1.6;
+    }
     @media (max-width: 48rem) {
-        [class*="grid-"] {
-            grid-template-columns: repeat(2, 1fr) !important;
+        .cta-desc-blanc {
+            max-width: 90%;
         }
     }
-    @media (max-width: 30rem) {
-        [class*="grid-"] {
-            grid-template-columns: 1fr !important;
-        }
+    .cta-btns {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 1.5vw, 3rem);
+    }
+    .btn-cta-blanco {
+        background: #fff;
+        color: var(--color-primary-dark);
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .btn-cta-outline {
+        border: clamp(0.1rem, 0.15vw, 0.3rem) solid #fff;
+        color: #fff;
+        padding: clamp(0.6rem, 1.2vw, 2.5rem) clamp(1.2rem, 2.5vw, 5rem);
+        font-size: clamp(0.9rem, 1.2vw, 2.4rem);
+        border-radius: clamp(0.4rem, 1vw, 1.5rem);
+        font-weight: 600;
+        text-decoration: none;
     }
 </style>
