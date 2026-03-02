@@ -137,8 +137,8 @@ const resenas = [
 
         <p class="hero__desc">
           Atención veterinaria integral con amor y profesionalismo. Encuéntranos
-          en Av. División del Norte, San Pablo Tepetlapa. Ofrecemos
-          consultas médicas, laboratorio, cirugías, estética y esterilización.
+          en Av. División del Norte, San Pablo Tepetlapa. Ofrecemos consultas
+          médicas, laboratorio, cirugías, estética y esterilización.
         </p>
 
         <div class="hero__btns">
@@ -167,13 +167,23 @@ const resenas = [
       </div>
 
       <div class="hero__img">
-        <!-- Placeholder imagen requerida -->
-        <div
-          class="hero__placeholder"
-          aria-label="Imagen representativa de mascotas"
-        >
-          🐾
-        </div>
+        <figure class="hero__figure">
+          <img
+            src="/images/veterinaria-coyoacan-punto-veterinario.svg"
+            alt="Veterinaria Punto Veterinario en Coyoacán, San Pablo Tepetlapa — atención médica para perros y gatos"
+            title="Punto Veterinario — Clínica Veterinaria en Coyoacán, CDMX"
+            class="hero__img-real"
+            width="800"
+            height="600"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <figcaption class="visually-hidden">
+            Clínica veterinaria Punto Veterinario ubicada en Av. División del
+            Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán, CDMX
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -286,7 +296,9 @@ const resenas = [
           <div class="horarios-box pt-sm border-top border-border">
             <p class="text-soft text-sm m-0 lh-relaxed">
               <span class="text-primary-dark fw-bold block">Lunes:</span> Cerrado
-              <br /><span class="text-primary-dark fw-bold block mt-xs">Mar-Sáb:</span> 10:00 - 19:00 hrs
+              <br /><span class="text-primary-dark fw-bold block mt-xs"
+                >Mar-Sáb:</span
+              > 10:00 - 19:00 hrs
               <br /><span class="text-primary-dark fw-bold block mt-xs"
                 >Dom:</span
               > 10:00 - 17:00 hrs
@@ -583,16 +595,25 @@ const resenas = [
     align-items: center;
   }
 
-  .hero__placeholder {
-    width: clamp(15rem, 40vw, 28rem);
-    height: clamp(15rem, 40vw, 28rem);
-    background-color: var(--color-primary-light);
+  .hero__figure {
+    margin: 0;
+    width: 100%;
+  }
+  .hero__img-real {
+    width: 100%;
+    height: clamp(18rem, 40vw, 32rem);
+    object-fit: contain;
     border-radius: var(--radius-lg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(6rem, 15vw, 10rem);
-    box-shadow: var(--shadow);
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
 
   /* 6. CTA FINAL */
