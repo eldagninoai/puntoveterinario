@@ -20,7 +20,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
 <header class="header">
   <div class="container header__inner">
     <a href="/" class="logo" aria-label="Inicio">
-      🐾 <span>Punto Veterinario</span>
+      <span>Punto Veterinario</span>
     </a>
 
     <div class="nav-overlay" id="nav-overlay"></div>
@@ -106,7 +106,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
   .header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000 !important;
     background: #fff;
     border-bottom: 0.1rem solid var(--color-border);
     padding-block: max(0.6rem, 1vw);
@@ -117,6 +117,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
     align-items: center;
     justify-content: space-between;
     gap: max(1rem, 2vw);
+    padding-inline: max(1.5rem, 6vw);
   }
 
   /* LOGO */
@@ -125,7 +126,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
     align-items: center;
     gap: max(0.3rem, 0.5vw);
     text-decoration: none;
-    font-size: max(1rem, 1.6vw);
+    font-size: max(1.2rem, 1.8vw);
     font-weight: 700;
     color: var(--color-primary);
     white-space: nowrap;
@@ -146,6 +147,15 @@ const serviciosActivo = currentPath.startsWith("/servicios");
     justify-content: center;
     margin: 0;
     padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    .nav-list {
+      gap: max(1rem, 2.5vw);
+    }
+    .nav-link {
+      padding: max(0.4rem, 0.6vw) max(0.8rem, 1.2vw);
+    }
   }
 
   /* NAV LINKS */
@@ -302,7 +312,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
     color: #fff;
     text-decoration: none;
     font-size: max(0.8rem, 1vw);
-    padding: max(0.35rem, 0.5vw) max(0.7rem, 1.2vw);
+    padding: max(0.5rem, 0.7vw) max(1rem, 1.5vw);
     border-radius: var(--radius);
     font-weight: 700;
     white-space: nowrap;
@@ -330,16 +340,16 @@ const serviciosActivo = currentPath.startsWith("/servicios");
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.3rem;
+      gap: max(0.25rem, 0.4vw);
       background: none;
       border: none;
       cursor: pointer;
-      padding: 0.4rem;
-      z-index: 102;
+      padding: max(0.35rem, 0.6vw);
+      z-index: 1300;
     }
     .nav-toggle span {
       display: block;
-      width: 1.5rem;
+      width: max(1.4rem, 5vw);
       height: 0.15rem;
       background: var(--color-primary);
       border-radius: 1rem;
@@ -360,7 +370,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.4);
-      z-index: 100;
+      z-index: 1100;
       display: none;
     }
     .nav-overlay.active {
@@ -375,10 +385,10 @@ const serviciosActivo = currentPath.startsWith("/servicios");
       bottom: 0;
       width: min(75vw, 20rem);
       background: #fff;
-      z-index: 101;
+      z-index: 1200;
       flex-direction: column;
       justify-content: flex-start;
-      padding: 4rem 1.5rem 2rem;
+      padding: max(3.5rem, 8vw) max(1.5rem, 6vw) max(2rem, 4vw);
       box-shadow: -0.2rem 0 1.5rem rgba(0, 0, 0, 0.1);
       transition: right 0.3s ease;
       overflow-y: auto;
@@ -390,13 +400,13 @@ const serviciosActivo = currentPath.startsWith("/servicios");
     .nav-list {
       flex-direction: column;
       align-items: stretch;
-      gap: 0.3rem;
+      gap: max(0.25rem, 0.5vw);
       width: 100%;
     }
     .nav-link {
       width: 100%;
-      font-size: 1rem;
-      padding: 0.7rem 0.8rem;
+      font-size: max(1rem, 4vw);
+      padding: max(0.65rem, 2vw) max(0.75rem, 2.5vw);
       justify-content: space-between;
     }
 

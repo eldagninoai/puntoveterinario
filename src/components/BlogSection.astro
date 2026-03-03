@@ -1,0 +1,191 @@
+---
+let posts: any[] = Object.values(
+    import.meta.glob("../pages/blog/*.md", { eager: true }),
+);
+
+interface Props {
+    limit?: number;
+}
+const { limit } = Astro.props as Props;
+if (limit) posts = posts.slice(0, limit);
+---
+
+<section class="seccion-blog content-section bg-soft">
+    <h2 class="titulo-sec">
+        Consejos veterinarios para dueños de mascotas en CDMX
+    </h2>
+    <div class="grid-auto">
+        {
+            posts.length > 0 ? (
+                posts.map((post: any) => {
+                    const fm = post.frontmatter ?? {};
+                    return (
+                        <article class="card-ui">
+                            {fm.imagen && (
+                                <img
+                                    src={fm.imagen}
+                                    alt={fm.titulo ?? "Artículo del blog"}
+                                    width="600"
+                                    height="400"
+                                    loading="lazy"
+                                    decoding="async"
+                                    class="blog-img"
+                                    style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
+                                />
+                            )}
+                            <div class="blog-content">
+                                {fm.categoria && (
+                                    <span
+                                        class="card-ver"
+                                        style="margin-top:0; color:var(--color-primary); font-size:var(--text-sm);"
+                                    >
+                                        {fm.categoria}
+                                    </span>
+                                )}
+                                <h3 class="blog-titulo">
+                                    {fm.titulo ?? fm.title}
+                                </h3>
+                                <p class="card-desc">
+                                    {fm.extracto ?? fm.description}
+                                </p>
+                                <a href={post.url ?? "/blog"} class="card-ver">
+                                    Leer artículo →
+                                </a>
+                            </div>
+                        </article>
+                    );
+                })
+            ) : (
+                /* Fallback: artículos hardcodeados mientras no haya .md publicados */
+                <>
+                    <article class="card-ui">
+                        <img
+                            src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80"
+                            alt="Perro en parque - Placeholder"
+                            width="600"
+                            height="400"
+                            loading="lazy"
+                            decoding="async"
+                            class="blog-img"
+                            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
+                        />
+                        <div class="blog-content">
+                            <span
+                                class="card-ver"
+                                style="margin-top:0; color:var(--color-primary); font-size:var(--text-sm);"
+                            >
+                                Prevención
+                            </span>
+                            <h3 class="blog-titulo">
+                                Los mejores parques para perros en Coyoacán
+                            </h3>
+                            <p class="card-desc">
+                                Conoce los espacios más seguros en el sur de la
+                                CDMX y qué vacunas necesita tu mascota antes de
+                                salir a jugar.
+                            </p>
+                            <a
+                                href="/blog/mejores-parques-perros-coyoacan-cuidados"
+                                class="card-ver"
+                            >
+                                Leer artículo →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="card-ui">
+                        <img
+                            src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80"
+                            alt="Gato en revisión - Placeholder"
+                            width="600"
+                            height="400"
+                            loading="lazy"
+                            decoding="async"
+                            class="blog-img"
+                            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
+                        />
+                        <div class="blog-content">
+                            <span
+                                class="card-ver"
+                                style="margin-top:0; color:var(--color-primary); font-size:var(--text-sm);"
+                            >
+                                Salud Felina
+                            </span>
+                            <h3 class="blog-titulo">
+                                ¿Por qué mi gato toma tanta agua?
+                            </h3>
+                            <p class="card-desc">
+                                El aumento en el consumo de agua puede ser una
+                                señal silente de problemas renales. Descubre
+                                cuándo preocuparte.
+                            </p>
+                            <a href="/blog" class="card-ver">
+                                Leer artículo →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="card-ui">
+                        <img
+                            src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=600&q=80"
+                            alt="Perro veterinario - Placeholder"
+                            width="600"
+                            height="400"
+                            loading="lazy"
+                            decoding="async"
+                            class="blog-img"
+                            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
+                        />
+                        <div class="blog-content">
+                            <span
+                                class="card-ver"
+                                style="margin-top:0; color:var(--color-primary); font-size:var(--text-sm);"
+                            >
+                                Nutrición
+                            </span>
+                            <h3 class="blog-titulo">
+                                Croquetas de súper vs. Premium: ¿Cuál elegir?
+                            </h3>
+                            <p class="card-desc">
+                                La diferencia real en digestibilidad y por qué
+                                el alimento económico puede salir más caro a
+                                largo plazo.
+                            </p>
+                            <a
+                                href="/servicios/alimento-mascotas"
+                                class="card-ver"
+                            >
+                                Leer artículo →
+                            </a>
+                        </div>
+                    </article>
+                </>
+            )
+        }
+    </div>
+</section>
+
+<style>
+    /* BLOG */
+    .blog-img {
+        width: 100%;
+        height: max(8rem, 12vw);
+        object-fit: cover;
+        border-radius: max(0.3rem, 0.8vw);
+        margin-bottom: max(0.8rem, 1.2vw);
+    }
+    .blog-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .blog-titulo {
+        color: var(--color-primary-dark);
+        margin-bottom: max(0.5rem, 1vw);
+    }
+    .blog-fecha {
+        font-size: max(0.8rem, 1vw);
+        color: var(--color-text-soft);
+        margin-bottom: max(0.5rem, 1vw);
+    }
+</style>
