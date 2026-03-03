@@ -458,6 +458,24 @@ const relacionadosCards = [
         text-align: center;
     }
 
+    /* Centrado específico para iconos */
+    .icon-scalable,
+    .card-emoji {
+        display: block;
+        text-align: center;
+        margin-inline: auto;
+        font-size: max(3rem, 5vw);
+    }
+
+    /* Centrado de texto SOLO en las cards de grids */
+    .grid-auto .card-ui,
+    .grid-servicios .card-ui {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     /* TIMELINE */
     .timeline {
         display: flex;
@@ -491,6 +509,35 @@ const relacionadosCards = [
     }
     .timeline-content .card-desc {
         text-align: left;
+    }
+    /* Mobile: centra el timeline */
+    @media (max-width: 767px) {
+        .timeline-item {
+            flex-direction: column;
+            align-items: center;
+        }
+        .timeline-content {
+            text-align: center;
+        }
+        .timeline-content .card-desc {
+            text-align: center;
+        }
+    }
+    /* Desktop: restaura alineación izquierda en bloques complejos */
+    @media (min-width: 768px) {
+        .timeline-content {
+            text-align: left;
+        }
+        .timeline-content .card-desc {
+            text-align: left;
+        }
+        .left-align {
+            text-align: left;
+        }
+        .mito-block p,
+        .realidad-block p {
+            text-align: left;
+        }
     }
     .timeline-titulo {
         font-size: max(1.2rem, 1.8vw);
@@ -581,7 +628,6 @@ const relacionadosCards = [
         font-style: normal;
     }
 
-    .placeholder-img {
     .cta-final {
         background: var(--color-primary);
         text-align: center;
@@ -596,7 +642,6 @@ const relacionadosCards = [
     .cta-desc-blanc {
         font-size: max(1rem, 1.3vw);
         margin-bottom: max(1.5rem, 2.5vw);
-
         margin-inline: auto;
         color: #fff;
         opacity: 0.9;
@@ -621,7 +666,8 @@ const relacionadosCards = [
         font-size: max(0.9rem, 1.2vw);
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
-        text-decoration: none;
+        text-decoration: none !important;
+        display: inline-block;
     }
     .btn-cta-outline {
         border: max(0.1rem, 0.15vw) solid #fff;
@@ -630,6 +676,7 @@ const relacionadosCards = [
         font-size: max(0.9rem, 1.2vw);
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
-        text-decoration: none;
+        text-decoration: none !important;
+        display: inline-block;
     }
 </style>

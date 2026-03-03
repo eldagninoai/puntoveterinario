@@ -420,6 +420,7 @@ try {
 
   .content-section {
     padding-block: max(3rem, 6vw);
+    padding-inline: max(1.5rem, 8vw);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -444,6 +445,42 @@ try {
     font-size: max(1.75rem, 3.5vw);
     margin-bottom: max(2rem, 4vw);
     line-height: 1.2;
+    width: 100%;
+  }
+
+  /* =========================================
+     FAQ ACORDEÓN — siempre alineado izquierda
+     ========================================= */
+  .faq-accordion {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: max(0.5rem, 1vw);
+  }
+  .faq-item {
+    width: 100%;
+    text-align: left;
+  }
+  .faq-question {
+    text-align: left;
+    display: block;
+    padding-right: max(2.5rem, 4vw);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: max(1rem, 1.4vw);
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+  .faq-answer {
+    text-align: left;
+    margin: 0;
+    padding-top: max(0.5rem, 0.8vw);
+    font-size: max(0.9rem, 1.2vw);
+    color: var(--color-text-soft);
+    line-height: 1.6;
   }
 
   /* HERO — portada vertical perfecta */
@@ -530,6 +567,16 @@ try {
     transform: translateY(-0.15rem);
   }
 
+  /* Títulos de sección: siempre centrados y ancho completo */
+  .titulo-sec {
+    color: var(--color-primary);
+    text-align: center;
+    font-size: max(1.75rem, 3.5vw);
+    margin-bottom: max(2rem, 4vw);
+    line-height: 1.2;
+    width: 100%;
+  }
+
   .card-titulo,
   .dato-titulo,
   .blog-titulo {
@@ -585,11 +632,13 @@ try {
     }
   }
 
-  /* Forzar que las cards centren su contenido interior */
-  .card-ui {
+  /* Centrado ESPECÍFICO: solo cards dentro de grids de servicios y por qué elegirnos */
+  .grid-auto a.card-ui,
+  .grid-porque .card-ui {
     text-align: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
 
   /* Hover SOLO en tarjetas que son enlace (clickeables) */
@@ -611,6 +660,32 @@ try {
   a.card-ui:hover {
     transform: translateY(max(-5px, -0.5vw));
     box-shadow: 0 max(8px, 0.8vw) max(20px, 2vw) rgba(0, 0, 0, 0.1);
+  }
+
+  /* Desktop: restaurar alineación izquierda en bloques de lectura */
+  @media (min-width: 768px) {
+    .como-llegar-info,
+    .transporte-item p,
+    .horario-box p,
+    .direccion-label {
+      text-align: left;
+    }
+    .resena-texto,
+    .resena-nombre {
+      text-align: left;
+    }
+    .rf-ubicacion-text {
+      text-align: center; /* El párrafo de intro sí se centra */
+    }
+  }
+
+  /* Mobile: centrado total de seguridad */
+  @media (max-width: 767px) {
+    .card-ui,
+    .hero__text {
+      text-align: center;
+      align-items: center;
+    }
   }
 
   /* RESEÑAS ESP */
@@ -773,7 +848,8 @@ try {
     font-size: max(0.9rem, 1.2vw);
     border-radius: max(0.4rem, 1vw);
     font-weight: 600;
-    text-decoration: none;
+    text-decoration: none !important;
+    display: inline-block;
   }
   .btn-cta-outline {
     border: max(0.1rem, 0.15vw) solid #fff;
@@ -782,6 +858,7 @@ try {
     font-size: max(0.9rem, 1.2vw);
     border-radius: max(0.4rem, 1vw);
     font-weight: 600;
-    text-decoration: none;
+    text-decoration: none !important;
+    display: inline-block;
   }
 </style>
