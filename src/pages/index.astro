@@ -511,6 +511,10 @@ try {
 
   .content-section {
     padding-block: max(3rem, 6vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   .pt-0 {
     padding-top: 0;
@@ -545,16 +549,15 @@ try {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: left;
+    text-align: center;
   }
   .hero__text {
     width: 100%;
     margin-inline: auto;
-  }
-  @media (min-width: 48rem) {
-    .hero__text {
-      text-align: center;
-    }
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero__desc {
@@ -584,11 +587,7 @@ try {
     flex-wrap: wrap;
     gap: max(0.8rem, 1.5vw);
     margin-bottom: max(1rem, 2vw);
-  }
-  @media (min-width: 48rem) {
-    .hero__btns {
-      justify-content: center;
-    }
+    justify-content: center;
   }
 
   .btn-wa {
@@ -651,10 +650,13 @@ try {
      ========================================= */
 
   /* Centrado de emojis en tarjetas */
-  .card-emoji {
+  .card-emoji,
+  .icon-scalable {
     display: block;
     text-align: center;
     margin-inline: auto;
+  }
+  .card-emoji {
     font-size: max(3rem, 4.5vw);
     margin-bottom: max(1rem, 1.8vw);
     line-height: 1;
@@ -665,11 +667,20 @@ try {
     display: grid;
     gap: max(1rem, 2vw);
     grid-template-columns: 1fr;
+    width: 100%;
   }
   @media (min-width: 768px) {
     .grid-porque {
       grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
     }
+  }
+
+  /* Forzar que las cards centren su contenido interior */
+  .card-ui {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Hover SOLO en tarjetas que son enlace (clickeables) */
