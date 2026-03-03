@@ -1,3 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary);
+  --color-bg: var(--color-bg);
+  --color-text-soft: var(--color-text-soft);
+
+  --spacing-v-lg: max(2rem, 4vw);
+  --spacing-v-md: max(1rem, 2vw);
+  --spacing-v-sm: max(0.5rem, 1vw);
+
+  --radius-v-lg: max(1rem, 2vw);
+  --radius-v-md: max(0.5rem, 1vw);
+}
+
 /* ===== GOOGLE FONTS — Fredoka ===== */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
 

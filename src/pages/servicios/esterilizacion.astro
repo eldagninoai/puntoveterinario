@@ -207,25 +207,47 @@ const relacionadosCards = [
         <h2 class="titulo-sec">
             Mitos comunes sobre la esterilización y castración de perros CDMX
         </h2>
-        <div class="mitos-lista">
-            {
-                mitos.map((m, index) => (
-                    <div class="mito-realidad-box-vertical">
-                        <div class="mito-block">
-                            <span class="icon-scalable bad-icon">❌</span>
-                            <p>
-                                <strong>Mito {index + 1}:</strong> "{m.mito}"
-                            </p>
-                        </div>
-                        <div class="realidad-block">
-                            <span class="icon-scalable good-icon">✅</span>
-                            <p>
-                                <strong>Realidad:</strong> {m.realidad}
-                            </p>
-                        </div>
+
+        <div class="mito-vs-realidad-grid">
+            <div class="mito-content">
+                <div class="mito-realidad-box">
+                    <div class="mito-block">
+                        <span class="bad-icon">❌</span>
+                        <p>
+                            <strong>Mito 1:</strong> "{mitos[0].mito}"
+                        </p>
                     </div>
-                ))
-            }
+                    <div class="realidad-block">
+                        <span class="good-icon">✅</span>
+                        <p>
+                            <strong>Realidad:</strong>
+                            {mitos[0].realidad}
+                        </p>
+                    </div>
+
+                    <div class="mito-block">
+                        <span class="bad-icon">❌</span>
+                        <p>
+                            <strong>Mito 2:</strong> "{mitos[1].mito}"
+                        </p>
+                    </div>
+                    <div class="realidad-block">
+                        <span class="good-icon">✅</span>
+                        <p>
+                            <strong>Realidad:</strong>
+                            {mitos[1].realidad}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mito-quote-box">
+                <blockquote class="valor-quote">
+                    "Esterilizar a tu mascota antes del primer celo reduce el
+                    riesgo de tumores de mama en un 99.5%. Es el acto de amor
+                    más grande y preventivo que puedes hacer."
+                </blockquote>
+            </div>
         </div>
     </section>
 
@@ -530,21 +552,24 @@ const relacionadosCards = [
         text-align: center;
     }
 
-    /* MITO VS REALIDAD (VERTICAL STACK) */
-    .mitos-lista {
-        display: flex;
-        flex-direction: column;
-        gap: max(1.5rem, 3vw);
+    /* MITO VS REALIDAD — espejo de estetica-canina */
+    .mito-vs-realidad-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: max(2rem, 4vw);
+        align-items: center;
+    }
+    @media (min-width: 64rem) {
+        .mito-vs-realidad-grid {
+            grid-template-columns: 1.2fr 1fr;
+        }
     }
 
-    .mito-realidad-box-vertical {
+    .mito-realidad-box {
         display: flex;
         flex-direction: column;
-        gap: max(0rem, 0vw); /* No gap, attached */
-        border-radius: max(0.5rem, 1vw);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-        border: max(0.05rem, 0.1vw) solid var(--color-border);
+        gap: max(1rem, 2vw);
+        margin-bottom: 0;
     }
 
     .mito-block,
@@ -552,14 +577,18 @@ const relacionadosCards = [
         display: flex;
         align-items: flex-start;
         gap: max(0.8rem, 1.2vw);
+        background: var(--color-bg);
         padding: max(1rem, 1.5vw);
+        border-radius: max(0.5rem, 1vw);
+        border-left: max(0.3rem, 0.5vw) solid;
+        box-shadow: var(--shadow);
+        text-align: left;
     }
     .mito-block {
-        background: var(--color-bg-soft);
-        border-bottom: max(0.05rem, 0.1vw) solid var(--color-border);
+        border-left-color: var(--color-urgencia, #ff4d4d);
     }
     .realidad-block {
-        background: var(--color-bg);
+        border-left-color: #4caf50;
     }
     .mito-block p,
     .realidad-block p {
@@ -567,6 +596,7 @@ const relacionadosCards = [
         color: var(--color-text-soft);
         margin: 0;
         line-height: 1.6;
+        text-align: left;
     }
     .mito-block p strong {
         color: var(--color-urgencia);
@@ -593,7 +623,7 @@ const relacionadosCards = [
         line-height: 1.6;
         margin: 0 auto;
         position: relative;
-        
+        text-align: left;
     }
 
     /* TIMELINE PROTOCOLO */
@@ -733,5 +763,5 @@ const relacionadosCards = [
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
-    };
+    };;;;;;;
 </style>

@@ -330,10 +330,11 @@ const relacionadosCards = [
     }
 
     .h1-hero {
-        font-size: max(1.8rem, 3.2vw);
+        font-size: max(2rem, 5vw); /* Escala idéntica a index.astro */
         color: var(--color-text);
         line-height: 1.15;
         margin-bottom: max(1rem, 2vw);
+        text-align: center;
     }
 
     .titulo-sec {
@@ -373,11 +374,10 @@ const relacionadosCards = [
     .hero__text {
         width: 100%;
         margin-inline: auto;
-    }
-    @media (min-width: 48rem) {
-        .hero__text {
-            text-align: center;
-        }
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hero__desc {

@@ -179,45 +179,43 @@ const relacionadosCards = [
 
     <!-- SECCIÓN 3 — MITO VS REALIDAD (EL PH) -->
     <section class="content-section">
-        <div class="mito-content">
-            <h2 class="titulo-sec left-align">
-                ¿Por qué no deberías bañar a tu perro con tu shampoo?
-            </h2>
+        <h2 class="titulo-sec">
+            ¿Por qué no deberías bañar a tu perro con tu shampoo?
+        </h2>
 
-            <div class="mito-realidad-box">
-                <div class="mito-block">
-                    <span class="icon-scalable bad-icon">❌</span>
-                    <p>
-                        <strong>El Mito:</strong> "Puedo bañar a mi perro con mi shampoo
-                        para personas, o bañarlo muy seguido le hace daño."
-                    </p>
-                </div>
-                <div class="realidad-block">
-                    <span class="icon-scalable good-icon">✅</span>
-                    <p>
-                        <strong>La Realidad:</strong> La piel del perro tiene un pH
-                        diferente (más alcalino) que la humana. Usar productos para
-                        humanos elimina sus aceites naturales y causa resequedad,
-                        caspa e irritación. Con el champú veterinario adecuado, la
-                        frecuencia correcta de un baño profesional y limpieza en peluquería
-                        canina San Pablo Tepetlapa es 100% beneficiosa para su piel
-                        e higiene preventiva.
-                    </p>
+        <div class="mito-vs-realidad-grid">
+            <div class="mito-content">
+                <div class="mito-realidad-box">
+                    <div class="mito-block">
+                        <span class="bad-icon">❌</span>
+                        <p>
+                            <strong>El Mito:</strong> "Puedo bañar a mi perro con
+                            mi shampoo para personas, o bañarlo muy seguido le hace
+                            daño."
+                        </p>
+                    </div>
+                    <div class="realidad-block">
+                        <span class="good-icon">✅</span>
+                        <p>
+                            <strong>La Realidad:</strong> La piel del perro tiene
+                            un pH diferente (más alcalino) que la humana. Usar productos
+                            para humanos elimina sus aceites naturales y causa resequedad,
+                            caspa e irritación. Con el champú veterinario adecuado,
+                            la frecuencia correcta de un baño profesional y limpieza
+                            en peluquería canina San Pablo Tepetlapa es 100% beneficiosa
+                            para su piel e higiene preventiva.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <blockquote class="valor-quote">
-                "En la CDMX, el calor y la contaminación aceleran la acumulación
-                de suciedad y ácaros en el pelaje. Un perro sin nudos y con la
-                piel limpia es un perro menos ansioso, más fresco y mucho más
-                cómodo."
-            </blockquote>
-        </div>
-        <div class="mito-img-box">
-            <!-- Placeholder required by user rule instead of AI generated images unless requested -->
-            <div class="placeholder-img">
-                <span class="pt-icon">🛁</span>
-                <p>Higiene Preventiva</p>
+            <div class="mito-quote-box">
+                <blockquote class="valor-quote">
+                    "En la CDMX, el calor y la contaminación aceleran la
+                    acumulación de suciedad y ácaros en el pelaje. Un perro sin
+                    nudos y con la piel limpia es un perro menos ansioso, más
+                    fresco y mucho más cómodo."
+                </blockquote>
             </div>
         </div>
     </section>
@@ -316,28 +314,28 @@ const relacionadosCards = [
 
     .content-section {
         padding-block: max(3rem, 6vw);
+        padding-inline: max(1.5rem, 8vw);
     }
     .bg-soft {
         background: var(--color-bg-soft);
     }
 
     .h1-hero {
-        font-size: max(1.8rem, 3.2vw);
+        font-size: max(2rem, 5vw); /* Idéntico a index.astro */
         color: var(--color-text);
         line-height: 1.15;
         margin-bottom: max(1rem, 2vw);
+        text-align: center;
     }
 
     .titulo-sec {
-        font-size: max(1.6rem, 2.8vw);
+        font-size: max(1.75rem, 3.5vw);
         color: var(--color-primary);
         text-align: center;
         margin-bottom: max(2rem, 4vw);
         line-height: 1.2;
-    }
-    .left-align {
-        text-align: left;
-        margin-bottom: max(1.5rem, 3vw);
+        width: 100%;
+        margin-inline: auto;
     }
 
     .intro-desc {
@@ -356,16 +354,15 @@ const relacionadosCards = [
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: left;
+        text-align: center;
     }
     .hero__text {
         width: 100%;
         margin-inline: auto;
-    }
-    @media (min-width: 48rem) {
-        .hero__text {
-            text-align: center;
-        }
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hero__desc {
@@ -381,11 +378,7 @@ const relacionadosCards = [
         flex-wrap: wrap;
         gap: max(0.8rem, 1.5vw);
         margin-bottom: max(1rem, 2vw);
-    }
-    @media (min-width: 48rem) {
-        .hero__btns {
-            justify-content: center;
-        }
+        justify-content: center;
     }
 
     .btn-wa {
@@ -456,6 +449,13 @@ const relacionadosCards = [
         font-weight: 600;
         margin-bottom: max(0.8rem, 1.2vw);
     }
+    /* EXCEPCIÓN: cards de frecuencia — alineadas a la izquierda */
+    .grid-auto .card-frecuencia {
+        text-align: left;
+        align-items: flex-start;
+    }
+    .card-frecuencia .frec-titulo,
+    .card-frecuencia .frec-sub,
     .card-frecuencia .card-desc {
         text-align: left;
     }
@@ -469,17 +469,90 @@ const relacionadosCards = [
         text-align: center;
     }
 
-    /* MITO VS REALIDAD */
-    .split-grid {
+    /* T2+T3: Texto de cards SIEMPRE a la izquierda (legibilidad natural) */
+    .icon-scalable,
+    .card-emoji {
+        display: block;
+        align-self: center; /* El ícono sí centrado verticalmente */
+        margin-inline: auto; /* Y horizontalmente */
+        font-size: max(3rem, 5vw);
+        margin-bottom: max(0.6rem, 1vw);
+        text-align: center;
+    }
+    /* T1: Centrado TOTAL en grids de servicio y servicios relacionados */
+    .grid-auto .card-ui,
+    .grid-servicios .card-ui {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    /* Hijos: ancho completo para centrado simétrico */
+    .card-ui .icon-scalable,
+    .card-ui .card-emoji,
+    .card-ui .card-titulo,
+    .card-ui .card-desc,
+    .card-ui .card-ver {
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    /* T2 EXCEPCIÓN: frecuencia — todo a la izquierda */
+    .grid-auto .card-frecuencia {
+        text-align: left;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .card-frecuencia .frec-titulo,
+    .card-frecuencia .frec-sub,
+    .card-frecuencia .card-desc {
+        text-align: left;
+        width: auto;
+    }
+
+    /* T3: FAQ — siempre a la izquierda */
+    .faq-accordion {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: max(0.5rem, 1vw);
+    }
+    .faq-item {
+        width: 100%;
+        text-align: left;
+    }
+    .faq-question {
+        text-align: left;
+        display: block;
+        padding-right: max(2.5rem, 4vw);
+        cursor: pointer;
+        font-weight: 600;
+        font-size: max(1rem, 1.4vw);
+        color: var(--color-text);
+        line-height: 1.4;
+    }
+    .faq-answer {
+        text-align: left;
+        margin: 0;
+        padding-top: max(0.5rem, 0.8vw);
+        font-size: max(0.9rem, 1.2vw);
+        color: var(--color-text-soft);
+        line-height: 1.6;
+    }
+
+    /* MITO VS REALIDAD — misma estructura que consulta-veterinaria */
+    .mito-vs-realidad-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: max(2rem, 4vw);
         align-items: center;
     }
-    @media (
-        }
-        .mito-img-box {
-            display: none;
+    @media (min-width: 64rem) {
+        .mito-vs-realidad-grid {
+            grid-template-columns: 1.2fr 1fr;
         }
     }
 
@@ -495,14 +568,15 @@ const relacionadosCards = [
         display: flex;
         align-items: flex-start;
         gap: max(0.8rem, 1.2vw);
-        background: var(--color-bg-soft);
+        background: var(--color-bg);
         padding: max(1rem, 1.5vw);
         border-radius: max(0.5rem, 1vw);
         border-left: max(0.3rem, 0.5vw) solid;
         box-shadow: var(--shadow);
+        text-align: left;
     }
     .mito-block {
-        border-left-color: var(--color-urgencia);
+        border-left-color: var(--color-urgencia, #ff4d4d);
     }
     .realidad-block {
         border-left-color: #4caf50;
@@ -528,7 +602,7 @@ const relacionadosCards = [
     .valor-quote {
         background: var(--color-primary-light);
         border-radius: max(0.5rem, 1vw);
-        padding: max(1.2rem, 2vw);
+        padding: max(1.5rem, 2.5vw);
         font-size: max(1.05rem, 1.4vw);
         color: var(--color-primary-dark);
         font-style: italic;
@@ -536,6 +610,7 @@ const relacionadosCards = [
         line-height: 1.6;
         margin: 0;
         position: relative;
+        text-align: left;
     }
     .valor-quote::before {
         content: "«";
@@ -580,12 +655,12 @@ const relacionadosCards = [
     .cta-desc-blanc {
         font-size: max(1rem, 1.3vw);
         margin-bottom: max(1.5rem, 2.5vw);
-        
         margin-inline: auto;
         color: #fff;
         opacity: 0.9;
     }
-    @media (
+    .cta-btns {
+        display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: max(0.8rem, 1.5vw);
@@ -597,7 +672,8 @@ const relacionadosCards = [
         font-size: max(0.9rem, 1.2vw);
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
-        text-decoration: none;
+        text-decoration: none !important;
+        display: inline-block;
     }
     .btn-cta-outline {
         border: max(0.1rem, 0.15vw) solid #fff;
@@ -606,6 +682,7 @@ const relacionadosCards = [
         font-size: max(0.9rem, 1.2vw);
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
-        text-decoration: none;
-    };
+        text-decoration: none !important;
+        display: inline-block;
+    }
 </style>

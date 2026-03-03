@@ -1,15 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Schema from "../components/Schema.astro";
+import { MissionSuccessDialog } from "@/components/ui/mission-success-dialog";
 
 const schema = [
-    {"@context": "https://schema.org","@type": "LocalBusiness",
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
         name: "Punto Veterinario",
         url: "https://puntoveterinario.com/contacto",
         telephone: "+525513843004",
         email: "puntovetcdmx@gmail.com",
-        description:"Veterinaria en Coyoacán CDMX, ubicada en San Pablo Tepetlapa. Consultas, cirugías, estética, laboratorio y farmacia.",
-        address: {"@type": "PostalAddress",
+        description:
+            "Veterinaria en Coyoacán CDMX, ubicada en San Pablo Tepetlapa. Consultas, cirugías, estética, laboratorio y farmacia.",
+        address: {
+            "@type": "PostalAddress",
             streetAddress: "Av. División del Norte 3595",
             addressLocality: "San Pablo Tepetlapa",
             addressRegion: "Coyoacán, Ciudad de México",
@@ -17,13 +22,20 @@ const schema = [
             addressCountry: "MX",
         },
         openingHoursSpecification: [
-            {"@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Tuesday","Wednesday","Thursday","Friday","Saturday",
+            {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
                 ],
                 opens: "10:00",
                 closes: "19:00",
             },
-            {"@type": "OpeningHoursSpecification",
+            {
+                "@type": "OpeningHoursSpecification",
                 dayOfWeek: ["Sunday"],
                 opens: "10:00",
                 closes: "17:00",
@@ -40,263 +52,291 @@ const schema = [
 >
     <!-- 1. HERO -->
     <section class="seccion fondo-blanco">
-            <h1 class="titulo-principal">
-                Contacto y Citas | Punto Veterinario Coyoacán
-            </h1>
-            <p class="subtitulo">
-    Servicio profesional de estética, baño y cortes especializados respetando la tranquilidad de tu mascota.
-</p>
-        </section>
+        <h1 class="titulo-principal">
+            Contacto y Citas | Punto Veterinario Coyoacán
+        </h1>
+        <p class="subtitulo">
+            Servicio profesional de estética, baño y cortes especializados
+            respetando la tranquilidad de tu mascota.
+        </p>
+    </section>
 
     <!-- 2. GRID 2 COLUMNAS -->
     <section class="bg-soft py-xl">
-            <div class="grid-2-form gap-xl">
-                <!-- Izquierda — Formulario HTML puro -->
-                <div
-                    class="form-container bg-white p-lg border-subtle border-radius flex-col gap-md form-box-shadow"
+        <div class="grid-2-form gap-xl">
+            <!-- Izquierda — Formulario HTML puro -->
+            <div
+                class="form-container bg-white p-lg border-subtle border-radius flex-col gap-md form-box-shadow"
+            >
+                <form
+                    name="contacto-punto-veterinario"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    class="formulario"
                 >
-                    <form
-                        name="contacto-punto-veterinario"
-                        method="POST"
-                        data-netlify="true"
-                        netlify-honeypot="bot-field"
-                        class="formulario"
-                    >
+                    <input
+                        type="hidden"
+                        name="form-name"
+                        value="contacto-punto-veterinario"
+                    />
+                    <p class="hidden">
+                        <label>No llenar: <input name="bot-field" /></label>
+                    </p>
+
+                    <div class="campo">
+                        <label for="nombre">Nombre completo *</label>
                         <input
-                            type="hidden"
-                            name="form-name"
-                            value="contacto-punto-veterinario"
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            required
+                            placeholder="Tu nombre"
                         />
-                        <p class="hidden">
-                            <label>No llenar: <input name="bot-field" /></label>
-                        </p>
+                    </div>
 
-                        <div class="campo">
-                            <label for="nombre">Nombre completo *</label>
-                            <input
-                                type="text"
-                                id="nombre"
-                                name="nombre"
-                                required
-                                placeholder="Tu nombre"
-                            />
-                        </div>
+                    <div class="campo">
+                        <label for="telefono">Teléfono *</label>
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono"
+                            required
+                            placeholder="55 1234 5678"
+                        />
+                    </div>
 
-                        <div class="campo">
-                            <label for="telefono">Teléfono *</label>
-                            <input
-                                type="tel"
-                                id="telefono"
-                                name="telefono"
-                                required
-                                placeholder="55 1234 5678"
-                            />
-                        </div>
-
-                        <div class="campo">
-                            <label for="servicio">Servicio de interés</label>
-                            <select id="servicio" name="servicio">
-                                <option value="">Selecciona un servicio</option>
-                                <option value="consulta">Consulta Médica</option
-                                >
-                                <option value="estetica"
-                                    >Estética Canina y Felina</option
-                                >
-                                <option value="esterilizacion"
-                                    >Esterilización</option
-                                >
-                                <option value="cirugia">Cirugías</option>
-                                <option value="laboratorio"
-                                    >Laboratorio Clínico</option
-                                >
-                                <option value="alimento"
-                                    >Alimento para Mascotas</option
-                                >
-                            </select>
-                        </div>
-
-                        <div class="campo">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea
-                                id="mensaje"
-                                name="mensaje"
-                                rows="4"
-                                placeholder="¿En qué podemos ayudarte?"
-                            ></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-enviar"
-                            >📅 Enviar solicitud de cita</button
-                        >
-                        <p class="form-nota">
-                            También puedes escribirnos directamente por
-                            <a
-                                href="https://wa.me/525513843004"
-                                target="_blank"
-                                rel="noopener">WhatsApp</a
+                    <div class="campo">
+                        <label for="servicio">Servicio de interés</label>
+                        <select id="servicio" name="servicio">
+                            <option value="">Selecciona un servicio</option>
+                            <option value="consulta">Consulta Médica</option>
+                            <option value="estetica"
+                                >Estética Canina y Felina</option
                             >
-                        </p>
-                    </form>
-                </div>
-
-                <!-- Derecha — Datos de contacto -->
-                <div class="contact-info flex-col gap-lg items-start text-left">
-                    <div class="flex-col gap-xs">
-                        <h2
-                            class="text-primary-dark m-0 mb-sm border-bottom pb-xs"
-                        >
-                            Información de Contacto
-                        </h2>
-
-                        <div
-                            class="flex items-start gap-sm mt-xs hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
-                        >
-                            <span class="emoji-md m-0">📍</span>
-                            <p
-                                class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
+                            <option value="esterilizacion"
+                                >Esterilización</option
                             >
-                                <span class="fw-bold block"
-                                    >Visítanos centralmente en:</span
-                                >
-                                Av. División del Norte 3595,<br />
-                                Colonia San Pablo Tepetlapa,<br />
-                                CP 04620, Delegación Coyoacán, CDMX.
-                            </p>
-                        </div>
-
-                        <a
-                            href="tel:+525513843004"
-                            class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
-                        >
-                            <span class="emoji-md m-0">📞</span>
-                            <p
-                                class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
+                            <option value="cirugia">Cirugías</option>
+                            <option value="laboratorio"
+                                >Laboratorio Clínico</option
                             >
-                                <span class="fw-bold block"
-                                    >Teléfono de Citas:</span
-                                > +52 55 1384 3004
-                            </p>
-                        </a>
+                            <option value="alimento"
+                                >Alimento para Mascotas</option
+                            >
+                        </select>
+                    </div>
 
+                    <div class="campo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea
+                            id="mensaje"
+                            name="mensaje"
+                            rows="4"
+                            placeholder="¿En qué podemos ayudarte?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar"
+                        >📅 Enviar solicitud de cita</button
+                    >
+                    <p class="form-nota">
+                        También puedes escribirnos directamente por
                         <a
                             href="https://wa.me/525513843004"
                             target="_blank"
-                            rel="noopener"
-                            class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
+                            rel="noopener">WhatsApp</a
                         >
-                            <span class="emoji-md m-0">💬</span>
-                            <p
-                                class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
-                            >
-                                <span class="fw-bold block"
-                                    >Chat Inmediato:</span
-                                > WhatsApp Oficial
-                            </p>
-                        </a>
+                    </p>
+                </form>
+            </div>
 
-                        <a
-                            href="mailto:puntovetcdmx@gmail.com"
-                            class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
-                        >
-                            <span class="emoji-md m-0">✉️</span>
-                            <p
-                                class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
-                            >
-                                <span class="fw-bold block"
-                                    >Correo Electrónico:</span
-                                > puntovetcdmx@gmail.com
-                            </p>
-                        </a>
-
-                        <a
-                            href="https://instagram.com/punto_veterinario"
-                            target="_blank"
-                            rel="noopener"
-                            class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
-                        >
-                            <span class="emoji-md m-0">📸</span>
-                            <p
-                                class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
-                            >
-                                <span class="fw-bold block"
-                                    >Instagram Comunidad:</span
-                                > @punto_veterinario
-                            </p>
-                        </a>
-                    </div>
+            <!-- Derecha — Datos de contacto -->
+            <div class="contact-info flex-col gap-lg items-start text-left">
+                <div class="flex-col gap-xs">
+                    <h2 class="text-primary-dark m-0 mb-sm border-bottom pb-xs">
+                        Información de Contacto
+                    </h2>
 
                     <div
-                        class="flex-col gap-xs mt-sm bg-white p-lg border-subtle border-radius form-box-shadow full-width"
+                        class="flex items-start gap-sm mt-xs hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
                     >
-                        <h3
-                            class="text-primary-dark m-0 mb-xs text-lg flex items-center gap-xs"
-                        >
-                            <span class="emoji-md m-0 inline-block">🕐</span> Nuestro
-                            Horario
-                        </h3>
+                        <span class="emoji-md m-0">📍</span>
                         <p
-                            class="text-soft text-sm m-0 lh-relaxed border-bottom pb-xs"
+                            class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
                         >
-                            <span class="fw-bold text-primary-dark block"
-                                >Lunes:</span
+                            <span class="fw-bold block"
+                                >Visítanos centralmente en:</span
                             >
-                            Cerrado.
-                        </p>
-                        <p
-                            class="text-soft text-sm m-0 lh-relaxed border-bottom pb-xs pt-xs"
-                        >
-                            <span class="fw-bold text-primary-dark block"
-                                >Martes a Sábado:</span
-                            >
-                            Desde las 10:00 AM hasta las 19:00 PM hrs.
-                        </p>
-                        <p class="text-soft text-sm m-0 lh-relaxed pt-xs">
-                            <span class="fw-bold text-primary-dark block"
-                                >Domingo:</span
-                            >
-                            Desde las 10:00 AM hasta las 17:00 PM hrs.
+                            Av. División del Norte 3595,<br />
+                            Colonia San Pablo Tepetlapa,<br />
+                            CP 04620, Delegación Coyoacán, CDMX.
                         </p>
                     </div>
+
+                    <a
+                        href="tel:+525513843004"
+                        class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
+                    >
+                        <span class="emoji-md m-0">📞</span>
+                        <p
+                            class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
+                        >
+                            <span class="fw-bold block">Teléfono de Citas:</span
+                            > +52 55 1384 3004
+                        </p>
+                    </a>
+
+                    <a
+                        href="https://wa.me/525513843004"
+                        target="_blank"
+                        rel="noopener"
+                        class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
+                    >
+                        <span class="emoji-md m-0">💬</span>
+                        <p
+                            class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
+                        >
+                            <span class="fw-bold block">Chat Inmediato:</span> WhatsApp
+                            Oficial
+                        </p>
+                    </a>
+
+                    <a
+                        href="mailto:puntovetcdmx@gmail.com"
+                        class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
+                    >
+                        <span class="emoji-md m-0">✉️</span>
+                        <p
+                            class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
+                        >
+                            <span class="fw-bold block"
+                                >Correo Electrónico:</span
+                            > puntovetcdmx@gmail.com
+                        </p>
+                    </a>
+
+                    <a
+                        href="https://instagram.com/punto_veterinario"
+                        target="_blank"
+                        rel="noopener"
+                        class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
+                    >
+                        <span class="emoji-md m-0">📸</span>
+                        <p
+                            class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
+                        >
+                            <span class="fw-bold block"
+                                >Instagram Comunidad:</span
+                            > @punto_veterinario
+                        </p>
+                    </a>
+                </div>
+
+                <div
+                    class="flex-col gap-xs mt-sm bg-white p-lg border-subtle border-radius form-box-shadow full-width"
+                >
+                    <h3
+                        class="text-primary-dark m-0 mb-xs text-lg flex items-center gap-xs"
+                    >
+                        <span class="emoji-md m-0 inline-block">🕐</span> Nuestro
+                        Horario
+                    </h3>
+                    <p
+                        class="text-soft text-sm m-0 lh-relaxed border-bottom pb-xs"
+                    >
+                        <span class="fw-bold text-primary-dark block"
+                            >Lunes:</span
+                        >
+                        Cerrado.
+                    </p>
+                    <p
+                        class="text-soft text-sm m-0 lh-relaxed border-bottom pb-xs pt-xs"
+                    >
+                        <span class="fw-bold text-primary-dark block"
+                            >Martes a Sábado:</span
+                        >
+                        Desde las 10:00 AM hasta las 19:00 PM hrs.
+                    </p>
+                    <p class="text-soft text-sm m-0 lh-relaxed pt-xs">
+                        <span class="fw-bold text-primary-dark block"
+                            >Domingo:</span
+                        >
+                        Desde las 10:00 AM hasta las 17:00 PM hrs.
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- 3. MAPA PLACEHOLDER -->
     <section class="bg-white py-xl">
-            <h2 class="text-primary-dark mb-lg lh-1">
-                Encuéntranos fácilmente en Coyoacán
-            </h2>
-            <div
-                class="map-placeholder flex items-center justify-center border-radius"
-            >
-                <span class="emoji-map block">📍</span>
-            </div>
-        </section>
+        <h2 class="text-primary-dark mb-lg lh-1">
+            Encuéntranos fácilmente en Coyoacán
+        </h2>
+        <div
+            class="map-placeholder flex items-center justify-center border-radius"
+        >
+            <span class="emoji-map block">📍</span>
+        </div>
+    </section>
 
     <!-- 4. CTA FINAL -->
     <section class="cta-section bg-primary py-xl text-center">
-            <h2 class="text-white mb-lg text-2xl lh-1">
-                ¡Te esperamos pronto en Coyoacán!
-            </h2>
-            <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-    Somos <strong>Punto Veterinario</strong>, clínica en <strong>San Pablo Tepetlapa</strong> (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de calidad en <strong>Av. División del Norte 3595</strong>.
-</p>
-            <div class="flex flex-wrap justify-center gap-md">
-                <a
-                    href="https://wa.me/525513843004"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-white-theme text-primary fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
-                    >💬 Hablar por WhatsApp</a
-                >
-            </div>
-        </section>
+        <h2 class="text-white mb-lg text-2xl lh-1">
+            ¡Te esperamos pronto en Coyoacán!
+        </h2>
+        <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
+            Somos <strong>Punto Veterinario</strong>, clínica en <strong
+                >San Pablo Tepetlapa</strong
+            > (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica
+            de calidad en <strong>Av. División del Norte 3595</strong>.
+        </p>
+        <div class="flex flex-wrap justify-center gap-md">
+            <a
+                href="https://wa.me/525513843004"
+                target="_blank"
+                rel="noopener"
+                class="btn-white-theme text-primary fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
+                >💬 Hablar por WhatsApp</a
+            >
+        </div>
+    </section>
+
+    <!-- 5. MODAL DE ÉXITO (REACT) -->
+    <MissionSuccessDialog
+        client:load
+        title="¡Solicitud Recibida!"
+        description="Tu mensaje ha llegado a Punto Veterinario. Te responderemos por WhatsApp o correo muy pronto."
+        imageUrl="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=600&auto=format&fit=crop"
+        primaryButtonText="💬 Abrir WhatsApp ahora"
+        secondaryButtonText="Cerrar ventana"
+    />
 </BaseLayout>
 
+<script is:inline>
+    const formulario = document.querySelector(
+        'form[name="contacto-punto-veterinario"]',
+    );
+
+    formulario.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(formulario);
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+            .then(() => {
+                // Disparar evento para que el componente React lo escuche
+                window.dispatchEvent(new CustomEvent("abrir-exito"));
+                formulario.reset();
+            })
+            .catch((error) => alert("Hubo un error al enviar: " + error));
+    });
+</script>
+
 <style>
-
-
-
     /* ===== HERO CENTRADO ===== */
     .hero-inner {
         display: flex;
@@ -317,7 +357,7 @@ const schema = [
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 0 auto;
-        
+
         text-align: center;
     }
     .botones {
@@ -481,7 +521,6 @@ const schema = [
         line-height: 1.6;
     }
     . {
-        
     }
     .opacity-90 {
         opacity: 0.9;
@@ -723,11 +762,5 @@ const schema = [
         padding-block: max(3rem, 6vw);
         width: 100%;
     }
-
-    @media (
-        }
-    }
-    @media (
-        }
-    }
 </style>
+```
