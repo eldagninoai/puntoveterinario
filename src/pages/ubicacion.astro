@@ -235,9 +235,7 @@ const schema = {
 </BaseLayout>
 
 <style>
-    /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
-    /* No Tailwind/Bootstrap allowed, 100% Fluid Vanilla CSS */
-
+    /* ====== CLAMP SYSTEM + RESPONSIVE (De esterilizacion.astro) ====== */
     .content-section {
         padding-block: max(3rem, 6vw);
     }
@@ -253,6 +251,25 @@ const schema = {
         text-align: center;
     }
 
+    .btn-wa {
+        background: var(--color-primary);
+        color: #fff;
+        padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+        font-size: max(0.9rem, 1.2vw);
+        border-radius: max(0.4rem, 1vw);
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+            background 0.2s,
+            transform 0.2s;
+        text-align: center;
+    }
+    .btn-wa:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-0.15rem);
+    }
+
+    /* ====== MANTENER ESTILOS ÚNICOS DE UBICACION ====== */
     .titulo-sec {
         font-size: max(1.6rem, 2.8vw);
         color: var(--color-primary-dark);
@@ -275,10 +292,6 @@ const schema = {
         margin-inline: auto;
         text-align: center;
     }
-    @media (min-width: 48rem) {
-        .hero__text {
-        }
-    }
 
     .hero__desc {
         font-size: max(0.95rem, 1.4vw);
@@ -296,10 +309,14 @@ const schema = {
         width: 100%;
         margin-bottom: max(2rem, 4vw);
     }
-    @media (
+    @media (max-width: 64rem) {
+        .nap-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
-    @media (
+    @media (max-width: 48rem) {
+        .nap-grid {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -350,24 +367,6 @@ const schema = {
         gap: max(1rem, 1.5vw);
     }
 
-    .btn-wa {
-        background: var(--color-primary);
-        color: #fff;
-        padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
-        font-size: max(0.9rem, 1.2vw);
-        border-radius: max(0.4rem, 1vw);
-        font-weight: 600;
-        text-decoration: none;
-        transition:
-            background 0.2s,
-            transform 0.2s;
-        text-align: center;
-    }
-    .btn-wa:hover {
-        background: var(--color-primary-dark);
-        transform: translateY(-0.15rem);
-    }
-
     .btn-outline-primary {
         background: transparent;
         color: var(--color-primary);
@@ -396,13 +395,14 @@ const schema = {
         gap: max(1.5rem, 3vw);
         width: 100%;
     }
-    @media (
+    @media (max-width: 64rem) {
+        .map-grid {
+            grid-template-columns: 1fr;
         }
     }
 
     .map-wrapper {
         width: 100%;
-        /* Altura fluida que escala con el viewport, dando espacio en móvil y desktop */
         height: max(25rem, 40vw);
         border-radius: max(0.5rem, 1.5vw);
         overflow: hidden;
@@ -443,7 +443,9 @@ const schema = {
         gap: max(1.5rem, 3vw);
         width: 100%;
     }
-    @media (
+    @media (max-width: 64rem) {
+        .rutas-grid {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -500,6 +502,7 @@ const schema = {
         color: var(--color-primary-dark);
         margin-bottom: max(1rem, 1.5vw);
         line-height: 1.2;
+        text-align: center;
     }
 
     .cta-desc-urgencia {
@@ -507,6 +510,7 @@ const schema = {
         color: var(--color-text-soft);
         line-height: 1.6;
         margin-bottom: max(2rem, 4vw);
+        text-align: center;
     }
 
     .cta-urgencia-btns {
@@ -533,7 +537,6 @@ const schema = {
     .btn-urgencia-rojo:hover {
         background: #c1121f; /* Rojo oscuro hover */
         transform: translateY(-0.15rem);
-        box-shadow: 0 max(0.4rem, 0.8vw) max(1rem, 2vw)
-            rgba(230, 57, 70, 0.25);
-    };
+        box-shadow: 0 max(0.4rem, 0.8vw) max(1rem, 2vw) rgba(230, 57, 70, 0.25);
+    }
 </style>

@@ -259,9 +259,7 @@ const instalacionesImgs = [
 </script>
 
 <style>
-    /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
-    /* No Tailwind/Bootstrap allowed, 100% Fluid Vanilla CSS */
-
+    /* ====== CLAMP SYSTEM + RESPONSIVE (De esterilizacion.astro) ====== */
     .content-section {
         padding-block: max(3rem, 6vw);
     }
@@ -329,6 +327,9 @@ const instalacionesImgs = [
 
     .hero__btns {
         display: flex;
+        flex-wrap: wrap;
+        gap: max(0.8rem, 1.5vw);
+        margin-bottom: max(1rem, 2vw);
         justify-content: center;
     }
 
@@ -349,6 +350,23 @@ const instalacionesImgs = [
         transform: translateY(-0.15rem);
     }
 
+    .btn-sec {
+        padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+        font-size: max(0.9rem, 1.2vw);
+        border: max(0.1rem, 0.15vw) solid var(--color-primary-dark);
+        color: var(--color-primary-dark);
+        background: transparent;
+        border-radius: max(0.4rem, 1vw);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+    .btn-sec:hover {
+        background: var(--color-primary-dark);
+        color: #fff;
+        transform: translateY(-0.15rem);
+    }
+
     /* VIDEO FACADE */
     .video-container {
         position: relative;
@@ -356,7 +374,7 @@ const instalacionesImgs = [
         max-width: max(20rem, 80vw);
         margin: 0 auto;
         aspect-ratio: 16 / 9;
-        background: #000; /* Placeholder color before img loads */
+        background: #000;
         border-radius: max(0.5rem, 1vw);
         overflow: hidden;
         cursor: pointer;
@@ -371,7 +389,7 @@ const instalacionesImgs = [
     }
     .video-container:hover .play-btn {
         transform: translate(-50%, -50%) scale(1.1);
-        background: rgba(98, 215, 213, 0.95); /* Primary hover */
+        background: rgba(98, 215, 213, 0.95);
     }
 
     .video-thumbnail {
@@ -379,7 +397,7 @@ const instalacionesImgs = [
         height: 100%;
         object-fit: cover;
         display: block;
-        opacity: 0.8; /* Slight dim for play button contrast */
+        opacity: 0.8;
         transition: opacity 0.3s;
     }
     .video-container:hover .video-thumbnail {
@@ -393,7 +411,7 @@ const instalacionesImgs = [
         transform: translate(-50%, -50%);
         width: max(4rem, 6vw);
         height: max(4rem, 6vw);
-        background: rgba(98, 215, 213, 0.85); /* Primary */
+        background: rgba(98, 215, 213, 0.85);
         color: #fff;
         border: none;
         border-radius: 50%;
@@ -409,7 +427,7 @@ const instalacionesImgs = [
     .play-btn svg {
         width: max(2rem, 3vw);
         height: auto;
-        margin-left: max(0.2rem, 0.4vw); /* Visual balance for triangle */
+        margin-left: max(0.2rem, 0.4vw);
     }
 
     :global(.video-iframe) {
@@ -426,11 +444,11 @@ const instalacionesImgs = [
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: max(1.5rem, 3vw);
-
         margin: 0 auto;
     }
-    @media (
-            
+    @media (max-width: 48rem) {
+        .grid-equipo {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -481,16 +499,45 @@ const instalacionesImgs = [
     }
 
     /* GRID FILOSOFÍA (3 COLS) */
+    .grid-auto {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(max(15rem, 20vw), 1fr));
+        gap: max(1.5rem, 3vw);
+    }
+
     .grid-tres {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: max(1.5rem, 3vw);
     }
-    @media (
+    @media (max-width: 64rem) {
+        .grid-tres {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
-    @media (
+    @media (max-width: 48rem) {
+        .grid-tres {
+            grid-template-columns: 1fr;
         }
+    }
+
+    /* CARDS UI (Reference style) */
+    .card-ui {
+        background: var(--color-bg);
+        border-radius: max(0.5rem, 1.5vw);
+        padding: max(1.2rem, 2vw);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+        text-align: center;
+    }
+    .card-ui:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: var(--shadow-md);
     }
 
     .card {
@@ -511,6 +558,7 @@ const instalacionesImgs = [
         box-shadow: var(--shadow-md);
     }
 
+    .icon-scalable,
     .card-emoji {
         font-size: max(2rem, 3.5vw);
         margin-bottom: max(0.8rem, 1.2vw);
@@ -522,12 +570,14 @@ const instalacionesImgs = [
         color: var(--color-primary-dark);
         margin-bottom: max(0.5rem, 1vw);
         line-height: 1.3;
+        text-align: center;
     }
     .card-desc {
         font-size: max(0.95rem, 1.3vw);
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 0;
+        text-align: center;
     }
 
     /* BENTO GALLERY INSTALACIONES */
@@ -582,7 +632,9 @@ const instalacionesImgs = [
     } /* Square Bottom Right */
 
     /* Tablet Layout */
-    @media (
+    @media (max-width: 64rem) {
+        .bento-gallery {
+            grid-template-columns: repeat(2, 1fr);
         }
         .bento-item--1 {
             grid-column: span 2;
@@ -602,7 +654,9 @@ const instalacionesImgs = [
         }
     }
     /* Mobile Layout */
-    @media (
+    @media (max-width: 48rem) {
+        .bento-gallery {
+            grid-template-columns: repeat(2, 1fr);
             grid-auto-rows: max(12rem, 40vw);
         }
         .bento-item--1,
@@ -635,7 +689,14 @@ const instalacionesImgs = [
         opacity: 0.9;
         line-height: 1.6;
     }
-    @media (
+    @media (max-width: 48rem) {
+        .cta-desc-blanc {
+            max-width: 100%;
+        }
+        .cta-btns {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: max(0.8rem, 1.5vw);
         }
     }
     .cta-btns {
@@ -676,5 +737,5 @@ const instalacionesImgs = [
     .btn-cta-outline:hover {
         transform: translateY(-0.15rem);
         background: rgba(255, 255, 255, 0.1);
-    };
+    }
 </style>

@@ -172,33 +172,39 @@ const relacionadosCards = [
         <h2 class="titulo-sec">
             ¿Por qué no esperar a que tu mascota se sienta mal?
         </h2>
-
-        <div class="mito-realidad-box mb-fluid">
-            <div class="mito-block">
-                <span class="icon-scalable bad-icon">❌</span>
-                <p>
-                    <strong>El Mito:</strong> "Si mi mascota come bien y juega, no
-                    necesita análisis de sangre."
-                </p>
+        <div class="mito-vs-realidad-grid">
+            <div class="mito-content">
+                <div class="mito-realidad-box">
+                    <div class="mito-block">
+                        <span class="bad-icon">❌</span>
+                        <p>
+                            <strong>El Mito:</strong> "Si mi mascota come bien y juega,
+                            no necesita análisis de sangre."
+                        </p>
+                    </div>
+                    <div class="realidad-block">
+                        <span class="good-icon">✅</span>
+                        <p>
+                            <strong>La Realidad:</strong> Enfermedades gravísimas
+                            como la insuficiencia renal, problemas hepáticos o la
+                            diabetes son "silentes". No dan síntomas visibles (como
+                            dejar de comer o decaimiento) hasta que la enfermedad
+                            está en etapas muy avanzadas e irreversibles. Un chequeo
+                            de laboratorio anual las detecta años antes.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="realidad-block">
-                <span class="icon-scalable good-icon">✅</span>
-                <p>
-                    <strong>La Realidad:</strong> Enfermedades gravísimas como la
-                    insuficiencia renal, problemas hepáticos o la diabetes son "silentes".
-                    No dan síntomas visibles (como dejar de comer o decaimiento) hasta
-                    que la enfermedad está en etapas muy avanzadas e irreversibles.
-                    Un chequeo de laboratorio anual las detecta años antes.
-                </p>
+            <div class="mito-quote-box">
+                <blockquote class="valor-quote">
+                    "Muchos dueños en Coyoacán esperan a que su mascota esté muy
+                    decaída para traerla a consulta. Para entonces, el problema
+                    ya es grave. Un perfil bioquímico preventivo cuesta
+                    significativamente menos que la hospitalización por una
+                    enfermedad detectada tarde."
+                </blockquote>
             </div>
         </div>
-
-        <blockquote class="valor-quote text-center">
-            "Muchos dueños en Coyoacán esperan a que su mascota esté muy decaída
-            para traerla a consulta. Para entonces, el problema ya es grave. Un
-            perfil bioquímico preventivo cuesta significativamente menos que la
-            hospitalización por una enfermedad detectada tarde."
-        </blockquote>
     </section>
 
     <!-- SECCIÓN 4 — LA VENTAJA DE HACERLO EN CLÍNICA -->
@@ -285,9 +291,7 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
-    /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
-    /* No Tailwind/Bootstrap allowed, 100% Fluid Vanilla CSS */
-
+    /* ====== CLAMP SYSTEM + RESPONSIVE (De esterilizacion.astro) ====== */
     .content-section {
         padding-block: max(3rem, 6vw);
     }
@@ -318,6 +322,13 @@ const relacionadosCards = [
         margin-bottom: max(2rem, 4vw);
     }
 
+    .intro-desc {
+        font-size: max(0.95rem, 1.4vw);
+        margin-inline: auto;
+        margin-bottom: max(2rem, 4vw);
+        line-height: 1.6;
+    }
+
     /* HERO CLASSES */
     .hero {
         background: var(--color-bg);
@@ -331,10 +342,6 @@ const relacionadosCards = [
     .hero__text {
         width: 100%;
         margin-inline: auto;
-    }
-    @media (min-width: 48rem) {
-        .hero__text {
-        }
     }
 
     .hero__desc {
@@ -388,6 +395,12 @@ const relacionadosCards = [
     }
 
     /* GRID LAYOUTS */
+    .grid-auto {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(max(15rem, 20vw), 1fr));
+        gap: max(1.5rem, 3vw);
+    }
+
     .grid-estudios {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -398,14 +411,41 @@ const relacionadosCards = [
         grid-template-columns: repeat(3, 1fr);
         gap: max(1rem, 2vw);
     }
-    @media (
+    @media (max-width: 64rem) {
+        .grid-estudios {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-relacionados {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
-    @media (
+    @media (max-width: 48rem) {
+        .grid-estudios {
+            grid-template-columns: 1fr;
+        }
+        .grid-relacionados {
+            grid-template-columns: 1fr;
         }
     }
 
     /* CARDS */
+    .card-ui {
+        background: var(--color-bg);
+        border-radius: max(0.5rem, 1.5vw);
+        padding: max(1.2rem, 2vw);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+    }
+    .card-ui:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: var(--shadow-md);
+    }
+
     .card {
         background: var(--color-bg);
         border: max(0.05rem, 0.1vw) solid var(--color-border);
@@ -430,6 +470,7 @@ const relacionadosCards = [
         box-shadow: var(--shadow-md);
     }
 
+    .icon-scalable,
     .card-emoji {
         font-size: max(2rem, 3.5vw);
         margin-bottom: max(0.8rem, 1.2vw);
@@ -454,38 +495,56 @@ const relacionadosCards = [
     }
 
     .card-ver {
-        display: block;
-        text-align: center;
-        margin-top: max(1rem, 2vw);
-        font-size: max(0.9rem, 1.2vw);
+        font-size: max(0.9rem, 1.1vw);
         color: var(--color-primary);
-        font-weight: bold;
+        font-weight: 700;
+        margin-top: max(0.8rem, 1.2vw);
+        display: inline-block;
+        text-align: center;
     }
 
-    /* MITO VS REALIDAD (VERTICAL STACK) */
+    /* MITO VS REALIDAD (COPIA FIEL DE ESTETICA) */
+    .mito-vs-realidad-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: max(2rem, 4vw);
+        align-items: center;
+    }
+    @media (min-width: 64rem) {
+        .mito-vs-realidad-grid {
+            grid-template-columns: 1.2fr 1fr;
+        }
+    }
     .mito-realidad-box {
         display: flex;
         flex-direction: column;
-        gap: max(0rem, 0vw); /* No gap, attached */
-        border-radius: max(0.5rem, 1vw);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-        border: max(0.05rem, 0.1vw) solid var(--color-border);
+        gap: max(1rem, 2vw);
+        margin-bottom: max(1.5rem, 3vw);
     }
-
     .mito-block,
     .realidad-block {
         display: flex;
         align-items: flex-start;
         gap: max(0.8rem, 1.2vw);
+        background: var(--color-bg);
         padding: max(1rem, 1.5vw);
+        border-radius: max(0.5rem, 1vw);
+        border-left: max(0.3rem, 0.5vw) solid;
+        box-shadow: var(--shadow);
+        text-align: left;
     }
     .mito-block {
-        background: var(--color-bg);
-        border-bottom: max(0.05rem, 0.1vw) solid var(--color-border);
+        border-left-color: #ff4d4d;
     }
     .realidad-block {
-        background: var(--color-bg-soft);
+        border-left-color: #4caf50;
+    }
+
+    .bad-icon,
+    .good-icon {
+        font-size: max(1.2rem, 1.8vw);
+        flex-shrink: 0;
+        margin-top: max(0.2rem, 0.4vw);
     }
     .mito-block p,
     .realidad-block p {
@@ -495,40 +554,48 @@ const relacionadosCards = [
         line-height: 1.6;
     }
     .mito-block p strong {
-        color: var(--color-urgencia);
+        color: #ff4d4d;
     }
     .realidad-block p strong {
         color: #4caf50;
     }
-    .bad-icon,
-    .good-icon {
-        font-size: max(1.2rem, 1.8vw);
-        flex-shrink: 0;
-        margin-top: max(0.2rem, 0.4vw);
+
+    .mito-quote-box {
+        display: flex;
+        align-items: center;
     }
 
     /* BLOCKQUOTE */
     .valor-quote {
         background: var(--color-primary-light);
         border-radius: max(0.5rem, 1vw);
-        padding: max(1.5rem, 3vw);
-        font-size: max(1.1rem, 1.6vw);
+        padding: max(1.5rem, 2.5vw);
+        font-size: max(1.05rem, 1.4vw);
         color: var(--color-primary-dark);
         font-style: italic;
         font-weight: 500;
         line-height: 1.6;
-        margin: 0 auto;
+        margin: 0;
         position: relative;
-        
+        text-align: left;
+    }
+    .valor-quote::before {
+        content: "«";
+        font-size: max(2rem, 4vw);
+        position: absolute;
+        top: max(-0.5rem, -1vw);
+        left: max(0.5rem, 1vw);
+        opacity: 0.2;
+        font-weight: 700;
+        font-style: normal;
     }
 
-    /* VENTAJAS LISTA */
+    /* VENTAJAS LISTA (ESPECÍFICO) */
     .ventajas-lista {
         display: flex;
         flex-direction: column;
         gap: max(1rem, 2vw);
     }
-
     .ventaja-item {
         display: flex;
         flex-direction: row;
@@ -536,21 +603,23 @@ const relacionadosCards = [
         gap: max(1rem, 2vw);
         text-align: left;
     }
-    @media (
+    @media (max-width: 48rem) {
+        .ventaja-item {
+            flex-direction: column;
             align-items: center;
             text-align: center;
         }
     }
-
     .ventaja-icon {
         font-size: max(1.5rem, 2.5vw);
         flex-shrink: 0;
         margin-top: max(0.2rem, 0.4vw);
     }
-    @media (
+    @media (max-width: 48rem) {
+        .ventaja-icon {
+            margin-top: 0;
         }
     }
-
     .ventaja-titulo {
         font-size: max(1.1rem, 1.6vw);
         color: var(--color-primary-dark);
@@ -626,16 +695,23 @@ const relacionadosCards = [
     .cta-desc-blanc {
         font-size: max(1rem, 1.4vw);
         margin-bottom: max(1.5rem, 2.5vw);
-        
         margin-inline: auto;
         color: #fff;
         opacity: 0.9;
         line-height: 1.6;
     }
-    @media (
+    .cta-btns {
+        display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: max(0.8rem, 1.5vw);
+    }
+    @media (max-width: 48rem) {
+        .cta-btns {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: max(0.8rem, 1.5vw);
+        }
     }
     .btn-cta-blanco {
         background: #fff;
@@ -645,7 +721,12 @@ const relacionadosCards = [
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
+        transition: transform 0.2s;
     }
+    .btn-cta-blanco:hover {
+        transform: translateY(-0.1rem);
+    }
+
     .btn-cta-outline {
         border: max(0.1rem, 0.15vw) solid #fff;
         color: #fff;
@@ -654,5 +735,12 @@ const relacionadosCards = [
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
-    };
+        transition:
+            background 0.2s,
+            color 0.2s;
+    }
+    .btn-cta-outline:hover {
+        background: #fff;
+        color: var(--color-primary-dark);
+    }
 </style>

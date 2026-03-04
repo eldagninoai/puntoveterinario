@@ -314,25 +314,47 @@ const schema = [
 </BaseLayout>
 
 <script is:inline>
-    const formulario = document.querySelector(
+    const form = document.querySelector(
         'form[name="contacto-punto-veterinario"]',
     );
 
-    formulario.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const formData = new FormData(formulario);
 
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        })
-            .then(() => {
-                // Disparar evento para que el componente React lo escuche
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        // 1. Feedback visual: desactivamos el botón mientras se envía
+        submitButton.disabled = true;
+        submitButton.innerText = "Enviando...";
+
+        try {
+            // 2. Mandar el formulario a Netlify
+            const response = await fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams(formData).toString(),
+            });
+
+            if (response.ok) {
+                // 3. Solo si todo salió bien, mostrar el modal
                 window.dispatchEvent(new CustomEvent("abrir-exito"));
-                formulario.reset();
-            })
-            .catch((error) => alert("Hubo un error al enviar: " + error));
+                form.reset();
+            } else {
+                throw new Error("Error en la respuesta del servidor");
+            }
+        } catch (error) {
+            console.error("Error al enviar:", error);
+            alert(
+                "Hubo un problema. Por favor contáctanos directo por WhatsApp.",
+            );
+        } finally {
+            // 4. Restaurar el botón siempre
+            submitButton.disabled = false;
+            submitButton.innerText = "📅 Enviar solicitud de cita";
+        }
     });
 </script>
 

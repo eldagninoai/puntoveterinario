@@ -214,28 +214,33 @@ const relacionadosCards = [
                     <div class="mito-block">
                         <span class="bad-icon">❌</span>
                         <p>
-                            <strong>Mito 1:</strong> "{mitos[0].mito}"
+                            <strong>Mito:</strong> "Hay que dejarla tener una camada
+                            antes de operarla para que no se deprima."
                         </p>
                     </div>
                     <div class="realidad-block">
                         <span class="good-icon">✅</span>
                         <p>
-                            <strong>Realidad:</strong>
-                            {mitos[0].realidad}
+                            <strong>Realidad:</strong> Completamente falso. Las mascotas
+                            no tienen el deseo psicológico de ser madres. No existe
+                            ningún beneficio médico en esperar; cada celo aumenta
+                            el riesgo de cáncer.
                         </p>
                     </div>
-
                     <div class="mito-block">
                         <span class="bad-icon">❌</span>
                         <p>
-                            <strong>Mito 2:</strong> "{mitos[1].mito}"
+                            <strong>Mito:</strong> "La cirugía los hace flojos, tristes
+                            y gordos."
                         </p>
                     </div>
                     <div class="realidad-block">
                         <span class="good-icon">✅</span>
                         <p>
-                            <strong>Realidad:</strong>
-                            {mitos[1].realidad}
+                            <strong>Realidad:</strong> Parcialmente incorrecto. La
+                            esterilización disminuye su metabolismo basal, pero no
+                            cambia su personalidad. El peso se controla con dieta
+                            y ejercicio.
                         </p>
                     </div>
                 </div>
@@ -344,6 +349,72 @@ const relacionadosCards = [
 </BaseLayout>
 
 <style>
+    /* 1. REGLAS DE ORO: MITOS (COPIA FIEL DE ESTETICA) */
+    .mito-vs-realidad-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: max(2rem, 4vw);
+        align-items: center;
+    }
+    @media (min-width: 64rem) {
+        .mito-vs-realidad-grid {
+            grid-template-columns: 1.2fr 1fr;
+        }
+    }
+    .mito-realidad-box {
+        display: flex;
+        flex-direction: column;
+        gap: max(1rem, 2vw);
+        margin-bottom: max(1.5rem, 3vw);
+    }
+    .mito-block,
+    .realidad-block {
+        display: flex;
+        align-items: flex-start;
+        gap: max(0.8rem, 1.2vw);
+        background: var(--color-bg);
+        padding: max(1rem, 1.5vw);
+        border-radius: max(0.5rem, 1vw);
+        border-left: max(0.3rem, 0.5vw) solid;
+        box-shadow: var(--shadow);
+        text-align: left;
+    }
+    .mito-block {
+        border-left-color: #ff4d4d;
+    }
+    .realidad-block {
+        border-left-color: #4caf50;
+    }
+    .bad-icon,
+    .good-icon {
+        font-size: max(1.2rem, 1.8vw);
+        flex-shrink: 0;
+        margin-top: max(0.2rem, 0.4vw);
+    }
+    .valor-quote {
+        background: var(--color-primary-light);
+        border-radius: max(0.5rem, 1vw);
+        padding: max(1.5rem, 2.5vw);
+        font-size: max(1.05rem, 1.4vw);
+        color: var(--color-primary-dark);
+        font-style: italic;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0;
+        position: relative;
+        text-align: left;
+    }
+    .valor-quote::before {
+        content: "«";
+        font-size: max(2rem, 4vw);
+        position: absolute;
+        top: max(-0.5rem, -1vw);
+        left: max(0.5rem, 1vw);
+        opacity: 0.2;
+        font-weight: 700;
+        font-style: normal;
+    }
+
     /* ====== CLAMP SYSTEM + RESPONSIVE ====== */
 
     .content-section {
@@ -463,13 +534,17 @@ const relacionadosCards = [
         grid-template-columns: repeat(3, 1fr);
         gap: max(1rem, 2vw);
     }
-    @media (
+    @media (max-width: 64rem) {
+        .grid-datos-medicos {
+            grid-template-columns: 1fr;
         }
         .grid-relacionados {
             grid-template-columns: repeat(2, 1fr);
         }
     }
-    @media (
+    @media (max-width: 48rem) {
+        .grid-relacionados {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -499,7 +574,9 @@ const relacionadosCards = [
         background: var(--color-bg);
     }
 
-    @media (
+    @media (max-width: 48rem) {
+        .card-dato {
+            flex-direction: column;
             text-align: center;
         }
     }
@@ -552,86 +629,16 @@ const relacionadosCards = [
         text-align: center;
     }
 
-    /* MITO VS REALIDAD — espejo de estetica-canina */
-    .mito-vs-realidad-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: max(2rem, 4vw);
-        align-items: center;
-    }
-    @media (min-width: 64rem) {
-        .mito-vs-realidad-grid {
-            grid-template-columns: 1.2fr 1fr;
-        }
-    }
-
-    .mito-realidad-box {
-        display: flex;
-        flex-direction: column;
-        gap: max(1rem, 2vw);
-        margin-bottom: 0;
-    }
-
-    .mito-block,
-    .realidad-block {
-        display: flex;
-        align-items: flex-start;
-        gap: max(0.8rem, 1.2vw);
-        background: var(--color-bg);
-        padding: max(1rem, 1.5vw);
-        border-radius: max(0.5rem, 1vw);
-        border-left: max(0.3rem, 0.5vw) solid;
-        box-shadow: var(--shadow);
-        text-align: left;
-    }
-    .mito-block {
-        border-left-color: var(--color-urgencia, #ff4d4d);
-    }
-    .realidad-block {
-        border-left-color: #4caf50;
-    }
-    .mito-block p,
-    .realidad-block p {
-        font-size: max(0.95rem, 1.3vw);
-        color: var(--color-text-soft);
-        margin: 0;
-        line-height: 1.6;
-        text-align: left;
-    }
-    .mito-block p strong {
-        color: var(--color-urgencia);
-    }
-    .realidad-block p strong {
-        color: #4caf50;
-    }
-    .bad-icon,
-    .good-icon {
-        font-size: max(1.2rem, 1.8vw);
-        flex-shrink: 0;
-        margin-top: max(0.2rem, 0.4vw);
-    }
-
-    /* BLOCKQUOTE */
-    .valor-quote {
-        background: var(--color-primary-light);
-        border-radius: max(0.5rem, 1vw);
-        padding: max(1.5rem, 3vw);
-        font-size: max(1.1rem, 1.6vw);
-        color: var(--color-primary-dark);
-        font-style: italic;
-        font-weight: 500;
-        line-height: 1.6;
-        margin: 0 auto;
-        position: relative;
-        text-align: left;
-    }
+    /* ======================================================== */
+    /* MITO VS REALIDAD — Removido en esta línea y movido arriba */
+    /* ======================================================== */
 
     /* TIMELINE PROTOCOLO */
     .timeline-protocolo {
         display: flex;
         flex-direction: column;
         gap: max(1.5rem, 3vw);
-        
+
         margin-inline: auto;
     }
     .timeline-item {
@@ -675,9 +682,11 @@ const relacionadosCards = [
         line-height: 1.2;
     }
 
-    @media (
-        flex-direction: column;
-        gap: max(0.8rem, 1.2vw);
+    @media (max-width: 48rem) {
+        .timeline-item {
+            flex-direction: column;
+            gap: max(0.8rem, 1.2vw);
+        }
     }
     .faq-item {
         background: var(--color-bg);
@@ -735,16 +744,18 @@ const relacionadosCards = [
     .cta-desc-blanc {
         font-size: max(1rem, 1.4vw);
         margin-bottom: max(1.5rem, 2.5vw);
-        
+
         margin-inline: auto;
         color: #fff;
         opacity: 0.9;
         line-height: 1.6;
     }
-    @media (
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: max(0.8rem, 1.5vw);
+    @media (max-width: 48rem) {
+        .cta-btns {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: max(0.8rem, 1.5vw);
+        }
     }
     .btn-cta-blanco {
         background: #fff;
@@ -763,5 +774,5 @@ const relacionadosCards = [
         border-radius: max(0.4rem, 1vw);
         font-weight: 600;
         text-decoration: none;
-    };;;;;;;
+    } ;
 </style>

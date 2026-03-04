@@ -39,25 +39,35 @@ export const MissionSuccessDialog = ({
 
     React.useEffect(() => {
         if (isOpen) {
-            document.body.style.overflow = "hidden";
+            const scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
         } else {
-            document.body.style.overflow = "";
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
         }
         return () => {
-            document.body.style.overflow = "";
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
         };
     }, [isOpen]);
 
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[2000] flex items-center justify-center p-[max(1rem,3vw)]">
+                <div className="fixed inset-0 z-[2000] flex items-center justify-center p-[max(1rem,5vw)] overflow-hidden">
                     {/* Backdrop con Blur */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute inset-0 bg-black/60 backdrop-blur-md"
+                        className="absolute inset-0 bg-black/70 backdrop-blur-md pointer-events-auto"
+                        style={{ height: '100vh', width: '100vw' }}
                         onClick={onClose}
                     />
 
@@ -66,11 +76,13 @@ export const MissionSuccessDialog = ({
                         initial={{ opacity: 0, scale: 0.9, y: 30 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.8, y: 30 }}
-                        className="relative z-10 w-full overflow-hidden bg-white shadow-2xl"
+                        className="relative z-[2001] w-full bg-white shadow-2xl flex flex-col items-center"
                         style={{
-                            width: 'clamp(20rem, 35vw, 40rem)',
-                            padding: 'max(1.5rem, 3vw)',
-                            borderRadius: 'max(1rem, 2vw)',
+                            width: 'clamp(18rem, 85vw, 42rem)',
+                            maxHeight: '90vh',
+                            overflowY: 'auto',
+                            padding: 'max(2rem, 4vw)',
+                            borderRadius: 'max(1.5rem, 2.5vw)',
                             border: 'none',
                             margin: 'auto'
                         }}
@@ -78,9 +90,9 @@ export const MissionSuccessDialog = ({
                         {/* Close Button X */}
                         <button
                             onClick={onClose}
-                            className="absolute right-[max(1rem,2vw)] top-[max(1rem,2vw)] text-gray-400 hover:text-primary transition-colors cursor-pointer border-none bg-transparent"
+                            className="absolute right-[max(0.8rem,1.5vw)] top-[max(0.8rem,1.5vw)] p-2 text-gray-400 hover:text-primary transition-colors z-[2002] cursor-pointer border-none bg-transparent"
                         >
-                            <X style={{ width: 'max(1.5rem, 2.5vw)', height: 'max(1.5rem, 2.5vw)' }} />
+                            <X style={{ width: 'max(1.8rem, 2.8vw)', height: 'max(1.8rem, 2.8vw)' }} />
                         </button>
 
                         <div className="flex flex-col items-center text-center">
