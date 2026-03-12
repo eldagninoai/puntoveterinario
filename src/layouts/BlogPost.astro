@@ -12,9 +12,9 @@ const {
     authorImage = "/placeholder-doctora.webp",
 } = frontmatter || Astro.props;
 
-// Construimos el canonical dinámicamente si no existe (Astro.url.pathname)
+// Construimos el canonical dinámicamente sin trailing slash
 const url = new URL(
-    Astro.url.pathname,
+    Astro.url.pathname.replace(/\/$/, "") || "/",
     Astro.site || "https://puntoveterinario.com",
 ).href;
 

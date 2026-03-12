@@ -8,6 +8,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://puntoveterinario.com',
 
+  trailingSlash: 'never',
+
   integrations: [sitemap({
     changefreq: 'weekly',
     priority: 0.7,
@@ -17,6 +19,7 @@ export default defineConfig({
   compressHTML: true,
 
   build: {
+    format: 'file',
     inlineStylesheets: 'auto',
   },
 
