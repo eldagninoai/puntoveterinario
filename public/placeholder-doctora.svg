@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="20" fill="#E8F5F6"/>
+  <!-- Hair -->
+  <ellipse cx="200" cy="130" rx="75" ry="80" fill="#4A3728"/>
+  <!-- Face -->
+  <circle cx="200" cy="155" r="60" fill="#F5D0B0"/>
+  <!-- Hair bangs -->
+  <path d="M140 130 Q160 95 200 90 Q240 95 260 130" fill="#4A3728"/>
+  <path d="M135 140 Q140 120 155 115" stroke="#4A3728" stroke-width="8" fill="none"/>
+  <path d="M265 140 Q260 120 245 115" stroke="#4A3728" stroke-width="8" fill="none"/>
+  <!-- Long hair sides -->
+  <path d="M130 145 Q125 200 140 260" stroke="#4A3728" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <path d="M270 145 Q275 200 260 260" stroke="#4A3728" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <!-- Eyes -->
+  <ellipse cx="180" cy="150" rx="6" ry="7" fill="#3D2B1F"/>
+  <ellipse cx="220" cy="150" rx="6" ry="7" fill="#3D2B1F"/>
+  <circle cx="178" cy="148" r="2" fill="#fff"/>
+  <circle cx="218" cy="148" r="2" fill="#fff"/>
+  <!-- Eyebrows -->
+  <path d="M170 138 Q180 133 190 136" stroke="#4A3728" stroke-width="2.5" fill="none"/>
+  <path d="M210 136 Q220 133 230 138" stroke="#4A3728" stroke-width="2.5" fill="none"/>
+  <!-- Smile -->
+  <path d="M185 172 Q200 185 215 172" stroke="#C17A5A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Blush -->
+  <circle cx="170" cy="168" r="8" fill="#F8B4B4" opacity="0.4"/>
+  <circle cx="230" cy="168" r="8" fill="#F8B4B4" opacity="0.4"/>
+  <!-- Neck -->
+  <rect x="188" y="210" width="24" height="25" rx="5" fill="#F5D0B0"/>
+  <!-- Lab coat body -->
+  <path d="M130 240 Q130 230 160 225 L188 225 L200 240 L212 225 L240 225 Q270 230 270 240 L280 370 L120 370 Z" fill="#fff"/>
+  <!-- Coat collar -->
+  <path d="M170 225 L200 260 L230 225" fill="none" stroke="#E0E0E0" stroke-width="2"/>
+  <!-- Scrubs under coat -->
+  <path d="M175 240 L200 265 L225 240" fill="#2bb3c0" opacity="0.6"/>
+  <!-- Stethoscope -->
+  <path d="M170 250 Q155 280 165 310" stroke="#666" stroke-width="3" fill="none"/>
+  <circle cx="165" cy="315" r="8" stroke="#666" stroke-width="3" fill="#888"/>
+  <circle cx="165" cy="315" r="3" fill="#555"/>
+  <!-- Name tag -->
+  <rect x="220" y="275" width="35" height="18" rx="3" fill="#2bb3c0"/>
+  <rect x="225" y="280" width="25" height="3" rx="1" fill="#fff"/>
+  <rect x="225" y="285" width="18" height="3" rx="1" fill="#fff" opacity="0.6"/>
+  <!-- Text -->
+  <text x="200" y="385" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#2bb3c0" font-weight="600">Dra. Pilar</text>
+</svg>

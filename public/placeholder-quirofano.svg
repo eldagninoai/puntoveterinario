@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#F0F4F8"/>
+  <!-- Floor -->
+  <rect x="0" y="420" width="800" height="180" fill="#E3EBF0"/>
+  <!-- Walls -->
+  <rect x="50" y="80" width="700" height="340" rx="8" fill="#fff" stroke="#C8D8E0" stroke-width="2"/>
+  <!-- Surgery light -->
+  <rect x="370" y="60" width="60" height="20" rx="5" fill="#999"/>
+  <ellipse cx="400" cy="100" rx="50" ry="20" fill="#DDD"/>
+  <circle cx="400" cy="100" r="12" fill="#FFF9C4"/>
+  <!-- Surgery table -->
+  <rect x="220" y="310" width="360" height="25" rx="5" fill="#B0BEC5"/>
+  <rect x="250" y="335" width="10" height="85" rx="2" fill="#90A4AE"/>
+  <rect x="540" y="335" width="10" height="85" rx="2" fill="#90A4AE"/>
+  <!-- Equipment tray -->
+  <rect x="620" y="250" width="80" height="120" rx="5" fill="#CFD8DC"/>
+  <rect x="630" y="260" width="15" height="4" rx="1" fill="#78909C"/>
+  <rect x="650" y="260" width="20" height="4" rx="1" fill="#78909C"/>
+  <rect x="630" y="270" width="25" height="4" rx="1" fill="#78909C"/>
+  <rect x="630" y="280" width="12" height="4" rx="1" fill="#78909C"/>
+  <!-- Monitor -->
+  <rect x="100" y="200" width="100" height="80" rx="5" fill="#333"/>
+  <rect x="105" y="205" width="90" height="60" rx="3" fill="#1B5E20"/>
+  <!-- Heart rate line -->
+  <polyline points="110,240 125,240 130,220 135,260 140,230 145,240 180,240" stroke="#4CAF50" stroke-width="2" fill="none"/>
+  <!-- IV stand -->
+  <rect x="545" y="170" width="4" height="170" fill="#999"/>
+  <rect x="530" y="165" width="34" height="5" rx="2" fill="#999"/>
+  <rect x="538" y="150" width="18" height="20" rx="3" fill="#BBDEFB"/>
+  <!-- Text -->
+  <text x="400" y="560" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#888" font-weight="500">Quirófano</text>
+</svg>

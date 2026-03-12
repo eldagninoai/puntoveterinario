@@ -8,184 +8,405 @@ interface Props {
 }
 const { limit } = Astro.props as Props;
 if (limit) posts = posts.slice(0, limit);
+
+const mockPosts = [
+    {
+        url: "/blog/placeholder",
+        frontmatter: {
+            title: "Cómo limpiar los oídos de tu perro",
+            extracto:
+                "Aprende la técnica correcta para evitar infecciones sin lastimar su conducto auditivo.",
+            fecha: "12 Mar 2026",
+            heroImage:
+                "https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=800&q=80",
+        },
+    },
+    {
+        url: "/blog/placeholder",
+        frontmatter: {
+            title: "¿Por qué mi gato toma tanta agua?",
+            extracto:
+                "El aumento en el consumo de agua puede ser una señal silente de problemas renales.",
+            fecha: "10 Mar 2026",
+            heroImage:
+                "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80",
+        },
+    },
+    {
+        url: "/blog/placeholder",
+        frontmatter: {
+            title: "Croquetas de súper vs. Premium",
+            extracto:
+                "La diferencia real en digestibilidad y por qué el alimento económico puede salir más caro.",
+            fecha: "05 Mar 2026",
+            heroImage:
+                "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80",
+        },
+    },
+];
+
+const allPosts = [...posts, ...mockPosts];
+const displayPosts = limit ? allPosts.slice(0, limit) : allPosts;
 ---
 
-<section class="seccion-blog content-section bg-soft">
-    <h2 class="titulo-sec">
-        Consejos veterinarios para dueños de mascotas en CDMX
-    </h2>
-    <div class="grid-auto">
+<section class="blog-section">
+    <div class="blog-grid">
+        <!-- Bloque 1: Estático y Primero -->
+        <article class="blog-cell blog-cell--static">
+            <h2 class="blog-static-title">Bienestar y Salud para tu Mascota</h2>
+            <p class="blog-static-desc">
+                Consejos de nuestros veterinarios en Coyoacán
+            </p>
+        </article>
+
+        <!-- Bloques de Posts -->
         {
-            posts.length > 0 ? (
-                posts.map((post: any) => {
-                    const fm = post.frontmatter ?? {};
+            displayPosts.map((post: any, index: number) => {
+                const fm = post.frontmatter ?? {};
+                const isFirst = index === 0;
+                const title = fm.title || fm.titulo || "Artículo de Salud";
+                const desc =
+                    fm.description ||
+                    fm.extracto ||
+                    "Consejos expertos para tu mascota.";
+                const date = fm.fecha ?? fm.date ?? "";
+                const image = fm.imagen ?? fm.heroImage ?? "";
+                const link = post.url ?? "/blog/placeholder";
+
+                // Usamos index % 4 para intercalar imágenes y 3 colores vibrantes
+                const styleType = index % 4;
+
+                if (styleType === 0) {
+                    // Estilo Imagen con Título Superpuesto
                     return (
-                        <article class="card-ui">
-                            {fm.imagen && (
-                                <img
-                                    src={fm.imagen}
-                                    alt={fm.titulo ?? "Artículo del blog"}
-                                    width="600"
-                                    height="400"
-                                    loading="lazy"
-                                    decoding="async"
-                                    class="blog-img"
-                                    style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
-                                />
-                            )}
-                            <div class="blog-content">
-                                {fm.categoria && (
-                                    <span
-                                        class="card-ver"
-                                        style="margin-top:0; color:var(--color-primary); font-size:var(--text-sm);"
-                                    >
-                                        {fm.categoria}
-                                    </span>
-                                )}
-                                <h3 class="blog-titulo">
-                                    {fm.titulo ?? fm.title}
+                        <a
+                            href={link}
+                            class="blog-cell blog-cell--image"
+                            style={`background-image: url('${image}');`}
+                            aria-label={title}
+                        >
+                            <div class="blog-overlay" />
+                            <div class="blog-inner blog-inner--image">
+                                <h3 class="blog-title blog-title--image">
+                                    {title}
                                 </h3>
-                                <p class="card-desc">
-                                    {fm.extracto ?? fm.description}
-                                </p>
-                                <a href={post.url ?? "/blog"} class="card-ver">
-                                    Leer artículo →
-                                </a>
+                                <p class="blog-desc blog-desc--image">{desc}</p>
                             </div>
-                        </article>
+                        </a>
                     );
-                })
-            ) : (
-                /* Fallback: artículos hardcodeados mientras no haya .md publicados */
-                <>
-                    <article class="card-ui">
-                        <img
-                            src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80"
-                            alt="Perro en parque - Placeholder"
-                            width="600"
-                            height="400"
-                            loading="lazy"
-                            decoding="async"
-                            class="blog-img"
-                            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
-                        />
-                        <div class="blog-content">
-                            <span
-                                class="card-ver"
-                                style="margin-top:0; color:var(--color-primary); font-size:var(--text-sm);"
-                            >
-                                Prevención
-                            </span>
-                            <h3 class="blog-titulo">
-                                Los mejores parques para perros en Coyoacán
-                            </h3>
-                            <p class="card-desc">
-                                Conoce los espacios más seguros en el sur de la
-                                CDMX y qué vacunas necesita tu mascota antes de
-                                salir a jugar.
-                            </p>
-                            <a
-                                href="/blog/mejores-parques-perros-coyoacan-cuidados"
-                                class="card-ver"
-                            >
-                                Leer artículo →
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="card-ui">
-                        <img
-                            src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80"
-                            alt="Gato en revisión - Placeholder"
-                            width="600"
-                            height="400"
-                            loading="lazy"
-                            decoding="async"
-                            class="blog-img"
-                            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
-                        />
-                        <div class="blog-content">
-                            <span
-                                class="card-ver"
-                                style="margin-top:0; color:var(--color-primary); font-size:var(--text-sm);"
-                            >
-                                Salud Felina
-                            </span>
-                            <h3 class="blog-titulo">
-                                ¿Por qué mi gato toma tanta agua?
-                            </h3>
-                            <p class="card-desc">
-                                El aumento en el consumo de agua puede ser una
-                                señal silente de problemas renales. Descubre
-                                cuándo preocuparte.
-                            </p>
-                            <a href="/blog" class="card-ver">
-                                Leer artículo →
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="card-ui">
-                        <img
-                            src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=600&q=80"
-                            alt="Perro veterinario - Placeholder"
-                            width="600"
-                            height="400"
-                            loading="lazy"
-                            decoding="async"
-                            class="blog-img"
-                            style="width:100%; height:max(12rem, 18vw); object-fit:cover; border-radius:var(--radius-sm); margin-bottom:var(--space-sm);"
-                        />
-                        <div class="blog-content">
-                            <span
-                                class="card-ver"
-                                style="margin-top:0; color:var(--color-primary); font-size:var(--text-sm);"
-                            >
-                                Nutrición
-                            </span>
-                            <h3 class="blog-titulo">
-                                Croquetas de súper vs. Premium: ¿Cuál elegir?
-                            </h3>
-                            <p class="card-desc">
-                                La diferencia real en digestibilidad y por qué
-                                el alimento económico puede salir más caro a
-                                largo plazo.
-                            </p>
-                            <a
-                                href="/servicios/alimento-mascotas"
-                                class="card-ver"
-                            >
-                                Leer artículo →
-                            </a>
-                        </div>
-                    </article>
-                </>
-            )
+                } else if (styleType === 1) {
+                    // Estilo Naranja
+                    return (
+                        <a href={link} class="blog-cell blog-cell--orange">
+                            <div class="blog-inner">
+                                <h3 class="blog-title">{title}</h3>
+                                <p class="blog-desc">{desc}</p>
+                                {date && <span class="blog-date">{date}</span>}
+                            </div>
+                        </a>
+                    );
+                } else if (styleType === 2) {
+                    // Estilo Rosa
+                    return (
+                        <a href={link} class="blog-cell blog-cell--pink">
+                            <div class="blog-inner">
+                                <h3 class="blog-title">{title}</h3>
+                                <p class="blog-desc">{desc}</p>
+                                {date && <span class="blog-date">{date}</span>}
+                            </div>
+                        </a>
+                    );
+                } else {
+                    // Estilo Blanco Clásico
+                    return (
+                        <a href={link} class="blog-cell blog-cell--light">
+                            <div class="blog-inner">
+                                <h3 class="blog-title">{title}</h3>
+                                <p class="blog-desc">{desc}</p>
+                                {date && <span class="blog-date">{date}</span>}
+                            </div>
+                        </a>
+                    );
+                }
+            })
         }
+    </div>
+
+    <!-- Indicador de Scroll Dinámico -->
+    <div class="scroll-indicator" aria-hidden="true">
+        <span></span>
     </div>
 </section>
 
 <style>
-    /* BLOG */
-    .blog-img {
-        width: 100%;
-        height: max(8rem, 12vw);
-        object-fit: cover;
-        border-radius: max(0.3rem, 0.8vw);
-        margin-bottom: max(0.8rem, 1.2vw);
+    /* Contenedor Principal Full-Width */
+    .blog-section {
+        --mural-teal: #2bb3c0;
+        --mural-orange: #f15a24;
+        --mural-pink: #ef8b98;
+        --mural-yellow: #fbb03b;
+
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        margin-bottom: max(1.5rem, 3vw); /* Margen inferior extra */
+        padding: 0;
+        overflow: visible; /* Permitir que el scroll indicator se asome */
+        background: var(--color-bg-soft); /* Fondo base sutil */
+        position: relative; /* Para anclar el scroll-indicator */
     }
-    .blog-content {
+
+    /* El Grid Mosaico */
+    .blog-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* 1 columna móvil */
+        gap: 0; /* Sin separaciones */
+        width: 100%;
+        margin: 0;
+        max-width: none;
+        padding: 0 0 max(4rem, 8vh) 0; /* Padding inferior para incentivar scroll, sin márgenes laterales */
+    }
+
+    /* 3 columnas desktop */
+    @media (min-width: 64.0625rem) {
+        .blog-grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 1fr; /* Igualar alturas en toda la fila */
+            max-width: none;
+        }
+    }
+
+    /* Estilo General de Celdas */
+    .blog-cell {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        min-height: max(12rem, 20vh); /* Altura fluida más compacta */
+        aspect-ratio: 16 / 9; /* Rectangular horizontal */
+        padding: max(1rem, 2vw); /* Padding más reducido */
+        border-radius: 0; /* Encaje perfecto */
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        transition:
+            transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            box-shadow 0.3s ease,
+            outline 0.3s ease;
+        z-index: 1;
     }
-    .blog-titulo {
-        color: var(--color-primary-dark);
-        margin-bottom: max(0.5rem, 1vw);
+
+    /* En móviles podemos hacer que fluyan mejor */
+    @media (max-width: 767px) {
+        .blog-cell {
+            aspect-ratio: auto;
+            min-height: max(12rem, 35vw);
+        }
     }
-    .blog-fecha {
-        font-size: max(0.8rem, 1vw);
+
+    /* Interacción Hover elegante */
+    a.blog-cell:hover {
+        transform: scale(1.02);
+        z-index: 2;
+        filter: brightness(0.9);
+    }
+
+    /* Bloque 1 (¡ESTÁTICO Y PRIMERO!) */
+    .blog-cell--static {
+        background-color: var(--mural-teal);
+        color: #fff;
+    }
+
+    .blog-static-title {
+        font-size: max(1.4rem, 2vw); /* Más pequeño */
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: max(0.8rem, 1.5vw);
+        color: #fff;
+    }
+
+    .blog-static-desc {
+        font-size: max(1rem, 1.4vw);
+        line-height: 1.5;
+        margin: 0;
+        color: #fff; /* Fuerte contraste */
+        opacity: 0.95;
+    }
+
+    /* Contenedor interior para texto de posts */
+    .blog-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: max(0.8rem, 1.2vw);
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Estilo Naranja Vibrante */
+    .blog-cell--orange {
+        background-color: var(--mural-orange);
+        color: #fff;
+    }
+    .blog-cell--orange .blog-title {
+        color: #fff;
+    }
+    .blog-cell--orange .blog-desc {
+        color: rgba(255, 255, 255, 0.95);
+    }
+    .blog-cell--orange .blog-date {
+        color: #fff;
+        opacity: 0.8;
+    }
+
+    /* Estilo Rosa Vibrante */
+    .blog-cell--pink {
+        background-color: var(--mural-pink);
+        color: var(
+            --color-text
+        ); /* Contraste oscuro/suave para fondo claro/medio */
+    }
+    .blog-cell--pink .blog-title {
+        color: var(--color-text);
+    }
+    .blog-cell--pink .blog-desc {
         color: var(--color-text-soft);
-        margin-bottom: max(0.5rem, 1vw);
+    }
+    .blog-cell--pink .blog-date {
+        color: var(--color-text-soft);
+        opacity: 0.8;
+    }
+
+    /* Estilo Blanco Clásico */
+    .blog-cell--light {
+        background-color: var(--color-bg); /* O puro #fff */
+        color: var(--color-text);
+    }
+    .blog-cell--light .blog-title {
+        color: var(--color-primary-dark);
+    }
+    .blog-cell--light .blog-desc {
+        color: var(--color-text-soft);
+    }
+    .blog-cell--light .blog-date {
+        color: var(--color-secondary-dark);
+    }
+
+    /* Elementos Comunes Textuales */
+    .blog-title {
+        font-size: max(1.1rem, 1.5vw); /* Más elegante */
+        font-weight: 700;
+        line-height: 1.3;
+        margin: 0;
+    }
+
+    .blog-desc {
+        font-size: max(0.9rem, 1.2vw); /* Más pequeño */
+        line-height: 1.5;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Menos líneas visibles */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .blog-date {
+        font-size: max(0.8rem, 1vw);
+        font-weight: 600;
+        margin-top: max(0.5rem, 1vw);
+    }
+
+    /* Estilo Imagen */
+    .blog-cell--image {
+        background-size: cover;
+        background-position: center;
+        padding: max(1rem, 2vw);
+        aspect-ratio: 16 / 9;
+    }
+
+    .blog-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.1) 60%,
+            transparent 100%
+        );
+        transition: background-color 0.4s ease;
+        z-index: 1;
+    }
+
+    .blog-cell--image:hover .blog-overlay {
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.25) 60%,
+            rgba(0, 0, 0, 0.05) 100%
+        );
+    }
+
+    /* Texto superpuesto sobre imagen */
+    .blog-inner--image {
+        position: relative;
+        z-index: 2;
+    }
+
+    .blog-title--image {
+        color: #fff;
+        text-shadow: 0 max(0.1rem, 0.2vw) max(0.5rem, 1vw) rgba(0, 0, 0, 0.5);
+    }
+
+    .blog-desc--image {
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 max(0.1rem, 0.15vw) max(0.3rem, 0.6vw) rgba(0, 0, 0, 0.5);
+    }
+
+    /* INDICADOR DE SCROLL (MOUSE) */
+    .scroll-indicator {
+        position: relative;
+        margin: max(1.5rem, 3vw) auto;
+        width: max(1.5rem, 3vw);
+        height: max(2.5rem, 5vw);
+        border: max(0.12rem, 0.2vw) solid var(--color-primary);
+        border-radius: max(1rem, 2vw);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: max(0.3rem, 0.5vw);
+        opacity: 0.7; /* Muy discreto */
+        pointer-events: none; /* No interfiere con clics */
+        z-index: 10;
+    }
+
+    .scroll-indicator span {
+        display: block;
+        width: max(0.3rem, 0.6vw);
+        height: max(0.3rem, 0.6vw);
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        40% {
+            transform: translateY(max(0.6rem, 1.2vw));
+        }
+        60% {
+            transform: translateY(max(0.3rem, 0.6vw));
+            opacity: 0.5;
+        }
     }
 </style>

@@ -19,7 +19,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
 
 <header class="header">
   <div class="container header__inner">
-    <a href="/" class="logo" aria-label="Inicio">
+    <a href="/" class="logo logo-gradient" aria-label="Inicio">
       <span>Punto Veterinario</span>
     </a>
 
@@ -127,10 +127,25 @@ const serviciosActivo = currentPath.startsWith("/servicios");
     gap: max(0.3rem, 0.5vw);
     text-decoration: none;
     font-size: max(1.2rem, 1.8vw);
-    font-weight: 700;
+    font-weight: 800;
     color: var(--color-primary);
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  /* LOGO GRADIENT MURAL */
+  .logo-gradient span {
+    background: linear-gradient(90deg, #2bb3c0 0%, #f15a24 50%, #ef8b98 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+    background-size: 200% auto; /* Para animar el hover */
+    transition: background-position 0.4s ease;
+  }
+
+  .logo-gradient:hover span {
+    background-position: right center; /* Desplaza el gradiente al pasarlo */
   }
 
   /* NAV */
@@ -149,7 +164,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
     padding: 0;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 64.0625rem) {
     .nav-list {
       gap: max(1rem, 2.5vw);
     }
@@ -334,7 +349,7 @@ const serviciosActivo = currentPath.startsWith("/servicios");
   }
 
   /* ===== MOBILE (hamburguesa) ===== */
-  @media (max-width: 767px) {
+  @media (max-width: 64rem) {
     /* Mostrar botón hamburguesa */
     .nav-toggle {
       display: flex;

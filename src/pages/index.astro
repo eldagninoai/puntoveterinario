@@ -207,29 +207,53 @@ try {
   </Fragment>
 
   <!-- SECCIÓN 1 — HERO -->
-  <section class="hero content-section">
-    <div class="hero__text">
-      <h1 class="h1-hero">Veterinaria en Coyoacán, CDMX | Punto Veterinario</h1>
-      <p class="hero__desc">
-        Atendemos a tu perro o gato con diagnóstico preciso, precios accesibles
-        y el trato que tu mascota merece. Estamos en Av. División del Norte
-        3595, San Pablo Tepetlapa — en el corazón del sur de la ciudad.
-      </p>
-      <div class="hero__slogan-box">
-        <p class="hero__slogan">¡De cola a nariz, tu mascota feliz!</p>
+  <section class="hero-home content-section">
+    <div class="hero__inner grid-hero">
+      <!-- Columna Izquierda: Texto -->
+      <div class="hero__text">
+        <h1 class="h1-home">
+          Veterinaria en Coyoacán, CDMX | Punto Veterinario
+        </h1>
+        <p class="desc-home">
+          Atendemos a tu perro o gato con diagnóstico preciso, precios
+          accesibles y el trato que tu mascota merece. Estamos en Av. División
+          del Norte 3595, San Pablo Tepetlapa — en el corazón del sur de la
+          ciudad.
+        </p>
+        <div class="hero__slogan-box">
+          <p class="hero__slogan">¡De cola a nariz, tu mascota feliz!</p>
+        </div>
+        <div class="hero__btns">
+          <a
+            href="https://wa.me/525513843004"
+            class="btn-wa"
+            target="_blank"
+            rel="noopener"
+          >
+            💬 Agendar por WhatsApp
+          </a>
+          <a href="/servicios/consulta-veterinaria" class="btn-sec">
+            Ver nuestros servicios
+          </a>
+        </div>
       </div>
-      <div class="hero__btns">
-        <a
-          href="https://wa.me/525513843004"
-          class="btn-wa"
-          target="_blank"
-          rel="noopener"
-        >
-          💬 Agendar por WhatsApp
-        </a>
-        <a href="/servicios/consulta-veterinaria" class="btn-sec">
-          Ver nuestros servicios
-        </a>
+
+      <!-- Columna Derecha: Video con Poster LCP -->
+      <div class="hero__video-col">
+        <div class="hero-video-wrapper">
+          <video
+            class="hero-video"
+            poster="/images/veterinaria-poster.jpeg"
+            preload="metadata"
+            autoplay
+            muted
+            loop
+            playsinline
+          >
+            <source src="/videos/veterinaria-coyoacan.mp4" type="video/mp4" />
+            <!-- Fallback: si el video no carga, el poster cubre el 100% -->
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -377,7 +401,7 @@ try {
 
       <div class="mapa-placeholder">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.0454378776846!2d-99.1417531!3d19.3238356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce01a52002f2ab%3A0xe5a3c0e3e5c9b7e7!2sPunto%20Veterinario!5e0!3m2!1sen!2smx!4v1707575344445!5m2!1sen!2smx"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5!2d-99.13922!3d19.322004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce010007f0a32f%3A0x9c168bcfa6aad89f!2sPunto%20Veterinario!5e0!3m2!1ses!2smx!4v1"
           width="100%"
           height="100%"
           style="border:0; border-radius: max(1rem, 2vw); min-height: max(20rem, 30vw);"
@@ -415,280 +439,140 @@ try {
   <!-- BOTÓN FLOTANTE WA REMOVIDO: Ya existe nativamente en BaseLayout.astro -->
 </BaseLayout>
 
+<script>
+  // PATRÓN FACADE PARA VIDEO DEL HERO
+  document.addEventListener("DOMContentLoaded", () => {
+    const playBtn = document.getElementById("play-video-btn");
+    const facade = document.getElementById("hero-video-facade");
+
+    if (!playBtn || !facade) return;
+
+    playBtn.addEventListener("click", () => {
+      // Reemplazamos el innerHTML por el video de verdad
+      facade.innerHTML = `
+        <video 
+          src="/videos/veterinaria-coyoacan.mp4" 
+          controls 
+          autoplay 
+          playsinline 
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+        ></video>
+      `;
+    });
+  });
+</script>
+
 <style>
-  /* ====== FLUID SYSTEM + RESPONSIVE ====== */
-
-  .content-section {
-    padding-block: max(3rem, 6vw);
-    padding-inline: max(1.5rem, 8vw);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .pt-0 {
-    padding-top: 0;
-  }
-  .bg-soft {
-    background: var(--color-bg-soft);
-  }
-
-  .h1-hero {
-    color: var(--color-text);
-    font-size: max(2rem, 5vw);
-    margin-bottom: max(1rem, 2vw);
-  }
-
-  .titulo-sec {
-    color: var(--color-primary);
-    text-align: center;
-    font-size: max(1.75rem, 3.5vw);
-    margin-bottom: max(2rem, 4vw);
-    line-height: 1.2;
-    width: 100%;
-  }
-
-  /* =========================================
-     FAQ ACORDEÓN — siempre alineado izquierda
-     ========================================= */
-  .faq-accordion {
-    width: 100%;
-    max-width: 100%;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: max(0.5rem, 1vw);
-  }
-  .faq-item {
-    width: 100%;
-    text-align: left;
-  }
-  .faq-question {
-    text-align: left;
-    display: block;
-    padding-right: max(2.5rem, 4vw);
-    cursor: pointer;
-    font-weight: 600;
-    font-size: max(1rem, 1.4vw);
-    color: var(--color-text);
-    line-height: 1.4;
-  }
-  .faq-answer {
-    text-align: left;
-    margin: 0;
-    padding-top: max(0.5rem, 0.8vw);
-    font-size: max(0.9rem, 1.2vw);
-    color: var(--color-text-soft);
-    line-height: 1.6;
-  }
-
-  /* HERO — portada vertical perfecta */
-  .hero {
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--color-bg);
-  }
-  .hero__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .hero__text {
-    width: 100%;
-    margin-inline: auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero__desc {
-    color: var(--color-text-soft);
-    margin-bottom: max(1.5rem, 2vw);
-    margin-inline: auto;
-  }
-
-  .hero__slogan-box {
-    background: var(--color-primary-light);
-    border-radius: max(0.6rem, 1vw);
-    padding: max(0.8rem, 1.5vw);
-    margin-bottom: max(1.5rem, 2.5vw);
-    display: inline-block;
-  }
-
-  .hero__slogan {
-    font-size: max(1rem, 1.6vw);
-    font-weight: 600;
-    color: var(--color-primary-dark);
-    margin: 0;
-    line-height: 1.3;
-  }
-
-  .hero__btns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: max(0.8rem, 1.5vw);
-    margin-bottom: max(1rem, 2vw);
-    justify-content: center;
-  }
-
-  .btn-wa {
-    background: var(--color-primary);
-    color: #fff;
-    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
-    border-radius: max(0.4rem, 1vw);
-    font-weight: 600;
-    text-decoration: none;
-    transition:
-      background 0.2s,
-      transform 0.2s;
-  }
-  .btn-wa:hover {
-    background: var(--color-primary-dark);
-    transform: translateY(-0.15rem);
-  }
-
-  .btn-sec {
-    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
-    border: max(0.1rem, 0.15vw) solid var(--color-secondary);
-    color: var(--color-secondary-dark);
-    border-radius: max(0.4rem, 1vw);
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-sec:hover {
-    background: var(--color-secondary);
-    color: #fff;
-    transform: translateY(-0.15rem);
-  }
-
-  /* Títulos de sección: siempre centrados y ancho completo */
-  .titulo-sec {
-    color: var(--color-primary);
-    text-align: center;
-    font-size: max(1.75rem, 3.5vw);
-    margin-bottom: max(2rem, 4vw);
-    line-height: 1.2;
-    width: 100%;
-  }
-
-  .card-titulo,
-  .dato-titulo,
-  .blog-titulo {
-    color: var(--color-primary-dark);
-    margin-bottom: max(0.5rem, 1vw);
-  }
-  .dato-titulo {
-    color: var(--color-text);
-  }
-  .card-desc,
-  .dato-desc {
-    color: var(--color-text-soft);
-    flex-grow: 1;
-    margin: 0;
-  }
-
-  .card-ver {
-    color: var(--color-primary);
-    font-weight: 700;
-    margin-top: max(0.8rem, 1.2vw);
-    display: inline-block;
-    text-decoration: none !important;
-  }
-
   /* =========================================
      GRIDS Y TARJETAS — HOMEPAGE ESPECÍFICOS
      ========================================= */
 
-  /* Centrado de emojis en tarjetas */
-  .card-emoji,
-  .icon-scalable {
-    display: block;
-    text-align: center;
-    margin-inline: auto;
+  /* HERO AISLADO HOME */
+  .hero-home {
+    min-height: auto;
+    padding-block: max(6rem, 12vw);
+    display: flex; /* Para centrado vertical seguro junto con margin auto en inner si es necesario */
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
   }
-  .card-emoji {
-    font-size: max(3rem, 4.5vw);
-    margin-bottom: max(1rem, 1.8vw);
-    line-height: 1;
+  @media (min-width: 64.0625rem) {
+    .hero-home {
+      height: max(40rem, 100vh);
+      padding-block: max(2rem, 4vh);
+    }
+  }
+
+  .h1-home {
+    color: var(--color-text);
+    font-size: max(1.8rem, 3.2vw);
+    line-height: 1.1;
+    margin-bottom: max(1rem, 2vh);
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .desc-home {
+    font-size: max(0.9rem, 1.2vw);
+    color: var(--color-text-soft);
+    line-height: 1.6;
+    margin-bottom: max(1.5rem, 3vh);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  /* HERO GRID 2 COLUMNAS */
+  .grid-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: max(2rem, 4vw);
+    width: 100%;
+    max-width: max(40rem, 70vw); /* Tablet and mobile constrained view */
+    margin-inline: auto;
+    align-items: center; /* Centrado vertical en ambas columnas */
+  }
+  @media (min-width: 64.0625rem) {
+    .grid-hero {
+      max-width: max(75rem, 85vw); /* Restore wide desktop view */
+      grid-template-columns: 1.2fr 0.8fr; /* Da más peso al texto */
+      text-align: left;
+    }
+    .grid-hero .hero__text {
+      align-items: flex-start;
+      text-align: left;
+      margin-inline: 0;
+    }
+    .h1-home,
+    .desc-home {
+      text-align: left;
+      margin-inline: 0;
+    }
+    .grid-hero .hero__btns {
+      justify-content: flex-start;
+    }
+  }
+
+  /* VIDEO FACADE DEL HERO */
+  .hero__video-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Desktop video constraints override */
+  @media (min-width: 64.0625rem) {
+    .hero__video-col {
+      justify-self: center; /* Alineación del grid */
+    }
+    .hero-video-wrapper {
+      width: max(15rem, 20vw); /* Más estrecho y estilizado */
+      max-width: none;
+      max-height: max(25rem, 65vh); /* Limite estricto para encajar en 100vh */
+    }
+  }
+
+  .hero-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: max(14rem, 55vw); /* Ancho fluido móvil conservador */
+    aspect-ratio: 9 / 16; /* Vertical inquebrantable */
+    margin-inline: auto;
+    border-radius: max(1rem, 2vw); /* Borde redondeado fluido estilo mural */
+    overflow: hidden;
+    background: var(--color-bg-soft) url("/images/veterinaria-poster.jpeg")
+      center / cover no-repeat; /* Fallback: primer frame del video */
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   /* Grid forzado a 4 columnas en desktop para "Por qué elegirnos" */
-  .grid-porque {
-    display: grid;
-    gap: max(1rem, 2vw);
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-  @media (min-width: 768px) {
-    .grid-porque {
-      grid-template-columns: repeat(4, 1fr);
-      justify-items: center;
-    }
-  }
-
-  /* Centrado ESPECÍFICO: solo cards dentro de grids de servicios y por qué elegirnos */
-  .grid-auto a.card-ui,
-  .grid-porque .card-ui {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Hover SOLO en tarjetas que son enlace (clickeables) */
-  /* .card-ui por defecto NO tiene hover lift */
-  .card-static {
-    /* Tarjetas informativas: sin transform en hover */
-    cursor: default;
-  }
-  .card-static:hover {
-    transform: none;
-    box-shadow: 0 max(4px, 0.4vw) max(12px, 1.2vw) rgba(0, 0, 0, 0.05);
-  }
-
-  /* Solo los <a class="card-ui"> (links) levantan al hacer hover */
-  a.card-ui {
-    text-decoration: none !important;
-    color: inherit;
-  }
-  a.card-ui:hover {
-    transform: translateY(max(-5px, -0.5vw));
-    box-shadow: 0 max(8px, 0.8vw) max(20px, 2vw) rgba(0, 0, 0, 0.1);
-  }
-
-  /* Desktop: restaurar alineación izquierda en bloques de lectura */
-  @media (min-width: 768px) {
-    .como-llegar-info,
-    .transporte-item p,
-    .horario-box p,
-    .direccion-label {
-      text-align: left;
-    }
-    .resena-texto,
-    .resena-nombre {
-      text-align: left;
-    }
-    .rf-ubicacion-text {
-      text-align: center; /* El párrafo de intro sí se centra */
-    }
-  }
-
-  /* Mobile: centrado total de seguridad */
-  @media (max-width: 767px) {
-    .card-ui,
-    .hero__text {
-      text-align: center;
-      align-items: center;
-    }
-  }
-
-  /* RESEÑAS ESP */
   .estrellas {
     font-size: var(--text-md);
     margin-bottom: max(0.5rem, 1vw);
@@ -722,10 +606,13 @@ try {
     grid-template-columns: 1fr;
     gap: max(2rem, 4vw);
     align-items: stretch;
+    max-width: max(40rem, 70vw);
+    margin-inline: auto;
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 64.0625rem) {
     .como-llegar-grid {
       grid-template-columns: 1fr 1.2fr;
+      max-width: none;
     }
   }
 
@@ -814,51 +701,14 @@ try {
     width: 100%;
     min-height: max(20rem, 30vw);
   }
-
-  /* CTA FINAL */
-  .cta-final {
-    background: var(--color-primary);
-    text-align: center;
-    color: #fff;
-  }
-  .cta-titulo-blanc {
-    font-size: max(1.6rem, 2.8vw);
-    color: #fff;
-    margin-bottom: max(1rem, 1.5vw);
-    line-height: 1.2;
-  }
-  .cta-desc-blanc {
-    font-size: max(1rem, 1.3vw);
-    margin-bottom: max(1.5rem, 2.5vw);
-
-    margin-inline: auto;
-    color: #fff;
-    opacity: 0.9;
-  }
-  .cta-btns {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: max(0.8rem, 1.5vw);
-  }
-  .btn-cta-blanco {
-    background: #fff;
-    color: var(--color-primary-dark);
-    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
-    font-size: max(0.9rem, 1.2vw);
-    border-radius: max(0.4rem, 1vw);
-    font-weight: 600;
-    text-decoration: none !important;
-    display: inline-block;
-  }
-  .btn-cta-outline {
-    border: max(0.1rem, 0.15vw) solid #fff;
-    color: #fff;
-    padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
-    font-size: max(0.9rem, 1.2vw);
-    border-radius: max(0.4rem, 1vw);
-    font-weight: 600;
-    text-decoration: none !important;
-    display: inline-block;
-  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("video").forEach((v) => {
+      v.play().catch(() => {
+        /* Silenciar error si el navegador bloquea autoplay */
+      });
+    });
+  });
+</script>

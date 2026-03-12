@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#FFF8F0"/>
+  <!-- Floor -->
+  <rect x="0" y="420" width="800" height="180" fill="#F5EDE3"/>
+  <!-- Walls -->
+  <rect x="50" y="80" width="700" height="340" rx="8" fill="#fff" stroke="#E0D5C8" stroke-width="2"/>
+  <!-- Window -->
+  <rect x="320" y="110" width="160" height="120" rx="5" fill="#87CEEB" opacity="0.3"/>
+  <rect x="320" y="110" width="160" height="120" rx="5" fill="none" stroke="#C8B8A8" stroke-width="3"/>
+  <line x1="400" y1="110" x2="400" y2="230" stroke="#C8B8A8" stroke-width="2"/>
+  <line x1="320" y1="170" x2="480" y2="170" stroke="#C8B8A8" stroke-width="2"/>
+  <!-- Exam table -->
+  <rect x="200" y="310" width="300" height="25" rx="5" fill="#2bb3c0"/>
+  <rect x="220" y="335" width="10" height="85" rx="2" fill="#239AA5"/>
+  <rect x="480" y="335" width="10" height="85" rx="2" fill="#239AA5"/>
+  <!-- Cute dog on table -->
+  <ellipse cx="350" cy="290" rx="40" ry="25" fill="#D4A76A"/>
+  <circle cx="380" cy="275" r="18" fill="#D4A76A"/>
+  <circle cx="387" cy="270" r="3" fill="#333"/>
+  <ellipse cx="392" cy="276" rx="5" ry="3" fill="#222"/>
+  <ellipse cx="370" cy="263" rx="8" ry="12" fill="#C9935A" transform="rotate(-15 370 263)"/>
+  <ellipse cx="390" cy="265" rx="8" ry="12" fill="#C9935A" transform="rotate(15 390 265)"/>
+  <!-- Tail -->
+  <path d="M310 285 Q290 270 295 255" stroke="#D4A76A" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- Cabinet -->
+  <rect x="600" y="180" width="120" height="180" rx="5" fill="#EFEBE9"/>
+  <rect x="610" y="190" width="100" height="40" rx="3" fill="#D7CCC8"/>
+  <rect x="610" y="240" width="100" height="40" rx="3" fill="#D7CCC8"/>
+  <rect x="610" y="290" width="100" height="40" rx="3" fill="#D7CCC8"/>
+  <circle cx="660" cy="210" r="4" fill="#A1887F"/>
+  <circle cx="660" cy="260" r="4" fill="#A1887F"/>
+  <circle cx="660" cy="310" r="4" fill="#A1887F"/>
+  <!-- Text -->
+  <text x="400" y="560" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#888" font-weight="500">Consultorio</text>
+</svg>

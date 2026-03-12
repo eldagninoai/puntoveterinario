@@ -20,16 +20,29 @@
 
 /* ===== VARIABLES ===== */
 :root {
-  --color-primary: #62D7D5;
-  --color-primary-dark: #3DADA9;
-  --color-primary-light: #E8FAFA;
-  --color-secondary: #CFBAAA;
-  --color-secondary-dark: #B09880;
-  --color-urgencia: #D94F3D;
-  --color-text: #1a1a1a;
-  --color-text-soft: #666666;
-  --color-bg: #FFFFFF;
-  --color-bg-soft: #FAFAFA;
+  --color-primary: #2bb3c0;
+  /* Turquesa del mural */
+  --color-primary-dark: #21909a;
+  /* Versión ligeramente más oscura para hovers */
+  --color-primary-light: #e0f4f6;
+  /* Versión ultra clara para fondos de quotes */
+  --color-secondary: #f15a24;
+  /* Naranja vibrante del perrito */
+  --color-secondary-dark: #d04616;
+  /* Naranja oscuro para hovers */
+  --color-urgencia: #ef8b98;
+  /* Rosa del mural para casos de emergencia */
+
+  --color-text: #2c3e50;
+  /* Azul marino muy oscuro */
+  --color-text-soft: #546e7a;
+  /* Gris azulado para párrafos */
+
+  --color-bg: #ffffff;
+  /* Fondo base */
+  --color-bg-soft: #fcf9f5;
+  /* Gris muy suave cálido */
+
   --color-border: #EEEEEE;
 
   --font-main: 'Fredoka', sans-serif;
@@ -73,7 +86,7 @@
 }
 
 /* 2. DESKTOP - Escalado Vectorial Infinito (Proporción 1:1) */
-@media (min-width: 768px) {
+@media (min-width: 64.0625rem) {
   :root {
     /* Tipografía 100% proporcional */
     --text-p: 1.2vw;
@@ -340,65 +353,273 @@ section {
 }
 
 /* =========================================
-   1. ÍCONOS Y EMOJIS ESCALABLES
+   === ESTILOS COMPARTIDOS Y COMPONENTES ===
    ========================================= */
+
+/* 1. SECCIONES Y CONTENEDORES FLUIDOS */
+.content-section {
+  width: 100%;
+  padding-block: max(3rem, 6vw);
+  padding-inline: max(1.5rem, 8vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 64.0625rem) {
+  .content-section {
+    padding-block: max(4rem, 8vw);
+  }
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.bg-soft {
+  background-color: var(--color-bg-soft, #fafafa);
+}
+
+/* 2. TÍTULOS Y TEXTOS GLOBALES */
+.h1-hero {
+  color: var(--color-text);
+  font-size: max(2rem, 5vw);
+  line-height: 1.15;
+  margin-bottom: max(1rem, 2vw);
+  text-align: center;
+}
+
+.titulo-sec {
+  color: var(--color-primary);
+  text-align: center;
+  font-size: max(1.75rem, 3.5vw);
+  margin-bottom: max(2rem, 4vw);
+  line-height: 1.2;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.intro-desc {
+  font-size: max(0.95rem, 1.4vw);
+  margin-inline: auto;
+  margin-bottom: max(2rem, 4vw);
+  line-height: 1.6;
+}
+
+/* 3. HERO COMPARTIDO */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__text {
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__desc {
+  font-size: max(0.95rem, 1.4vw);
+  color: var(--color-text-soft);
+  line-height: 1.6;
+  margin-bottom: max(1.5rem, 2vw);
+  margin-inline: auto;
+}
+
+.hero__slogan-box {
+  background: var(--color-primary-light);
+  border-radius: max(0.6rem, 1vw);
+  padding: max(0.8rem, 1.5vw);
+  margin-bottom: max(1.5rem, 2.5vw);
+  display: inline-block;
+}
+
+.hero__slogan {
+  font-size: max(1rem, 1.6vw);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.hero__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: max(0.8rem, 1.5vw);
+  margin-bottom: max(1rem, 2vw);
+  justify-content: center;
+}
+
+/* 4. BOTONES (WA, SEC) */
+.btn-wa {
+  background: var(--color-primary);
+  color: #fff;
+  padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+  font-size: max(0.9rem, 1.2vw);
+  border-radius: max(0.4rem, 1vw);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-wa:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-0.15rem);
+}
+
+.btn-sec {
+  padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+  font-size: max(0.9rem, 1.2vw);
+  border: max(0.1rem, 0.15vw) solid var(--color-secondary);
+  color: var(--color-secondary-dark);
+  border-radius: max(0.4rem, 1vw);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-sec:hover {
+  background: var(--color-secondary);
+  color: #fff;
+  transform: translateY(-0.15rem);
+}
+
+/* 5. ÍCONOS Y EMOJIS ESCALABLES */
 .icon-scalable,
 .card-emoji {
-  /* En celular mínimo 2.5rem, en 4K crece masivamente con vw */
-  font-size: max(2.5rem, 4vw);
-  display: inline-block;
+  display: block;
+  text-align: center;
+  align-self: center;
+  margin-inline: auto;
+  font-size: max(3rem, 4.5vw);
   margin-bottom: max(1rem, 1.5vw);
   line-height: 1;
 }
 
-/* =========================================
-   2. GRIDS AUTOMÁTICOS FLUIDOS
-   ========================================= */
+/* 6. GRIDS AUTOMÁTICOS FLUIDOS */
 .grid-auto {
   display: grid;
   gap: max(1.5rem, 3vw);
-  /* Rompe columnas automáticamente. En celular usa 16rem mínimo, en desktop usa el 22% de la pantalla */
   grid-template-columns: repeat(auto-fit, minmax(max(16rem, 22vw), 1fr));
   width: 100%;
+  max-width: max(40rem, 70vw);
+  margin-inline: auto;
 }
 
-/* =========================================
-   3. TARJETAS (CARDS) "BONITAS"
-   ========================================= */
+@media (min-width: 64.0625rem) {
+  .grid-auto {
+    max-width: none;
+  }
+}
+
+/* 7. TARJETAS (CARDS) COMPARTIDAS */
 .card-ui {
   background-color: var(--color-bg, #ffffff);
-  /* Bordes y radios que crecen con la pantalla */
   border: max(1px, 0.1vw) solid var(--color-border, #e2e8f0);
   border-radius: max(0.75rem, 1.2vw);
   padding: max(1.5rem, 2.5vw);
   display: flex;
   flex-direction: column;
-  /* Mata el subrayado y el color azul de enlace en cards que son <a> */
   text-decoration: none !important;
   color: inherit;
-  /* Sombra que también escala */
   box-shadow: 0 max(4px, 0.4vw) max(12px, 1.2vw) rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
 }
 
-.card-ui:hover {
-  /* El salto del hover también debe escalar */
-  transform: translateY(max(-5px, -0.5vw));
-  box-shadow: 0 max(8px, 0.8vw) max(20px, 2vw) rgba(0, 0, 0, 0.08);
+.card-static {
+  cursor: default;
 }
 
-/* =========================================
-   4. ACORDEÓN FAQ "BONITO"
-   ========================================= */
+.card-static:hover {
+  transform: none;
+  box-shadow: 0 max(4px, 0.4vw) max(12px, 1.2vw) rgba(0, 0, 0, 0.05);
+}
+
+a.card-ui {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+a.card-ui:hover {
+  transform: translateY(max(-5px, -0.5vw));
+  box-shadow: 0 max(8px, 0.8vw) max(20px, 2vw) rgba(0, 0, 0, 0.1);
+}
+
+.card-titulo,
+.dato-titulo,
+.blog-titulo {
+  font-size: max(1.1rem, 1.6vw);
+  color: var(--color-primary-dark);
+  margin-bottom: max(0.5rem, 1vw);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.dato-titulo {
+  color: var(--color-text);
+}
+
+.card-desc,
+.dato-desc {
+  font-size: max(0.9rem, 1.2vw);
+  color: var(--color-text-soft);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin: 0;
+  text-align: center;
+}
+
+.card-ver {
+  font-size: max(0.9rem, 1.1vw);
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-top: max(0.8rem, 1.2vw);
+  display: inline-block;
+  text-align: center;
+}
+
+/* Centrado base para cards dentro de grid */
+.grid-auto .card-ui {
+  text-align: center;
+  align-items: center;
+}
+
+.card-ui .icon-scalable,
+.card-ui .card-emoji,
+.card-ui .card-titulo,
+.card-ui .card-desc,
+.card-ui .card-ver {
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* 8. ACORDEÓN FAQ COMPARTIDO */
 .faq-accordion {
+  width: 100%;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  gap: max(1rem, 1.5vw);
-  width: 100%;
+  align-items: flex-start;
+  gap: max(0.5rem, 1vw);
 }
 
 .faq-item {
+  width: 100%;
+  text-align: left;
   background: var(--color-bg, #ffffff);
   border: max(1px, 0.1vw) solid var(--color-border, #e2e8f0);
   border-radius: max(0.5rem, 1vw);
@@ -407,21 +628,24 @@ section {
 }
 
 .faq-question {
-  font-size: var(--text-h3, max(1.25rem, 2vw));
+  text-align: left;
+  display: block;
+  padding-right: max(2.5rem, 4vw);
+  cursor: pointer;
+  font-size: max(1.1rem, 1.5vw);
   font-weight: 600;
   color: var(--color-primary-dark);
-  cursor: pointer;
-  list-style: none;
+  line-height: 1.4;
   position: relative;
-  padding-right: max(2rem, 3vw);
   margin: 0;
+  list-style: none;
+  /* Para safari */
 }
 
 .faq-question::-webkit-details-marker {
   display: none;
 }
 
-/* Ícono de + y - que escala */
 .faq-question::after {
   content: "+";
   position: absolute;
@@ -440,15 +664,163 @@ section {
   margin-bottom: max(0.8rem, 1.2vw);
 }
 
-/* =========================================
-   5. SECCIONES Y CONTENEDORES
-   ========================================= */
-/* Cero max-width. El padding dicta el espacio vacío */
-.content-section {
-  width: 100%;
-  padding: max(4rem, 8vw) max(1.5rem, 8vw);
+.faq-answer {
+  text-align: left;
+  margin: 0;
+  padding-top: max(0.5rem, 0.8vw);
+  font-size: max(0.9rem, 1.2vw);
+  color: var(--color-text-soft);
+  line-height: 1.6;
 }
 
-.bg-soft {
-  background-color: var(--color-bg-soft, #f8fafc);
+/* 9. CTA FINAL COMPARTIDO */
+.cta-final {
+  background: var(--color-primary);
+  text-align: center;
+  color: #fff;
+}
+
+.cta-titulo-blanc {
+  font-size: max(1.6rem, 2.8vw);
+  color: #fff;
+  margin-bottom: max(1rem, 1.5vw);
+  line-height: 1.2;
+}
+
+.cta-desc-blanc {
+  font-size: max(1rem, 1.3vw);
+  margin-bottom: max(1.5rem, 2.5vw);
+  margin-inline: auto;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.cta-btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: max(0.8rem, 1.5vw);
+}
+
+.btn-cta-blanco {
+  background: #fff;
+  color: var(--color-primary-dark);
+  padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+  font-size: max(0.9rem, 1.2vw);
+  border-radius: max(0.4rem, 1vw);
+  font-weight: 600;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+.btn-cta-outline {
+  border: max(0.1rem, 0.15vw) solid #fff;
+  color: #fff;
+  padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
+  font-size: max(0.9rem, 1.2vw);
+  border-radius: max(0.4rem, 1vw);
+  font-weight: 600;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+/* 10. MITO VS REALIDAD (COMPARTIDO) */
+.mito-vs-realidad-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: max(2rem, 4vw);
+  align-items: center;
+}
+
+@media (min-width: 64rem) {
+  .mito-vs-realidad-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.mito-realidad-box {
+  display: flex;
+  flex-direction: column;
+  gap: max(1rem, 2vw);
+  margin-bottom: max(1.5rem, 3vw);
+}
+
+.mito-block,
+.realidad-block {
+  display: flex;
+  align-items: flex-start;
+  gap: max(0.8rem, 1.2vw);
+  background: var(--color-bg);
+  padding: max(1rem, 1.5vw);
+  border-radius: max(0.5rem, 1vw);
+  border-left: max(0.3rem, 0.5vw) solid;
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.mito-block {
+  border-left-color: #ff4d4d;
+}
+
+.realidad-block {
+  border-left-color: #4caf50;
+}
+
+.bad-icon,
+.good-icon {
+  font-size: max(1.2rem, 1.8vw);
+  flex-shrink: 0;
+  margin-top: max(0.2rem, 0.4vw);
+}
+
+.mito-block p,
+.realidad-block p {
+  font-size: max(0.95rem, 1.3vw);
+  color: var(--color-text-soft);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.mito-block p strong,
+.realidad-block p strong {
+  color: var(--color-text);
+}
+
+.mito-block p strong {
+  color: #ff4d4d;
+}
+
+.realidad-block p strong {
+  color: #4caf50;
+}
+
+.mito-quote-box {
+  display: flex;
+  align-items: center;
+}
+
+/* BLOCKQUOTE */
+.valor-quote {
+  background: var(--color-primary-light);
+  border-radius: max(0.5rem, 1vw);
+  padding: max(1.5rem, 2.5vw);
+  font-size: max(1.05rem, 1.4vw);
+  color: var(--color-primary-dark);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+  text-align: left;
+}
+
+.valor-quote::before {
+  content: "«";
+  font-size: max(2rem, 4vw);
+  position: absolute;
+  top: max(-0.5rem, -1vw);
+  left: max(0.5rem, 1vw);
+  opacity: 0.2;
+  font-weight: 700;
+  font-style: normal;
 }

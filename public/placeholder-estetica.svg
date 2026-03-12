@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#FFF0F5"/>
+  <!-- Floor -->
+  <rect x="0" y="420" width="800" height="180" fill="#F5E0E8"/>
+  <!-- Walls -->
+  <rect x="50" y="80" width="700" height="340" rx="8" fill="#fff" stroke="#E8C8D8" stroke-width="2"/>
+  <!-- Grooming table -->
+  <rect x="250" y="300" width="300" height="20" rx="5" fill="#ef8b98"/>
+  <rect x="270" y="320" width="10" height="100" rx="2" fill="#D87A88"/>
+  <rect x="520" y="320" width="10" height="100" rx="2" fill="#D87A88"/>
+  <!-- Arm/pole for leash -->
+  <rect x="510" y="200" width="6" height="100" fill="#999"/>
+  <rect x="480" y="195" width="60" height="6" rx="2" fill="#999"/>
+  <!-- Fluffy dog being groomed -->
+  <ellipse cx="400" cy="270" rx="55" ry="35" fill="#F5F5F5"/>
+  <circle cx="430" cy="245" r="22" fill="#F5F5F5"/>
+  <circle cx="438" cy="240" r="3.5" fill="#333"/>
+  <ellipse cx="445" cy="248" rx="6" ry="4" fill="#333"/>
+  <circle cx="445" cy="247" r="2" fill="#ef8b98"/>
+  <!-- Ears -->
+  <ellipse cx="418" cy="228" rx="10" ry="15" fill="#E0E0E0" transform="rotate(-20 418 228)"/>
+  <ellipse cx="445" cy="230" rx="10" ry="15" fill="#E0E0E0" transform="rotate(20 445 230)"/>
+  <!-- Fluffy body detail -->
+  <circle cx="370" cy="260" r="12" fill="#ECECEC"/>
+  <circle cx="390" cy="255" r="10" fill="#F0F0F0"/>
+  <circle cx="420" cy="258" r="11" fill="#ECECEC"/>
+  <!-- Bubbles -->
+  <circle cx="360" cy="210" r="8" fill="#87CEEB" opacity="0.3"/>
+  <circle cx="340" cy="190" r="5" fill="#87CEEB" opacity="0.3"/>
+  <circle cx="380" cy="195" r="6" fill="#87CEEB" opacity="0.25"/>
+  <circle cx="450" cy="200" r="7" fill="#87CEEB" opacity="0.3"/>
+  <circle cx="470" cy="185" r="4" fill="#87CEEB" opacity="0.25"/>
+  <!-- Shampoo bottle -->
+  <rect x="150" y="260" width="40" height="70" rx="8" fill="#2bb3c0"/>
+  <rect x="160" y="245" width="20" height="20" rx="3" fill="#239AA5"/>
+  <rect x="165" y="280" width="20" height="5" rx="2" fill="#fff" opacity="0.5"/>
+  <!-- Brush -->
+  <rect x="620" y="250" width="15" height="60" rx="4" fill="#D4A76A"/>
+  <rect x="612" y="240" width="31" height="15" rx="3" fill="#C9935A"/>
+  <!-- Comb lines -->
+  <line x1="615" y1="240" x2="615" y2="230" stroke="#A0724A" stroke-width="1.5"/>
+  <line x1="620" y1="240" x2="620" y2="228" stroke="#A0724A" stroke-width="1.5"/>
+  <line x1="625" y1="240" x2="625" y2="228" stroke="#A0724A" stroke-width="1.5"/>
+  <line x1="630" y1="240" x2="630" y2="228" stroke="#A0724A" stroke-width="1.5"/>
+  <line x1="635" y1="240" x2="635" y2="230" stroke="#A0724A" stroke-width="1.5"/>
+  <!-- Text -->
+  <text x="400" y="560" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#888" font-weight="500">Estética Canina</text>
+</svg>

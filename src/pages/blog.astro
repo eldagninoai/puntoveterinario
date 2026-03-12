@@ -29,20 +29,6 @@ const schema = {
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
 
-  <!-- SECCIÓN 1 — HERO DEL BLOG -->
-  <section class="hero content-section">
-    <div class="hero__text">
-      <h1 class="h1-hero">
-        Blog y Consejos Veterinarios para Mascotas en CDMX
-      </h1>
-      <p class="hero__desc">
-        Guías de salud, nutrición y prevención escritas por nuestro equipo
-        médico en Coyoacán. Encuentra respuestas confiables para el cuidado
-        diario de tu perro o gato.
-      </p>
-    </div>
-  </section>
-
   <!-- SECCIÓN 2 — GRID DE ARTÍCULOS -->
   <BlogSection />
 
@@ -79,46 +65,6 @@ const schema = {
 
   .bg-soft-alt {
     background: #f4f6f8;
-  }
-
-  .h1-hero {
-    font-size: max(1.8rem, 3.2vw);
-    color: var(--color-text);
-    line-height: 1.15;
-    margin-bottom: max(1rem, 2vw);
-  }
-
-  /* HERO CLASSES */
-  .hero {
-    background: var(--color-bg);
-  }
-  .hero__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .hero__text {
-    width: 100%;
-    margin-inline: auto;
-  }
-  @media (min-width: 48rem) {
-    .hero__text {
-      max-width: 80%;
-    }
-  }
-
-  .hero__desc {
-    font-size: max(0.95rem, 1.4vw);
-    color: var(--color-text-soft);
-    line-height: 1.6;
-    margin-bottom: max(1.5rem, 2vw);
-    margin-inline: auto;
-  }
-
-  .hero__btns {
-    display: flex;
-    justify-content: center;
   }
 
   .btn-wa {
