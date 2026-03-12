@@ -19,7 +19,7 @@ export default defineConfig({
   compressHTML: true,
 
   build: {
-    format: 'file',
+    format: 'directory',
     inlineStylesheets: 'auto',
   },
 
