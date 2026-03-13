@@ -18,7 +18,7 @@ const mockPosts = [
                 "Aprende la técnica correcta para evitar infecciones sin lastimar su conducto auditivo.",
             fecha: "12 Mar 2026",
             heroImage:
-                "https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=800&q=80&fm=webp",
+                "https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=800&q=80",
         },
     },
     {
@@ -29,7 +29,7 @@ const mockPosts = [
                 "El aumento en el consumo de agua puede ser una señal silente de problemas renales.",
             fecha: "10 Mar 2026",
             heroImage:
-                "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80&fm=webp",
+                "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80",
         },
     },
     {
@@ -40,7 +40,7 @@ const mockPosts = [
                 "La diferencia real en digestibilidad y por qué el alimento económico puede salir más caro.",
             fecha: "05 Mar 2026",
             heroImage:
-                "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80&fm=webp",
+                "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80",
         },
     },
 ];
@@ -83,6 +83,7 @@ const displayPosts = limit ? allPosts.slice(0, limit) : allPosts;
                             href={link}
                             class="blog-cell blog-cell--image"
                             style={`background-image: url('${image}');`}
+                            aria-label={title}
                         >
                             <div class="blog-overlay" />
                             <div class="blog-inner blog-inner--image">
@@ -140,8 +141,8 @@ const displayPosts = limit ? allPosts.slice(0, limit) : allPosts;
 <style>
     /* Contenedor Principal Full-Width */
     .blog-section {
-        --mural-teal: #1f818b; /* Oscurecido para WCAG AA sobre texto blanco */
-        --mural-orange: #cc4a1e; /* Oscurecido para WCAG AA sobre texto blanco */
+        --mural-teal: #2bb3c0;
+        --mural-orange: #f15a24;
         --mural-pink: #ef8b98;
         --mural-yellow: #fbb03b;
 

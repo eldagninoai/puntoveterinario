@@ -15,6 +15,9 @@
   --radius-v-md: max(0.5rem, 1vw);
 }
 
+/* ===== GOOGLE FONTS — Fredoka ===== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
 /* ===== VARIABLES ===== */
 :root {
   --color-primary: #2bb3c0;

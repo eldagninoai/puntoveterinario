@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const schema = {
@@ -9,13 +9,13 @@ const schema = {
             name: "Sobre Punto Veterinario",
             url: "https://www.puntoveterinario.com/nosotros",
             description:
-                "Clínica veterinaria familiar en Coyoacán, CDMX. Conoce a nuestro equipo de médicos especialistas enfocados en el bienestar animal.",
+                "ClÃ­nica veterinaria familiar en CoyoacÃ¡n, CDMX. Conoce a nuestro equipo de mÃ©dicos especialistas enfocados en el bienestar animal.",
         },
         {
             "@type": "VideoObject",
-            name: "Conoce Punto Veterinario - Nuestra Clínica en Coyoacán",
+            name: "Conoce Punto Veterinario - Nuestra ClÃ­nica en CoyoacÃ¡n",
             description:
-                "Un recorrido por nuestras instalaciones y nuestra filosofía de cuidado y medicina preventiva para perros y gatos en San Pablo Tepetlapa, CDMX.",
+                "Un recorrido por nuestras instalaciones y nuestra filosofÃ­a de cuidado y medicina preventiva para perros y gatos en San Pablo Tepetlapa, CDMX.",
             thumbnailUrl:
                 "https://www.puntoveterinario.com/video-thumbnail.webp",
             uploadDate: "2024-01-01T08:00:00+08:00",
@@ -26,60 +26,60 @@ const schema = {
 
 const filosofiaCards = [
     {
-        emoji: "🔍",
-        titulo: "Transparencia Médica",
-        desc: "Nunca te pediremos estudios innecesarios. Te explicamos cada diagnóstico de forma clara y honesta para que tomes la mejor decisión.",
+        emoji: "ðŸ”",
+        titulo: "Transparencia MÃ©dica",
+        desc: "Nunca te pediremos estudios innecesarios. Te explicamos cada diagnÃ³stico de forma clara y honesta para que tomes la mejor decisiÃ³n.",
     },
     {
-        emoji: "🧘",
-        titulo: "Trato Libre de Estrés",
+        emoji: "ðŸ§˜",
+        titulo: "Trato Libre de EstrÃ©s",
         desc: "Entendemos que ir al veterinario puede darles miedo. Nos tomamos el tiempo para que se relajen, usando premios y un manejo paciente.",
     },
     {
-        emoji: "📚",
-        titulo: "Actualización Constante",
-        desc: "La medicina veterinaria avanza rápido. Nuestro equipo se capacita continuamente para ofrecerte los tratamientos más seguros y modernos del sur de CDMX.",
+        emoji: "ðŸ“š",
+        titulo: "ActualizaciÃ³n Constante",
+        desc: "La medicina veterinaria avanza rÃ¡pido. Nuestro equipo se capacita continuamente para ofrecerte los tratamientos mÃ¡s seguros y modernos del sur de CDMX.",
     },
 ];
 
 const instalacionesImgs = [
     {
         src: "/placeholder-recepcion.svg",
-        alt: "Recepción limpia y moderna en Punto Veterinario Coyoacán",
+        alt: "RecepciÃ³n limpia y moderna en Punto Veterinario CoyoacÃ¡n",
     },
     {
         src: "/placeholder-quirofano.svg",
-        alt: "Quirófano totalmente equipado en Punto Veterinario Coyoacán",
+        alt: "QuirÃ³fano totalmente equipado en Punto Veterinario CoyoacÃ¡n",
     },
     {
         src: "/placeholder-consultorio.svg",
-        alt: "Consultorio amplio para atención libre de estrés en Punto Veterinario Coyoacán",
+        alt: "Consultorio amplio para atenciÃ³n libre de estrÃ©s en Punto Veterinario CoyoacÃ¡n",
     },
     {
         src: "/placeholder-estetica.svg",
-        alt: "Área de estética canina e higiene preventiva en Punto Veterinario Coyoacán",
+        alt: "Ãrea de estÃ©tica canina e higiene preventiva en Punto Veterinario CoyoacÃ¡n",
     },
 ];
 ---
 
 <BaseLayout
-    title="Médicos Veterinarios de Confianza en Coyoacán | Punto Veterinario"
-    description="Conoce a nuestro equipo de médicos veterinarios en Coyoacán. Especialistas en medicina preventiva, cirugía y cuidado animal en San Pablo Tepetlapa."
+    title="MÃ©dicos Veterinarios de Confianza en CoyoacÃ¡n | Punto Veterinario"
+    description="Conoce a nuestro equipo de mÃ©dicos veterinarios en CoyoacÃ¡n. Especialistas en medicina preventiva, cirugÃ­a y cuidado animal en San Pablo Tepetlapa."
     canonical="https://www.puntoveterinario.com/nosotros"
 >
     <Fragment slot="head">
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     </Fragment>
 
-    <!-- SECCIÓN 1 — HERO -->
+    <!-- SECCIÃ“N 1 â€” HERO -->
     <section class="hero content-section">
         <div class="hero__text">
             <h1 class="h1-hero">
-                Médicos Veterinarios de Confianza en Coyoacán
+                MÃ©dicos Veterinarios de Confianza en CoyoacÃ¡n
             </h1>
             <p class="hero__desc">
                 Sabemos que tu perro o gato no es solo una mascota, es parte de
-                tu familia. En Punto Veterinario combinamos experiencia médica,
+                tu familia. En Punto Veterinario combinamos experiencia mÃ©dica,
                 instalaciones seguras y un trato profundamente humano para
                 cuidar de ellos en San Pablo Tepetlapa.
             </p>
@@ -90,13 +90,13 @@ const instalacionesImgs = [
                     target="_blank"
                     rel="noopener"
                 >
-                    💬 Hablar con el equipo
+                    ðŸ’¬ Hablar con el equipo
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4 — NUESTRA FILOSOFÍA Y VALORES -->
+    <!-- SECCIÃ“N 4 â€” NUESTRA FILOSOFÃA Y VALORES -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">Nuestra promesa para ti y tu mascota</h2>
         <div class="grid-auto">
@@ -112,9 +112,9 @@ const instalacionesImgs = [
         </div>
     </section>
 
-    <!-- SECCIÓN 5 — INSTALACIONES (PRUEBA SOCIAL VISUAL BENTO GRID) -->
+    <!-- SECCIÃ“N 5 â€” INSTALACIONES (PRUEBA SOCIAL VISUAL BENTO GRID) -->
     <section class="content-section">
-        <h2 class="titulo-sec">Un espacio diseñado para su bienestar</h2>
+        <h2 class="titulo-sec">Un espacio diseÃ±ado para su bienestar</h2>
         <div class="bento-gallery">
             {
                 instalacionesImgs.map((img, index) => (
@@ -134,15 +134,15 @@ const instalacionesImgs = [
         </div>
     </section>
 
-    <!-- SECCIÓN 6 — CTA FINAL LOCAL -->
+    <!-- SECCIÃ“N 6 â€” CTA FINAL LOCAL -->
     <section class="cta-final content-section">
         <h2 class="cta-titulo-blanc">
             Pon la salud de tu mejor amigo en buenas manos
         </h2>
         <p class="cta-desc-blanc">
-            Estamos listos para recibir a tu mascota en Av. División del Norte
-            3595, San Pablo Tepetlapa. Únete a las familias de Coyoacán que
-            confían en Punto Veterinario.
+            Estamos listos para recibir a tu mascota en Av. DivisiÃ³n del Norte
+            3595, San Pablo Tepetlapa. Ãšnete a las familias de CoyoacÃ¡n que
+            confÃ­an en Punto Veterinario.
         </p>
         <div class="cta-btns">
             <a
@@ -151,9 +151,11 @@ const instalacionesImgs = [
                 rel="noopener"
                 class="btn-cta-blanco"
             >
-                💬 Contactar por WhatsApp
+                ðŸ’¬ Contactar por WhatsApp
             </a>
-            <a href="/ubicacion" class="btn-cta-outline"> 📍 ¿Cómo llegar? </a>
+            <a href="/ubicacion" class="btn-cta-outline">
+                ðŸ“ Â¿CÃ³mo llegar?
+            </a>
         </div>
     </section>
 </BaseLayout>
@@ -180,7 +182,7 @@ const instalacionesImgs = [
         }
     }
 
-    /* GRID EQUIPO MÉDICO */
+    /* GRID EQUIPO MÃ‰DICO */
     .grid-equipo {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

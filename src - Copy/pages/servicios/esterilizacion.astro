@@ -1,18 +1,18 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Esterilización y Castración Veterinaria",
+    name: "EsterilizaciÃ³n y CastraciÃ³n Veterinaria",
     provider: {
         "@type": "VeterinaryCare",
         name: "Punto Veterinario",
         image: "https://www.puntoveterinario.com/og-image.jpg",
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Av. División del Norte 3595",
-            addressLocality: "Coyoacán",
+            streetAddress: "Av. DivisiÃ³n del Norte 3595",
+            addressLocality: "CoyoacÃ¡n",
             addressRegion: "CDMX",
             postalCode: "04620",
             addressCountry: "MX",
@@ -20,10 +20,10 @@ const schema = {
     },
     areaServed: {
         "@type": "AdministrativeArea",
-        name: "Coyoacán",
+        name: "CoyoacÃ¡n",
     },
     description:
-        "Cirugía de esterilización (ovariohisterectomía) para hembras y castración (orquiectomía) para machos en CDMX. Prevención de piometra, tumores y cuidado integral.",
+        "CirugÃ­a de esterilizaciÃ³n (ovariohisterectomÃ­a) para hembras y castraciÃ³n (orquiectomÃ­a) para machos en CDMX. PrevenciÃ³n de piometra, tumores y cuidado integral.",
 };
 
 const faqSchema = {
@@ -32,26 +32,26 @@ const faqSchema = {
     mainEntity: [
         {
             "@type": "Question",
-            name: "¿Cuánto cuesta esterilizar a un perro o gato en Coyoacán?",
+            name: "Â¿CuÃ¡nto cuesta esterilizar a un perro o gato en CoyoacÃ¡n?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "El costo de la esterilización depende del peso, especie y sexo de tu mascota. En Punto Veterinario, nuestras cirugías incluyen estudios prequirúrgicos para garantizar su seguridad. Escríbenos por WhatsApp al 55 1384 3004 para darte un presupuesto exacto.",
+                text: "El costo de la esterilizaciÃ³n depende del peso, especie y sexo de tu mascota. En Punto Veterinario, nuestras cirugÃ­as incluyen estudios prequirÃºrgicos para garantizar su seguridad. EscrÃ­benos por WhatsApp al 55 1384 3004 para darte un presupuesto exacto.",
             },
         },
         {
             "@type": "Question",
-            name: "¿A qué edad se recomienda esterilizar a mi mascota?",
+            name: "Â¿A quÃ© edad se recomienda esterilizar a mi mascota?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Recomendamos esterilizar a hembras y machos antes de su primer celo o etapa reproductiva (generalmente entre los 4 y 6 meses de edad). Esto reduce drásticamente el riesgo de desarrollar cáncer mamario o prostático en el futuro.",
+                text: "Recomendamos esterilizar a hembras y machos antes de su primer celo o etapa reproductiva (generalmente entre los 4 y 6 meses de edad). Esto reduce drÃ¡sticamente el riesgo de desarrollar cÃ¡ncer mamario o prostÃ¡tico en el futuro.",
             },
         },
         {
             "@type": "Question",
-            name: "¿Mi gata o perra necesita tener una camada antes de esterilizarse?",
+            name: "Â¿Mi gata o perra necesita tener una camada antes de esterilizarse?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "No, esto es un mito. No existe ningún beneficio médico ni emocional en permitir que tengan una camada. Al contrario, cada celo que pasan sin reproducirse aumenta su riesgo de desarrollar piometra (infección uterina grave) y tumores.",
+                text: "No, esto es un mito. No existe ningÃºn beneficio mÃ©dico ni emocional en permitir que tengan una camada. Al contrario, cada celo que pasan sin reproducirse aumenta su riesgo de desarrollar piometra (infecciÃ³n uterina grave) y tumores.",
             },
         },
     ],
@@ -61,24 +61,24 @@ const faqs = faqSchema.mainEntity;
 
 const datosCards = [
     {
-        emoji: "📉",
+        emoji: "ðŸ“‰",
         dato: "De 25% a 0.05%",
-        desc: "Esterilizar a una hembra antes de su primer celo reduce el riesgo de cáncer de glándula mamaria a casi cero.",
+        desc: "Esterilizar a una hembra antes de su primer celo reduce el riesgo de cÃ¡ncer de glÃ¡ndula mamaria a casi cero.",
     },
     {
-        emoji: "🚨",
+        emoji: "ðŸš¨",
         dato: "80% de riesgo de Piometra",
-        desc: "Las perras no esterilizadas tienen una altísima probabilidad de desarrollar esta infección uterina mortal que requiere cirugía de emergencia.",
+        desc: "Las perras no esterilizadas tienen una altÃ­sima probabilidad de desarrollar esta infecciÃ³n uterina mortal que requiere cirugÃ­a de emergencia.",
     },
     {
-        emoji: "🐈",
-        dato: "7 veces más riesgo en gatas",
-        desc: "Las gatas sin esterilizar son sumamente propensas a tumores mamarios, de los cuales más del 80% suelen ser malignos.",
+        emoji: "ðŸˆ",
+        dato: "7 veces mÃ¡s riesgo en gatas",
+        desc: "Las gatas sin esterilizar son sumamente propensas a tumores mamarios, de los cuales mÃ¡s del 80% suelen ser malignos.",
     },
     {
-        emoji: "🐕",
+        emoji: "ðŸ•",
         dato: "95% en machos senior",
-        desc: "Casi todos los perros machos no castrados (orquiectomía) desarrollan problemas de próstata a partir de los 9 años.",
+        desc: "Casi todos los perros machos no castrados (orquiectomÃ­a) desarrollan problemas de prÃ³stata a partir de los 9 aÃ±os.",
     },
 ];
 
@@ -86,49 +86,49 @@ const mitos = [
     {
         mito: "Hay que dejarla tener una camada antes de operarla para que no se deprima.",
         realidad:
-            "Completamente falso. Las mascotas no tienen el deseo psicológico de ser madres. No existe ningún beneficio médico en esperar; de hecho, cada celo aumenta dramáticamente el riesgo de cáncer y piometra.",
+            "Completamente falso. Las mascotas no tienen el deseo psicolÃ³gico de ser madres. No existe ningÃºn beneficio mÃ©dico en esperar; de hecho, cada celo aumenta dramÃ¡ticamente el riesgo de cÃ¡ncer y piometra.",
     },
     {
-        mito: "La cirugía los hace flojos, tristes y gordos.",
+        mito: "La cirugÃ­a los hace flojos, tristes y gordos.",
         realidad:
-            "Parcialmente incorrecto. La esterilización disminuye su metabolismo basal porque ya no gastan energía en buscar pareja, pero no cambia su personalidad. El aumento de peso se controla fácilmente ajustando su porción de alimento y manteniendo sus paseos diarios.",
+            "Parcialmente incorrecto. La esterilizaciÃ³n disminuye su metabolismo basal porque ya no gastan energÃ­a en buscar pareja, pero no cambia su personalidad. El aumento de peso se controla fÃ¡cilmente ajustando su porciÃ³n de alimento y manteniendo sus paseos diarios.",
     },
 ];
 
 const protocoloPasos = [
     {
-        emoji: "🩸",
-        title: "Estudios Prequirúrgicos Obligatorios",
-        desc: "Antes de la anestesia, realizamos análisis de sangre para verificar que sus riñones e hígado funcionen perfectamente y pueda procesar los medicamentos sin riesgo.",
+        emoji: "ðŸ©¸",
+        title: "Estudios PrequirÃºrgicos Obligatorios",
+        desc: "Antes de la anestesia, realizamos anÃ¡lisis de sangre para verificar que sus riÃ±ones e hÃ­gado funcionen perfectamente y pueda procesar los medicamentos sin riesgo.",
     },
     {
-        emoji: "🏥",
-        title: "Quirófano Equipado",
-        desc: "Contamos con monitoreo anestésico constante durante toda la ovariohisterectomía (hembras) o castración (machos).",
+        emoji: "ðŸ¥",
+        title: "QuirÃ³fano Equipado",
+        desc: "Contamos con monitoreo anestÃ©sico constante durante toda la ovariohisterectomÃ­a (hembras) o castraciÃ³n (machos).",
     },
     {
-        emoji: "💊",
-        title: "Protocolo del Dolor y Recuperación",
-        desc: "Tu mascota se va a casa el mismo día, caminando, con una receta clara de analgésicos y antibióticos para que su recuperación sea rápida y sin dolor.",
+        emoji: "ðŸ’Š",
+        title: "Protocolo del Dolor y RecuperaciÃ³n",
+        desc: "Tu mascota se va a casa el mismo dÃ­a, caminando, con una receta clara de analgÃ©sicos y antibiÃ³ticos para que su recuperaciÃ³n sea rÃ¡pida y sin dolor.",
     },
 ];
 
 const relacionadosCards = [
     {
-        title: "Consulta Médica",
-        emoji: "🩺",
+        title: "Consulta MÃ©dica",
+        emoji: "ðŸ©º",
         href: "/servicios/consulta-veterinaria",
         desc: "Chequeos generales y medicina preventiva.",
     },
     {
-        title: "Laboratorio Clínico",
-        emoji: "🔬",
+        title: "Laboratorio ClÃ­nico",
+        emoji: "ðŸ”¬",
         href: "/servicios/laboratorio-clinico",
-        desc: "Estudios prequirúrgicos y perfiles completos.",
+        desc: "Estudios prequirÃºrgicos y perfiles completos.",
     },
     {
-        title: "Estética Canina",
-        emoji: "🛁",
+        title: "EstÃ©tica Canina",
+        emoji: "ðŸ›",
         href: "/servicios/estetica-canina",
         desc: "Grooming profesional exclusivo para perros.",
     },
@@ -136,8 +136,8 @@ const relacionadosCards = [
 ---
 
 <BaseLayout
-    title="Esterilización de Perros y Gatos en Coyoacán | Punto Veterinario"
-    description="Cirugía de esterilización y castración segura en Coyoacán, sur de CDMX. Previene tumores y piometra. Incluye valoración prequirúrgica. ¡Agenda por WhatsApp!"
+    title="EsterilizaciÃ³n de Perros y Gatos en CoyoacÃ¡n | Punto Veterinario"
+    description="CirugÃ­a de esterilizaciÃ³n y castraciÃ³n segura en CoyoacÃ¡n, sur de CDMX. Previene tumores y piometra. Incluye valoraciÃ³n prequirÃºrgica. Â¡Agenda por WhatsApp!"
     canonical="https://www.puntoveterinario.com/servicios/esterilizacion"
 >
     <Fragment slot="head">
@@ -148,16 +148,16 @@ const relacionadosCards = [
         />
     </Fragment>
 
-    <!-- SECCIÓN 1 — HERO -->
+    <!-- SECCIÃ“N 1 â€” HERO -->
     <section class="hero content-section">
         <div class="hero__text">
             <h1 class="h1-hero">
-                Esterilización y Castración de Perros y Gatos en Coyoacán
+                EsterilizaciÃ³n y CastraciÃ³n de Perros y Gatos en CoyoacÃ¡n
             </h1>
             <p class="hero__desc">
-                Una decisión preventiva que puede salvarle la vida. Realizamos
-                cirugías seguras con estudios prequirúrgicos y monitoreo
-                anestésico en San Pablo Tepetlapa, CDMX. Protege a tu mascota
+                Una decisiÃ³n preventiva que puede salvarle la vida. Realizamos
+                cirugÃ­as seguras con estudios prequirÃºrgicos y monitoreo
+                anestÃ©sico en San Pablo Tepetlapa, CDMX. Protege a tu mascota
                 contra tumores, infecciones y problemas de comportamiento.
             </p>
             <div class="hero__btns">
@@ -167,24 +167,24 @@ const relacionadosCards = [
                     target="_blank"
                     rel="noopener"
                 >
-                    💬 Cotizar cirugía por WhatsApp
+                    ðŸ’¬ Cotizar cirugÃ­a por WhatsApp
                 </a>
                 <a href="#protocolo" class="btn-sec">
-                    Conoce el proceso seguro →
+                    Conoce el proceso seguro â†’
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2 — DATOS MÉDICOS (E-E-A-T) -->
+    <!-- SECCIÃ“N 2 â€” DATOS MÃ‰DICOS (E-E-A-T) -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">
-            ¿Por qué la esterilización es el mejor acto de amor?
+            Â¿Por quÃ© la esterilizaciÃ³n es el mejor acto de amor?
         </h2>
         <p class="text-center text-soft intro-desc">
             Esterilizar a tu mascota no solo evita camadas no deseadas; es la
-            intervención médica preventiva más importante para extender su
-            esperanza de vida y evitar problemas como el cáncer de glándula
+            intervenciÃ³n mÃ©dica preventiva mÃ¡s importante para extender su
+            esperanza de vida y evitar problemas como el cÃ¡ncer de glÃ¡ndula
             mamaria o piometra.
         </p>
         <div class="grid-auto">
@@ -202,43 +202,43 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 3 — MITO VS REALIDAD -->
+    <!-- SECCIÃ“N 3 â€” MITO VS REALIDAD -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Mitos comunes sobre la esterilización y castración de perros CDMX
+            Mitos comunes sobre la esterilizaciÃ³n y castraciÃ³n de perros CDMX
         </h2>
 
         <div class="mito-vs-realidad-grid">
             <div class="mito-content">
                 <div class="mito-realidad-box">
                     <div class="mito-block">
-                        <span class="bad-icon">❌</span>
+                        <span class="bad-icon">âŒ</span>
                         <p>
                             <strong>Mito:</strong> "Hay que dejarla tener una camada
                             antes de operarla para que no se deprima."
                         </p>
                     </div>
                     <div class="realidad-block">
-                        <span class="good-icon">✅</span>
+                        <span class="good-icon">âœ…</span>
                         <p>
                             <strong>Realidad:</strong> Completamente falso. Las mascotas
-                            no tienen el deseo psicológico de ser madres. No existe
-                            ningún beneficio médico en esperar; cada celo aumenta
-                            el riesgo de cáncer.
+                            no tienen el deseo psicolÃ³gico de ser madres. No existe
+                            ningÃºn beneficio mÃ©dico en esperar; cada celo aumenta
+                            el riesgo de cÃ¡ncer.
                         </p>
                     </div>
                     <div class="mito-block">
-                        <span class="bad-icon">❌</span>
+                        <span class="bad-icon">âŒ</span>
                         <p>
-                            <strong>Mito:</strong> "La cirugía los hace flojos, tristes
+                            <strong>Mito:</strong> "La cirugÃ­a los hace flojos, tristes
                             y gordos."
                         </p>
                     </div>
                     <div class="realidad-block">
-                        <span class="good-icon">✅</span>
+                        <span class="good-icon">âœ…</span>
                         <p>
                             <strong>Realidad:</strong> Parcialmente incorrecto. La
-                            esterilización disminuye su metabolismo basal, pero no
+                            esterilizaciÃ³n disminuye su metabolismo basal, pero no
                             cambia su personalidad. El peso se controla con dieta
                             y ejercicio.
                         </p>
@@ -250,23 +250,23 @@ const relacionadosCards = [
                 <blockquote class="valor-quote">
                     "Esterilizar a tu mascota antes del primer celo reduce el
                     riesgo de tumores de mama en un 99.5%. Es el acto de amor
-                    más grande y preventivo que puedes hacer."
+                    mÃ¡s grande y preventivo que puedes hacer."
                 </blockquote>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4 — EL PROTOCOLO SEGURO -->
+    <!-- SECCIÃ“N 4 â€” EL PROTOCOLO SEGURO -->
     <section id="protocolo" class="content-section bg-soft">
         <h2 class="titulo-sec">
-            ¿Por qué elegir Punto Veterinario para la cirugía de tu mascota?
+            Â¿Por quÃ© elegir Punto Veterinario para la cirugÃ­a de tu mascota?
         </h2>
 
         <blockquote class="valor-quote text-center">
-            "En CDMX existen campañas de esterilización gratuita, pero muchas
+            "En CDMX existen campaÃ±as de esterilizaciÃ³n gratuita, pero muchas
             operan sin conocer el estado interno de la mascota. En Punto
             Veterinario no tomamos riesgos con la vida de tu mejor amigo.
-            Nuestro protocolo quirúrgico es estricto y seguro."
+            Nuestro protocolo quirÃºrgico es estricto y seguro."
         </blockquote>
 
         <div class="timeline-protocolo mt-fluid">
@@ -287,10 +287,10 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <!-- SECCIÃ“N 5 â€” FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Preguntas frecuentes sobre la esterilización en Coyoacán
+            Preguntas frecuentes sobre la esterilizaciÃ³n en CoyoacÃ¡n
         </h2>
         <div class="faq-accordion">
             {
@@ -304,7 +304,7 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 6 — OTROS SERVICIOS RELACIONADOS -->
+    <!-- SECCIÃ“N 6 â€” OTROS SERVICIOS RELACIONADOS -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">Cuidado integral en San Pablo Tepetlapa</h2>
         <div class="grid-auto">
@@ -314,22 +314,22 @@ const relacionadosCards = [
                         <span class="icon-scalable">{s.emoji}</span>
                         <h3 class="card-titulo">{s.title}</h3>
                         <p class="card-desc">{s.desc}</p>
-                        <span class="card-ver">Ver detalles →</span>
+                        <span class="card-ver">Ver detalles â†’</span>
                     </a>
                 ))
             }
         </div>
     </section>
 
-    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <!-- SECCIÃ“N 7 â€” CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
         <h2 class="cta-titulo-blanc">
-            ¿Listo para agendar la esterilización de tu mascota?
+            Â¿Listo para agendar la esterilizaciÃ³n de tu mascota?
         </h2>
         <p class="cta-desc-blanc">
             El costo de prevenir hoy es mucho menor al de tratar una urgencia
-            médica mañana. Contáctanos para cotizar la cirugía de tu perro o
-            gato. Estamos en Av. División del Norte 3595, a minutos del Pedregal
+            mÃ©dica maÃ±ana. ContÃ¡ctanos para cotizar la cirugÃ­a de tu perro o
+            gato. Estamos en Av. DivisiÃ³n del Norte 3595, a minutos del Pedregal
             de Santo Domingo y Copilco.
         </p>
         <div class="cta-btns">
@@ -339,10 +339,10 @@ const relacionadosCards = [
                 rel="noopener"
                 class="btn-cta-blanco"
             >
-                💬 Cotizar por WhatsApp
+                ðŸ’¬ Cotizar por WhatsApp
             </a>
             <a href="tel:+525513843004" class="btn-cta-outline">
-                📞 Llamar al 55 1384 3004
+                ðŸ“ž Llamar al 55 1384 3004
             </a>
         </div>
     </section>
@@ -405,7 +405,7 @@ const relacionadosCards = [
         text-align: left;
     }
     .valor-quote::before {
-        content: "«";
+        content: "Â«";
         font-size: max(2rem, 4vw);
         position: absolute;
         top: max(-0.5rem, -1vw);

@@ -1,18 +1,18 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Estética Canina y Grooming",
+    name: "EstÃ©tica Canina y Grooming",
     provider: {
         "@type": "VeterinaryCare",
         name: "Punto Veterinario",
         image: "https://www.puntoveterinario.com/og-image.jpg",
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Av. División del Norte 3595",
-            addressLocality: "Coyoacán",
+            streetAddress: "Av. DivisiÃ³n del Norte 3595",
+            addressLocality: "CoyoacÃ¡n",
             addressRegion: "CDMX",
             postalCode: "04620",
             addressCountry: "MX",
@@ -20,10 +20,10 @@ const schema = {
     },
     areaServed: {
         "@type": "AdministrativeArea",
-        name: "Coyoacán",
+        name: "CoyoacÃ¡n",
     },
     description:
-        "Servicio de estética canina, baño, corte de pelo y grooming para perros en el sur de CDMX. Cuidado del pelaje, uñas y glándulas con enfoque en salud preventiva.",
+        "Servicio de estÃ©tica canina, baÃ±o, corte de pelo y grooming para perros en el sur de CDMX. Cuidado del pelaje, uÃ±as y glÃ¡ndulas con enfoque en salud preventiva.",
 };
 
 const faqSchema = {
@@ -32,26 +32,26 @@ const faqSchema = {
     mainEntity: [
         {
             "@type": "Question",
-            name: "¿Cuánto cuesta el baño y corte de un perro en Coyoacán?",
+            name: "Â¿CuÃ¡nto cuesta el baÃ±o y corte de un perro en CoyoacÃ¡n?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "El precio de la estética canina depende del tamaño de tu perro, tipo de pelaje y el servicio que requiera (solo baño o corte completo). Escríbenos por WhatsApp al 55 1384 3004 con la raza de tu perro para darte una cotización exacta.",
+                text: "El precio de la estÃ©tica canina depende del tamaÃ±o de tu perro, tipo de pelaje y el servicio que requiera (solo baÃ±o o corte completo). EscrÃ­benos por WhatsApp al 55 1384 3004 con la raza de tu perro para darte una cotizaciÃ³n exacta.",
             },
         },
         {
             "@type": "Question",
-            name: "¿Qué incluye el servicio de estética canina?",
+            name: "Â¿QuÃ© incluye el servicio de estÃ©tica canina?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Nuestro servicio de grooming incluye baño con champú específico según su tipo de piel, secado, cepillado profesional, corte de pelo (si lo requiere), limpieza de oídos, drenado de glándulas perianales y corte de uñas.",
+                text: "Nuestro servicio de grooming incluye baÃ±o con champÃº especÃ­fico segÃºn su tipo de piel, secado, cepillado profesional, corte de pelo (si lo requiere), limpieza de oÃ­dos, drenado de glÃ¡ndulas perianales y corte de uÃ±as.",
             },
         },
         {
             "@type": "Question",
-            name: "¿Cada cuánto debo bañar a mi perro?",
+            name: "Â¿Cada cuÃ¡nto debo baÃ±ar a mi perro?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Depende de la raza y el tipo de pelo. Los perros de pelo largo o rizado necesitan grooming profesional cada 4 a 6 semanas para evitar nudos y dermatitis. Los perros de pelo corto pueden bañarse cada 1 a 2 meses.",
+                text: "Depende de la raza y el tipo de pelo. Los perros de pelo largo o rizado necesitan grooming profesional cada 4 a 6 semanas para evitar nudos y dermatitis. Los perros de pelo corto pueden baÃ±arse cada 1 a 2 meses.",
             },
         },
     ],
@@ -61,62 +61,62 @@ const faqs = faqSchema.mainEntity;
 
 const incluyeCards = [
     {
-        emoji: "🛁",
-        title: "Baño Profundo",
-        desc: "Uso de champú específico para su tipo de piel (sensible, seca, grasa o con hongos) respetando el pH canino.",
+        emoji: "ðŸ›",
+        title: "BaÃ±o Profundo",
+        desc: "Uso de champÃº especÃ­fico para su tipo de piel (sensible, seca, grasa o con hongos) respetando el pH canino.",
     },
     {
-        emoji: "✂️",
+        emoji: "âœ‚ï¸",
         title: "Corte y Estilismo",
-        desc: "Cortes a tijera o máquina según la raza, incluyendo técnicas como deshedding para razas de doble capa.",
+        desc: "Cortes a tijera o mÃ¡quina segÃºn la raza, incluyendo tÃ©cnicas como deshedding para razas de doble capa.",
     },
     {
-        emoji: "🐾",
-        title: "Corte de Uñas",
+        emoji: "ðŸ¾",
+        title: "Corte de UÃ±as",
         desc: "Previene el dolor al caminar y deformaciones posturales a largo plazo.",
     },
     {
-        emoji: "👂",
-        title: "Limpieza de Oídos",
-        desc: "Remoción de exceso de cera y humedad para prevenir infecciones dolorosas (otitis).",
+        emoji: "ðŸ‘‚",
+        title: "Limpieza de OÃ­dos",
+        desc: "RemociÃ³n de exceso de cera y humedad para prevenir infecciones dolorosas (otitis).",
     },
     {
-        emoji: "💨",
+        emoji: "ðŸ’¨",
         title: "Secado Profesional",
-        desc: "Eliminación total de la humedad desde la raíz para evitar la proliferación de hongos y malos olores.",
+        desc: "EliminaciÃ³n total de la humedad desde la raÃ­z para evitar la proliferaciÃ³n de hongos y malos olores.",
     },
     {
-        emoji: "🍑",
-        title: "Glándulas Perianales",
-        desc: "Drenaje cuidadoso (si el paciente lo requiere) para evitar inflamaciones crónicas.",
+        emoji: "ðŸ‘",
+        title: "GlÃ¡ndulas Perianales",
+        desc: "Drenaje cuidadoso (si el paciente lo requiere) para evitar inflamaciones crÃ³nicas.",
     },
 ];
 
 const relacionadosCards = [
     {
-        title: "Consulta Médica",
-        emoji: "🩺",
+        title: "Consulta MÃ©dica",
+        emoji: "ðŸ©º",
         href: "/servicios/consulta-veterinaria",
-        desc: "Revisión general y medicina preventiva.",
+        desc: "RevisiÃ³n general y medicina preventiva.",
     },
     {
-        title: "Esterilización",
-        emoji: "✂️",
+        title: "EsterilizaciÃ³n",
+        emoji: "âœ‚ï¸",
         href: "/servicios/esterilizacion",
         desc: "Procedimiento seguro para perros y gatos.",
     },
     {
-        title: "Laboratorio Clínico",
-        emoji: "🔬",
+        title: "Laboratorio ClÃ­nico",
+        emoji: "ðŸ”¬",
         href: "/servicios/laboratorio-clinico",
-        desc: "Análisis de sangre y perfiles bioquímicos.",
+        desc: "AnÃ¡lisis de sangre y perfiles bioquÃ­micos.",
     },
 ];
 ---
 
 <BaseLayout
-    title="Estética Canina en Coyoacán (Solo Perros) | Punto Veterinario"
-    description="Baño, corte y grooming profesional para perros en Coyoacán. Higiene preventiva con productos específicos para su pH. ¡Agenda en San Pablo Tepetlapa!"
+    title="EstÃ©tica Canina en CoyoacÃ¡n (Solo Perros) | Punto Veterinario"
+    description="BaÃ±o, corte y grooming profesional para perros en CoyoacÃ¡n. Higiene preventiva con productos especÃ­ficos para su pH. Â¡Agenda en San Pablo Tepetlapa!"
     canonical="https://www.puntoveterinario.com/servicios/estetica-canina"
 >
     <Fragment slot="head">
@@ -127,17 +127,17 @@ const relacionadosCards = [
         />
     </Fragment>
 
-    <!-- SECCIÓN 1 — HERO -->
+    <!-- SECCIÃ“N 1 â€” HERO -->
     <section class="hero content-section">
         <div class="hero__text">
             <h1 class="h1-hero">
-                Estética Canina y Grooming en Coyoacán (Exclusivo para Perros)
+                EstÃ©tica Canina y Grooming en CoyoacÃ¡n (Exclusivo para Perros)
             </h1>
             <p class="hero__desc">
-                Baño, corte y cuidado profesional del pelaje en San Pablo
-                Tepetlapa. Usamos productos formulados específicamente para el
-                pH canino, convirtiendo la estética canina Coyoacán en una
-                sesión de higiene preventiva para tu mejor amigo.
+                BaÃ±o, corte y cuidado profesional del pelaje en San Pablo
+                Tepetlapa. Usamos productos formulados especÃ­ficamente para el
+                pH canino, convirtiendo la estÃ©tica canina CoyoacÃ¡n en una
+                sesiÃ³n de higiene preventiva para tu mejor amigo.
             </p>
             <div class="hero__btns">
                 <a
@@ -146,22 +146,22 @@ const relacionadosCards = [
                     target="_blank"
                     rel="noopener"
                 >
-                    💬 Cotizar estética por WhatsApp
+                    ðŸ’¬ Cotizar estÃ©tica por WhatsApp
                 </a>
-                <a href="/ubicacion" class="btn-sec"> 📍 Ver cómo llegar </a>
+                <a href="/ubicacion" class="btn-sec"> ðŸ“ Ver cÃ³mo llegar </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2 — ¿QUÉ INCLUYE? (GROOMING E-E-A-T) -->
+    <!-- SECCIÃ“N 2 â€” Â¿QUÃ‰ INCLUYE? (GROOMING E-E-A-T) -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">
-            Más que un corte de pelo: higiene preventiva de nariz a cola
+            MÃ¡s que un corte de pelo: higiene preventiva de nariz a cola
         </h2>
         <p class="text-center text-soft intro-desc">
-            Durante una sesión de estética en nuestra clínica, no solo dejamos a
-            tu perro luciendo increíble; nuestros estilistas están capacitados
-            para detectar bultos, infecciones cutáneas o parásitos que a veces
+            Durante una sesiÃ³n de estÃ©tica en nuestra clÃ­nica, no solo dejamos a
+            tu perro luciendo increÃ­ble; nuestros estilistas estÃ¡n capacitados
+            para detectar bultos, infecciones cutÃ¡neas o parÃ¡sitos que a veces
             pasan desapercibidos en casa.
         </p>
         <div class="grid-auto">
@@ -177,32 +177,32 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 3 — MITO VS REALIDAD (EL PH) -->
+    <!-- SECCIÃ“N 3 â€” MITO VS REALIDAD (EL PH) -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            ¿Por qué no deberías bañar a tu perro con tu shampoo?
+            Â¿Por quÃ© no deberÃ­as baÃ±ar a tu perro con tu shampoo?
         </h2>
 
         <div class="mito-vs-realidad-grid">
             <div class="mito-content">
                 <div class="mito-realidad-box">
                     <div class="mito-block">
-                        <span class="bad-icon">❌</span>
+                        <span class="bad-icon">âŒ</span>
                         <p>
-                            <strong>El Mito:</strong> "Puedo bañar a mi perro con
-                            mi shampoo para personas, o bañarlo muy seguido le hace
-                            daño."
+                            <strong>El Mito:</strong> "Puedo baÃ±ar a mi perro con
+                            mi shampoo para personas, o baÃ±arlo muy seguido le hace
+                            daÃ±o."
                         </p>
                     </div>
                     <div class="realidad-block">
-                        <span class="good-icon">✅</span>
+                        <span class="good-icon">âœ…</span>
                         <p>
                             <strong>La Realidad:</strong> La piel del perro tiene
-                            un pH diferente (más alcalino) que la humana. Usar productos
+                            un pH diferente (mÃ¡s alcalino) que la humana. Usar productos
                             para humanos elimina sus aceites naturales y causa resequedad,
-                            caspa e irritación. Con el champú veterinario adecuado,
-                            la frecuencia correcta de un baño profesional y limpieza
-                            en peluquería canina San Pablo Tepetlapa es 100% beneficiosa
+                            caspa e irritaciÃ³n. Con el champÃº veterinario adecuado,
+                            la frecuencia correcta de un baÃ±o profesional y limpieza
+                            en peluquerÃ­a canina San Pablo Tepetlapa es 100% beneficiosa
                             para su piel e higiene preventiva.
                         </p>
                     </div>
@@ -211,28 +211,28 @@ const relacionadosCards = [
 
             <div class="mito-quote-box">
                 <blockquote class="valor-quote">
-                    "En la CDMX, el calor y la contaminación aceleran la
-                    acumulación de suciedad y ácaros en el pelaje. Un perro sin
-                    nudos y con la piel limpia es un perro menos ansioso, más
-                    fresco y mucho más cómodo."
+                    "En la CDMX, el calor y la contaminaciÃ³n aceleran la
+                    acumulaciÃ³n de suciedad y Ã¡caros en el pelaje. Un perro sin
+                    nudos y con la piel limpia es un perro menos ansioso, mÃ¡s
+                    fresco y mucho mÃ¡s cÃ³modo."
                 </blockquote>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4 — FRECUENCIA IDEAL -->
+    <!-- SECCIÃ“N 4 â€” FRECUENCIA IDEAL -->
     <section class="content-section bg-soft">
-        <h2 class="titulo-sec">¿Cada cuánto necesita venir a la estética?</h2>
+        <h2 class="titulo-sec">Â¿Cada cuÃ¡nto necesita venir a la estÃ©tica?</h2>
 
         <div class="grid-auto">
             <div class="card-ui card-frecuencia card-largo">
                 <h3 class="frec-titulo">
-                    Perros de pelo largo o rizado (Poodles, Schnauzers, Maltés)
+                    Perros de pelo largo o rizado (Poodles, Schnauzers, MaltÃ©s)
                 </h3>
                 <p class="frec-sub">Cada 4 a 6 semanas</p>
                 <p class="card-desc">
-                    Su pelo se enreda fácilmente. Los nudos no tratados evitan
-                    la ventilación de la piel y provocan dermatitis severas.
+                    Su pelo se enreda fÃ¡cilmente. Los nudos no tratados evitan
+                    la ventilaciÃ³n de la piel y provocan dermatitis severas.
                 </p>
             </div>
             <div class="card-ui card-frecuencia card-corto">
@@ -241,18 +241,18 @@ const relacionadosCards = [
                 </h3>
                 <p class="frec-sub">Cada 1 a 2 meses</p>
                 <p class="card-desc">
-                    Aunque no requieren corte, el baño profesional con técnica
-                    de deshedding ayuda a controlar la caída excesiva de pelo en
+                    Aunque no requieren corte, el baÃ±o profesional con tÃ©cnica
+                    de deshedding ayuda a controlar la caÃ­da excesiva de pelo en
                     casa y mantiene sus pliegues limpios.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <!-- SECCIÃ“N 5 â€” FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Preguntas comunes sobre la estética canina en Punto Veterinario
+            Preguntas comunes sobre la estÃ©tica canina en Punto Veterinario
         </h2>
         <div class="faq-accordion">
             {
@@ -266,7 +266,7 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 6 — OTROS SERVICIOS RELACIONADOS -->
+    <!-- SECCIÃ“N 6 â€” OTROS SERVICIOS RELACIONADOS -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">Cuidado integral para tu mascota</h2>
         <div class="grid-auto">
@@ -276,22 +276,22 @@ const relacionadosCards = [
                         <span class="icon-scalable">{s.emoji}</span>
                         <h3 class="card-titulo">{s.title}</h3>
                         <p class="card-desc">{s.desc}</p>
-                        <span class="card-ver">Ver detalles →</span>
+                        <span class="card-ver">Ver detalles â†’</span>
                     </a>
                 ))
             }
         </div>
     </section>
 
-    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <!-- SECCIÃ“N 7 â€” CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
         <h2 class="cta-titulo-blanc">
-            ¿Tu perro necesita un baño profesional?
+            Â¿Tu perro necesita un baÃ±o profesional?
         </h2>
         <p class="cta-desc-blanc">
-            Tratamos a tu perro con paciencia y sin estrés. Agenda su cita de
-            estética canina en Av. División del Norte 3595, San Pablo Tepetlapa.
-            ¡Estamos muy cerca de ti en el sur de CDMX!
+            Tratamos a tu perro con paciencia y sin estrÃ©s. Agenda su cita de
+            estÃ©tica canina en Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa.
+            Â¡Estamos muy cerca de ti en el sur de CDMX!
         </p>
         <div class="cta-btns">
             <a
@@ -300,17 +300,17 @@ const relacionadosCards = [
                 rel="noopener"
                 class="btn-cta-blanco"
             >
-                💬 Cotizar por WhatsApp
+                ðŸ’¬ Cotizar por WhatsApp
             </a>
             <a href="tel:+525513843004" class="btn-cta-outline">
-                📞 Llamar al 55 1384 3004
+                ðŸ“ž Llamar al 55 1384 3004
             </a>
         </div>
     </section>
 </BaseLayout>
 
 <style>
-    /* COMPONENTES ESPECÍFICOS: FRECUENCIA */
+    /* COMPONENTES ESPECÃFICOS: FRECUENCIA */
     .card-frecuencia {
         border-left: max(0.3rem, 0.5vw) solid var(--color-primary);
     }
@@ -331,7 +331,7 @@ const relacionadosCards = [
         margin-bottom: max(0.8rem, 1.2vw);
     }
 
-    /* EXCEPCIÓN: cards de frecuencia — alineadas a la izquierda */
+    /* EXCEPCIÃ“N: cards de frecuencia â€” alineadas a la izquierda */
     .grid-auto .card-frecuencia {
         text-align: left;
         align-items: flex-start;

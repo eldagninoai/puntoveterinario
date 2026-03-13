@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogSection from "../components/BlogSection.astro";
 
@@ -8,7 +8,7 @@ const schema = {
   name: "Blog de Punto Veterinario",
   url: "https://www.puntoveterinario.com/blog",
   description:
-    "Artículos sobre salud, nutrición y cuidados veterinarios para perros y gatos en México.",
+    "ArtÃ­culos sobre salud, nutriciÃ³n y cuidados veterinarios para perros y gatos en MÃ©xico.",
   publisher: {
     "@type": "VeterinaryCare",
     name: "Punto Veterinario",
@@ -22,24 +22,24 @@ const schema = {
 
 <BaseLayout
   title="Blog Veterinario: Cuidados para Perros y Gatos en CDMX"
-  description="Consejos médicos, nutrición y guías de cuidado para perros y gatos, escritos por los médicos especialistas de Punto Veterinario en Coyoacán, CDMX."
+  description="Consejos mÃ©dicos, nutriciÃ³n y guÃ­as de cuidado para perros y gatos, escritos por los mÃ©dicos especialistas de Punto Veterinario en CoyoacÃ¡n, CDMX."
   canonical="https://www.puntoveterinario.com/blog"
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
 
-  <!-- SECCIÓN 2 — GRID DE ARTÍCULOS -->
+  <!-- SECCIÃ“N 2 â€” GRID DE ARTÃCULOS -->
   <BlogSection />
 
-  <!-- SECCIÓN 3 — CTA URGENCIA -->
+  <!-- SECCIÃ“N 3 â€” CTA URGENCIA -->
   <section class="content-section bg-soft-alt">
     <h2 class="cta-titulo">
-      ¿No encuentras lo que buscas o tu mascota se siente mal?
+      Â¿No encuentras lo que buscas o tu mascota se siente mal?
     </h2>
     <p class="cta-desc">
-      La información de internet no sustituye un diagnóstico profesional. Si
-      tienes dudas sobre la salud de tu mascota, escríbenos directamente.
+      La informaciÃ³n de internet no sustituye un diagnÃ³stico profesional. Si
+      tienes dudas sobre la salud de tu mascota, escrÃ­benos directamente.
     </p>
     <div class="cta-btns">
       <a
@@ -48,7 +48,7 @@ const schema = {
         rel="noopener"
         class="btn-wa"
       >
-        💬 Consultar por WhatsApp
+        ðŸ’¬ Consultar por WhatsApp
       </a>
     </div>
   </section>

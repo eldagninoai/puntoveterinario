@@ -1,10 +1,10 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const schema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contacto y Ubicación de Punto Veterinario",
+    name: "Contacto y UbicaciÃ³n de Punto Veterinario",
     url: "https://www.puntoveterinario.com/ubicacion",
     mainEntity: {
         "@type": "VeterinaryCare",
@@ -16,8 +16,8 @@ const schema = {
         email: "puntovetcdmx@gmail.com",
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Av. División del Norte 3595",
-            addressLocality: "Coyoacán",
+            streetAddress: "Av. DivisiÃ³n del Norte 3595",
+            addressLocality: "CoyoacÃ¡n",
             addressRegion: "CDMX",
             postalCode: "04620",
             addressCountry: "MX",
@@ -52,52 +52,52 @@ const schema = {
 ---
 
 <BaseLayout
-    title="Ubicación y Horarios | Veterinaria en San Pablo Tepetlapa, Coyoacán"
-    description="Encuentra Punto Veterinario en Av. División del Norte 3595, San Pablo Tepetlapa, CDMX. Conoce nuestros horarios, mapa y rutas de llegada en Coyoacán."
+    title="UbicaciÃ³n y Horarios | Veterinaria en San Pablo Tepetlapa, CoyoacÃ¡n"
+    description="Encuentra Punto Veterinario en Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa, CDMX. Conoce nuestros horarios, mapa y rutas de llegada en CoyoacÃ¡n."
     canonical="https://www.puntoveterinario.com/ubicacion"
 >
     <Fragment slot="head">
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     </Fragment>
 
-    <!-- SECCIÓN 1 — HERO & DATOS DE CONTACTO (NAP) -->
+    <!-- SECCIÃ“N 1 â€” HERO & DATOS DE CONTACTO (NAP) -->
     <section class="hero content-section">
         <div class="hero__text">
-            <h1 class="h1-hero">Cómo llegar a Punto Veterinario en Coyoacán</h1>
+            <h1 class="h1-hero">CÃ³mo llegar a Punto Veterinario en CoyoacÃ¡n</h1>
             <p class="hero__desc">
-                Estamos listos para recibir a tu mascota en el corazón del sur
-                de la CDMX. Encuentra nuestra dirección exacta, horarios de
-                atención y las mejores rutas para llegar desde tu colonia.
+                Estamos listos para recibir a tu mascota en el corazÃ³n del sur
+                de la CDMX. Encuentra nuestra direcciÃ³n exacta, horarios de
+                atenciÃ³n y las mejores rutas para llegar desde tu colonia.
             </p>
         </div>
 
         <div class="nap-grid">
             <div class="nap-card card-ui">
-                <span class="icon-scalable nap-icon" aria-hidden="true">📍</span
+                <span class="icon-scalable nap-icon" aria-hidden="true">ðŸ“</span
                 >
-                <h2 class="nap-title">Dirección</h2>
+                <h2 class="nap-title">DirecciÃ³n</h2>
                 <p class="nap-text">
-                    Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
-                    Coyoacán, CDMX.
+                    Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa, CP 04620,
+                    CoyoacÃ¡n, CDMX.
                 </p>
             </div>
             <div class="nap-card card-ui">
-                <span class="icon-scalable nap-icon" aria-hidden="true">🕒</span
+                <span class="icon-scalable nap-icon" aria-hidden="true">ðŸ•’</span
                 >
                 <h2 class="nap-title">Horarios</h2>
                 <p class="nap-text">
-                    <strong>Martes a Sábado:</strong> 10:00 a 19:00 hrs.<br
+                    <strong>Martes a SÃ¡bado:</strong> 10:00 a 19:00 hrs.<br
                     /><strong>Domingos:</strong> 10:00 a 17:00 hrs.<br /><strong
                         >Lunes:</strong
                     > Cerrado.
                 </p>
             </div>
             <div class="nap-card card-ui">
-                <span class="icon-scalable nap-icon" aria-hidden="true">📞</span
+                <span class="icon-scalable nap-icon" aria-hidden="true">ðŸ“ž</span
                 >
                 <h2 class="nap-title">Contacto Directo</h2>
                 <p class="nap-text">
-                    WhatsApp y Teléfono:<br /><strong>55 1384 3004</strong>
+                    WhatsApp y TelÃ©fono:<br /><strong>55 1384 3004</strong>
                 </p>
             </div>
         </div>
@@ -109,7 +109,7 @@ const schema = {
                 target="_blank"
                 rel="noopener"
             >
-                💬 Escribir por WhatsApp
+                ðŸ’¬ Escribir por WhatsApp
             </a>
             <a
                 href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7"
@@ -117,14 +117,14 @@ const schema = {
                 target="_blank"
                 rel="noopener"
             >
-                🗺️ Abrir en Google Maps
+                ðŸ—ºï¸ Abrir en Google Maps
             </a>
         </div>
     </section>
 
-    <!-- SECCIÓN 2 — MAPA INTERACTIVO Y FACHADA -->
+    <!-- SECCIÃ“N 2 â€” MAPA INTERACTIVO Y FACHADA -->
     <section class="content-section bg-soft">
-        <h2 class="titulo-sec">Nuestra clínica en San Pablo Tepetlapa</h2>
+        <h2 class="titulo-sec">Nuestra clÃ­nica en San Pablo Tepetlapa</h2>
 
         <div class="map-grid">
             <div class="map-wrapper">
@@ -136,25 +136,25 @@ const schema = {
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="Mapa interactivo de la veterinaria Punto Veterinario en Coyoacán"
+                    title="Mapa interactivo de la veterinaria Punto Veterinario en CoyoacÃ¡n"
                     class="google-map-iframe"></iframe>
             </div>
             <div class="fachada-wrapper">
                 <img
                     src="/images/Veterinaria-San_Pablo_Tepetlapa.webp"
-                    alt="Fachada de la clínica Punto Veterinario sobre Av. División del Norte en San Pablo Tepetlapa"
+                    alt="Fachada de la clÃ­nica Punto Veterinario sobre Av. DivisiÃ³n del Norte en San Pablo Tepetlapa"
                     class="fachada-img"
                     width="800"
                     height="600"
                     loading="lazy"
                     decoding="async"
-                    onerror="this.src='/placeholder-fachada.webp'; this.alt='Imagen representativa de la fachada local en Coyoacán';"
+                    onerror="this.src='/placeholder-fachada.webp'; this.alt='Imagen representativa de la fachada local en CoyoacÃ¡n';"
                 />
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 3 — RUTAS DE LLEGADA (SEO HIPERLOCAL) -->
+    <!-- SECCIÃ“N 3 â€” RUTAS DE LLEGADA (SEO HIPERLOCAL) -->
     <section class="content-section">
         <h2 class="titulo-sec">
             Indicaciones para llegar desde el sur de CDMX
@@ -164,13 +164,13 @@ const schema = {
             <div class="ruta-card card-ui">
                 <div class="ruta-header">
                     <span class="icon-scalable ruta-icon" aria-hidden="true"
-                        >🚗</span
+                        >ðŸš—</span
                     >
                     <h3 class="ruta-title">En auto</h3>
                 </div>
                 <p class="ruta-desc">
-                    Nos encontramos sobre Av. División del Norte, una de las
-                    arterias principales del sur. De muy fácil acceso si vienes
+                    Nos encontramos sobre Av. DivisiÃ³n del Norte, una de las
+                    arterias principales del sur. De muy fÃ¡cil acceso si vienes
                     desde <strong>Copilco el Alto</strong>, el <strong
                         >Ajusco</strong
                     > o Coapa.
@@ -179,21 +179,21 @@ const schema = {
 
             <div class="ruta-card">
                 <div class="ruta-header">
-                    <span class="ruta-icon" aria-hidden="true">🚇</span>
-                    <h3 class="ruta-title">En transporte público</h3>
+                    <span class="ruta-icon" aria-hidden="true">ðŸš‡</span>
+                    <h3 class="ruta-title">En transporte pÃºblico</h3>
                 </div>
                 <p class="ruta-desc">
-                    Si vienes en Metro, la estación más cercana es <strong
+                    Si vienes en Metro, la estaciÃ³n mÃ¡s cercana es <strong
                         >Metro Universidad</strong
-                    >. Desde ahí, puedes tomar un transporte (combi/microbús)
-                    que baje por Avenida División del Norte y bajarte a la
+                    >. Desde ahÃ­, puedes tomar un transporte (combi/microbÃºs)
+                    que baje por Avenida DivisiÃ³n del Norte y bajarte a la
                     altura de <strong>San Pablo Tepetlapa</strong>.
                 </p>
             </div>
 
             <div class="ruta-card">
                 <div class="ruta-header">
-                    <span class="ruta-icon" aria-hidden="true">🐕</span>
+                    <span class="ruta-icon" aria-hidden="true">ðŸ•</span>
                     <h3 class="ruta-title">
                         Colonias vecinas a las que servimos
                     </h3>
@@ -207,20 +207,20 @@ const schema = {
         </div>
     </section>
 
-    <!-- SECCIÓN 4 — CTA FINAL (¿TIENES UNA URGENCIA?) -->
+    <!-- SECCIÃ“N 4 â€” CTA FINAL (Â¿TIENES UNA URGENCIA?) -->
     <section class="content-section bg-soft">
         <h2 class="cta-titulo-urgencia">
-            ¿Necesitas agendar o tienes una urgencia en horario laboral?
+            Â¿Necesitas agendar o tienes una urgencia en horario laboral?
         </h2>
         <p class="cta-desc-urgencia">
-            Si notas a tu mascota muy decaída o sufrió un accidente dentro de
-            nuestros horarios de servicio, llámanos inmediatamente para preparar
+            Si notas a tu mascota muy decaÃ­da o sufriÃ³ un accidente dentro de
+            nuestros horarios de servicio, llÃ¡manos inmediatamente para preparar
             el consultorio antes de tu llegada.
         </p>
 
         <div class="cta-urgencia-btns">
             <a href="tel:+525513843004" class="btn-urgencia-rojo">
-                📞 Llamar ahora al 55 1384 3004
+                ðŸ“ž Llamar ahora al 55 1384 3004
             </a>
             <a
                 href="https://wa.me/525513843004"
@@ -228,7 +228,7 @@ const schema = {
                 rel="noopener"
                 class="btn-wa"
             >
-                💬 Avisar por WhatsApp
+                ðŸ’¬ Avisar por WhatsApp
             </a>
         </div>
     </section>
@@ -269,7 +269,7 @@ const schema = {
         transform: translateY(-0.15rem);
     }
 
-    /* ====== MANTENER ESTILOS ÚNICOS DE UBICACION ====== */
+    /* ====== MANTENER ESTILOS ÃšNICOS DE UBICACION ====== */
     .titulo-sec {
         font-size: max(1.6rem, 2.8vw);
         color: var(--color-primary-dark);
@@ -433,7 +433,7 @@ const schema = {
         transition: transform 0.5s ease;
     }
     .fachada-wrapper:hover .fachada-img {
-        transform: scale(1.05); /* Ligerísimo zoom in per eye candy */
+        transform: scale(1.05); /* LigerÃ­simo zoom in per eye candy */
     }
 
     /* RUTAS DE LLEGADA GRID */
@@ -522,7 +522,7 @@ const schema = {
 
     /* Rojo Alerta para llamada de urgencia */
     .btn-urgencia-rojo {
-        background: #e63946; /* Rojo Urgencia clásico web */
+        background: #e63946; /* Rojo Urgencia clÃ¡sico web */
         color: #fff;
         padding: max(0.6rem, 1.2vw) max(1.2rem, 2.5vw);
         font-size: max(0.9rem, 1.2vw);

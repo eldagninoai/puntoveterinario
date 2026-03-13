@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { MissionSuccessDialog } from "@/components/ui/mission-success-dialog";
 
@@ -11,12 +11,12 @@ const schema = [
         telephone: "+525513843004",
         email: "puntovetcdmx@gmail.com",
         description:
-            "Veterinaria en Coyoacán CDMX, ubicada en San Pablo Tepetlapa. Consultas, cirugías, estética, laboratorio y farmacia.",
+            "Veterinaria en CoyoacÃ¡n CDMX, ubicada en San Pablo Tepetlapa. Consultas, cirugÃ­as, estÃ©tica, laboratorio y farmacia.",
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Av. División del Norte 3595",
+            streetAddress: "Av. DivisiÃ³n del Norte 3595",
             addressLocality: "San Pablo Tepetlapa",
-            addressRegion: "Coyoacán, Ciudad de México",
+            addressRegion: "CoyoacÃ¡n, Ciudad de MÃ©xico",
             postalCode: "04620",
             addressCountry: "MX",
         },
@@ -45,17 +45,17 @@ const schema = [
 ---
 
 <BaseLayout
-    title="Contacto y Citas | Punto Veterinario Coyoacán"
-    description="Agenda tu cita en Punto Veterinario, Coyoacán. Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán, CDMX. Tel: 55 1384 3004"
+    title="Contacto y Citas | Punto Veterinario CoyoacÃ¡n"
+    description="Agenda tu cita en Punto Veterinario, CoyoacÃ¡n. Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa, CP 04620, CoyoacÃ¡n, CDMX. Tel: 55 1384 3004"
     schema={schema[0]}
 >
     <!-- 1. HERO -->
     <section class="seccion fondo-blanco">
         <h1 class="titulo-principal">
-            Contacto y Citas | Punto Veterinario Coyoacán
+            Contacto y Citas | Punto Veterinario CoyoacÃ¡n
         </h1>
         <p class="subtitulo">
-            Servicio profesional de estética, baño y cortes especializados
+            Servicio profesional de estÃ©tica, baÃ±o y cortes especializados
             respetando la tranquilidad de tu mascota.
         </p>
     </section>
@@ -63,7 +63,7 @@ const schema = [
     <!-- 2. GRID 2 COLUMNAS -->
     <section class="bg-soft py-xl">
         <div class="grid-2-form gap-xl">
-            <!-- Izquierda — Formulario Web3Forms -->
+            <!-- Izquierda â€” Formulario Web3Forms -->
             <div
                 class="form-container bg-white p-lg border-subtle border-radius flex-col gap-md form-box-shadow"
             >
@@ -108,7 +108,7 @@ const schema = [
                     </div>
 
                     <div class="campo">
-                        <label for="telefono">Teléfono *</label>
+                        <label for="telefono">TelÃ©fono *</label>
                         <input
                             type="tel"
                             id="telefono"
@@ -119,19 +119,19 @@ const schema = [
                     </div>
 
                     <div class="campo">
-                        <label for="servicio">Servicio de interés</label>
+                        <label for="servicio">Servicio de interÃ©s</label>
                         <select id="servicio" name="servicio">
                             <option value="">Selecciona un servicio</option>
-                            <option value="consulta">Consulta Médica</option>
+                            <option value="consulta">Consulta MÃ©dica</option>
                             <option value="estetica"
-                                >Estética Canina y Felina</option
+                                >EstÃ©tica Canina y Felina</option
                             >
                             <option value="esterilizacion"
-                                >Esterilización</option
+                                >EsterilizaciÃ³n</option
                             >
-                            <option value="cirugia">Cirugías</option>
+                            <option value="cirugia">CirugÃ­as</option>
                             <option value="laboratorio"
-                                >Laboratorio Clínico</option
+                                >Laboratorio ClÃ­nico</option
                             >
                             <option value="alimento"
                                 >Alimento para Mascotas</option
@@ -145,14 +145,14 @@ const schema = [
                             id="mensaje"
                             name="mensaje"
                             rows="4"
-                            placeholder="¿En qué podemos ayudarte?"></textarea>
+                            placeholder="Â¿En quÃ© podemos ayudarte?"></textarea>
                     </div>
 
                     <button type="submit" class="btn-enviar">
-                        📅 Enviar solicitud de cita
+                        ðŸ“… Enviar solicitud de cita
                     </button>
                     <p class="form-nota">
-                        También puedes escribirnos directamente por
+                        TambiÃ©n puedes escribirnos directamente por
                         <a
                             href="https://wa.me/525513843004"
                             target="_blank"
@@ -162,11 +162,11 @@ const schema = [
                 </form>
             </div>
 
-            <!-- Derecha — Datos de contacto -->
+            <!-- Derecha â€” Datos de contacto -->
             <div class="contact-info flex-col gap-lg items-start text-left">
                 <div class="flex-col gap-xs">
                     <h2 class="text-primary-dark m-0 mb-sm border-bottom pb-xs">
-                        Información de Contacto
+                        InformaciÃ³n de Contacto
                     </h2>
 
                     <a
@@ -175,16 +175,16 @@ const schema = [
                         rel="noopener"
                         class="flex items-start gap-sm mt-xs hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
                     >
-                        <span class="emoji-md m-0">📍</span>
+                        <span class="emoji-md m-0">ðŸ“</span>
                         <p
                             class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
                         >
                             <span class="fw-bold block"
-                                >Visítanos centralmente en:</span
+                                >VisÃ­tanos centralmente en:</span
                             >
-                            Av. División del Norte 3595,<br />
+                            Av. DivisiÃ³n del Norte 3595,<br />
                             Colonia San Pablo Tepetlapa,<br />
-                            CP 04620, Delegación Coyoacán, CDMX.
+                            CP 04620, DelegaciÃ³n CoyoacÃ¡n, CDMX.
                         </p>
                     </a>
 
@@ -192,11 +192,11 @@ const schema = [
                         href="tel:+525513843004"
                         class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
                     >
-                        <span class="emoji-md m-0">📞</span>
+                        <span class="emoji-md m-0">ðŸ“ž</span>
                         <p
                             class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
                         >
-                            <span class="fw-bold block">Teléfono de Citas:</span
+                            <span class="fw-bold block">TelÃ©fono de Citas:</span
                             >
                             +52 55 1384 3004
                         </p>
@@ -208,7 +208,7 @@ const schema = [
                         rel="noopener"
                         class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
                     >
-                        <span class="emoji-md m-0">💬</span>
+                        <span class="emoji-md m-0">ðŸ’¬</span>
                         <p
                             class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
                         >
@@ -221,12 +221,12 @@ const schema = [
                         href="mailto:puntovetcdmx@gmail.com"
                         class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
                     >
-                        <span class="emoji-md m-0">✉️</span>
+                        <span class="emoji-md m-0">âœ‰ï¸</span>
                         <p
                             class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
                         >
                             <span class="fw-bold block"
-                                >Correo Electrónico:</span
+                                >Correo ElectrÃ³nico:</span
                             >
                             puntovetcdmx@gmail.com
                         </p>
@@ -238,7 +238,7 @@ const schema = [
                         rel="noopener"
                         class="flex items-center gap-sm mt-sm hover-lift p-sm border-radius-sm transition-transform bg-white border-subtle"
                     >
-                        <span class="emoji-md m-0">📸</span>
+                        <span class="emoji-md m-0">ðŸ“¸</span>
                         <p
                             class="text-soft text-sm lh-relaxed m-0 text-primary-dark"
                         >
@@ -256,7 +256,7 @@ const schema = [
                     <h3
                         class="text-primary-dark m-0 mb-xs text-lg flex items-center gap-xs"
                     >
-                        <span class="emoji-md m-0 inline-block">🕐</span> Nuestro
+                        <span class="emoji-md m-0 inline-block">ðŸ•</span> Nuestro
                         Horario
                     </h3>
                     <p
@@ -271,7 +271,7 @@ const schema = [
                         class="text-soft text-sm m-0 lh-relaxed border-bottom pb-xs pt-xs"
                     >
                         <span class="fw-bold text-primary-dark block"
-                            >Martes a Sábado:</span
+                            >Martes a SÃ¡bado:</span
                         >
                         Desde las 10:00 AM hasta las 19:00 PM hrs.
                     </p>
@@ -289,7 +289,7 @@ const schema = [
     <!-- 3. MAPA PLACEHOLDER -->
     <section class="bg-white py-xl">
         <h2 class="text-primary-dark mb-lg lh-1">
-            Encuéntranos fácilmente en Coyoacán
+            EncuÃ©ntranos fÃ¡cilmente en CoyoacÃ¡n
         </h2>
         <div class="map-container">
             <iframe
@@ -306,15 +306,15 @@ const schema = [
     <!-- 4. CTA FINAL -->
     <section class="cta-section bg-primary py-xl text-center">
         <h2 class="text-white mb-lg text-2xl lh-1">
-            ¡Te esperamos pronto en Coyoacán!
+            Â¡Te esperamos pronto en CoyoacÃ¡n!
         </h2>
         <p class="text-white opacity-90 mb-xl text-lg lh-relaxed">
-            Somos <strong>Punto Veterinario</strong>, clínica en <strong
+            Somos <strong>Punto Veterinario</strong>, clÃ­nica en <strong
                 >San Pablo Tepetlapa</strong
             >
-            (CP 04620), <strong>Coyoacán</strong>. Brindamos atención médica de
+            (CP 04620), <strong>CoyoacÃ¡n</strong>. Brindamos atenciÃ³n mÃ©dica de
             calidad en
-            <strong>Av. División del Norte 3595</strong>.
+            <strong>Av. DivisiÃ³n del Norte 3595</strong>.
         </p>
         <div class="flex flex-wrap justify-center gap-md">
             <a
@@ -323,18 +323,18 @@ const schema = [
                 rel="noopener"
                 class="btn-white-theme text-primary fw-bold text-md px-lg py-sm border-radius transition-transform inline-block"
             >
-                💬 Hablar por WhatsApp
+                ðŸ’¬ Hablar por WhatsApp
             </a>
         </div>
     </section>
 
-    <!-- 5. MODAL DE ÉXITO (REACT) -->
+    <!-- 5. MODAL DE Ã‰XITO (REACT) -->
     <MissionSuccessDialog
         client:load
-        title="¡Solicitud Recibida!"
+        title="Â¡Solicitud Recibida!"
         description="Tu mensaje ha llegado a Punto Veterinario. Te responderemos por WhatsApp o correo muy pronto."
         imageUrl="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=600&auto=format&fit=crop"
-        primaryButtonText="💬 Abrir WhatsApp ahora"
+        primaryButtonText="ðŸ’¬ Abrir WhatsApp ahora"
         secondaryButtonText="Cerrar ventana"
     />
 </BaseLayout>
@@ -384,12 +384,12 @@ const schema = [
             } catch (error) {
                 console.error("Error al enviar:", error);
                 alert(
-                    "Hubo un problema. Por favor contáctanos directo por WhatsApp.",
+                    "Hubo un problema. Por favor contÃ¡ctanos directo por WhatsApp.",
                 );
             } finally {
                 if (submitButton) {
                     submitButton.disabled = false;
-                    submitButton.innerText = "📅 Enviar solicitud de cita";
+                    submitButton.innerText = "ðŸ“… Enviar solicitud de cita";
                 }
             }
         });

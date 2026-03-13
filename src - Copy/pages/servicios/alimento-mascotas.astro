@@ -1,18 +1,18 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Venta de Alimento y Asesoría Nutricional",
+    name: "Venta de Alimento y AsesorÃ­a Nutricional",
     provider: {
         "@type": "VeterinaryCare",
         name: "Punto Veterinario",
         image: "https://www.puntoveterinario.com/og-image.jpg",
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Av. División del Norte 3595",
-            addressLocality: "Coyoacán",
+            streetAddress: "Av. DivisiÃ³n del Norte 3595",
+            addressLocality: "CoyoacÃ¡n",
             addressRegion: "CDMX",
             postalCode: "04620",
             addressCountry: "MX",
@@ -20,10 +20,10 @@ const schema = {
     },
     areaServed: {
         "@type": "AdministrativeArea",
-        name: "Coyoacán",
+        name: "CoyoacÃ¡n",
     },
     description:
-        "Alimento premium para perros y gatos en el sur de CDMX. Venta de croquetas de mantenimiento y dietas medicadas/terapéuticas (renal, hepático, urinario).",
+        "Alimento premium para perros y gatos en el sur de CDMX. Venta de croquetas de mantenimiento y dietas medicadas/terapÃ©uticas (renal, hepÃ¡tico, urinario).",
 };
 
 const faqSchema = {
@@ -32,26 +32,26 @@ const faqSchema = {
     mainEntity: [
         {
             "@type": "Question",
-            name: "¿Cuál es el mejor alimento para mi perro o gato?",
+            name: "Â¿CuÃ¡l es el mejor alimento para mi perro o gato?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "El mejor alimento depende de la edad, tamaño, raza y condición médica de tu mascota (por ejemplo, si está esterilizado o tiene problemas renales). Visítanos en Coyoacán para evaluar su condición corporal y recomendarte la dieta ideal.",
+                text: "El mejor alimento depende de la edad, tamaÃ±o, raza y condiciÃ³n mÃ©dica de tu mascota (por ejemplo, si estÃ¡ esterilizado o tiene problemas renales). VisÃ­tanos en CoyoacÃ¡n para evaluar su condiciÃ³n corporal y recomendarte la dieta ideal.",
             },
         },
         {
             "@type": "Question",
-            name: "¿El alimento de veterinaria es mejor que el del supermercado?",
+            name: "Â¿El alimento de veterinaria es mejor que el del supermercado?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Sí. La diferencia principal radica en la digestibilidad, el origen de las proteínas y la densidad de nutrientes. Los alimentos de supermercado suelen tener muchos rellenos que, a largo plazo, pueden causar problemas renales, cutáneos y articulares.",
+                text: "SÃ­. La diferencia principal radica en la digestibilidad, el origen de las proteÃ­nas y la densidad de nutrientes. Los alimentos de supermercado suelen tener muchos rellenos que, a largo plazo, pueden causar problemas renales, cutÃ¡neos y articulares.",
             },
         },
         {
             "@type": "Question",
-            name: "¿Venden alimento terapéutico o medicado para mascotas enfermas?",
+            name: "Â¿Venden alimento terapÃ©utico o medicado para mascotas enfermas?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Sí, contamos con dietas terapéuticas especializadas (para problemas renales, hepáticos, urinarios o alergias alimentarias) que solo se venden bajo prescripción veterinaria.",
+                text: "SÃ­, contamos con dietas terapÃ©uticas especializadas (para problemas renales, hepÃ¡ticos, urinarios o alergias alimentarias) que solo se venden bajo prescripciÃ³n veterinaria.",
             },
         },
     ],
@@ -61,30 +61,30 @@ const faqs = faqSchema.mainEntity;
 
 const alimentosCards = [
     {
-        emoji: "🦴",
+        emoji: "ðŸ¦´",
         title: "Alimento de Mantenimiento",
-        desc: "Fórmulas balanceadas para perros y gatos adultos sanos. Ingredientes de alta digestibilidad que garantizan heces firmes, pelaje brillante y energía constante.",
+        desc: "FÃ³rmulas balanceadas para perros y gatos adultos sanos. Ingredientes de alta digestibilidad que garantizan heces firmes, pelaje brillante y energÃ­a constante.",
     },
     {
-        emoji: "🩺",
-        title: "Dietas Terapéuticas / Medicadas",
-        desc: "Alimentos formulados específicamente para tratar enfermedades (insuficiencia renal, problemas hepáticos, cálculos urinarios o alergias). Estas dietas son parte vital del tratamiento y requieren prescripción veterinaria.",
+        emoji: "ðŸ©º",
+        title: "Dietas TerapÃ©uticas / Medicadas",
+        desc: "Alimentos formulados especÃ­ficamente para tratar enfermedades (insuficiencia renal, problemas hepÃ¡ticos, cÃ¡lculos urinarios o alergias). Estas dietas son parte vital del tratamiento y requieren prescripciÃ³n veterinaria.",
     },
     {
-        emoji: "⚖️",
+        emoji: "âš–ï¸",
         title: "Control de Peso y Esterilizados",
-        desc: "Alimento bajo en calorías para prevenir la obesidad, especialmente diseñado para mascotas esterilizadas o senior que tienen un metabolismo basal más lento.",
+        desc: "Alimento bajo en calorÃ­as para prevenir la obesidad, especialmente diseÃ±ado para mascotas esterilizadas o senior que tienen un metabolismo basal mÃ¡s lento.",
     },
 ];
 
 const ventajasLista = [
     {
-        title: "Asesoría sobre la porción correcta",
-        desc: "Evaluamos la condición corporal de tu mascota (escala del 1 al 9) para indicarte exactamente cuántos gramos debe comer al día y evitar la obesidad.",
+        title: "AsesorÃ­a sobre la porciÃ³n correcta",
+        desc: "Evaluamos la condiciÃ³n corporal de tu mascota (escala del 1 al 9) para indicarte exactamente cuÃ¡ntos gramos debe comer al dÃ­a y evitar la obesidad.",
     },
     {
-        title: "Transición segura de alimento",
-        desc: "Te explicamos el protocolo gradual de 7 a 10 días para cambiar de croquetas sin causarle vómito o diarrea.",
+        title: "TransiciÃ³n segura de alimento",
+        desc: "Te explicamos el protocolo gradual de 7 a 10 dÃ­as para cambiar de croquetas sin causarle vÃ³mito o diarrea.",
     },
     {
         title: "Almacenamiento y frescura garantizada",
@@ -94,29 +94,29 @@ const ventajasLista = [
 
 const relacionadosCards = [
     {
-        title: "Consulta Médica",
-        emoji: "🩺",
+        title: "Consulta MÃ©dica",
+        emoji: "ðŸ©º",
         href: "/servicios/consulta-veterinaria",
-        desc: "Evaluación de la condición corporal y prescripción de dieta.",
+        desc: "EvaluaciÃ³n de la condiciÃ³n corporal y prescripciÃ³n de dieta.",
     },
     {
-        title: "Laboratorio Clínico",
-        emoji: "🔬",
+        title: "Laboratorio ClÃ­nico",
+        emoji: "ðŸ”¬",
         href: "/servicios/laboratorio-clinico",
-        desc: "Análisis para determinar si tu mascota necesita alimento terapéutico renal o hepático.",
+        desc: "AnÃ¡lisis para determinar si tu mascota necesita alimento terapÃ©utico renal o hepÃ¡tico.",
     },
     {
-        title: "Esterilización",
-        emoji: "✂️",
+        title: "EsterilizaciÃ³n",
+        emoji: "âœ‚ï¸",
         href: "/servicios/esterilizacion",
-        desc: "Te asesoramos sobre el alimento ideal post-cirugía para evitar el aumento de peso.",
+        desc: "Te asesoramos sobre el alimento ideal post-cirugÃ­a para evitar el aumento de peso.",
     },
 ];
 ---
 
 <BaseLayout
-    title="Alimento para Perros y Gatos en Coyoacán | Punto Veterinario"
-    description="Venta de alimento premium y dietas terapéuticas para mascotas en Coyoacán. Croquetas especializadas, control de peso y asesoría nutricional. ¡Visítanos!"
+    title="Alimento para Perros y Gatos en CoyoacÃ¡n | Punto Veterinario"
+    description="Venta de alimento premium y dietas terapÃ©uticas para mascotas en CoyoacÃ¡n. Croquetas especializadas, control de peso y asesorÃ­a nutricional. Â¡VisÃ­tanos!"
     canonical="https://www.puntoveterinario.com/servicios/alimento-mascotas"
 >
     <Fragment slot="head">
@@ -127,17 +127,17 @@ const relacionadosCards = [
         />
     </Fragment>
 
-    <!-- SECCIÓN 1 — HERO -->
+    <!-- SECCIÃ“N 1 â€” HERO -->
     <section class="hero content-section">
         <div class="hero__text">
             <h1 class="h1-hero">
-                Alimento Premium y Dietas Terapéuticas en Coyoacán
+                Alimento Premium y Dietas TerapÃ©uticas en CoyoacÃ¡n
             </h1>
             <p class="hero__desc">
-                La nutrición es el factor más importante en la longevidad y
+                La nutriciÃ³n es el factor mÃ¡s importante en la longevidad y
                 calidad de vida de tu mascota. Encuentra croquetas de alta
                 digestibilidad y dietas especializadas en San Pablo Tepetlapa,
-                CDMX, con la asesoría directa de nuestros médicos veterinarios.
+                CDMX, con la asesorÃ­a directa de nuestros mÃ©dicos veterinarios.
             </p>
             <div class="hero__btns">
                 <a
@@ -146,19 +146,19 @@ const relacionadosCards = [
                     target="_blank"
                     rel="noopener"
                 >
-                    💬 Consultar disponibilidad por WhatsApp
+                    ðŸ’¬ Consultar disponibilidad por WhatsApp
                 </a>
                 <a href="/ubicacion" class="btn-sec">
-                    📍 Ver ubicación de la clínica
+                    ðŸ“ Ver ubicaciÃ³n de la clÃ­nica
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2 — TIPOS DE ALIMENTO QUE MANEJAMOS -->
+    <!-- SECCIÃ“N 2 â€” TIPOS DE ALIMENTO QUE MANEJAMOS -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">
-            Nutrición especializada para cada etapa y necesidad
+            NutriciÃ³n especializada para cada etapa y necesidad
         </h2>
         <div class="grid-auto">
             {
@@ -173,16 +173,16 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 3 — MITO VS REALIDAD (LA TRAMPA DEL SUPERMERCADO) -->
+    <!-- SECCIÃ“N 3 â€” MITO VS REALIDAD (LA TRAMPA DEL SUPERMERCADO) -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Lo que el alimento económico le cuesta a su salud
+            Lo que el alimento econÃ³mico le cuesta a su salud
         </h2>
         <div class="mito-vs-realidad-grid">
             <div class="mito-content">
                 <div class="mito-realidad-box">
                     <div class="mito-block">
-                        <span class="bad-icon">❌</span>
+                        <span class="bad-icon">âŒ</span>
                         <p>
                             <strong>El Mito:</strong> "El alimento caro es igual al
                             barato pero con mejor empaque, y los gatos pueden comer
@@ -190,14 +190,14 @@ const relacionadosCards = [
                         </p>
                     </div>
                     <div class="realidad-block">
-                        <span class="good-icon">✅</span>
+                        <span class="good-icon">âœ…</span>
                         <p>
                             <strong>La Realidad:</strong> Totalmente falso. El alimento
-                            comercial de baja calidad usa "rellenos" difíciles de
-                            procesar que a largo plazo dañan los riñones y articulaciones.
-                            Además, los gatos son carnívoros obligados y necesitan
+                            comercial de baja calidad usa "rellenos" difÃ­ciles de
+                            procesar que a largo plazo daÃ±an los riÃ±ones y articulaciones.
+                            AdemÃ¡s, los gatos son carnÃ­voros obligados y necesitan
                             taurina en su dieta; darles alimento de perro puede causarles
-                            ceguera y problemas cardíacos graves.
+                            ceguera y problemas cardÃ­acos graves.
                         </p>
                     </div>
                 </div>
@@ -205,20 +205,20 @@ const relacionadosCards = [
             <div class="mito-quote-box">
                 <blockquote class="valor-quote">
                     "La diferencia principal entre un alimento premium y uno
-                    económico está en la digestibilidad. Tu mascota aprovecha
+                    econÃ³mico estÃ¡ en la digestibilidad. Tu mascota aprovecha
                     casi todos los nutrientes del alimento premium, lo que
-                    significa que comerá menos cantidad para llenarse, sus heces
-                    serán más pequeñas y su salud estará protegida a largo
+                    significa que comerÃ¡ menos cantidad para llenarse, sus heces
+                    serÃ¡n mÃ¡s pequeÃ±as y su salud estarÃ¡ protegida a largo
                     plazo."
                 </blockquote>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4 — LA VENTAJA DE COMPRAR EN LA VETERINARIA -->
+    <!-- SECCIÃ“N 4 â€” LA VENTAJA DE COMPRAR EN LA VETERINARIA -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">
-            ¿Por qué comprar el alimento de tu mascota con nosotros?
+            Â¿Por quÃ© comprar el alimento de tu mascota con nosotros?
         </h2>
 
         <div class="ventajas-lista">
@@ -226,7 +226,7 @@ const relacionadosCards = [
                 ventajasLista.map((vent) => (
                     <div class="ventaja-item card-ui">
                         <div class="ventaja-icon">
-                            <span class="icon-scalable">✅</span>
+                            <span class="icon-scalable">âœ…</span>
                         </div>
                         <div class="ventaja-texto">
                             <h3 class="ventaja-titulo">{vent.title}</h3>
@@ -238,10 +238,10 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <!-- SECCIÃ“N 5 â€” FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Dudas frecuentes sobre nutrición canina y felina
+            Dudas frecuentes sobre nutriciÃ³n canina y felina
         </h2>
         <div class="faq-accordion">
             {
@@ -255,9 +255,9 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 6 — SERVICIOS VINCULADOS -->
+    <!-- SECCIÃ“N 6 â€” SERVICIOS VINCULADOS -->
     <section class="content-section bg-soft">
-        <h2 class="titulo-sec">La nutrición es parte del cuidado integral</h2>
+        <h2 class="titulo-sec">La nutriciÃ³n es parte del cuidado integral</h2>
         <div class="grid-auto">
             {
                 relacionadosCards.map((s) => (
@@ -265,22 +265,22 @@ const relacionadosCards = [
                         <span class="icon-scalable">{s.emoji}</span>
                         <h3 class="card-titulo">{s.title}</h3>
                         <p class="card-desc">{s.desc}</p>
-                        <span class="card-ver">Ver detalles →</span>
+                        <span class="card-ver">Ver detalles â†’</span>
                     </a>
                 ))
             }
         </div>
     </section>
 
-    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <!-- SECCIÃ“N 7 â€” CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
         <h2 class="cta-titulo-blanc">
-            ¿Buscas un alimento específico para tu mascota?
+            Â¿Buscas un alimento especÃ­fico para tu mascota?
         </h2>
         <p class="cta-desc-blanc">
-            Escríbenos para confirmar disponibilidad de marcas y fórmulas
-            especiales. Visítanos en Av. División del Norte 3595, San Pablo
-            Tepetlapa, CDMX, y mejora la nutrición de tu mejor amigo hoy mismo.
+            EscrÃ­benos para confirmar disponibilidad de marcas y fÃ³rmulas
+            especiales. VisÃ­tanos en Av. DivisiÃ³n del Norte 3595, San Pablo
+            Tepetlapa, CDMX, y mejora la nutriciÃ³n de tu mejor amigo hoy mismo.
         </p>
         <div class="cta-btns">
             <a
@@ -289,10 +289,10 @@ const relacionadosCards = [
                 rel="noopener"
                 class="btn-cta-blanco"
             >
-                💬 Consultar disponibilidad por WhatsApp
+                ðŸ’¬ Consultar disponibilidad por WhatsApp
             </a>
             <a href="/ubicacion" class="btn-cta-outline">
-                📍 Ver ubicación y horarios
+                ðŸ“ Ver ubicaciÃ³n y horarios
             </a>
         </div>
     </section>
@@ -303,7 +303,7 @@ const relacionadosCards = [
         margin-bottom: max(2rem, 4vw);
     }
 
-    /* VENTAJAS LISTA (ESPECÍFICO) */
+    /* VENTAJAS LISTA (ESPECÃFICO) */
     .ventajas-lista {
         display: flex;
         flex-direction: column;
@@ -356,7 +356,7 @@ const relacionadosCards = [
     }
 
     .valor-quote::before {
-        content: "«";
+        content: "Â«";
         font-size: max(2rem, 4vw);
         position: absolute;
         top: max(-0.5rem, -1vw);

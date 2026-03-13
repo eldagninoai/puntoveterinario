@@ -39,30 +39,17 @@ export const MissionSuccessDialog = ({
 
     React.useEffect(() => {
         if (isOpen) {
-            // 1. LECTURA en lote (batch read)
             const scrollY = window.scrollY;
-
-            // 2. ESCRITURA en el próximo frame (batch write)
-            requestAnimationFrame(() => {
-                document.body.style.position = 'fixed';
-                document.body.style.top = `-${scrollY}px`;
-                document.body.style.width = '100%';
-            });
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
         } else {
-            // 1. LECTURA en lote (batch read)
             const scrollY = document.body.style.top;
-            const scrollPos = parseInt(scrollY || '0') * -1;
-
-            // 2. ESCRITURA en el próximo frame (batch write)
-            requestAnimationFrame(() => {
-                document.body.style.position = '';
-                document.body.style.top = '';
-                document.body.style.width = '';
-                window.scrollTo(0, scrollPos);
-            });
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
         }
-
-        // Cleanup en caso de desmontaje forzado
         return () => {
             document.body.style.position = '';
             document.body.style.top = '';
@@ -103,7 +90,7 @@ export const MissionSuccessDialog = ({
                         {/* Close Button X */}
                         <button
                             onClick={onClose}
-                            className="absolute right-[max(0.8rem,1.5vw)] top-[max(0.8rem,1.5vw)] p-2 text-gray-600 hover:text-primary transition-colors z-[2002] cursor-pointer border-none bg-transparent"
+                            className="absolute right-[max(0.8rem,1.5vw)] top-[max(0.8rem,1.5vw)] p-2 text-gray-400 hover:text-primary transition-colors z-[2002] cursor-pointer border-none bg-transparent"
                         >
                             <X style={{ width: 'max(1.8rem, 2.8vw)', height: 'max(1.8rem, 2.8vw)' }} />
                         </button>
@@ -128,7 +115,7 @@ export const MissionSuccessDialog = ({
                             </h2>
 
                             {/* Descripción */}
-                            <p className="text-gray-600 text-center m-0"
+                            <p className="text-gray-500 text-center m-0"
                                 style={{ fontSize: 'max(0.9rem, 1.2vw)', lineHeight: '1.5', marginBottom: 'max(1.2rem, 2vw)', color: 'var(--color-text-soft)' }}>
                                 {description}
                             </p>
@@ -152,7 +139,7 @@ export const MissionSuccessDialog = ({
 
                                 <button
                                     onClick={onSecondaryClick}
-                                    className="text-gray-600 font-medium hover:text-primary transition-colors border-none bg-transparent cursor-pointer"
+                                    className="text-gray-400 font-medium hover:text-primary transition-colors border-none bg-transparent cursor-pointer"
                                     style={{ fontSize: 'max(0.9rem, 1.2vw)', marginTop: 'max(0.5rem, 1vw)' }}
                                 >
                                     {secondaryButtonText}

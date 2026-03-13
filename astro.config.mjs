@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://puntoveterinario.com',
+  site: 'https://www.puntoveterinario.com',
 
   trailingSlash: 'never',
 
@@ -20,7 +20,7 @@ export default defineConfig({
 
   build: {
     format: 'directory',
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
 
   vite: {

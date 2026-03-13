@@ -1,18 +1,18 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Cirugía Veterinaria",
+    name: "CirugÃ­a Veterinaria",
     provider: {
         "@type": "VeterinaryCare",
         name: "Punto Veterinario",
         image: "https://www.puntoveterinario.com/og-image.jpg",
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Av. División del Norte 3595",
-            addressLocality: "Coyoacán",
+            streetAddress: "Av. DivisiÃ³n del Norte 3595",
+            addressLocality: "CoyoacÃ¡n",
             addressRegion: "CDMX",
             postalCode: "04620",
             addressCountry: "MX",
@@ -20,10 +20,10 @@ const schema = {
     },
     areaServed: {
         "@type": "AdministrativeArea",
-        name: "Coyoacán",
+        name: "CoyoacÃ¡n",
     },
     description:
-        "Servicio de cirugía veterinaria general y de tejidos blandos en CDMX. Operación de mascotas con anestesia segura, monitoreo continuo y quirófano equipado.",
+        "Servicio de cirugÃ­a veterinaria general y de tejidos blandos en CDMX. OperaciÃ³n de mascotas con anestesia segura, monitoreo continuo y quirÃ³fano equipado.",
 };
 
 const faqSchema = {
@@ -32,26 +32,26 @@ const faqSchema = {
     mainEntity: [
         {
             "@type": "Question",
-            name: "¿Cuánto cuesta una cirugía veterinaria en CDMX?",
+            name: "Â¿CuÃ¡nto cuesta una cirugÃ­a veterinaria en CDMX?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "El precio de una cirugía veterinaria varía enormemente dependiendo del procedimiento (extracción de tumores, hernias, etc.), el peso del paciente y los medicamentos necesarios. Escríbenos por WhatsApp al 55 1384 3004 para evaluar tu caso y darte un presupuesto.",
+                text: "El precio de una cirugÃ­a veterinaria varÃ­a enormemente dependiendo del procedimiento (extracciÃ³n de tumores, hernias, etc.), el peso del paciente y los medicamentos necesarios. EscrÃ­benos por WhatsApp al 55 1384 3004 para evaluar tu caso y darte un presupuesto.",
             },
         },
         {
             "@type": "Question",
-            name: "¿Cómo debo preparar a mi perro o gato para una cirugía?",
+            name: "Â¿CÃ³mo debo preparar a mi perro o gato para una cirugÃ­a?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Todo paciente requiere un protocolo prequirúrgico que incluye un ayuno estricto (generalmente de 8 a 12 horas de sólidos) y análisis de sangre previos para garantizar que sus órganos procesarán la anestesia sin riesgos.",
+                text: "Todo paciente requiere un protocolo prequirÃºrgico que incluye un ayuno estricto (generalmente de 8 a 12 horas de sÃ³lidos) y anÃ¡lisis de sangre previos para garantizar que sus Ã³rganos procesarÃ¡n la anestesia sin riesgos.",
             },
         },
         {
             "@type": "Question",
-            name: "¿Qué tipo de cirugías hace un veterinario general?",
+            name: "Â¿QuÃ© tipo de cirugÃ­as hace un veterinario general?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Realizamos principalmente cirugías de tejidos blandos, que incluyen extracciones de masas o tumores cutáneos, reparación de hernias, cirugías gastrointestinales, sutura de heridas profundas y esterilizaciones.",
+                text: "Realizamos principalmente cirugÃ­as de tejidos blandos, que incluyen extracciones de masas o tumores cutÃ¡neos, reparaciÃ³n de hernias, cirugÃ­as gastrointestinales, sutura de heridas profundas y esterilizaciones.",
             },
         },
     ],
@@ -61,22 +61,22 @@ const faqs = faqSchema.mainEntity;
 
 const cirugiasCards = [
     {
-        emoji: "✂️",
-        title: "Cirugía de Tejidos Blandos",
-        desc: "Intervenciones en órganos internos, músculos y piel, incluyendo cirugías gastrointestinales (como extracción de cuerpos extraños).",
+        emoji: "âœ‚ï¸",
+        title: "CirugÃ­a de Tejidos Blandos",
+        desc: "Intervenciones en Ã³rganos internos, mÃºsculos y piel, incluyendo cirugÃ­as gastrointestinales (como extracciÃ³n de cuerpos extraÃ±os).",
     },
     {
-        emoji: "🦠",
-        title: "Extracción de Masas y Tumores",
-        desc: "Remoción de bultos cutáneos o subcutáneos con opción a envío para estudio histopatológico (biopsia).",
+        emoji: "ðŸ¦ ",
+        title: "ExtracciÃ³n de Masas y Tumores",
+        desc: "RemociÃ³n de bultos cutÃ¡neos o subcutÃ¡neos con opciÃ³n a envÃ­o para estudio histopatolÃ³gico (biopsia).",
     },
     {
-        emoji: "🩹",
-        title: "Reparación de Hernias",
-        desc: "Corrección quirúrgica de hernias umbilicales o inguinales para evitar estrangulamiento de órganos.",
+        emoji: "ðŸ©¹",
+        title: "ReparaciÃ³n de Hernias",
+        desc: "CorrecciÃ³n quirÃºrgica de hernias umbilicales o inguinales para evitar estrangulamiento de Ã³rganos.",
     },
     {
-        emoji: "🩸",
+        emoji: "ðŸ©¸",
         title: "Sutura de Heridas Mayores",
         desc: "Tratamiento y cierre de desgarros, mordeduras profundas o traumatismos que requieren anestesia general.",
     },
@@ -85,46 +85,46 @@ const cirugiasCards = [
 const protocoloPasos = [
     {
         num: "1",
-        title: "Perfil Bioquímico y Hemograma",
-        desc: "Antes de cualquier procedimiento con anestesia general, realizamos análisis de sangre obligatorios. Esto nos asegura que los riñones y el hígado de tu mascota funcionan al 100% y pueden metabolizar los fármacos sin riesgo.",
+        title: "Perfil BioquÃ­mico y Hemograma",
+        desc: "Antes de cualquier procedimiento con anestesia general, realizamos anÃ¡lisis de sangre obligatorios. Esto nos asegura que los riÃ±ones y el hÃ­gado de tu mascota funcionan al 100% y pueden metabolizar los fÃ¡rmacos sin riesgo.",
     },
     {
         num: "2",
-        title: "Quirófano y Monitoreo Anestésico",
-        desc: "Durante la cirugía, mantenemos a tu mascota bajo un estado de inconsciencia controlado y sin dolor, monitoreando constantemente su frecuencia cardíaca, oxigenación y temperatura.",
+        title: "QuirÃ³fano y Monitoreo AnestÃ©sico",
+        desc: "Durante la cirugÃ­a, mantenemos a tu mascota bajo un estado de inconsciencia controlado y sin dolor, monitoreando constantemente su frecuencia cardÃ­aca, oxigenaciÃ³n y temperatura.",
     },
     {
         num: "3",
-        title: "Recuperación y Sutura",
-        desc: "Supervisamos su despertar hasta que esté completamente estable. Te entregamos a tu mascota con indicaciones claras sobre el cuidado de la sutura (absorbible o no absorbible) y su tratamiento analgésico para casa.",
+        title: "RecuperaciÃ³n y Sutura",
+        desc: "Supervisamos su despertar hasta que estÃ© completamente estable. Te entregamos a tu mascota con indicaciones claras sobre el cuidado de la sutura (absorbible o no absorbible) y su tratamiento analgÃ©sico para casa.",
     },
 ];
 
 const relacionadosCards = [
     {
-        title: "Laboratorio Clínico",
-        emoji: "🔬",
+        title: "Laboratorio ClÃ­nico",
+        emoji: "ðŸ”¬",
         href: "/servicios/laboratorio-clinico",
-        desc: "Estudios prequirúrgicos, biometría hemática y química sanguínea.",
+        desc: "Estudios prequirÃºrgicos, biometrÃ­a hemÃ¡tica y quÃ­mica sanguÃ­nea.",
     },
     {
         title: "Consulta Veterinaria",
-        emoji: "🩺",
+        emoji: "ðŸ©º",
         href: "/servicios/consulta-veterinaria",
-        desc: "Valoración general antes de programar cualquier procedimiento.",
+        desc: "ValoraciÃ³n general antes de programar cualquier procedimiento.",
     },
     {
-        title: "Esterilización",
-        emoji: "✂️",
+        title: "EsterilizaciÃ³n",
+        emoji: "âœ‚ï¸",
         href: "/servicios/esterilizacion",
-        desc: "Cirugía preventiva segura para machos y hembras.",
+        desc: "CirugÃ­a preventiva segura para machos y hembras.",
     },
 ];
 ---
 
 <BaseLayout
-    title="Cirugía Veterinaria en Coyoacán CDMX | Punto Veterinario"
-    description="Cirugías veterinarias de tejidos blandos para perros y gatos en Coyoacán. Quirófano equipado, anestesia segura y estudios prequirúrgicos obligatorios."
+    title="CirugÃ­a Veterinaria en CoyoacÃ¡n CDMX | Punto Veterinario"
+    description="CirugÃ­as veterinarias de tejidos blandos para perros y gatos en CoyoacÃ¡n. QuirÃ³fano equipado, anestesia segura y estudios prequirÃºrgicos obligatorios."
     canonical="https://www.puntoveterinario.com/servicios/cirugia-veterinaria"
 >
     <Fragment slot="head">
@@ -135,17 +135,17 @@ const relacionadosCards = [
         />
     </Fragment>
 
-    <!-- SECCIÓN 1 — HERO -->
+    <!-- SECCIÃ“N 1 â€” HERO -->
     <section class="hero content-section">
         <div class="hero__text">
             <h1 class="h1-hero">
-                Cirugía Veterinaria para Perros y Gatos en Coyoacán
+                CirugÃ­a Veterinaria para Perros y Gatos en CoyoacÃ¡n
             </h1>
             <p class="hero__desc">
-                Intervenciones seguras con quirófano equipado y monitoreo
-                anestésico continuo en San Pablo Tepetlapa. Operar en nuestras
-                instalaciones significa menos traslados y menos estrés para tu
-                mascota, con la tranquilidad de un protocolo médico estricto.
+                Intervenciones seguras con quirÃ³fano equipado y monitoreo
+                anestÃ©sico continuo en San Pablo Tepetlapa. Operar en nuestras
+                instalaciones significa menos traslados y menos estrÃ©s para tu
+                mascota, con la tranquilidad de un protocolo mÃ©dico estricto.
             </p>
             <div class="hero__btns">
                 <a
@@ -154,24 +154,24 @@ const relacionadosCards = [
                     target="_blank"
                     rel="noopener"
                 >
-                    💬 Evaluar caso por WhatsApp
+                    ðŸ’¬ Evaluar caso por WhatsApp
                 </a>
                 <a href="tel:+525513843004" class="btn-sec btn-urgencia">
-                    📞 Urgencia: Llamar ahora
+                    ðŸ“ž Urgencia: Llamar ahora
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2 — TIPOS DE CIRUGÍAS -->
+    <!-- SECCIÃ“N 2 â€” TIPOS DE CIRUGÃAS -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">
-            Procedimientos quirúrgicos seguros en el sur de CDMX
+            Procedimientos quirÃºrgicos seguros en el sur de CDMX
         </h2>
         <p class="text-center text-soft intro-desc">
-            Nuestro veterinario cirujano está capacitado para resolver las
-            emergencias y patologías más comunes que requieren entrar a
-            quirófano, enfocándonos en cirugías de tejidos blandos.
+            Nuestro veterinario cirujano estÃ¡ capacitado para resolver las
+            emergencias y patologÃ­as mÃ¡s comunes que requieren entrar a
+            quirÃ³fano, enfocÃ¡ndonos en cirugÃ­as de tejidos blandos.
         </p>
         <div class="grid-auto">
             {
@@ -186,10 +186,10 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 3 — EL PROTOCOLO DE SEGURIDAD -->
+    <!-- SECCIÃ“N 3 â€” EL PROTOCOLO DE SEGURIDAD -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Nuestra regla de oro: No hay cirugía sin estudios prequirúrgicos
+            Nuestra regla de oro: No hay cirugÃ­a sin estudios prequirÃºrgicos
         </h2>
 
         <div class="timeline-protocolo">
@@ -209,41 +209,41 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 4 — MITO VS REALIDAD (LA ANESTESIA) -->
+    <!-- SECCIÃ“N 4 â€” MITO VS REALIDAD (LA ANESTESIA) -->
     <section class="content-section bg-soft">
-        <h2 class="titulo-sec">Desmitificando el quirófano veterinario</h2>
+        <h2 class="titulo-sec">Desmitificando el quirÃ³fano veterinario</h2>
 
         <div class="mito-realidad-box-vertical mb-fluid">
             <div class="mito-block">
-                <span class="icon-scalable bad-icon">❌</span>
+                <span class="icon-scalable bad-icon">âŒ</span>
                 <p>
                     <strong>El Mito:</strong> "La anestesia veterinaria es demasiado
-                    peligrosa, sobre todo si mi mascota ya está grande."
+                    peligrosa, sobre todo si mi mascota ya estÃ¡ grande."
                 </p>
             </div>
             <div class="realidad-block">
-                <span class="icon-scalable good-icon">✅</span>
+                <span class="icon-scalable good-icon">âœ…</span>
                 <p>
                     <strong>La Realidad:</strong> En animales sanos y evaluados previamente,
-                    el riesgo anestésico es mínimo y comparable al de los humanos.
+                    el riesgo anestÃ©sico es mÃ­nimo y comparable al de los humanos.
                     El verdadero peligro ocurre cuando se opera "a ciegas", sin una
-                    valoración sanguínea previa. Por eso nuestros estudios prequirúrgicos
-                    son la garantía de que la cirugía veterinaria será segura.
+                    valoraciÃ³n sanguÃ­nea previa. Por eso nuestros estudios prequirÃºrgicos
+                    son la garantÃ­a de que la cirugÃ­a veterinaria serÃ¡ segura.
                 </p>
             </div>
         </div>
 
         <blockquote class="valor-quote text-center">
-            "No todos los consultorios están preparados para operar. Las
-            cirugías requieren instalaciones adecuadas, esterilización
-            instrumental y protocolo de recuperación. En Punto Veterinario
+            "No todos los consultorios estÃ¡n preparados para operar. Las
+            cirugÃ­as requieren instalaciones adecuadas, esterilizaciÃ³n
+            instrumental y protocolo de recuperaciÃ³n. En Punto Veterinario
             tienes todo en un solo lugar."
         </blockquote>
     </section>
 
-    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <!-- SECCIÃ“N 5 â€” FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
-        <h2 class="titulo-sec">Dudas frecuentes antes de una cirugía</h2>
+        <h2 class="titulo-sec">Dudas frecuentes antes de una cirugÃ­a</h2>
         <div class="faq-accordion">
             {
                 faqs.map((faq) => (
@@ -256,9 +256,9 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 6 — SERVICIOS DIRECTAMENTE RELACIONADOS -->
+    <!-- SECCIÃ“N 6 â€” SERVICIOS DIRECTAMENTE RELACIONADOS -->
     <section class="content-section bg-soft">
-        <h2 class="titulo-sec">Servicios complementarios a la cirugía</h2>
+        <h2 class="titulo-sec">Servicios complementarios a la cirugÃ­a</h2>
         <div class="grid-auto">
             {
                 relacionadosCards.map((s) => (
@@ -266,23 +266,23 @@ const relacionadosCards = [
                         <span class="icon-scalable">{s.emoji}</span>
                         <h3 class="card-titulo">{s.title}</h3>
                         <p class="card-desc">{s.desc}</p>
-                        <span class="card-ver">Ver detalles →</span>
+                        <span class="card-ver">Ver detalles â†’</span>
                     </a>
                 ))
             }
         </div>
     </section>
 
-    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <!-- SECCIÃ“N 7 â€” CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
         <h2 class="cta-titulo-blanc">
-            ¿El veterinario te recomendó una cirugía para tu mascota?
+            Â¿El veterinario te recomendÃ³ una cirugÃ­a para tu mascota?
         </h2>
         <p class="cta-desc-blanc">
-            Si notas un bulto extraño, sufrió un accidente o necesita una
-            cirugía de tejidos blandos programada, estamos aquí para ayudarte.
-            Operamos con los más altos estándares de seguridad en San Pablo
-            Tepetlapa, Coyoacán.
+            Si notas un bulto extraÃ±o, sufriÃ³ un accidente o necesita una
+            cirugÃ­a de tejidos blandos programada, estamos aquÃ­ para ayudarte.
+            Operamos con los mÃ¡s altos estÃ¡ndares de seguridad en San Pablo
+            Tepetlapa, CoyoacÃ¡n.
         </p>
         <div class="cta-btns">
             <a
@@ -291,10 +291,10 @@ const relacionadosCards = [
                 rel="noopener"
                 class="btn-cta-blanco"
             >
-                💬 Consultar caso por WhatsApp
+                ðŸ’¬ Consultar caso por WhatsApp
             </a>
             <a href="/ubicacion" class="btn-cta-outline">
-                📍 Ver ubicación y horarios
+                ðŸ“ Ver ubicaciÃ³n y horarios
             </a>
         </div>
     </section>
@@ -305,7 +305,7 @@ const relacionadosCards = [
         margin-bottom: max(2rem, 4vw);
     }
 
-    /* ESPECÍFICO DE CIRUGIA-VETERINARIA */
+    /* ESPECÃFICO DE CIRUGIA-VETERINARIA */
     .btn-urgencia {
         border-color: var(--color-urgencia);
         color: var(--color-urgencia);
@@ -316,7 +316,7 @@ const relacionadosCards = [
         color: #fff;
     }
 
-    /* TIMELINE DEL PROTOCOLO DE SEGURIDAD (ESPECÍFICO) */
+    /* TIMELINE DEL PROTOCOLO DE SEGURIDAD (ESPECÃFICO) */
     .timeline-protocolo {
         display: flex;
         flex-direction: column;
@@ -382,7 +382,7 @@ const relacionadosCards = [
         }
     }
 
-    /* MITO VS REALIDAD (ESPECÍFICO) */
+    /* MITO VS REALIDAD (ESPECÃFICO) */
     .mito-realidad-box-vertical {
         display: flex;
         flex-direction: column;
@@ -442,7 +442,7 @@ const relacionadosCards = [
         text-align: left;
     }
     .valor-quote::before {
-        content: "«";
+        content: "Â«";
         font-size: max(2rem, 4vw);
         position: absolute;
         top: max(-0.5rem, -1vw);

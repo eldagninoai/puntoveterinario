@@ -3,7 +3,7 @@ layout: "../../layouts/BlogPost.astro"
 title: "Mejores Parques para Perros en Coyoacán y Sur de CDMX"
 description: "Guía de los mejores parques para pasear a tu perro en Coyoacán y San Pablo Tepetlapa. Conoce los requisitos de vacunación y cuidados antes de salir."
 pubDate: "2026-06-15"
-heroImage: "/blog-parques-coyoacan.webp"
+heroImage: "/blog-parques-coyoacan.png"
 authorName: "Pilar"
 authorImage: "/placeholder-doctora.svg"
 ---

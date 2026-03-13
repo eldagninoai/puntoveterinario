@@ -1,18 +1,18 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Laboratorio Clínico Veterinario",
+    name: "Laboratorio ClÃ­nico Veterinario",
     provider: {
         "@type": "VeterinaryCare",
         name: "Punto Veterinario",
         image: "https://www.puntoveterinario.com/og-image.jpg",
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Av. División del Norte 3595",
-            addressLocality: "Coyoacán",
+            streetAddress: "Av. DivisiÃ³n del Norte 3595",
+            addressLocality: "CoyoacÃ¡n",
             addressRegion: "CDMX",
             postalCode: "04620",
             addressCountry: "MX",
@@ -20,10 +20,10 @@ const schema = {
     },
     areaServed: {
         "@type": "AdministrativeArea",
-        name: "Coyoacán",
+        name: "CoyoacÃ¡n",
     },
     description:
-        "Servicio de laboratorio clínico para mascotas en CDMX. Realizamos hemogramas, perfiles bioquímicos, urianálisis y estudios prequirúrgicos para perros y gatos.",
+        "Servicio de laboratorio clÃ­nico para mascotas en CDMX. Realizamos hemogramas, perfiles bioquÃ­micos, urianÃ¡lisis y estudios prequirÃºrgicos para perros y gatos.",
 };
 
 const faqSchema = {
@@ -32,26 +32,26 @@ const faqSchema = {
     mainEntity: [
         {
             "@type": "Question",
-            name: "¿Para qué sirve un análisis de sangre en perros y gatos?",
+            name: "Â¿Para quÃ© sirve un anÃ¡lisis de sangre en perros y gatos?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Los análisis de sangre permiten evaluar el funcionamiento de órganos vitales (riñones, hígado, páncreas) y detectar infecciones, anemia, diabetes o insuficiencia renal años antes de que la mascota muestre síntomas visibles de enfermedad.",
+                text: "Los anÃ¡lisis de sangre permiten evaluar el funcionamiento de Ã³rganos vitales (riÃ±ones, hÃ­gado, pÃ¡ncreas) y detectar infecciones, anemia, diabetes o insuficiencia renal aÃ±os antes de que la mascota muestre sÃ­ntomas visibles de enfermedad.",
             },
         },
         {
             "@type": "Question",
-            name: "¿Cuánto cuesta un análisis veterinario en Coyoacán?",
+            name: "Â¿CuÃ¡nto cuesta un anÃ¡lisis veterinario en CoyoacÃ¡n?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "El costo depende del tipo de estudio que tu mascota necesite (hemograma básico, perfil bioquímico completo, urianálisis, etc.). Contáctanos por WhatsApp al 55 1384 3004 para indicarte el precio exacto del panel requerido.",
+                text: "El costo depende del tipo de estudio que tu mascota necesite (hemograma bÃ¡sico, perfil bioquÃ­mico completo, urianÃ¡lisis, etc.). ContÃ¡ctanos por WhatsApp al 55 1384 3004 para indicarte el precio exacto del panel requerido.",
             },
         },
         {
             "@type": "Question",
-            name: "¿Mi perro necesita ayuno para el análisis de sangre?",
+            name: "Â¿Mi perro necesita ayuno para el anÃ¡lisis de sangre?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Sí, para la mayoría de los estudios de laboratorio (especialmente los perfiles bioquímicos) se requiere un ayuno estricto de sólidos de 8 a 12 horas para garantizar que los resultados de glucosa y enzimas sean precisos y no se alteren.",
+                text: "SÃ­, para la mayorÃ­a de los estudios de laboratorio (especialmente los perfiles bioquÃ­micos) se requiere un ayuno estricto de sÃ³lidos de 8 a 12 horas para garantizar que los resultados de glucosa y enzimas sean precisos y no se alteren.",
             },
         },
     ],
@@ -61,58 +61,58 @@ const faqs = faqSchema.mainEntity;
 
 const estudiosCards = [
     {
-        emoji: "🩸",
+        emoji: "ðŸ©¸",
         title: "Hemograma Completo",
-        desc: "Cuenta y evalúa los glóbulos rojos, glóbulos blancos, plaquetas y hemoglobina. Es esencial para detectar anemia, infecciones agudas, problemas de coagulación o enfermedades como la leucemia felina.",
+        desc: "Cuenta y evalÃºa los glÃ³bulos rojos, glÃ³bulos blancos, plaquetas y hemoglobina. Es esencial para detectar anemia, infecciones agudas, problemas de coagulaciÃ³n o enfermedades como la leucemia felina.",
     },
     {
-        emoji: "🧪",
-        title: "Perfil Bioquímico",
-        desc: "Un panel vital que evalúa el funcionamiento de los órganos internos. Medimos enzimas hepáticas (ALT/AST), marcadores de función renal (Creatinina y BUN) y glucosa para detectar diabetes o insuficiencia renal temprana.",
+        emoji: "ðŸ§ª",
+        title: "Perfil BioquÃ­mico",
+        desc: "Un panel vital que evalÃºa el funcionamiento de los Ã³rganos internos. Medimos enzimas hepÃ¡ticas (ALT/AST), marcadores de funciÃ³n renal (Creatinina y BUN) y glucosa para detectar diabetes o insuficiencia renal temprana.",
     },
     {
-        emoji: "🔬",
-        title: "Urianálisis y Coproparasitoscópico",
-        desc: "Análisis completo de orina para detectar infecciones del tracto urinario o enfermedad renal, y estudio de heces para identificar parásitos intestinales que no siempre son visibles.",
+        emoji: "ðŸ”¬",
+        title: "UrianÃ¡lisis y CoproparasitoscÃ³pico",
+        desc: "AnÃ¡lisis completo de orina para detectar infecciones del tracto urinario o enfermedad renal, y estudio de heces para identificar parÃ¡sitos intestinales que no siempre son visibles.",
     },
 ];
 
 const ventajasLista = [
     {
         title: "Menor margen de error",
-        desc: "Aproximadamente el 70% de los resultados inconsistentes en laboratorio se deben a errores en la toma o conservación de la muestra. Al tomar la muestra en nuestra clínica con el protocolo correcto, garantizamos resultados fiables.",
+        desc: "Aproximadamente el 70% de los resultados inconsistentes en laboratorio se deben a errores en la toma o conservaciÃ³n de la muestra. Al tomar la muestra en nuestra clÃ­nica con el protocolo correcto, garantizamos resultados fiables.",
     },
     {
-        title: "Resultados oportunos para actuar rápido",
-        desc: "Contar con la información clínica rápidamente nos permite iniciar el tratamiento médico correcto sin perder tiempo valioso para la salud de tu mascota. (Nota: Estos estudios son pre-requisito obligatorio antes de cualquier cirugía o procedimiento anestésico).",
+        title: "Resultados oportunos para actuar rÃ¡pido",
+        desc: "Contar con la informaciÃ³n clÃ­nica rÃ¡pidamente nos permite iniciar el tratamiento mÃ©dico correcto sin perder tiempo valioso para la salud de tu mascota. (Nota: Estos estudios son pre-requisito obligatorio antes de cualquier cirugÃ­a o procedimiento anestÃ©sico).",
     },
 ];
 
 const relacionadosCards = [
     {
-        title: "Cirugía Veterinaria",
-        emoji: "🏥",
+        title: "CirugÃ­a Veterinaria",
+        emoji: "ðŸ¥",
         href: "/servicios/cirugia-veterinaria",
-        desc: "Operaciones seguras respaldadas por estudios prequirúrgicos.",
+        desc: "Operaciones seguras respaldadas por estudios prequirÃºrgicos.",
     },
     {
-        title: "Consulta Médica",
-        emoji: "🩺",
+        title: "Consulta MÃ©dica",
+        emoji: "ðŸ©º",
         href: "/servicios/consulta-veterinaria",
-        desc: "Valoración e interpretación profesional de los resultados.",
+        desc: "ValoraciÃ³n e interpretaciÃ³n profesional de los resultados.",
     },
     {
         title: "Alimento para Mascotas",
-        emoji: "🥩",
+        emoji: "ðŸ¥©",
         href: "/servicios/alimento-mascotas",
-        desc: "Dietas terapéuticas prescritas según los resultados del laboratorio.",
+        desc: "Dietas terapÃ©uticas prescritas segÃºn los resultados del laboratorio.",
     },
 ];
 ---
 
 <BaseLayout
-    title="Laboratorio Clínico Veterinario en Coyoacán | Punto Veterinario"
-    description="Análisis de sangre, hemogramas y perfiles bioquímicos para perros y gatos en Coyoacán. Diagnóstico temprano y resultados precisos en CDMX. ¡Contáctanos!"
+    title="Laboratorio ClÃ­nico Veterinario en CoyoacÃ¡n | Punto Veterinario"
+    description="AnÃ¡lisis de sangre, hemogramas y perfiles bioquÃ­micos para perros y gatos en CoyoacÃ¡n. DiagnÃ³stico temprano y resultados precisos en CDMX. Â¡ContÃ¡ctanos!"
     canonical="https://www.puntoveterinario.com/servicios/laboratorio-clinico"
 >
     <Fragment slot="head">
@@ -123,13 +123,13 @@ const relacionadosCards = [
         />
     </Fragment>
 
-    <!-- SECCIÓN 1 — HERO -->
+    <!-- SECCIÃ“N 1 â€” HERO -->
     <section class="hero content-section">
         <div class="hero__text">
-            <h1 class="h1-hero">Laboratorio Clínico Veterinario en Coyoacán</h1>
+            <h1 class="h1-hero">Laboratorio ClÃ­nico Veterinario en CoyoacÃ¡n</h1>
             <p class="hero__desc">
-                Diagnóstico temprano y preciso para perros y gatos. Realizamos
-                análisis de sangre, química sanguínea y estudios prequirúrgicos
+                DiagnÃ³stico temprano y preciso para perros y gatos. Realizamos
+                anÃ¡lisis de sangre, quÃ­mica sanguÃ­nea y estudios prequirÃºrgicos
                 en San Pablo Tepetlapa para detectar problemas de salud antes de
                 que se conviertan en urgencias.
             </p>
@@ -140,19 +140,19 @@ const relacionadosCards = [
                     target="_blank"
                     rel="noopener"
                 >
-                    💬 Cotizar estudios por WhatsApp
+                    ðŸ’¬ Cotizar estudios por WhatsApp
                 </a>
                 <a href="#estudios" class="btn-sec">
-                    Ver tipos de análisis ↓
+                    Ver tipos de anÃ¡lisis â†“
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2 — ¿QUÉ ANALIZAMOS? -->
+    <!-- SECCIÃ“N 2 â€” Â¿QUÃ‰ ANALIZAMOS? -->
     <section id="estudios" class="content-section bg-soft">
         <h2 class="titulo-sec">
-            Estudios de laboratorio para un diagnóstico exacto
+            Estudios de laboratorio para un diagnÃ³stico exacto
         </h2>
         <div class="grid-auto">
             {
@@ -167,56 +167,56 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 3 — MITO VS REALIDAD (ENFERMEDADES SILENTES) -->
+    <!-- SECCIÃ“N 3 â€” MITO VS REALIDAD (ENFERMEDADES SILENTES) -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            ¿Por qué no esperar a que tu mascota se sienta mal?
+            Â¿Por quÃ© no esperar a que tu mascota se sienta mal?
         </h2>
         <div class="mito-vs-realidad-grid">
             <div class="mito-content">
                 <div class="mito-realidad-box">
                     <div class="mito-block">
-                        <span class="bad-icon">❌</span>
+                        <span class="bad-icon">âŒ</span>
                         <p>
                             <strong>El Mito:</strong> "Si mi mascota come bien y juega,
-                            no necesita análisis de sangre."
+                            no necesita anÃ¡lisis de sangre."
                         </p>
                     </div>
                     <div class="realidad-block">
-                        <span class="good-icon">✅</span>
+                        <span class="good-icon">âœ…</span>
                         <p>
-                            <strong>La Realidad:</strong> Enfermedades gravísimas
-                            como la insuficiencia renal, problemas hepáticos o la
-                            diabetes son "silentes". No dan síntomas visibles (como
+                            <strong>La Realidad:</strong> Enfermedades gravÃ­simas
+                            como la insuficiencia renal, problemas hepÃ¡ticos o la
+                            diabetes son "silentes". No dan sÃ­ntomas visibles (como
                             dejar de comer o decaimiento) hasta que la enfermedad
-                            está en etapas muy avanzadas e irreversibles. Un chequeo
-                            de laboratorio anual las detecta años antes.
+                            estÃ¡ en etapas muy avanzadas e irreversibles. Un chequeo
+                            de laboratorio anual las detecta aÃ±os antes.
                         </p>
                     </div>
                 </div>
             </div>
             <div class="mito-quote-box">
                 <blockquote class="valor-quote">
-                    "Muchos dueños en Coyoacán esperan a que su mascota esté muy
-                    decaída para traerla a consulta. Para entonces, el problema
-                    ya es grave. Un perfil bioquímico preventivo cuesta
-                    significativamente menos que la hospitalización por una
+                    "Muchos dueÃ±os en CoyoacÃ¡n esperan a que su mascota estÃ© muy
+                    decaÃ­da para traerla a consulta. Para entonces, el problema
+                    ya es grave. Un perfil bioquÃ­mico preventivo cuesta
+                    significativamente menos que la hospitalizaciÃ³n por una
                     enfermedad detectada tarde."
                 </blockquote>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4 — LA VENTAJA DE HACERLO EN CLÍNICA -->
+    <!-- SECCIÃ“N 4 â€” LA VENTAJA DE HACERLO EN CLÃNICA -->
     <section class="content-section bg-soft">
-        <h2 class="titulo-sec">Precisión y rapidez en el sur de CDMX</h2>
+        <h2 class="titulo-sec">PrecisiÃ³n y rapidez en el sur de CDMX</h2>
 
         <div class="ventajas-lista">
             {
                 ventajasLista.map((vent) => (
                     <div class="ventaja-item card-ui">
                         <div class="ventaja-icon">
-                            <span class="icon-scalable">✅</span>
+                            <span class="icon-scalable">âœ…</span>
                         </div>
                         <div class="ventaja-texto">
                             <h3 class="ventaja-titulo">{vent.title}</h3>
@@ -228,10 +228,10 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <!-- SECCIÃ“N 5 â€” FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Preguntas comunes sobre nuestros análisis clínicos
+            Preguntas comunes sobre nuestros anÃ¡lisis clÃ­nicos
         </h2>
         <div class="faq-accordion">
             {
@@ -245,7 +245,7 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 6 — SERVICIOS VINCULADOS -->
+    <!-- SECCIÃ“N 6 â€” SERVICIOS VINCULADOS -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">
             Servicios complementarios en Punto Veterinario
@@ -257,22 +257,22 @@ const relacionadosCards = [
                         <span class="icon-scalable">{s.emoji}</span>
                         <h3 class="card-titulo">{s.title}</h3>
                         <p class="card-desc">{s.desc}</p>
-                        <span class="card-ver">Ver detalles →</span>
+                        <span class="card-ver">Ver detalles â†’</span>
                     </a>
                 ))
             }
         </div>
     </section>
 
-    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <!-- SECCIÃ“N 7 â€” CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
         <h2 class="cta-titulo-blanc">
-            ¿Tu mascota necesita estudios de laboratorio?
+            Â¿Tu mascota necesita estudios de laboratorio?
         </h2>
         <p class="cta-desc-blanc">
-            Agenda su toma de muestra de forma rápida y con el menor estrés
-            posible. Estamos en Av. División del Norte 3595, San Pablo
-            Tepetlapa, atendiendo a pacientes de todo Coyoacán.
+            Agenda su toma de muestra de forma rÃ¡pida y con el menor estrÃ©s
+            posible. Estamos en Av. DivisiÃ³n del Norte 3595, San Pablo
+            Tepetlapa, atendiendo a pacientes de todo CoyoacÃ¡n.
         </p>
         <div class="cta-btns">
             <a
@@ -281,10 +281,10 @@ const relacionadosCards = [
                 rel="noopener"
                 class="btn-cta-blanco"
             >
-                💬 Agendar cita por WhatsApp
+                ðŸ’¬ Agendar cita por WhatsApp
             </a>
             <a href="/ubicacion" class="btn-cta-outline">
-                📍 Ver mapa y horarios
+                ðŸ“ Ver mapa y horarios
             </a>
         </div>
     </section>

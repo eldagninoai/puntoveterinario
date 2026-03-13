@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -12,7 +12,7 @@ const {
     authorImage = "/placeholder-doctora.webp",
 } = frontmatter || Astro.props;
 
-// Construimos el canonical dinámicamente sin trailing slash
+// Construimos el canonical dinÃ¡micamente sin trailing slash
 const url = new URL(
     Astro.url.pathname.replace(/\/$/, "") || "/",
     Astro.site || "https://www.puntoveterinario.com",
@@ -27,8 +27,7 @@ const schema = {
     },
     headline: title,
     image: heroImage
-        ? new URL(heroImage, Astro.site || "https://www.puntoveterinario.com")
-              .href
+        ? new URL(heroImage, Astro.site || "https://www.puntoveterinario.com").href
         : "https://www.puntoveterinario.com/logo.png",
     author: {
         "@type": "Person",
@@ -66,7 +65,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
 
     <main class="article-wrapper">
         <article class="prose-container">
-            <!-- HERO DEL ARTÍCULO -->
+            <!-- HERO DEL ARTÃCULO -->
             <header class="article-header">
                 <h1 class="article-title">{title}</h1>
 
@@ -94,7 +93,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
                             ></span
                         >
                         <span class="author-role"
-                            >Médico Veterinario Zootecnista</span
+                            >MÃ©dico Veterinario Zootecnista</span
                         >
                         <time datetime={pubDate} class="article-date"
                             >Publicado el {displayDate}</time
@@ -126,20 +125,20 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
                 <slot />
             </div>
 
-            <!-- BANNER CTA FINAL (DENTRO DEL ARTÍCULO) -->
+            <!-- BANNER CTA FINAL (DENTRO DEL ARTÃCULO) -->
             <div class="article-cta">
                 <h3 class="article-cta-title">
-                    ¿Necesitas ayuda profesional para tu mejor amigo?
+                    Â¿Necesitas ayuda profesional para tu mejor amigo?
                 </h3>
                 <p class="article-cta-desc">
-                    Si vives en el sur de la CDMX (Coyoacán, San Pablo
-                    Tepetlapa, Pedregal) y notas estos síntomas en tu mascota,
-                    agenda una revisión en Punto Veterinario. Evaluaremos su
-                    caso con equipo de vanguardia y trato libre de estrés.
+                    Si vives en el sur de la CDMX (CoyoacÃ¡n, San Pablo
+                    Tepetlapa, Pedregal) y notas estos sÃ­ntomas en tu mascota,
+                    agenda una revisiÃ³n en Punto Veterinario. Evaluaremos su
+                    caso con equipo de vanguardia y trato libre de estrÃ©s.
                 </p>
                 <div class="article-cta-btns">
                     <a href="/contacto" class="btn-primary">
-                        📅 Agendar Cita en Coyoacán
+                        ðŸ“… Agendar Cita en CoyoacÃ¡n
                     </a>
                     <a
                         href="https://wa.me/525513843004"
@@ -147,7 +146,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
                         rel="noopener"
                         class="btn-wa-post"
                     >
-                        💬 Consultar Whatsapp
+                        ðŸ’¬ Consultar Whatsapp
                     </a>
                 </div>
             </div>
@@ -176,7 +175,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
         ); /* Matches Header padding-inline for alignment */
     }
 
-    /* HEADER ARTÍCULO */
+    /* HEADER ARTÃCULO */
     .article-header {
         margin-bottom: max(2rem, 4vw);
         background: var(--color-bg-soft);
@@ -281,7 +280,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
         letter-spacing: 0.01ch; /* Subtle breathing room for letters */
     }
 
-    /* Párrafos e inferiores */
+    /* PÃ¡rrafos e inferiores */
     .prose p {
         margin-bottom: max(
             3rem,
@@ -289,7 +288,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
         ); /* Massive vertical separation between paragraphs */
     }
 
-    /* Headers Semánticos en artículo */
+    /* Headers SemÃ¡nticos en artÃ­culo */
     .prose h2,
     .prose h3,
     .prose h4 {
@@ -316,7 +315,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
         color: var(--mural-pink);
     }
 
-    /* Listas (Críticas para Fragmentos Destacados SEO) */
+    /* Listas (CrÃ­ticas para Fragmentos Destacados SEO) */
     .prose ul,
     .prose ol {
         margin-bottom: max(1.5rem, 2vw);
@@ -330,7 +329,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
         font-weight: 700;
     }
 
-    /* Blockquotes (Citas médicas/E-E-A-T) */
+    /* Blockquotes (Citas mÃ©dicas/E-E-A-T) */
     .prose blockquote {
         border-left: max(0.3rem, 0.4vw) solid var(--color-primary);
         background: var(--color-bg-soft);
@@ -344,7 +343,7 @@ const displayDate = new Date(pubDate).toLocaleDateString("es-MX", {
         margin-bottom: 0;
     }
 
-    /* Imágenes en Markdown */
+    /* ImÃ¡genes en Markdown */
     .prose img {
         max-width: 100%;
         height: auto;

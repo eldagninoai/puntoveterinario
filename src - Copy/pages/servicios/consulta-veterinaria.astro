@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const schema = {
@@ -14,8 +14,8 @@ const schema = {
                 image: "https://www.puntoveterinario.com/logo.png",
                 address: {
                     "@type": "PostalAddress",
-                    streetAddress: "Av. División del Norte 3595",
-                    addressLocality: "Coyoacán",
+                    streetAddress: "Av. DivisiÃ³n del Norte 3595",
+                    addressLocality: "CoyoacÃ¡n",
                     addressRegion: "CDMX",
                     postalCode: "04620",
                     addressCountry: "MX",
@@ -23,36 +23,36 @@ const schema = {
             },
             areaServed: {
                 "@type": "AdministrativeArea",
-                name: "Coyoacán",
+                name: "CoyoacÃ¡n",
             },
             description:
-                "Consulta médica, chequeo general y medicina preventiva para perros y gatos en el sur de la CDMX. Incluye exploración física completa y anamnesis.",
+                "Consulta mÃ©dica, chequeo general y medicina preventiva para perros y gatos en el sur de la CDMX. Incluye exploraciÃ³n fÃ­sica completa y anamnesis.",
         },
         {
             "@type": "FAQPage",
             mainEntity: [
                 {
                     "@type": "Question",
-                    name: "¿Cuánto cuesta una consulta veterinaria en Coyoacán?",
+                    name: "Â¿CuÃ¡nto cuesta una consulta veterinaria en CoyoacÃ¡n?",
                     acceptedAnswer: {
                         "@type": "Answer",
-                        text: "En Punto Veterinario ofrecemos consultas a precios accesibles. Escríbenos por WhatsApp al 55 1384 3004 para darte el costo exacto y orientarte sobre lo que necesita tu mascota.",
+                        text: "En Punto Veterinario ofrecemos consultas a precios accesibles. EscrÃ­benos por WhatsApp al 55 1384 3004 para darte el costo exacto y orientarte sobre lo que necesita tu mascota.",
                     },
                 },
                 {
                     "@type": "Question",
-                    name: "¿Cada cuánto debo llevar a mi perro al veterinario si parece sano?",
+                    name: "Â¿Cada cuÃ¡nto debo llevar a mi perro al veterinario si parece sano?",
                     acceptedAnswer: {
                         "@type": "Answer",
-                        text: "Los perros adultos deben ir al menos 1 vez al año. Los cachorros necesitan 3 a 4 consultas en sus primeros 6 meses. Si tu mascota tiene más de 7 años, recomendamos una revisión cada 6 meses para detectar enfermedades silentes.",
+                        text: "Los perros adultos deben ir al menos 1 vez al aÃ±o. Los cachorros necesitan 3 a 4 consultas en sus primeros 6 meses. Si tu mascota tiene mÃ¡s de 7 aÃ±os, recomendamos una revisiÃ³n cada 6 meses para detectar enfermedades silentes.",
                     },
                 },
                 {
                     "@type": "Question",
-                    name: "¿Qué incluye exactamente una consulta general?",
+                    name: "Â¿QuÃ© incluye exactamente una consulta general?",
                     acceptedAnswer: {
                         "@type": "Answer",
-                        text: "Incluye anamnesis (historial clínico) y una exploración física completa: auscultación cardíaca y pulmonar, revisión de ojos, oídos, boca, palpación abdominal, revisión de piel, control de peso y temperatura.",
+                        text: "Incluye anamnesis (historial clÃ­nico) y una exploraciÃ³n fÃ­sica completa: auscultaciÃ³n cardÃ­aca y pulmonar, revisiÃ³n de ojos, oÃ­dos, boca, palpaciÃ³n abdominal, revisiÃ³n de piel, control de peso y temperatura.",
                     },
                 },
             ],
@@ -64,34 +64,34 @@ const faqs = (schema as any)["@graph"][1].mainEntity;
 
 const incluyeCards = [
     {
-        emoji: "🫀",
-        title: "Corazón y Pulmones",
-        desc: "Auscultación cardíaca y pulmonar para detectar soplos o anomalías respiratorias.",
+        emoji: "ðŸ«€",
+        title: "CorazÃ³n y Pulmones",
+        desc: "AuscultaciÃ³n cardÃ­aca y pulmonar para detectar soplos o anomalÃ­as respiratorias.",
     },
     {
-        emoji: "👀",
-        title: "Ojos y Oídos",
-        desc: "Búsqueda de infecciones, cataratas tempranas, ácaros o signos de inflamación.",
+        emoji: "ðŸ‘€",
+        title: "Ojos y OÃ­dos",
+        desc: "BÃºsqueda de infecciones, cataratas tempranas, Ã¡caros o signos de inflamaciÃ³n.",
     },
     {
-        emoji: "🦷",
+        emoji: "ðŸ¦·",
         title: "Boca y Dientes",
-        desc: "Revisión de sarro, gingivitis y salud dental (clave para prevenir infecciones internas).",
+        desc: "RevisiÃ³n de sarro, gingivitis y salud dental (clave para prevenir infecciones internas).",
     },
     {
-        emoji: "🩺",
-        title: "Palpación Abdominal",
-        desc: "Revisión de órganos internos para detectar dolor, masas o inflamaciones anormales.",
+        emoji: "ðŸ©º",
+        title: "PalpaciÃ³n Abdominal",
+        desc: "RevisiÃ³n de Ã³rganos internos para detectar dolor, masas o inflamaciones anormales.",
     },
     {
-        emoji: "🐕",
+        emoji: "ðŸ•",
         title: "Piel y Pelaje",
-        desc: "Detección de parásitos (pulgas, garrapatas), alergias, hongos o dermatitis.",
+        desc: "DetecciÃ³n de parÃ¡sitos (pulgas, garrapatas), alergias, hongos o dermatitis.",
     },
     {
-        emoji: "⚖️",
+        emoji: "âš–ï¸",
         title: "Peso y Temperatura",
-        desc: "Control de condición corporal para prevenir obesidad o desnutrición, y toma de temperatura basal.",
+        desc: "Control de condiciÃ³n corporal para prevenir obesidad o desnutriciÃ³n, y toma de temperatura basal.",
     },
 ];
 
@@ -99,36 +99,36 @@ const frecuenciaCards = [
     {
         etapa: "Cachorros (0 a 6 meses)",
         frecuencia: "3 a 4 consultas en los primeros meses.",
-        desc: "Es vital para iniciar su protocolo de vacunación y desparasitación interna y externa.",
+        desc: "Es vital para iniciar su protocolo de vacunaciÃ³n y desparasitaciÃ³n interna y externa.",
     },
     {
-        etapa: "Adultos (1 a 6 años)",
-        frecuencia: "Mínimo 1 chequeo anual.",
-        desc: "Necesario para actualizar vacunas, desparasitar y hacer un diagnóstico preventivo.",
+        etapa: "Adultos (1 a 6 aÃ±os)",
+        frecuencia: "MÃ­nimo 1 chequeo anual.",
+        desc: "Necesario para actualizar vacunas, desparasitar y hacer un diagnÃ³stico preventivo.",
     },
     {
-        etapa: "Seniors (7+ años)",
+        etapa: "Seniors (7+ aÃ±os)",
         frecuencia: "Cada 6 meses.",
-        desc: "Envejecen más rápido que nosotros. Las visitas semestrales son cruciales para detectar problemas renales, hepáticos o tumores que son silentes en sus primeras etapas.",
+        desc: "Envejecen mÃ¡s rÃ¡pido que nosotros. Las visitas semestrales son cruciales para detectar problemas renales, hepÃ¡ticos o tumores que son silentes en sus primeras etapas.",
     },
 ];
 
 const relacionadosCards = [
     {
-        title: "Laboratorio Clínico",
-        emoji: "💉",
+        title: "Laboratorio ClÃ­nico",
+        emoji: "ðŸ’‰",
         href: "/servicios/laboratorio-clinico",
-        desc: "Análisis de sangre, hemogramas y perfil bioquímico.",
+        desc: "AnÃ¡lisis de sangre, hemogramas y perfil bioquÃ­mico.",
     },
     {
-        title: "Esterilización",
-        emoji: "✂️",
+        title: "EsterilizaciÃ³n",
+        emoji: "âœ‚ï¸",
         href: "/servicios/esterilizacion",
-        desc: "Cirugías seguras para perros y gatos.",
+        desc: "CirugÃ­as seguras para perros y gatos.",
     },
     {
-        title: "Estética Canina",
-        emoji: "🛁",
+        title: "EstÃ©tica Canina",
+        emoji: "ðŸ›",
         href: "/servicios/estetica-canina",
         desc: "Grooming profesional e higiene preventiva.",
     },
@@ -136,8 +136,8 @@ const relacionadosCards = [
 ---
 
 <BaseLayout
-    title="Consulta Veterinaria en Coyoacán, CDMX | Punto Veterinario"
-    description="Chequeo médico veterinario para perros y gatos en Coyoacán. Diagnóstico, medicina preventiva y revisión física completa. ¡Agenda por WhatsApp hoy mismo!"
+    title="Consulta Veterinaria en CoyoacÃ¡n, CDMX | Punto Veterinario"
+    description="Chequeo mÃ©dico veterinario para perros y gatos en CoyoacÃ¡n. DiagnÃ³stico, medicina preventiva y revisiÃ³n fÃ­sica completa. Â¡Agenda por WhatsApp hoy mismo!"
     canonical="https://www.puntoveterinario.com/servicios/consulta-veterinaria"
 >
     <Fragment slot="head">
@@ -146,17 +146,17 @@ const relacionadosCards = [
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     </Fragment>
 
-    <!-- SECCIÓN 1 — HERO -->
+    <!-- SECCIÃ“N 1 â€” HERO -->
     <section class="hero content-section">
         <div class="hero__text">
             <h1 class="h1-hero">
-                Consulta Veterinaria en Coyoacán para Perros y Gatos
+                Consulta Veterinaria en CoyoacÃ¡n para Perros y Gatos
             </h1>
             <p class="hero__desc">
-                Medicina preventiva, diagnósticos precisos y trato empático para
+                Medicina preventiva, diagnÃ³sticos precisos y trato empÃ¡tico para
                 tu mascota en San Pablo Tepetlapa. No esperes a que se ponga
-                grave para traerlo — una consulta de rutina hoy te puede ahorrar
-                una urgencia mañana.
+                grave para traerlo â€” una consulta de rutina hoy te puede ahorrar
+                una urgencia maÃ±ana.
             </p>
             <div class="hero__btns">
                 <a
@@ -165,24 +165,24 @@ const relacionadosCards = [
                     target="_blank"
                     rel="noopener"
                 >
-                    💬 Agendar consulta por WhatsApp
+                    ðŸ’¬ Agendar consulta por WhatsApp
                 </a>
                 <a href="tel:+525513843004" class="btn-sec">
-                    📞 Llamar al 55 1384 3004
+                    ðŸ“ž Llamar al 55 1384 3004
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2 — ¿QUÉ INCLUYE NUESTRO CHEQUEO? -->
+    <!-- SECCIÃ“N 2 â€” Â¿QUÃ‰ INCLUYE NUESTRO CHEQUEO? -->
     <section class="content-section bg-soft">
         <h2 class="titulo-sec">
-            ¿Qué incluye una revisión veterinaria completa?
+            Â¿QuÃ© incluye una revisiÃ³n veterinaria completa?
         </h2>
         <p class="text-center text-soft intro-desc">
             Una consulta general no es solo "ver" a tu mascota. Realizamos una
-            exploración física completa de nariz a cola y una anamnesis
-            (historial clínico detallado) para asegurar su bienestar total.
+            exploraciÃ³n fÃ­sica completa de nariz a cola y una anamnesis
+            (historial clÃ­nico detallado) para asegurar su bienestar total.
         </p>
         <div class="grid-auto">
             {
@@ -197,10 +197,10 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 3 — ¿CADA CUÁNTO DEBE IR AL VETERINARIO? -->
+    <!-- SECCIÃ“N 3 â€” Â¿CADA CUÃNTO DEBE IR AL VETERINARIO? -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Frecuencia recomendada para visitar al médico veterinario
+            Frecuencia recomendada para visitar al mÃ©dico veterinario
         </h2>
         <div class="timeline">
             {
@@ -218,28 +218,28 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 4 — EL VALOR DE LA MEDICINA PREVENTIVA (MITO VS. REALIDAD) -->
+    <!-- SECCIÃ“N 4 â€” EL VALOR DE LA MEDICINA PREVENTIVA (MITO VS. REALIDAD) -->
     <section class="content-section bg-soft">
         <div class="mito-vs-realidad-grid">
             <div class="mito-content">
                 <h2 class="titulo-sec left-align">
-                    Por qué no debes esperar a que tu mascota se enferme
+                    Por quÃ© no debes esperar a que tu mascota se enferme
                 </h2>
 
                 <div class="mito-realidad-box">
                     <div class="mito-block">
-                        <span class="bad-icon">❌</span>
+                        <span class="bad-icon">âŒ</span>
                         <p>
-                            <strong>El Mito:</strong> "Si mi mascota come bien y está
+                            <strong>El Mito:</strong> "Si mi mascota come bien y estÃ¡
                             activa, no necesita ir al veterinario."
                         </p>
                     </div>
                     <div class="realidad-block">
-                        <span class="good-icon">✅</span>
+                        <span class="good-icon">âœ…</span>
                         <p>
                             <strong>La Realidad:</strong> Muchas enfermedades graves
-                            (insuficiencia renal, problemas cardíacos o tumores) no
-                            presentan síntomas visibles hasta que están muy avanzadas.
+                            (insuficiencia renal, problemas cardÃ­acos o tumores) no
+                            presentan sÃ­ntomas visibles hasta que estÃ¡n muy avanzadas.
                             El chequeo preventivo las detecta a tiempo.
                         </p>
                     </div>
@@ -249,17 +249,17 @@ const relacionadosCards = [
                 <blockquote class="valor-quote">
                     "Detectar una enfermedad temprano mediante medicina
                     preventiva cuesta hasta 5 veces menos que tratar una
-                    urgencia médica o realizar una cirugía en etapa avanzada.
-                    Cuidamos la salud de tu mascota y tu economía."
+                    urgencia mÃ©dica o realizar una cirugÃ­a en etapa avanzada.
+                    Cuidamos la salud de tu mascota y tu economÃ­a."
                 </blockquote>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 5 — FAQ (PREGUNTAS FRECUENTES) -->
+    <!-- SECCIÃ“N 5 â€” FAQ (PREGUNTAS FRECUENTES) -->
     <section class="content-section">
         <h2 class="titulo-sec">
-            Preguntas comunes sobre nuestras consultas en Coyoacán
+            Preguntas comunes sobre nuestras consultas en CoyoacÃ¡n
         </h2>
         <div class="faq-accordion">
             {
@@ -273,9 +273,9 @@ const relacionadosCards = [
         </div>
     </section>
 
-    <!-- SECCIÓN 6 — OTROS SERVICIOS RELACIONADOS -->
+    <!-- SECCIÃ“N 6 â€” OTROS SERVICIOS RELACIONADOS -->
     <section class="content-section bg-soft">
-        <h2 class="titulo-sec">Otros servicios en nuestra clínica</h2>
+        <h2 class="titulo-sec">Otros servicios en nuestra clÃ­nica</h2>
         <div class="grid-auto">
             {
                 relacionadosCards.map((s: any) => (
@@ -283,22 +283,22 @@ const relacionadosCards = [
                         <span class="icon-scalable">{s.emoji}</span>
                         <h3 class="card-titulo">{s.title}</h3>
                         <p class="card-desc">{s.desc}</p>
-                        <span class="card-ver">Ver detalles →</span>
+                        <span class="card-ver">Ver detalles â†’</span>
                     </a>
                 ))
             }
         </div>
     </section>
 
-    <!-- SECCIÓN 7 — CTA FINAL Y CONTACTO LOCAL -->
+    <!-- SECCIÃ“N 7 â€” CTA FINAL Y CONTACTO LOCAL -->
     <section class="cta-final content-section">
         <h2 class="cta-titulo-blanc">
-            ¿Tu mascota necesita una revisión médica?
+            Â¿Tu mascota necesita una revisiÃ³n mÃ©dica?
         </h2>
         <p class="cta-desc-blanc">
-            Agenda tu consulta veterinaria hoy mismo. Nuestro consultorio está
-            ubicado en Av. División del Norte 3595, San Pablo Tepetlapa,
-            Coyoacán.
+            Agenda tu consulta veterinaria hoy mismo. Nuestro consultorio estÃ¡
+            ubicado en Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa,
+            CoyoacÃ¡n.
         </p>
         <div class="cta-btns">
             <a
@@ -307,10 +307,10 @@ const relacionadosCards = [
                 rel="noopener"
                 class="btn-cta-blanco"
             >
-                💬 Agendar consulta por WhatsApp
+                ðŸ’¬ Agendar consulta por WhatsApp
             </a>
             <a href="/ubicacion" class="btn-cta-outline">
-                📍 Ver ubicación en el mapa
+                ðŸ“ Ver ubicaciÃ³n en el mapa
             </a>
         </div>
     </section>
@@ -322,7 +322,7 @@ const relacionadosCards = [
     }
 
     .h1-hero {
-        font-size: max(2rem, 5vw); /* Escala idéntica a index.astro */
+        font-size: max(2rem, 5vw); /* Escala idÃ©ntica a index.astro */
         text-align: center;
     }
 
@@ -354,7 +354,7 @@ const relacionadosCards = [
         }
     }
 
-    /* Centrado específico para iconos */
+    /* Centrado especÃ­fico para iconos */
     .icon-scalable,
     .card-emoji {
         display: block;
@@ -418,7 +418,7 @@ const relacionadosCards = [
             text-align: center;
         }
     }
-    /* Desktop: restaura alineación izquierda en bloques complejos */
+    /* Desktop: restaura alineaciÃ³n izquierda en bloques complejos */
     @media (min-width: 64.0625rem) {
         .timeline-content {
             text-align: left;
@@ -513,7 +513,7 @@ const relacionadosCards = [
         position: relative;
     }
     .valor-quote::before {
-        content: "«";
+        content: "Â«";
         font-size: max(2rem, 4vw);
         position: absolute;
         top: max(-0.5rem, -1vw);

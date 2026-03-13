@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.9.7",
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.0",
+    "@fontsource/fredoka": "^5.2.10",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.2.1",
     "@types/react": "^19.2.14",

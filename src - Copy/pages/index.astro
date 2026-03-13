@@ -16,18 +16,18 @@ const schemaLocal = {
       email: "puntovetcdmx@gmail.com",
       priceRange: "$$",
       description:
-        "Veterinaria en Coyoacán CDMX. Consulta médica, cirugías, estética canina, laboratorio clínico, esterilización y alimento para mascotas en San Pablo Tepetlapa.",
+        "Veterinaria en CoyoacÃ¡n CDMX. Consulta mÃ©dica, cirugÃ­as, estÃ©tica canina, laboratorio clÃ­nico, esterilizaciÃ³n y alimento para mascotas en San Pablo Tepetlapa.",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Av. División del Norte 3595",
-        addressLocality: "Coyoacán",
+        streetAddress: "Av. DivisiÃ³n del Norte 3595",
+        addressLocality: "CoyoacÃ¡n",
         addressRegion: "CDMX",
         postalCode: "04620",
         addressCountry: "MX",
       },
       areaServed: {
         "@type": "AdministrativeArea",
-        name: "Coyoacán",
+        name: "CoyoacÃ¡n",
       },
       geo: {
         "@type": "GeoCoordinates",
@@ -55,34 +55,34 @@ const schemaLocal = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "¿Cuánto cuesta una consulta veterinaria en Coyoacán?",
+          name: "Â¿CuÃ¡nto cuesta una consulta veterinaria en CoyoacÃ¡n?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "En Punto Veterinario ofrecemos consultas médicas generales a precios accesibles en Coyoacán, CDMX. Contáctanos por WhatsApp al 55 1384 3004 para informarte sobre el costo actual.",
+            text: "En Punto Veterinario ofrecemos consultas mÃ©dicas generales a precios accesibles en CoyoacÃ¡n, CDMX. ContÃ¡ctanos por WhatsApp al 55 1384 3004 para informarte sobre el costo actual.",
           },
         },
         {
           "@type": "Question",
-          name: "¿Atienden perros y gatos?",
+          name: "Â¿Atienden perros y gatos?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sí, atendemos perros y gatos en todos nuestros servicios: consulta médica, esterilización, cirugías y laboratorio clínico. El servicio de estética canina es exclusivo para perros.",
+            text: "SÃ­, atendemos perros y gatos en todos nuestros servicios: consulta mÃ©dica, esterilizaciÃ³n, cirugÃ­as y laboratorio clÃ­nico. El servicio de estÃ©tica canina es exclusivo para perros.",
           },
         },
         {
           "@type": "Question",
-          name: "¿Dónde está ubicada la veterinaria?",
+          name: "Â¿DÃ³nde estÃ¡ ubicada la veterinaria?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Estamos en Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán, CDMX. Puedes llegar desde Metro Universidad tomando una combi por División del Norte.",
+            text: "Estamos en Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa, CP 04620, CoyoacÃ¡n, CDMX. Puedes llegar desde Metro Universidad tomando una combi por DivisiÃ³n del Norte.",
           },
         },
         {
           "@type": "Question",
-          name: "¿Cuáles son los horarios de atención?",
+          name: "Â¿CuÃ¡les son los horarios de atenciÃ³n?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Atendemos martes a sábado de 10:00 a 19:00 hrs y domingos de 10:00 a 17:00 hrs. Los lunes permanecemos cerrados.",
+            text: "Atendemos martes a sÃ¡bado de 10:00 a 19:00 hrs y domingos de 10:00 a 17:00 hrs. Los lunes permanecemos cerrados.",
           },
         },
       ],
@@ -92,78 +92,78 @@ const schemaLocal = {
 
 const servicios = [
   {
-    emoji: "🩺",
-    title: "Consulta Médica",
-    desc: "Diagnóstico completo para perros y gatos. Revisión de nariz a cola, historial clínico y plan de salud preventiva.",
+    emoji: "ðŸ©º",
+    title: "Consulta MÃ©dica",
+    desc: "DiagnÃ³stico completo para perros y gatos. RevisiÃ³n de nariz a cola, historial clÃ­nico y plan de salud preventiva.",
     href: "/servicios/consulta-veterinaria",
   },
   {
-    emoji: "🛁",
-    title: "Estética Canina",
-    desc: "Baño, corte y cuidado profesional para perros en Coyoacán. Usamos productos específicos para cada tipo de pelaje.",
+    emoji: "ðŸ›",
+    title: "EstÃ©tica Canina",
+    desc: "BaÃ±o, corte y cuidado profesional para perros en CoyoacÃ¡n. Usamos productos especÃ­ficos para cada tipo de pelaje.",
     href: "/servicios/estetica-canina",
   },
   {
-    emoji: "✂️",
-    title: "Esterilización",
-    desc: "Procedimiento seguro para perros y gatos con seguimiento post-operatorio. Incluye valoración prequirúrgica.",
+    emoji: "âœ‚ï¸",
+    title: "EsterilizaciÃ³n",
+    desc: "Procedimiento seguro para perros y gatos con seguimiento post-operatorio. Incluye valoraciÃ³n prequirÃºrgica.",
     href: "/servicios/esterilizacion",
   },
   {
-    emoji: "🏥",
-    title: "Cirugías",
-    desc: "Quirófano equipado para cirugías de tejidos blandos y procedimientos especializados en el sur de CDMX.",
+    emoji: "ðŸ¥",
+    title: "CirugÃ­as",
+    desc: "QuirÃ³fano equipado para cirugÃ­as de tejidos blandos y procedimientos especializados en el sur de CDMX.",
     href: "/servicios/cirugia-veterinaria",
   },
   {
-    emoji: "🔬",
-    title: "Laboratorio Clínico",
-    desc: "Análisis de sangre, hemograma y perfil bioquímico para perros y gatos. Resultados el mismo día.",
+    emoji: "ðŸ”¬",
+    title: "Laboratorio ClÃ­nico",
+    desc: "AnÃ¡lisis de sangre, hemograma y perfil bioquÃ­mico para perros y gatos. Resultados el mismo dÃ­a.",
     href: "/servicios/laboratorio-clinico",
   },
   {
-    emoji: "🛒",
+    emoji: "ðŸ›’",
     title: "Alimento para Mascotas",
-    desc: "Croquetas y dietas premium recomendadas por veterinarios. Asesoría personalizada según las necesidades de tu mascota.",
+    desc: "Croquetas y dietas premium recomendadas por veterinarios. AsesorÃ­a personalizada segÃºn las necesidades de tu mascota.",
     href: "/servicios/alimento-mascotas",
   },
 ];
 
 const porque = [
   {
-    emoji: "❤️",
+    emoji: "â¤ï¸",
     title: "Trato personalizado",
-    desc: "Tratamos a cada paciente como si fuera nuestra propia mascota. Conocemos su historial, su carácter y sus necesidades.",
+    desc: "Tratamos a cada paciente como si fuera nuestra propia mascota. Conocemos su historial, su carÃ¡cter y sus necesidades.",
   },
   {
-    emoji: "🏆",
-    title: "Médicos veterinarios especializados",
-    desc: "Equipo veterinario con formación especializada y actualización constante en medicina preventiva y cirugía. Más que un consultorio, somos profesionales dedicados a diagnósticos precisos y tratamientos efectivos.",
+    emoji: "ðŸ†",
+    title: "MÃ©dicos veterinarios especializados",
+    desc: "Equipo veterinario con formaciÃ³n especializada y actualizaciÃ³n constante en medicina preventiva y cirugÃ­a. MÃ¡s que un consultorio, somos profesionales dedicados a diagnÃ³sticos precisos y tratamientos efectivos.",
   },
   {
-    emoji: "📍",
-    title: "Ubicación accesible en Coyoacán",
-    desc: "Estamos en Av. División del Norte 3595, San Pablo Tepetlapa — fácil de llegar desde Metro Universidad y colonias vecinas como Pedregal de Santo Domingo, Copilco y Ajusco.",
+    emoji: "ðŸ“",
+    title: "UbicaciÃ³n accesible en CoyoacÃ¡n",
+    desc: "Estamos en Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa â€” fÃ¡cil de llegar desde Metro Universidad y colonias vecinas como Pedregal de Santo Domingo, Copilco y Ajusco.",
   },
   {
-    emoji: "💰",
+    emoji: "ðŸ’°",
     title: "Precios accesibles",
-    desc: "Creemos que el cuidado veterinario de calidad debe estar al alcance de todos los dueños de mascotas en el sur de CDMX.",
+    desc: "Creemos que el cuidado veterinario de calidad debe estar al alcance de todos los dueÃ±os de mascotas en el sur de CDMX.",
   },
 ];
 
 const datos = [
   {
-    dato: "1 de cada 4 perras no esterilizadas desarrolla cáncer mamario",
-    desc: "Esterilizar antes del primer celo reduce este riesgo a menos del 1%. Una decisión preventiva que puede salvarle la vida.",
+    dato: "1 de cada 4 perras no esterilizadas desarrolla cÃ¡ncer mamario",
+    desc: "Esterilizar antes del primer celo reduce este riesgo a menos del 1%. Una decisiÃ³n preventiva que puede salvarle la vida.",
   },
   {
-    dato: "80% de las perras presentarán piometra si no se esterilizan",
-    desc: "La piometra es una infección uterina grave que requiere cirugía de urgencia. Se previene completamente con la esterilización.",
+    dato: "80% de las perras presentarÃ¡n piometra si no se esterilizan",
+    desc: "La piometra es una infecciÃ³n uterina grave que requiere cirugÃ­a de urgencia. Se previene completamente con la esterilizaciÃ³n.",
   },
   {
-    dato: "Un chequeo anual detecta enfermedades antes de que den síntomas",
-    desc: "Enfermedades renales, hepáticas o tumorales son silentes en etapas tempranas. La consulta preventiva es la herramienta más efectiva.",
+    dato: "Un chequeo anual detecta enfermedades antes de que den sÃ­ntomas",
+    desc: "Enfermedades renales, hepÃ¡ticas o tumorales son silentes en etapas tempranas. La consulta preventiva es la herramienta mÃ¡s efectiva.",
   },
 ];
 
@@ -175,12 +175,12 @@ const resenas = [
   },
   {
     texto:
-      "Muy buena atención por parte de la Dra. Pilar. Nos apoyó con la esterilización de mi gatita y salió perfecto.",
+      "Muy buena atenciÃ³n por parte de la Dra. Pilar. Nos apoyÃ³ con la esterilizaciÃ³n de mi gatita y saliÃ³ perfecto.",
     nombre: "Marcelo Caraveo",
   },
   {
     texto:
-      "La Dra. fue la única que dio el diagnóstico correcto. Gracias a eso Max sigue con nosotros y lo mantiene estable.",
+      "La Dra. fue la Ãºnica que dio el diagnÃ³stico correcto. Gracias a eso Max sigue con nosotros y lo mantiene estable.",
     nombre: "Monica Alvarez",
   },
 ];
@@ -196,39 +196,32 @@ try {
 ---
 
 <BaseLayout
-  title="Veterinaria en Coyoacán, CDMX | Punto Veterinario"
-  description="Clínica veterinaria en Coyoacán, CDMX. Consulta médica, estética canina, esterilización, cirugías y laboratorio clínico en San Pablo Tepetlapa. ¡Agenda por WhatsApp!"
+  title="Veterinaria en CoyoacÃ¡n, CDMX | Punto Veterinario"
+  description="ClÃ­nica veterinaria en CoyoacÃ¡n, CDMX. Consulta mÃ©dica, estÃ©tica canina, esterilizaciÃ³n, cirugÃ­as y laboratorio clÃ­nico en San Pablo Tepetlapa. Â¡Agenda por WhatsApp!"
   canonical="https://www.puntoveterinario.com"
 >
   <Fragment slot="head">
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
     <script type="application/ld+json" set:html={JSON.stringify(schemaLocal)} />
-
-    <link
-      rel="preload"
-      href="/images/veterinaria-poster.webp"
-      as="image"
-      fetchpriority="high"
-    />
   </Fragment>
 
-  <!-- SECCIÓN 1 — HERO -->
+  <!-- SECCIÃ“N 1 â€” HERO -->
   <section class="hero-home content-section">
     <div class="hero__inner grid-hero">
       <!-- Columna Izquierda: Texto -->
       <div class="hero__text">
         <h1 class="h1-home">
-          Veterinaria en Coyoacán, CDMX | Punto Veterinario
+          Veterinaria en CoyoacÃ¡n, CDMX | Punto Veterinario
         </h1>
         <p class="desc-home">
-          Atendemos a tu perro o gato con diagnóstico preciso, precios
-          accesibles y el trato que tu mascota merece. Estamos en Av. División
-          del Norte 3595, San Pablo Tepetlapa — en el corazón del sur de la
+          Atendemos a tu perro o gato con diagnÃ³stico preciso, precios
+          accesibles y el trato que tu mascota merece. Estamos en Av. DivisiÃ³n
+          del Norte 3595, San Pablo Tepetlapa â€” en el corazÃ³n del sur de la
           ciudad.
         </p>
         <div class="hero__slogan-box">
-          <p class="hero__slogan">¡De cola a nariz, tu mascota feliz!</p>
+          <p class="hero__slogan">Â¡De cola a nariz, tu mascota feliz!</p>
         </div>
         <div class="hero__btns">
           <a
@@ -237,7 +230,7 @@ try {
             target="_blank"
             rel="noopener"
           >
-            💬 Agendar por WhatsApp
+            ðŸ’¬ Agendar por WhatsApp
           </a>
           <a href="/servicios/consulta-veterinaria" class="btn-sec">
             Ver nuestros servicios
@@ -250,7 +243,7 @@ try {
         <div class="hero-video-wrapper">
           <video
             class="hero-video"
-            poster="/images/veterinaria-poster.webp"
+            poster="/images/veterinaria-poster.jpeg"
             preload="metadata"
             autoplay
             muted
@@ -265,9 +258,9 @@ try {
     </div>
   </section>
 
-  <!-- SECCIÓN 2 — SERVICIOS -->
+  <!-- SECCIÃ“N 2 â€” SERVICIOS -->
   <section class="content-section bg-soft">
-    <h2 class="titulo-sec">Servicios Veterinarios en Coyoacán</h2>
+    <h2 class="titulo-sec">Servicios Veterinarios en CoyoacÃ¡n</h2>
     <div class="grid-auto">
       {
         servicios.map((s) => (
@@ -275,17 +268,17 @@ try {
             <span class="icon-scalable">{s.emoji}</span>
             <h3 class="card-titulo">{s.title}</h3>
             <p class="card-desc">{s.desc}</p>
-            <span class="card-ver">Ver más →</span>
+            <span class="card-ver">Ver mÃ¡s â†’</span>
           </a>
         ))
       }
     </div>
   </section>
 
-  <!-- SECCIÓN 3 — POR QUÉ ELEGIRNOS -->
+  <!-- SECCIÃ“N 3 â€” POR QUÃ‰ ELEGIRNOS -->
   <section class="content-section">
     <h2 class="titulo-sec">
-      ¿Por qué elegir Punto Veterinario en San Pablo Tepetlapa?
+      Â¿Por quÃ© elegir Punto Veterinario en San Pablo Tepetlapa?
     </h2>
     <div class="grid-porque">
       {
@@ -300,7 +293,7 @@ try {
     </div>
   </section>
 
-  <!-- SECCIÓN 4 — DATOS QUE IMPORTAN -->
+  <!-- SECCIÃ“N 4 â€” DATOS QUE IMPORTAN -->
   <section class="content-section bg-soft">
     <h2 class="titulo-sec">Lo que debes saber sobre la salud de tu mascota</h2>
     <div class="grid-auto">
@@ -315,16 +308,18 @@ try {
     </div>
   </section>
 
-  <!-- SECCIÓN 5 — RESEÑAS -->
+  <!-- SECCIÃ“N 5 â€” RESEÃ‘AS -->
   <section class="content-section">
-    <h2 class="titulo-sec">Lo que dicen los dueños de mascotas en Coyoacán</h2>
+    <h2 class="titulo-sec">
+      Lo que dicen los dueÃ±os de mascotas en CoyoacÃ¡n
+    </h2>
     <div class="grid-auto" style="margin-bottom: max(1.5rem, 3vw);">
       {
         resenas.map((r) => (
           <div class="card-ui">
-            <p class="estrellas">⭐⭐⭐⭐⭐</p>
+            <p class="estrellas">â­â­â­â­â­</p>
             <p class="resena-texto">"{r.texto}"</p>
-            <p class="resena-nombre">— {r.nombre}</p>
+            <p class="resena-nombre">â€” {r.nombre}</p>
           </div>
         ))
       }
@@ -335,14 +330,14 @@ try {
       rel="noopener"
       class="link-mas"
     >
-      Ver más reseñas en Google →
+      Ver mÃ¡s reseÃ±as en Google â†’
     </a>
   </section>
 
-  <!-- SECCIÓN 6 — FAQ -->
+  <!-- SECCIÃ“N 6 â€” FAQ -->
   <section class="content-section bg-soft">
     <h2 class="titulo-sec">
-      Preguntas frecuentes sobre nuestra veterinaria en Coyoacán
+      Preguntas frecuentes sobre nuestra veterinaria en CoyoacÃ¡n
     </h2>
     <div class="faq-accordion">
       {
@@ -356,59 +351,59 @@ try {
     </div>
   </section>
 
-  <!-- SECCIÓN BLOG -->
+  <!-- SECCIÃ“N BLOG -->
   <BlogSection limit={3} />
 
-  <!-- SECCIÓN 7 — UBICACIÓN Y HORARIOS -->
+  <!-- SECCIÃ“N 7 â€” UBICACIÃ“N Y HORARIOS -->
   <section class="content-section">
-    <h2 class="titulo-sec">¿Cómo llegar a Punto Veterinario en Coyoacán?</h2>
+    <h2 class="titulo-sec">Â¿CÃ³mo llegar a Punto Veterinario en CoyoacÃ¡n?</h2>
 
     <div class="rf-ubicacion">
       <p class="rf-ubicacion-text">
-        Nos encontramos en Av. División del Norte 3595, San Pablo Tepetlapa, CP
-        04620, Coyoacán, CDMX — una zona accesible para dueños de mascotas de
-        colonias como Pedregal de Santo Domingo, Copilco el Alto, Ajusco, Los
+        Nos encontramos en Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa, CP
+        04620, CoyoacÃ¡n, CDMX â€” una zona accesible para dueÃ±os de mascotas
+        de colonias como Pedregal de Santo Domingo, Copilco el Alto, Ajusco, Los
         Reyes y El Caracol.
       </p>
     </div>
 
     <div class="como-llegar-grid">
       <div class="como-llegar-info">
-        <p class="direccion-label">Ubicación central en el sur:</p>
+        <p class="direccion-label">UbicaciÃ³n central en el sur:</p>
         <a
           href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
           target="_blank"
           rel="noopener"
           class="maps-link"
         >
-          Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán,
-          CDMX
+          Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa, CP 04620,
+          CoyoacÃ¡n, CDMX
         </a>
         <div class="transporte-lista">
           <div class="transporte-item">
-            <span>🚇</span>
-            <p><b>Metro:</b> Línea 3 estación Universidad + combi local</p>
+            <span>ðŸš‡</span>
+            <p><b>Metro:</b> LÃ­nea 3 estaciÃ³n Universidad + combi local</p>
           </div>
           <div class="transporte-item">
-            <span>🚌</span>
-            <p><b>Metrobús:</b> Línea 1, conexión rápida Coyoacán sur</p>
+            <span>ðŸšŒ</span>
+            <p><b>MetrobÃºs:</b> LÃ­nea 1, conexiÃ³n rÃ¡pida CoyoacÃ¡n sur</p>
           </div>
           <div class="transporte-item">
-            <span>🚗</span>
-            <p><b>En auto:</b> Vía rápida Av. División del Norte 3595</p>
+            <span>ðŸš—</span>
+            <p><b>En auto:</b> VÃ­a rÃ¡pida Av. DivisiÃ³n del Norte 3595</p>
           </div>
         </div>
         <div class="horario-box">
           <p><span class="horario-label">Lunes:</span> Cerrado</p>
-          <p><span class="horario-label">Mar-Sáb:</span> 10:00 - 19:00 hrs</p>
+          <p><span class="horario-label">Mar-SÃ¡b:</span> 10:00 - 19:00 hrs</p>
           <p><span class="horario-label">Dom:</span> 10:00 - 17:00 hrs</p>
         </div>
-        <a href="/ubicacion" class="btn-mapa">📍 Ver cómo llegar en el mapa</a>
+        <a href="/ubicacion" class="btn-mapa">ðŸ“ Ver cÃ³mo llegar en el mapa</a
+        >
       </div>
 
       <div class="mapa-placeholder">
         <iframe
-          title="Mapa de ubicación de Punto Veterinario en Coyoacán"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5!2d-99.13922!3d19.322004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce010007f0a32f%3A0x9c168bcfa6aad89f!2sPunto%20Veterinario!5e0!3m2!1ses!2smx!4v1"
           width="100%"
           height="100%"
@@ -422,14 +417,14 @@ try {
     </div>
   </section>
 
-  <!-- SECCIÓN 8 — CTA FINAL -->
+  <!-- SECCIÃ“N 8 â€” CTA FINAL -->
   <section class="cta-final content-section">
     <h2 class="cta-titulo-blanc">
-      ¿Tu perro o gato necesita atención veterinaria en Coyoacán?
+      Â¿Tu perro o gato necesita atenciÃ³n veterinaria en CoyoacÃ¡n?
     </h2>
     <p class="cta-desc-blanc">
-      Agenda tu cita fácilmente por WhatsApp o llámanos directamente. Estamos en
-      Av. División del Norte 3595, San Pablo Tepetlapa — atendiendo a las
+      Agenda tu cita fÃ¡cilmente por WhatsApp o llÃ¡manos directamente. Estamos
+      en Av. DivisiÃ³n del Norte 3595, San Pablo Tepetlapa â€” atendiendo a las
       mascotas del sur de CDMX.
     </p>
     <div class="cta-btns">
@@ -439,16 +434,18 @@ try {
         rel="noopener"
         class="btn-cta-blanco"
       >
-        💬 Agendar por WhatsApp
+        ðŸ’¬ Agendar por WhatsApp
       </a>
-      <a href="tel:+525513843004" class="btn-cta-outline"> 📞 55 1384 3004 </a>
+      <a href="tel:+525513843004" class="btn-cta-outline">
+        ðŸ“ž 55 1384 3004
+      </a>
     </div>
   </section>
-  <!-- BOTÓN FLOTANTE WA REMOVIDO: Ya existe nativamente en BaseLayout.astro -->
+  <!-- BOTÃ“N FLOTANTE WA REMOVIDO: Ya existe nativamente en BaseLayout.astro -->
 </BaseLayout>
 
 <script>
-  // PATRÓN FACADE PARA VIDEO DEL HERO
+  // PATRÃ“N FACADE PARA VIDEO DEL HERO
   document.addEventListener("DOMContentLoaded", () => {
     const playBtn = document.getElementById("play-video-btn");
     const facade = document.getElementById("hero-video-facade");
@@ -472,7 +469,7 @@ try {
 
 <style>
   /* =========================================
-     GRIDS Y TARJETAS — HOMEPAGE ESPECÍFICOS
+     GRIDS Y TARJETAS â€” HOMEPAGE ESPECÃFICOS
      ========================================= */
 
   /* HERO AISLADO HOME */
@@ -522,7 +519,7 @@ try {
   @media (min-width: 64.0625rem) {
     .grid-hero {
       max-width: max(75rem, 85vw); /* Restore wide desktop view */
-      grid-template-columns: 1.2fr 0.8fr; /* Da más peso al texto */
+      grid-template-columns: 1.2fr 0.8fr; /* Da mÃ¡s peso al texto */
       text-align: left;
     }
     .grid-hero .hero__text {
@@ -551,10 +548,10 @@ try {
   /* Desktop video constraints override */
   @media (min-width: 64.0625rem) {
     .hero__video-col {
-      justify-self: center; /* Alineación del grid */
+      justify-self: center; /* AlineaciÃ³n del grid */
     }
     .hero-video-wrapper {
-      width: max(15rem, 20vw); /* Más estrecho y estilizado */
+      width: max(15rem, 20vw); /* MÃ¡s estrecho y estilizado */
       max-width: none;
       max-height: max(25rem, 65vh); /* Limite estricto para encajar en 100vh */
     }
@@ -563,12 +560,12 @@ try {
   .hero-video-wrapper {
     position: relative;
     width: 100%;
-    max-width: max(14rem, 55vw); /* Ancho fluido móvil conservador */
+    max-width: max(14rem, 55vw); /* Ancho fluido mÃ³vil conservador */
     aspect-ratio: 9 / 16; /* Vertical inquebrantable */
     margin-inline: auto;
     border-radius: max(1rem, 2vw); /* Borde redondeado fluido estilo mural */
     overflow: hidden;
-    background: var(--color-bg-soft) url("/images/veterinaria-poster.webp")
+    background: var(--color-bg-soft) url("/images/veterinaria-poster.jpeg")
       center / cover no-repeat; /* Fallback: primer frame del video */
   }
 
@@ -580,7 +577,7 @@ try {
     display: block;
   }
 
-  /* Grid forzado a 4 columnas en desktop para "Por qué elegirnos" */
+  /* Grid forzado a 4 columnas en desktop para "Por quÃ© elegirnos" */
   .estrellas {
     font-size: var(--text-md);
     margin-bottom: max(0.5rem, 1vw);
@@ -602,7 +599,7 @@ try {
     text-decoration: underline;
   }
 
-  /* CÓMO LLEGAR ESP */
+  /* CÃ“MO LLEGAR ESP */
   .rf-ubicacion-text {
     color: var(--color-text-soft);
     margin-bottom: max(1.5rem, 3vw);

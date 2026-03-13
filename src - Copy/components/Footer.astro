@@ -1,0 +1,328 @@
+---
+const servicios = [
+  { href: "/servicios/consulta-veterinaria", label: "Consulta Médica" },
+  {
+    href: "/servicios/estetica-canina",
+    label: "Estética Canina",
+  },
+  { href: "/servicios/esterilizacion", label: "Esterilización" },
+  { href: "/servicios/cirugia-veterinaria", label: "Cirugías" },
+  { href: "/servicios/laboratorio-clinico", label: "Laboratorio Clínico" },
+  { href: "/servicios/alimento-mascotas", label: "Alimento para Mascotas" },
+];
+
+const linksExtra = [
+  { href: "/ubicacion", label: "📍 Cómo llegar" },
+  { href: "/blog", label: "📝 Blog veterinario" },
+  { href: "/contacto", label: "📅 Agendar cita" },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <!-- Columna 1 — Marca -->
+    <div class="footer__brand">
+      <a href="/" class="footer__logo">🐾 Punto Veterinario</a>
+      <p class="footer__slogan">¡De cola a nariz, tu mascota feliz!</p>
+      <p class="footer__desc">
+        Atendemos a tu compañero con amor y profesionalismo en Coyoacán, CDMX.
+      </p>
+      <a
+        href="https://www.instagram.com/punto_veterinario/"
+        target="_blank"
+        rel="noopener"
+        class="footer__social"
+        aria-label="Instagram de Punto Veterinario"
+      >
+        📸 @punto_veterinario
+      </a>
+    </div>
+
+    <!-- Columna 2 — Servicios -->
+    <div class="footer__col">
+      <h3>Servicios</h3>
+      <ul class="footer__list">
+        {
+          servicios.map((s) => (
+            <li>
+              <a href={s.href}>{s.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Columna 3 — Contacto -->
+    <div class="footer__col">
+      <h3>Contacto</h3>
+      <ul class="footer__list footer__contact">
+        <li>
+          <span>📍</span>
+          <div>
+            <a
+              href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+              target="_blank"
+              rel="noopener"
+              aria-label="Ver ubicación en Google Maps"
+              class="maps-link"
+            >
+              Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620,
+              Coyoacán, CDMX
+            </a>
+          </div>
+        </li>
+        <li>
+          <span>📞</span>
+          <a href="tel:+525513843004">+52 55 1384 3004</a>
+        </li>
+        <li>
+          <span>✉️</span>
+          <a href="mailto:puntovetcdmx@gmail.com">puntovetcdmx@gmail.com</a>
+        </li>
+        <li>
+          <span>💬</span>
+          <a href="https://wa.me/525513843004" target="_blank" rel="noopener"
+            >WhatsApp</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Columna 4 — Horario -->
+    <div class="footer__col">
+      <h3>Horario</h3>
+      <div class="footer__horario">
+        <p>Lunes: <br />Cerrado</p>
+        <p>Mar-Sáb: <br />10:00 - 19:00</p>
+        <p>Dom: <br />10:00 - 17:00</p>
+      </div>
+    </div>
+
+    <!-- Columna 5 — Enlaces Rápidos -->
+    <div class="footer__col">
+      <h3>Enlaces Rápidos</h3>
+      <ul class="footer__list">
+        {
+          linksExtra.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>© {currentYear} Punto Veterinario · Coyoacán, CDMX</p>
+      <p>
+        <a
+          href="https://maps.app.goo.gl/GricGKCzpp6BXJgE7?g_st=aw"
+          target="_blank"
+          rel="noopener"
+          aria-label="Ver ubicación en Google Maps"
+          class="maps-link"
+        >
+          Av. División del Norte 3595, San Pablo Tepetlapa, CP 04620, Coyoacán,
+          CDMX
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* =========================================
+     FOOTER: ESCALADO VECTORIAL
+     ========================================= */
+
+  .footer {
+    background: var(--color-primary-dark, #3dada9);
+    color: var(--color-bg, #ffffff);
+    width: 100%;
+    margin-top: max(4rem, 8vw);
+  }
+
+  /* Contenedor con padding de seguridad para evitar scroll horizontal */
+  .footer__grid {
+    display: grid;
+    /* MOBILE: 2 columnas iguales */
+    grid-template-columns: repeat(2, 1fr);
+    gap: max(2rem, 4vw);
+    padding: max(3rem, 6vw) max(1.5rem, 6vw);
+  }
+
+  /* Columna de Marca ocupa 2 columnas en mobile para mejor lectura */
+  .footer__brand {
+    grid-column: span 2;
+    text-align: center;
+  }
+
+  /* Desktop: 4 columnas proporcionales */
+  @media (min-width: 64.0625rem) {
+    .footer__grid {
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      text-align: left;
+      gap: 4vw;
+    }
+    .footer__brand {
+      grid-column: span 1;
+      text-align: left;
+    }
+  }
+
+  /* Tipografía Proporcional */
+  .footer__logo {
+    display: inline-block;
+    font-size: max(1.5rem, 2vw);
+    font-weight: 700;
+    color: var(--color-bg, #ffffff);
+    text-decoration: none;
+    margin-bottom: max(0.5rem, 1vw);
+  }
+
+  .footer__slogan {
+    font-weight: 600;
+    font-size: max(0.9rem, 1.2vw);
+    margin-bottom: max(0.5rem, 1vw);
+    color: var(--color-primary-light, #e8fafa);
+  }
+
+  .footer__desc {
+    font-size: max(0.9rem, 1.1vw);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: max(1rem, 2vw);
+    line-height: 1.6;
+  }
+
+  .footer__social {
+    color: var(--color-bg, #ffffff);
+    text-decoration: none;
+    font-size: max(0.85rem, 1.1vw);
+    font-weight: 500;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .footer__social:hover {
+    color: var(--color-secondary, #cfbaaa);
+    transform: translateY(-0.15rem);
+  }
+
+  .footer__col h3 {
+    font-size: max(1.1rem, 1.6vw);
+    font-weight: 600;
+    color: var(--color-bg, #ffffff);
+    margin-bottom: max(1rem, 1.5vw);
+    border-bottom: 0.1vw solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5vw;
+  }
+
+  .mt-md {
+    margin-top: max(1.5rem, 3vw);
+  }
+
+  .footer__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: max(0.5rem, 1vw);
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer__list li,
+  .footer__horario p,
+  .footer__desc {
+    font-size: max(0.9rem, 1.1vw);
+    line-height: 1.6;
+  }
+
+  .footer__list li {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .footer__list a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+    display: inline-block;
+  }
+
+  .footer__list a:hover {
+    transform: translateX(0.3rem);
+    color: #fff;
+  }
+
+  .footer__contact li {
+    display: flex;
+    gap: max(0.5rem, 1vw);
+    align-items: flex-start;
+  }
+
+  .footer__contact span {
+    flex-shrink: 0;
+    font-size: max(1rem, 1.2vw);
+  }
+
+  .footer__horario {
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    flex-direction: column;
+    gap: max(0.3rem, 0.6vw);
+  }
+
+  .footer__horario p {
+    margin: 0;
+  }
+
+  /* Bottom Bar */
+  .footer__bottom {
+    padding: max(1.5rem, 3vw) max(1.5rem, 6vw);
+    border-top: 0.1vw solid rgba(255, 255, 255, 0.15);
+    font-size: max(0.8rem, 1vw);
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .footer__bottom-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: max(0.5rem, 1vw);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (min-width: 64.0625rem) {
+    .footer__bottom-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .footer__bottom p {
+    margin: 0;
+  }
+
+  .maps-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+    text-underline-offset: 0.2rem;
+    transition:
+      color 0.2s,
+      text-decoration-color 0.2s;
+  }
+  .maps-link:hover {
+    color: #fff;
+    text-decoration-color: #fff;
+  }
+</style>

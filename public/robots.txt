@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Sitemap: https://puntoveterinario.com/sitemap-index.xml
+Sitemap: https://www.puntoveterinario.com/sitemap-index.xml
